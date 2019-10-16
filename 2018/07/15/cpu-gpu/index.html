@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="CPU&amp;amp;GPU以及计算和渲染分离只查询了基本概念，描述不一定准确，方便自己以及和其他人交流。    GPU和CPU的差别主要是：  GPU有大量的计算单元，少量的控制单元和小caches，GPU处理计算任务； CPU有大量的控制单元和caches，CPU擅长通用任务的处理；   计算渲染分离  OpenGL本身就是C（CPU）S（GPU）模式； CS和之间的通许可以走主机总线或者网络。">
+<meta name="keywords" content="GPU,OpenGL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPU&amp;GPU以及计算和渲染分离">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;index.html">
+<meta property="og:site_name" content="Mxipp&#39;s Blog">
+<meta property="og:description" content="CPU&amp;amp;GPU以及计算和渲染分离只查询了基本概念，描述不一定准确，方便自己以及和其他人交流。    GPU和CPU的差别主要是：  GPU有大量的计算单元，少量的控制单元和小caches，GPU处理计算任务； CPU有大量的控制单元和caches，CPU擅长通用任务的处理；   计算渲染分离  OpenGL本身就是C（CPU）S（GPU）模式； CS和之间的通许可以走主机总线或者网络。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;CPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;CPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;GPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;GPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;computer-cpu-gpu.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;rendering-pipe-line.jpg">
+<meta property="og:updated_time" content="2019-10-16T12:14:49.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;CPU.jpg">
+  <link rel="canonical" href="http://yoursite.com/2018/07/15/cpu-gpu/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CPU&GPU以及计算和渲染分离 | Mxipp's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mxipp's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">在云端</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/cpu-gpu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mxipp">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mxipp's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            CPU&GPU以及计算和渲染分离
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-15 10:29:00" itemprop="dateCreated datePublished" datetime="2018-07-15T10:29:00+08:00">2018-07-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-16 20:14:49" itemprop="dateModified" datetime="2019-10-16T20:14:49+08:00">2019-10-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CPU-amp-GPU以及计算和渲染分离"><a href="#CPU-amp-GPU以及计算和渲染分离" class="headerlink" title="CPU&amp;GPU以及计算和渲染分离"></a>CPU&amp;GPU以及计算和渲染分离</h1><p>只查询了基本概念，描述不一定准确，方便自己以及和其他人交流。  </p>
+<ul>
+<li><p>GPU和CPU的差别主要是：</p>
+<ol>
+<li>GPU有大量的计算单元，少量的控制单元和小caches，GPU处理计算任务；</li>
+<li>CPU有大量的控制单元和caches，CPU擅长通用任务的处理；</li>
+</ol>
+</li>
+<li><p>计算渲染分离</p>
+<ol>
+<li>OpenGL本身就是C（CPU）S（GPU）模式；</li>
+<li>CS和之间的通许可以走主机总线或者网络。</li>
+</ol>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="CPU和GPU的差别"><a href="#CPU和GPU的差别" class="headerlink" title="CPU和GPU的差别"></a>CPU和GPU的差别</h2><ul>
+<li><p>CPU<br><img src="/2018/07/15/cpu-gpu/CPU.jpg" alt="image"></p>
+<img src="/2018/07/15/cpu-gpu/CPU.jpg" class title="This is an example image">
+</li>
+<li><p>GPU<br><img src="/2018/07/15/cpu-gpu/GPU.jpg" alt="image"></p>
+<img src="/2018/07/15/cpu-gpu/GPU.jpg" class title="This is an example image">
+
+</li>
+</ul>
+<h2 id="OpenGL-OpenGL-ES以及WebGL"><a href="#OpenGL-OpenGL-ES以及WebGL" class="headerlink" title="OpenGL OpenGL ES以及WebGL"></a>OpenGL OpenGL ES以及WebGL</h2><ul>
+<li>OpenGL是3D图像渲染接口，将图形渲染通过GPU执行的一套API接口</li>
+<li>OpenGL ES是嵌入式设备的OpenGL版本，取消OpenGL中低效的操作</li>
+<li>WebGL是把JavaScript和OpenGL ES结合起来，可以为HTML5提供硬件3D渲染加速</li>
+</ul>
+<h2 id="OpenGL的工作模式"><a href="#OpenGL的工作模式" class="headerlink" title="OpenGL的工作模式"></a>OpenGL的工作模式</h2><ul>
+<li>OpenGL是CS模式<br>C是CPU、S是GPU，c给s的输入是vertex信息和Texture信息，GPU执行完成后将结果通知CPU并将结果出到设备（内存或者显示器）</li>
+<li>计算和渲染分离<br>可以通过对OpenGL底层设置钩子，通过网络将渲染指令发送到远端执行，计算和节点和渲染节点间的网络性能直接影响渲染效率</li>
+<li>离屏渲染<br>计算和渲染在同一个节点上，渲染结果不输出到OS窗口（Window），直接保存成图片或者视频文件</li>
+<li>计算机硬件结构<a href="[OpenGL原理介绍](http://www.twinklingstar.cn/2015/1532/introduce-to-opengl/)">^1</a><br><img src="/2018/07/15/cpu-gpu/computer-cpu-gpu.jpg" alt="硬件结构"></li>
+<li>OpenGL渲染流程<br><img src="/2018/07/15/cpu-gpu/rendering-pipe-line.jpg" alt="渲染流程"><br>CPU将piexl data 和vertex data加载到显存以后就可以开始利用GPU进行渲染</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/GPU/" rel="tag"># GPU</a>
+            
+              <a href="/tags/OpenGL/" rel="tag"># OpenGL</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/07/05/hw-moderation-sdk/" rel="next" title="华为内容检测服务SDK">
+                  <i class="fa fa-chevron-left"></i> 华为内容检测服务SDK
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/07/16/anbox-1/" rel="prev" title="AnBox、LXC以及Android EMUGL技术">
+                  AnBox、LXC以及Android EMUGL技术 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU-amp-GPU以及计算和渲染分离"><span class="nav-number">1.</span> <span class="nav-text">CPU&amp;GPU以及计算和渲染分离</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU和GPU的差别"><span class="nav-number">1.1.</span> <span class="nav-text">CPU和GPU的差别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenGL-OpenGL-ES以及WebGL"><span class="nav-number">1.2.</span> <span class="nav-text">OpenGL OpenGL ES以及WebGL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenGL的工作模式"><span class="nav-number">1.3.</span> <span class="nav-text">OpenGL的工作模式</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mxipp</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/1430123077" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;1430123077" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mxipp</span>
+</div>
+
+
+  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'default',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
