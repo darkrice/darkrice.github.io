@@ -63,13 +63,13 @@
 <meta property="og:site_name" content="Mxipp&#39;s Blog">
 <meta property="og:description" content="CPU&amp;amp;GPU以及计算和渲染分离只查询了基本概念，描述不一定准确，方便自己以及和其他人交流。    GPU和CPU的差别主要是：  GPU有大量的计算单元，少量的控制单元和小caches，GPU处理计算任务； CPU有大量的控制单元和caches，CPU擅长通用任务的处理；   计算渲染分离  OpenGL本身就是C（CPU）S（GPU）模式； CS和之间的通许可以走主机总线或者网络。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;cpu-gpu&#x2F;CPU.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;cpu-gpu&#x2F;GPU.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;cpu-gpu&#x2F;computer-cpu-gpu.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;cpu-gpu&#x2F;rendering-pipe-line.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;CPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;GPU.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;computer-cpu-gpu.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;rendering-pipe-line.jpg">
 <meta property="og:updated_time" content="2019-10-17T10:29:26.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;cpu-gpu&#x2F;CPU.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;07&#x2F;15&#x2F;cpu-gpu&#x2F;CPU.jpg">
   <link rel="canonical" href="http://yoursite.com/2018/07/15/cpu-gpu/">
 
 
@@ -335,9 +335,9 @@
 <a id="more"></a>
 
 <h2 id="CPU和GPU的差别"><a href="#CPU和GPU的差别" class="headerlink" title="CPU和GPU的差别"></a>CPU和GPU的差别</h2><ul>
-<li><p>CPU<br><img src="cpu-gpu/CPU.jpg" alt="image"></p>
+<li><p>CPU<br><img src="/2018/07/15/cpu-gpu/CPU.jpg" alt="image"></p>
 </li>
-<li><p>GPU<br><img src="cpu-gpu/GPU.jpg" alt="image"></p>
+<li><p>GPU<br><img src="/2018/07/15/cpu-gpu/GPU.jpg" alt="image"></p>
 </li>
 </ul>
 <h2 id="OpenGL-OpenGL-ES以及WebGL"><a href="#OpenGL-OpenGL-ES以及WebGL" class="headerlink" title="OpenGL OpenGL ES以及WebGL"></a>OpenGL OpenGL ES以及WebGL</h2><ul>
@@ -349,8 +349,8 @@
 <li>OpenGL是CS模式<br>C是CPU、S是GPU，c给s的输入是vertex信息和Texture信息，GPU执行完成后将结果通知CPU并将结果出到设备（内存或者显示器）</li>
 <li>计算和渲染分离<br>可以通过对OpenGL底层设置钩子，通过网络将渲染指令发送到远端执行，计算和节点和渲染节点间的网络性能直接影响渲染效率</li>
 <li>离屏渲染<br>计算和渲染在同一个节点上，渲染结果不输出到OS窗口（Window），直接保存成图片或者视频文件</li>
-<li>计算机硬件结构<a href="[OpenGL原理介绍](http://www.twinklingstar.cn/2015/1532/introduce-to-opengl/)">^1</a><br><img src="cpu-gpu/computer-cpu-gpu.jpg" alt="硬件结构"></li>
-<li>OpenGL渲染流程<br><img src="cpu-gpu/rendering-pipe-line.jpg" alt="渲染流程"><br>CPU将piexl data 和vertex data加载到显存以后就可以开始利用GPU进行渲染</li>
+<li>计算机硬件结构<a href="[OpenGL原理介绍](http://www.twinklingstar.cn/2015/1532/introduce-to-opengl/)">^1</a><br><img src="/2018/07/15/cpu-gpu/computer-cpu-gpu.jpg" alt="硬件结构"></li>
+<li>OpenGL渲染流程<br><img src="/2018/07/15/cpu-gpu/rendering-pipe-line.jpg" alt="渲染流程"><br>CPU将piexl data 和vertex data加载到显存以后就可以开始利用GPU进行渲染</li>
 </ul>
 
     </div>
