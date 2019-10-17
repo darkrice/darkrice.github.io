@@ -425,7 +425,7 @@ class hwCloud orange</pre>
 </ul>
 </li>
 </ul>
-<h2 id="云专线"><a href="#云专线" class="headerlink" title="云专线"></a>云专线</h2><p><img src="/2018/09/02/cloud-net-1/connect.png" alt="云专线"></p>
+<h2 id="云专线"><a href="#云专线" class="headerlink" title="云专线"></a>云专线</h2><p><img src="cloud-net-1/connect.png" alt="云专线"></p>
 <ul>
 <li>业务样例</li>
 </ul>
@@ -600,7 +600,7 @@ class FS blue</pre>
           <h1 id="华为云CCE学习笔记"><a href="#华为云CCE学习笔记" class="headerlink" title="华为云CCE学习笔记"></a>华为云CCE学习笔记</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li>K8S架构</li>
 </ul>
-<p><img src="/2018/08/24/hc-cce/kubernetes.png" alt="K8S架构"></p>
+<p><img src="hc-cce/kubernetes.png" alt="K8S架构"></p>
 <ul>
 <li><p>kubernetes 概念</p>
 <ul>
@@ -738,7 +738,7 @@ class FS blue</pre>
 <h2 id="二-使用OBS桶"><a href="#二-使用OBS桶" class="headerlink" title="二 使用OBS桶"></a>二 使用OBS桶</h2><ul>
 <li><p>创建OBS桶</p>
 <ol>
-<li>OBS是华为云<a href="https://www.huaweicloud.com/product/obs.html" target="_blank" rel="noopener">对象存储服务</a>，这里使用OBS存储私有镜像，将制作好的镜像可以通过OBS工具上传到OBS服务中，可以先创建好一个OBS桶 。<br><img src="/2018/07/26/how-to-use-bms-arm/obs-creat-bucket.png" alt="创建桶"><blockquote>
+<li>OBS是华为云<a href="https://www.huaweicloud.com/product/obs.html" target="_blank" rel="noopener">对象存储服务</a>，这里使用OBS存储私有镜像，将制作好的镜像可以通过OBS工具上传到OBS服务中，可以先创建好一个OBS桶 。<br><img src="how-to-use-bms-arm/obs-creat-bucket.png" alt="创建桶"><blockquote>
 <p>区域和将来使用GPU加速服务器、裸金属服务器所在区域保持一致，这里选择“华东-上海二”<br>桶（Bucket） 是OBS中存储对象的容器。对象存储提供了基于桶和对象的扁平化存储方式，桶中的所有对象都处于同一逻辑层级，去除了文件系统中的多层级树形目录结构，<a href="https://support.huaweicloud.com/productdesc-obs/zh-cn_topic_0045829091.html" target="_blank" rel="noopener">更多介绍</a>。</p>
 </blockquote>
 </li>
@@ -747,7 +747,7 @@ class FS blue</pre>
 <li><p>下载使用OBS Browser工具</p>
 <ol>
 <li>下载OBS Browser工具<br><a href="http://static.huaweicloud.com/upload/files/tools/OBSBrowser.zip" target="_blank" rel="noopener">下载链接</a></li>
-<li>创建AK/SK<br>进入到控制台-&gt;<a href="https://console.huaweicloud.com/iam/?agencyId=f2c67718aa9f4e39b2d5b099914f1de5&region=cn-east-2&locale=zh-cn#/myCredential" target="_blank" rel="noopener">我的凭证</a>-&gt;管理访问密钥-&gt;新增访问密钥<br><img src="/2018/07/26/how-to-use-bms-arm/obs-creat-aksk.png" alt="AK和SK"><blockquote>
+<li>创建AK/SK<br>进入到控制台-&gt;<a href="https://console.huaweicloud.com/iam/?agencyId=f2c67718aa9f4e39b2d5b099914f1de5&region=cn-east-2&locale=zh-cn#/myCredential" target="_blank" rel="noopener">我的凭证</a>-&gt;管理访问密钥-&gt;新增访问密钥<br><img src="how-to-use-bms-arm/obs-creat-aksk.png" alt="AK和SK"><blockquote>
 <p>AK和SK: 对象（Object） 是OBS中数据存储的基本单位，一个对象实际是一个文件的数据与其相关属性信息（元数据）的集合体。用户上传至OBS的数据都以对象的形式保存在桶中，<a href="https://support.huaweicloud.com/productdesc-obs/zh-cn_topic_0045829102.html" target="_blank" rel="noopener">更多介绍</a>。</p>
 </blockquote>
 </li>
@@ -759,19 +759,19 @@ class FS blue</pre>
 <p><strong><em>需在ARM服务器上制作镜像</em></strong></p>
 </blockquote>
 <h2 id="四-创建服务器"><a href="#四-创建服务器" class="headerlink" title="四 创建服务器"></a>四 创建服务器</h2><ul>
-<li><p>产品页面链接<br>服务器产品连接 <a href="https://www.huaweicloud.com/product/" target="_blank" rel="noopener">https://www.huaweicloud.com/product/</a><br><img src="/2018/07/26/how-to-use-bms-arm/ecs-product.png" alt="ECS"><br>这里以华北-上海二（和上面做镜像在同一个region）region为例进行描述</p>
+<li><p>产品页面链接<br>服务器产品连接 <a href="https://www.huaweicloud.com/product/" target="_blank" rel="noopener">https://www.huaweicloud.com/product/</a><br><img src="how-to-use-bms-arm/ecs-product.png" alt="ECS"><br>这里以华北-上海二（和上面做镜像在同一个region）region为例进行描述</p>
 </li>
-<li><p>新建裸金属服务器<br><img src="/2018/07/26/how-to-use-bms-arm/bms-arm1.png" alt="裸金属服务器一"></p>
+<li><p>新建裸金属服务器<br><img src="how-to-use-bms-arm/bms-arm1.png" alt="裸金属服务器一"></p>
 <ul>
 <li>区域 <kbd>上海</kbd></li>
 <li>可用区 <kbd>可用区2</kbd></li>
 <li>规格选择 <kbd>ARM服务器</kbd></li>
-<li>镜像选择 <kbd>私有镜像</kbd>，步骤二中创建的裸金属镜像<br><img src="/2018/07/26/how-to-use-bms-arm/bms-arm2.png" alt="裸金属服务器二"></li>
+<li>镜像选择 <kbd>私有镜像</kbd>，步骤二中创建的裸金属镜像<br><img src="how-to-use-bms-arm/bms-arm2.png" alt="裸金属服务器二"></li>
 <li>弹性公网IP <kbd>现在购买</kbd>，<kbd>独享带宽</kbd>，<kbd>按带宽计费</kbd>，<kbd>10</kbd></li>
 <li>点击立即购买，<strong>核对信息后稍等片刻即可完成裸金属机器创建</strong></li>
 </ul>
 </li>
-<li><p>新建GPU加速服务器<br><img src="/2018/07/26/how-to-use-bms-arm/gpu-g31.png" alt="新建GPU加速服务器"></p>
+<li><p>新建GPU加速服务器<br><img src="how-to-use-bms-arm/gpu-g31.png" alt="新建GPU加速服务器"></p>
 <ul>
 <li>计费模式 <kbd>按需计费</kbd></li>
 <li>区域 <kbd>上海</kbd> <strong>务必和ARM服务器保持一致</strong></li>
@@ -941,7 +941,7 @@ T3-->GL3(GL2.0)</pre>
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-16 20:14:49" itemprop="dateModified" datetime="2019-10-16T20:14:49+08:00">2019-10-16</time>
+                <time title="修改时间：2019-10-16 20:24:42" itemprop="dateModified" datetime="2019-10-16T20:24:42+08:00">2019-10-16</time>
               </span>
             
           
@@ -1206,7 +1206,7 @@ T3-->GL3(GL2.0)</pre>
 </ul>
 </li>
 </ul>
-<p><img src="/2018/07/05/k8s-1/docker.jpg" alt="docker"></p>
+<p><img src="k8s-1/docker.jpg" alt="docker"></p>
 <ul>
 <li>Docker和VM<br><strong>关键词：轻量化、易部署</strong></li>
 </ul>
