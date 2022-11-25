@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://lib.baomitu.com/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mixiang.tech","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前几天看头条上推荐MX Linux，MX Linux号称是DistroWatch排名第一的操作系统，大部分评论时易用性比较好，此时手上恰好有一块闲置的高速U盘，就是想将MX Linux安装到U盘上尝试使用一下。  准备工作  杂牌4G U盘：用于制作USB启动盘 ScanDisk 64G USB 3.0 高速U盘：安装MX Linux到此盘； 从清华镜像站https:&#x2F;&#x2F;mirrors.tuna.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MX Linux 安装及配置">
+<meta property="og:url" content="http://mixiang.tech/2020/07/23/2020-07-23-22/index.html">
+<meta property="og:site_name" content="Mixion">
+<meta property="og:description" content="前几天看头条上推荐MX Linux，MX Linux号称是DistroWatch排名第一的操作系统，大部分评论时易用性比较好，此时手上恰好有一块闲置的高速U盘，就是想将MX Linux安装到U盘上尝试使用一下。  准备工作  杂牌4G U盘：用于制作USB启动盘 ScanDisk 64G USB 3.0 高速U盘：安装MX Linux到此盘； 从清华镜像站https:&#x2F;&#x2F;mirrors.tuna.">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-23T14:40:38.000Z">
+<meta property="article:modified_time" content="2022-10-05T06:41:33.000Z">
+<meta property="article:author" content="Mxipp">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://mixiang.tech/2020/07/23/2020-07-23-22/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://mixiang.tech/2020/07/23/2020-07-23-22/","path":"2020/07/23/2020-07-23-22/","title":"MX Linux 安装及配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MX Linux 安装及配置 | Mixion</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?4eb6a5e6ea8860af5aca8f7fc26a6eda"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mixion</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mxipp</p>
+  <div class="site-description" itemprop="description">ICT思潮</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/1430123077" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1430123077" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://mixiang.tech/2020/07/23/2020-07-23-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mxipp">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mixion">
+      <meta itemprop="description" content="ICT思潮">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MX Linux 安装及配置 | Mixion">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MX Linux 安装及配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-23 22:40:38" itemprop="dateCreated datePublished" datetime="2020-07-23T22:40:38+08:00">2020-07-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-05 14:41:33" itemprop="dateModified" datetime="2022-10-05T14:41:33+08:00">2022-10-05</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    <a title="MX Linux 安装及配置" href="/2020/07/23/2020-07-23-22/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::ee4222265f38c7d6e4c59c54d11a96f8" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>前几天看头条上推荐MX Linux，MX
+Linux号称是DistroWatch排名第一的操作系统，大部分评论时易用性比较好，此时手上恰好有一块闲置的高速U盘，就是想将MX
+Linux安装到U盘上尝试使用一下。</p>
+<ul>
+<li><p>准备工作</p>
+<ul>
+<li>杂牌4G U盘：用于制作USB启动盘</li>
+<li>ScanDisk 64G USB 3.0 高速U盘：安装MX Linux到此盘；</li>
+<li>从清华镜像站<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/"
+class="uri">https://mirrors.tuna.tsinghua.edu.cn/</a>下载最新对MX Linux
+IOS文件</li>
+</ul></li>
+<li><p>制作启动盘</p>
+<ol type="1">
+<li>使用fdisk命令清除了4G
+U盘的信息，再格式化成fat32（不格式化无法自动挂载，尝试着手工挂载unbootin工具均无法识别出U盘，于是放弃了使用unbootin工具制作启动U盘）；</li>
+<li>使用dd命令制作启动U盘，dd命令使用方法自行请百度
+<code>sudo dd if=/home/mxipp/Downloads/MX-19.2_x64.iso of=/dev/sdd</code>
+&gt; 由4G U盘是USB
+2.0接口的杂牌U盘，写入速度极慢，大约用10分钟才制作好启动U盘</li>
+</ol></li>
+<li><p>安装MX Linux</p>
+<ol type="1">
+<li>安装MX Linux前设置PC的启动选项为U盘启动</li>
+<li>如果PC只有一个USB 3.0接口，其他USB接口为USB
+2.0接口，建议将USB启动盘插到USB
+2.0接口（暂时<strong>不要</strong>插入64G
+U盘），重启PC当PC使用U盘启动盘启动时再插入64GU盘；</li>
+<li>系统启动后按照Live USB 系统的安装指引完成系统开始安装
+<ol type="a">
+<li>需要注意的是在设置安装盘时务必选择安装到64G
+U盘，<strong>如果错配成PC硬盘安装时会清除硬盘上的数据</strong>；</li>
+<li>引导程序也要选择安装到64G U盘上 &gt; 如果不清楚64G U盘挂载信息可用
+<code>sudo fdisk -l</code> 命令查询，或者简单用盘大小判断。</li>
+</ol></li>
+</ol>
+<p>整个安装过程都是图形化操作，其他安装设置这里就不赘述了。安装完成之后系统会要求重启，重启时请拔掉4G启动盘，系统启动时就会使用安装到U盘的MX
+Linux启动。</p></li>
+<li><p>设置MX Linux MX Linux是基于Debian
+10稳定版的发行版本，相关Debian文档进行设置，本文只说明几个关键设置。</p>
+<ul>
+<li><p>设置国内源</p>
+<ul>
+<li>不建议使用MX Linux图形化的repo manager修改源，repo
+manager修改非security源，security
+源还是使用debian，更新、安装还是很慢。</li>
+<li>建议按照清华镜像站的帮助<a
+target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/debian/"
+class="uri">https://mirrors.tuna.tsinghua.edu.cn/help/debian/</a>直接修改/etc/apt/sources.list</li>
+</ul></li>
+<li><p>更新系统 <code>sudo apt update &amp; upgrade</code></p></li>
+<li><p>安装中文输入法 推荐使用rime中文输入法:<a
+target="_blank" rel="noopener" href="http://www.rime.im"
+class="uri">http://www.rime.im</a>。刚开始安装时直接按照rime官网指导使用如下命令安装rime输入法：
+<code>sudo apt intall ibus-rime</code>
+安装成功后遇到2个折腾了很久的问题：</p>
+<ol type="1">
+<li><p>rime部署时报错：
+rime提示部署失败，错误日志记录在/tmp/目录下，实际该目录下找不到错误文件，重试多次均无法使用</p></li>
+<li><p>Ibus不能随系统启动
+首先按照系统提示在.bashrc中添加环境变量，实际并不能生效； <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export XMODIFIERS=@im=ibus</span><br><span class="line">export GTK_IM_MODULE=ibus </span><br><span class="line">export QT_IM_MODULE=ibus</span><br></pre></td></tr></table></figure>
+于是又在百度查到有些人建议在/etc/environment或者/etc/profile中配置均无法正常工作，折腾了2个小时也无法解决问题，于是就想到在linxu系统自动启动程序中增加ibus-daemon
+-dx命令，保存了一下session貌似可以正常启动ibus了，但是rime仍然无法正确工作，还是放弃了此方法。最终通过bing搜索引擎在MX
+Linux的官网上查到配置中文输入法的wiki<a
+target="_blank" rel="noopener" href="https://mxlinux.org/wiki/other/chinese-simplified-input/"
+class="uri">https://mxlinux.org/wiki/other/chinese-simplified-input/</a>，同时在archwiki查询ibus相关指导<a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/IBus"
+class="uri">https://wiki.archlinux.org/index.php/IBus</a>，最终按照指导配置，ibus
+和rime均能够正常工作。</p>
+<ul>
+<li>具体设置如下：</li>
+</ul>
+<ol type="a">
+<li>在.xprofile和.bashrc中配置 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export XMODIFIERS=@im=ibus</span><br><span class="line">export GTK_IM_MODULE=ibus </span><br><span class="line">export QT_IM_MODULE=ibus</span><br><span class="line">ibus-daemon -drx</span><br></pre></td></tr></table></figure></li>
+<li>通过MX Package
+Installer安装chinese-ibus，系统在安装过程中会同步安装关联的im-config工具，执行im-config
+-n ibus</li>
+<li>重启PC，ibus和rime均能够正常工作</li>
+</ol></li>
+</ol>
+<blockquote>
+<p>实际在输入的安装过程中，mxlinux
+wiki和archwiki配置如何时ibus和rime正常工作暂未深入研究，后续有机会补充Display
+Manager和profile文件bashrc文件之间关系后续再详细说明</p>
+</blockquote></li>
+</ul></li>
+<li><p>几点折腾感悟</p>
+<ul>
+<li>技术试用、学习过程中遇到阻塞性问题，尽量在官方英文文档中查找解决问题的方法；</li>
+<li>国内百度搜索出来的东西实在不敢恭维了，<strong>使用百度搜索即使用多个英文关键字也无法搜索出强管理的英文官方网址</strong>，使用bing搜索前5条即可找到官方后者权威技术材料；</li>
+<li>Arch
+linux指导文档详细且全面，知识点之间的关联性非常好，而且文档指导性很强；</li>
+<li>MX Linux并不适合初学者用，遇到问题常常的方案很难解决；</li>
+<li>Debian稳定性比较好，在10年ThinkPad T400 + 64G
+U盘上运行的很流畅，没有出现在Manjaro、LinuxMint上出现卡死问题（基本上是由于浏览器、编辑器等软件要求硬件加速导致的）</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Mxipp WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/07/19/2020-07-19-00/" rel="prev" title="使用PAC文件实现浏览器自动代理">
+                  <i class="fa fa-chevron-left"></i> 使用PAC文件实现浏览器自动代理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/26/2020-07-26-20/" rel="next" title="在Windwos 10 WSL2中安装Docker">
+                  在Windwos 10 WSL2中安装Docker <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="ee4222265f38c7d6e4c59c54d11a96f8"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mxipp</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">47k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">1:19</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://lib.baomitu.com/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://lib.baomitu.com/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cywocXkNu","appkey":"99e254e19e0b3543baf6b6955c6ded30","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

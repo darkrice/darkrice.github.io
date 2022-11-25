@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://lib.baomitu.com/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mixiang.tech","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="传统的应用程序在部署时往往需要通过命令行参数、环境变量、配置文件等方式配置应用程序。Kubernetes应用程序可以通过ConfigMap和Secret来配置应用程序。ConfigMap和Secret的区别主要是Secret用于敏感数据配置，数据在Kubernetes中是加密存储的。 选择ConfigMap和Secret的原则比较简单：  非敏感数据则使用ConfigMap配置； 敏感数据使用Se">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes使用ConfigMap配置应用程序（一）">
+<meta property="og:url" content="http://mixiang.tech/2020/09/28/2020-09-28-22/index.html">
+<meta property="og:site_name" content="Mixion">
+<meta property="og:description" content="传统的应用程序在部署时往往需要通过命令行参数、环境变量、配置文件等方式配置应用程序。Kubernetes应用程序可以通过ConfigMap和Secret来配置应用程序。ConfigMap和Secret的区别主要是Secret用于敏感数据配置，数据在Kubernetes中是加密存储的。 选择ConfigMap和Secret的原则比较简单：  非敏感数据则使用ConfigMap配置； 敏感数据使用Se">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-09-28T14:23:45.000Z">
+<meta property="article:modified_time" content="2022-10-05T06:41:33.000Z">
+<meta property="article:author" content="Mxipp">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="Kubernetes">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://mixiang.tech/2020/09/28/2020-09-28-22/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://mixiang.tech/2020/09/28/2020-09-28-22/","path":"2020/09/28/2020-09-28-22/","title":"Kubernetes使用ConfigMap配置应用程序（一）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes使用ConfigMap配置应用程序（一） | Mixion</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?4eb6a5e6ea8860af5aca8f7fc26a6eda"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mixion</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">1.使用命令参数配置应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9fortune%E9%95%9C%E5%83%8F%E5%A2%9E%E5%8A%A0%E9%97%B4%E9%9A%94%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">修改fortune镜像，增加间隔参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8pod%E4%B8%AD%E4%BD%BF%E7%94%A8args%E8%A6%86%E7%9B%96%E5%AE%B9%E5%99%A8%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">在POD中使用args覆盖容器参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">2.使用环境变量配置应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9fortune%E9%95%9C%E5%83%8F%E5%A2%9E%E5%8A%A0%E9%97%B4%E9%9A%94%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">修改fortune镜像，增加间隔环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8pod%E4%B8%AD%E4%BD%BF%E7%94%A8env%E8%A6%86%E7%9B%96%E5%AE%B9%E5%99%A8%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">在POD中使用env覆盖容器参数</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mxipp</p>
+  <div class="site-description" itemprop="description">ICT思潮</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/1430123077" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1430123077" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://mixiang.tech/2020/09/28/2020-09-28-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mxipp">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mixion">
+      <meta itemprop="description" content="ICT思潮">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes使用ConfigMap配置应用程序（一） | Mixion">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes使用ConfigMap配置应用程序（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-28 22:23:45" itemprop="dateCreated datePublished" datetime="2020-09-28T22:23:45+08:00">2020-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-05 14:41:33" itemprop="dateModified" datetime="2022-10-05T14:41:33+08:00">2022-10-05</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    <a title="Kubernetes使用ConfigMap配置应用程序（一）" href="/2020/09/28/2020-09-28-22/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::aefb8a44503d2e31d82bd4089738592c" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>传统的应用程序在部署时往往需要通过命令行参数、环境变量、配置文件等方式配置应用程序。Kubernetes应用程序可以通过ConfigMap和Secret来配置应用程序。ConfigMap和Secret的区别主要是Secret用于敏感数据配置，数据在Kubernetes中是加密存储的。</p>
+<p>选择ConfigMap和Secret的原则比较简单：</p>
+<ul>
+<li>非敏感数据则使用ConfigMap配置；</li>
+<li>敏感数据使用Secret配置；</li>
+<li>如果既有敏感数据又有非敏感数据则使用Secret配置。</li>
+</ul>
+<p>ConfigMap和Secret使用方式类似，这里主要描述ConfigMap的使用方式。</p>
+<p>这次还是以fortune应用程序为例，通过ConfigMap向fortune传递参数调整程序刷新的时间间隔。首先我看一下不借助ConfigMap我们如何通过命令参数和环境变量配置应用。</p>
+<h2 id="使用命令参数配置应用">1.使用命令参数配置应用</h2>
+<h3 id="修改fortune镜像增加间隔参数">修改fortune镜像，增加间隔参数</h3>
+<ul>
+<li>修改fortuneloop.sh，增加间隔参数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">&quot;exit&quot;</span> SIGINT</span><br><span class="line">INTERVAL=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> /var/htdocs</span><br><span class="line"><span class="built_in">mkdir</span> /var/fortune</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Configured to generate new fortune every <span class="variable">$INTERVAL</span> seconds.</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> $(<span class="built_in">date</span>) writing fortune to /var/htdocs/index.html &gt;&gt; /var/log/fortune/$(<span class="built_in">date</span> +%Y-%m-%d).<span class="built_in">log</span></span><br><span class="line">    /usr/games/fortune &gt; /var/htdocs/index.html</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sleep</span> <span class="variable">$INTERVAL</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改Dockerfile增加默认参数</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update ; apt install -y fortune</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> fortuneloop.sh /bin/fortuneloop.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/bin/fortuneloop.sh&quot;</span>]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;10&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>重新制作镜像:<code>docker build -t 172.17.0.1:5000/fortune:args .</code>，并推送本地镜像仓库</p>
+<ul>
+<li>本地运行镜像测试</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name fortune-args -it 172.17.0.1:5000/fortune:args 15</span><br><span class="line">Configured to generate new fortune every 15 seconds.</span><br></pre></td></tr></table></figure>
+<h3 id="在pod中使用args覆盖容器参数">在POD中使用args覆盖容器参数</h3>
+<ul>
+<li>修改POD配置文件</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:args</span></span><br><span class="line">    <span class="attr">args:</span> [<span class="string">&quot;30&quot;</span>]</span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样重新创建POD即可看到应用参数更新成"30"秒。</p>
+</blockquote>
+<h2 id="使用环境变量配置应用">2.使用环境变量配置应用</h2>
+<h3
+id="修改fortune镜像增加间隔环境变量">修改fortune镜像，增加间隔环境变量</h3>
+<ul>
+<li>修改fortuneloop.sh，使用INTERVAL代替默认值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">&quot;exit&quot;</span> SIGINT</span><br><span class="line"><span class="built_in">mkdir</span> /var/htdocs</span><br><span class="line"><span class="built_in">mkdir</span> /var/fortune</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Configured to generate new fortune every <span class="variable">$INTERVAL</span> seconds.</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> $(<span class="built_in">date</span>) writing fortune to /var/htdocs/index.html &gt;&gt; /var/log/fortune/$(<span class="built_in">date</span> +%Y-%m-%d).<span class="built_in">log</span></span><br><span class="line">    /usr/games/fortune &gt; /var/htdocs/index.html</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sleep</span> <span class="variable">$INTERVAL</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改Dockerfile增加默认参数</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update ; apt install -y fortune</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> fortuneloop.sh /bin/fortuneloop.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/bin/fortuneloop.sh&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>重新制作镜像:<code>docker build -t 172.17.0.1:5000/fortune:env .</code>，并推送本地镜像仓库</p>
+<h3 id="在pod中使用env覆盖容器参数">在POD中使用env覆盖容器参数</h3>
+<ul>
+<li>修改POD配置文件</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:env</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">INTERVAL</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">&quot;45&quot;</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样重新创建POD即可看到应用参数更新成"45"秒。</p>
+</blockquote>
+<p>上述两种方式，无论时通过args方式还是env方式都是将配置参数硬编码在POD配置文件中。实际应用部署的过程中，我们希望配置参数和POD配置能够解藕，这个就需要用到Kubernetes提供的ConfigMap来实现。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Mxipp WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+              <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/22/2020-09-22-23/" rel="prev" title="修改docker hub上的官方镜像">
+                  <i class="fa fa-chevron-left"></i> 修改docker hub上的官方镜像
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/29/2020-09-29-20/" rel="next" title="Kubernetes使用ConfigMap配置应用程序（二）">
+                  Kubernetes使用ConfigMap配置应用程序（二） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="aefb8a44503d2e31d82bd4089738592c"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mxipp</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">47k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">1:19</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://lib.baomitu.com/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://lib.baomitu.com/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cywocXkNu","appkey":"99e254e19e0b3543baf6b6955c6ded30","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+</body>
+</html>

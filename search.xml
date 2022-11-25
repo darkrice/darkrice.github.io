@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/11/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="mathjax">Mathjax</h3>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.063ex;" xmlns="http://www.w3.org/2000/svg" width="21.558ex" height="5.232ex" role="img" focusable="false" viewBox="0 -1400.6 9528.6 2312.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="393" d="M128 619Q121 626 117 628T101 631T58 634H25V680H554V676Q556 670 568 560T582 444V440H542V444Q542 445 538 478T523 545T492 598Q454 634 349 634H334Q264 634 249 633T233 621Q232 618 232 339L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path></g><g data-mml-node="mo" transform="translate(625,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1014,0)"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(1479,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2145.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msubsup" transform="translate(3201.6,0)"><g data-mml-node="mo" transform="translate(0 1)"><path data-c="222B" d="M114 -798Q132 -824 165 -824H167Q195 -824 223 -764T275 -600T320 -391T362 -164Q365 -143 367 -133Q439 292 523 655T645 1127Q651 1145 655 1157T672 1201T699 1257T733 1306T777 1346T828 1360Q884 1360 912 1325T944 1245Q944 1220 932 1205T909 1186T887 1183Q866 1183 849 1198T832 1239Q832 1287 885 1296L882 1300Q879 1303 874 1307T866 1313Q851 1323 833 1323Q819 1323 807 1311T775 1255T736 1139T689 936T633 628Q574 293 510 -5T410 -437T355 -629Q278 -862 165 -862Q125 -862 92 -831T55 -746Q55 -711 74 -698T112 -685Q133 -685 150 -700T167 -741Q167 -789 114 -798Z"></path></g><g data-mml-node="mi" transform="translate(1046.4,1088.1) scale(0.707)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g><g data-mml-node="mn" transform="translate(589,-896.4) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="msup" transform="translate(5171.7,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="TeXAtom" transform="translate(394,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(465,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(1243,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><g data-mml-node="msup" transform="translate(6848.2,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(778,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g></g></g><g data-mml-node="mi" transform="translate(8202.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(8722.6,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mstyle" transform="translate(9083.6,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(9250.6,0)"><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g></g></g></svg></mjx-container></span></p>
+<h2 id="local-image">Local Image</h2>
+<img src="/2022/11/22/hello-world/wechat_pay.png" class="">
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重新开始</title>
+    <url>/2020/07/09/2020-07-09-21/</url>
+    <content><![CDATA[<h1 id="重新开始">重新开始</h1>
+<p>重新开始第一篇，坚持！：）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用marp和pandoc写作slide</title>
+    <url>/2020/07/10/2020-07-10-22/</url>
+    <content><![CDATA[<h2 id="使用marp写作slide">使用marp写作slide</h2>
+<p>在vscode 中安装marp
+插件即可在在vscode中使用markdown书写slide，写作PPT过程可以专注有书写内容，如果PPT对排版要求比较简单可以按照marp对语法（markdown对语法扩展）直接进行简单排版。Marp支持简单对水平排版，和自定义语法图文排版，如果材料以图和关键字为主则Marp可以较好支持书写和排版。如果文件较多、排版较为复杂则需要将输出结果导出到PPT中使用PPT模板和排版工具快速完成排版。</p>
+<ol type="1">
+<li><p>使用Marp写作Slide Marp语法请参考：<a
+href="https://marpit.marp.app/markdown"
+class="uri">https://marpit.marp.app/markdown</a></p></li>
+<li><p>导出成PPT
+写作完成slide之后，如果对排版要求比较简单可以将markdown导出成PDF或HTML文档；Marp也支持直接导出成PPT文件，由于Marp导出对PPT文件是将文件生成为图片再将图片打包成PPT文件，该PPT文件是无法编辑内容，如果需要在PPT中重新排版就需要借助pandoc工具。</p></li>
+</ol>
+<ul>
+<li>安装pandoc工具
+<ul>
+<li>windows在<a href="https://www.pandoc.org/"
+class="uri">https://www.pandoc.org/</a> 下载安装文件完成安装；</li>
+<li>linux 使用软件仓库可直接安装pandoc</li>
+</ul></li>
+<li>配置potx模板 在<a href="https://templates.office.com/"
+class="uri">https://templates.office.com/</a>中选择喜欢的模板，将模板保存到本地工作目录备用。建议在PPT中视图-〉幻灯片母板中调整模板，将文本框调整成自动缩放文字。</li>
+<li>使用pandoc将markdown文件转成pptx文件 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pandoc -f markdown -t pptx --reference-doc=template.potx -o output.pptx input.md</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3" type="1">
+<li>使用PPT调整排版 使用布局（layout）功能快速调整排版</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>公有云厂家的混合云产品</title>
+    <url>/2020/07/12/2020-07-12-08/</url>
+    <content><![CDATA[<p>2017年以前公有云厂家和私有厂家是半推半就的竞争关系。每家云厂商根据自己的业务强项推出了不同对混合云产品，业界对混合云对定位也不统一。</p>
+<ul>
+<li>AWS
+<ul>
+<li>AWS认知的混合云是基础设施对混合云，逐步到服务级对混合云部署；</li>
+</ul></li>
+<li>Azure
+<ul>
+<li>Azure认知的混合云是Azure Stack +
+Azure对组合，混合云是Azure在客户机房对延伸；</li>
+</ul></li>
+<li>Google
+<ul>
+<li>Google认知对混合云就是基于容器的Anthos，通过容器实现基础设施级应用部署混合云；</li>
+</ul></li>
+<li>VMware
+<ul>
+<li>放弃公有云市场，发挥自身SDDC优势，拥抱公有云厂商的基础设施，和公有云厂商形成了优势互补，另一方面积极补齐私有云侧容器能力；</li>
+</ul></li>
+</ul>
+<img src="/2020/07/12/2020-07-12-08/2020-07-12-19-55-55.png" class="" title="混合云产品">
+<p>2019年Google收购CloudSimple并于2020年5月推出基于CloudSimple的Google
+VMware
+Engine，Azure也和VMware达成和解于2020年5月推出了由Azure自研的Azure
+VMware Solution；公有云厂商对混合云战略逐步清晰。</p>
+<ul>
+<li>AWS
+<ul>
+<li>基础设施的+服务混合部署：加速outposts对进度，逐步将高级服务能力下移到outposts；继续和VMware合作，推出基于EBS对裸金属实例；</li>
+</ul></li>
+<li>Azure
+<ul>
+<li>和VMware和解、IaaS基础设施由vMware解决方法完成，Azure
+Stack无重大更新；<strong>聚焦PaaS</strong>，通过Azure Arc 和App
+服务组合打造应用混合部署能力；</li>
+</ul></li>
+<li>Google
+<ul>
+<li>推出 Google VMware
+Engine补齐IaaS混合云能力；和Anthos组合成IaaS+PaaS完整对混合云解决方案。</li>
+</ul></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>公有云</tag>
+        <tag>混合云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo无法使用本地图片问题</title>
+    <url>/2020/07/12/2020-07-12-22/</url>
+    <content><![CDATA[<p>转载自:<a
+href="http://www.manongjc.com/detail/9-bayyqoeqtjoljpu.html"
+class="uri">http://www.manongjc.com/detail/9-bayyqoeqtjoljpu.html</a></p>
+<p>版本：Hexo 3以上　　</p>
+<p>最近搭建hexo博客时遇到了图片部署后不显示的问题，如图：</p>
+<figure>
+<img src="./simple/no-file.png" alt="示例图片" />
+<figcaption aria-hidden="true">示例图片</figcaption>
+</figure>
+<p>上网找了很多方式都没有完美解决问题，后来查看了官方文档后终于解决了问题（完美解决），现在贴出来如下。建议以后大家遇到了问题也先去看看官方文档：<a
+href="https://hexo.io/zh-cn/docs"
+class="uri">https://hexo.io/zh-cn/docs</a></p>
+<p>解决方案如下：</p>
+<ol type="1">
+<li><p>在根目录下配置文件_config.yml 中有
+post_asset_folder:false改为true。这样在建立文件时，Hexo会自动建立一个与文章同名的文件夹，这样就可以把与该文章相关的所有资源（图片）都放到那个文件夹里方便后面引用。如这里我放了一张test.jpg的图片。</p></li>
+<li><p>git bash安装插件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/7ym0n/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+使用这个插件来引入图片（这是个修改过的插件，经测试无问题），而不是网上那些方法里说的用传统md语法相对路径的方法。</p></li>
+<li><p>插入图片时用这种方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img test.jpg This is an test image %&#125;</span><br></pre></td></tr></table></figure>
+其中test.jpg就是你要引用的图片，我这里就是test.jpg，后面的This is an
+test image是图片描述，可以自己修改。</p></li>
+<li><p>这样就能成功显示了，测试下吧：hexo cl &amp;&amp; hexo g
+&amp;&amp; hexo d</p></li>
+</ol>
+<h2 id="日更新">2020-8-13日更新</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2. git bash安装插件：</span><br><span class="line">   ``` shell </span><br><span class="line">   npm install https://github.com/7ym0n/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<p>使用这个插件来引入图片（这是个修改过的插件，经测试无问题），而不是网上那些方法里说的用传统md语法相对路径的方法。
+```</p>
+<p>将上面命令替换成: <code>npm install hexo-simple-image --save</code>
+在markdown文件中使用 <code>![](./dir/image.png)</code>
+在图片路径钱必须加上"./"，否则hexo g生成文件时会报错。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非暴力沟通读书笔记（一）</title>
+    <url>/2020/07/13/2020-07-13-22/</url>
+    <content><![CDATA[<p>非暴力沟通中强调合理表达诉求，而不是指责、批评或者抱怨对方对行为。例如：</p>
+<ul>
+<li><p>案例一 &gt; 我很生气，你惹我不高兴了!</p>
+<p>更好一些对表达是： &gt; 你约会迟到了，我很生气。</p>
+<p>但是上述表达中表达了自己对感受，但是<em>指责了对方的行为</em>，需要将指责对方的行为修改为<strong>表达自己对诉求</strong>：
+&gt;
+我很生气，我希望你约会能按时到，这样我们就有时间一起吃饭，还可以看一场电影。</p></li>
+<li><p>案例二 &gt; 如果你下次在这样做事情，你不如不做！</p>
+<p>需要将上述对沟通方式调整为表达自己对感受，并说出自己对需求/诉求：</p>
+<blockquote>
+<p>我很失望，我希望你在涮碗的同时也把餐桌擦干净，这样我就不需要做这些了。</p>
+</blockquote></li>
+</ul>
+<p>我们的<strong>愤怒、不高兴、失望等负面情绪往往是因为我们的期望没有得到满足</strong>，在沟通过程中如果只是通过批评、吼叫等行为表达了自己的情绪，而不是通过非暴力对方式表达自己对诉求/需求。在听到不中听对话我们往往会产生以下行为：
+1. 认为自己犯了错，而产生自责或这内疚的情绪 2. 指责对方，或者驳斥对方 3.
+了解我们对感受和需要 4. 用心体会他人对感受和需要</p>
+<p>因此在沟通过程中表达自身对感受和需要，倾听对方对感受和需要开始非暴力对沟通。</p>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>非暴力沟通</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非暴力沟通读书笔记（二）</title>
+    <url>/2020/07/17/2020-07-17-20/</url>
+    <content><![CDATA[<p>非暴力沟通过程中除了报答自己的感受、需要和请求外也许要关注对方，也许要想对自己一样<strong>观察、感受</strong>对方，了解对方的<strong>需求和请求</strong>。</p>
+<ul>
+<li>体会他人对感受和需求
+<ul>
+<li>在体会他人的感受和需要是不要基于发表自己对看法、判断和建议等。</li>
+</ul></li>
+<li>给他人反馈
+<ul>
+<li>在倾听到他人对感受、需求和请求等需要给予他人反馈，主动表达我们的理解。如果我们理解正确可以帮助对方意识到他们他们要表达对意思；如果我们理解不到位，对方则可以继续补充。</li>
+<li>一般来说一个人讲话时如果带有明显对情绪时他一般会期待得到反馈。即使在不善于表达情感的人之间只要用心体会他人对感受都会促进两者之间关系，例如：中年儿子和年迈对父亲之间。</li>
+</ul></li>
+<li>保持关注
+<ul>
+<li>我们需要在为他人表达创造条件，确保我们已经充分对观察、感受对方对需求和请求时再给予他人的建议，如果过早给对方建议，没有让对方体会到我们已经真正理解和体会到对方对感受了，对方往往会认为我们建议是敷衍的，或者是否能真正发挥作用。</li>
+</ul></li>
+<li><strong>如果当我们痛苦的无法倾听</strong>，这说明我们也许要别人的关心，请大声说出你对感受、需要和请求。</li>
+</ul>
+<p>非暴力沟通不是一个沟通对技巧，是<strong>发自内心</strong>的爱或者真诚的希望改善和周围人关系。</p>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>非暴力沟通</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用PAC文件实现浏览器自动代理</title>
+    <url>/2020/07/19/2020-07-19-00/</url>
+    <content><![CDATA[<p>由于工作原因需要经常在不同的地方（办公室、家庭网络、机场酒店公共网络）接入到办公网络，而办公网络需要通过公司代理服务器才能访问互联网，同时公司IT部门提供了国内、海外等不同的代理服务器，这样就需要根据是否接入办公网络及访问对网址经常修改代理服务器（打开、关闭、修改不同对代理服务器等）。</p>
+<p>目前各主流浏览器均支持Proxy Auto-Configuration (PAC)
+file自动设置代理，详细对配置指导可参考<a
+href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file"
+class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file</a>。</p>
+<p>今天主要讨论根据接入网络和访问的目标网址设置不同的代理服务器策略。</p>
+<ul>
+<li><p>需求一：根据是否接入办公网络选择不同的Proxy策略</p>
+<ol type="1">
+<li>通过家庭、酒店WIFI未（通过VPN）接入公司网络，本机localhost地址通常是192.168.x.x；</li>
+<li>通过家庭、酒店WIFI（通过VPN）接入公司网络时，本机localhost地址通常是127.0.0.1；</li>
+<li>通过办公室WIFI接入公司网络和场景2类似；</li>
+</ol></li>
+<li><p>需求二：根据目标网址选咋不同的Proxy服务器；</p>
+<ol type="1">
+<li>如果访问公司内网则不想要代理服务器；</li>
+<li>如果是访问海外网络则选择海外Proxy服务器；</li>
+<li>其他情况均使用国内代理服务器。</li>
+</ol></li>
+<li><p>通过PAC自动选择代理服务器</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">FindProxyForURL</span>(<span class="params">url, host</span>) &#123;</span><br><span class="line">  <span class="comment">//如果没有通过VPN接入公司网络</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isInNet</span>(<span class="title function_">dnsResolve</span>(<span class="string">&#x27;localhost&#x27;</span>),<span class="string">&#x27;192.168.0.0&#x27;</span>,<span class="string">&#x27;255.255.0.0&#x27;</span>) || </span><br><span class="line">  <span class="title function_">dnsResolve</span>(<span class="string">&#x27;localhost&#x27;</span>) != <span class="string">&#x27;127.0.0.1&#x27;</span> <span class="comment">// 不同对公司网络可能有差异，可以使用nslookup localhost 查询</span></span><br><span class="line">  ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;DIRECT&#x27;</span>; </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//如果访问的时公司内网</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">shExpMatch</span>(host, <span class="string">&quot;*.mycompany.com&quot;</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;DIRECT&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果访问对的时海外网址使用海外Proxy</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">shExpMatch</span>(url,<span class="string">&#x27;*.google.com*&#x27;</span>) || <span class="title function_">shExpMatch</span>(url,<span class="string">&#x27;*.github.com*&#x27;</span>) ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;PROXY proxy_uk.mycompany.com:8080&#x27;</span> + </span><br><span class="line">          <span class="string">&#x27;PROXY proxy_hk.mycompany.com:8080&#x27;</span>;</span><br><span class="line">      </span><br><span class="line">  &#125;<span class="keyword">else</span> &#123; <span class="comment">//默认使用国内proxy，如果proxy不同则不使用</span></span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;PROXY proxy_cn.mycompany.com:8080;&#x27;</span> + </span><br><span class="line">          <span class="string">&#x27;DIRECT&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>在浏览器设置PAC文件
+各家浏览器均可以使用扩展或者命令参数设置PAC文件。这里推荐使用Proxy-Switcher扩展，该扩展支持Chrome/Edge/Firefox浏览器，具体参考：<a
+href="https://mybrowseraddon.com/proxy-switcher.html"
+class="uri">https://mybrowseraddon.com/proxy-switcher.html</a></p></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>MX Linux 安装及配置</title>
+    <url>/2020/07/23/2020-07-23-22/</url>
+    <content><![CDATA[<p>前几天看头条上推荐MX Linux，MX
+Linux号称是DistroWatch排名第一的操作系统，大部分评论时易用性比较好，此时手上恰好有一块闲置的高速U盘，就是想将MX
+Linux安装到U盘上尝试使用一下。</p>
+<ul>
+<li><p>准备工作</p>
+<ul>
+<li>杂牌4G U盘：用于制作USB启动盘</li>
+<li>ScanDisk 64G USB 3.0 高速U盘：安装MX Linux到此盘；</li>
+<li>从清华镜像站<a href="https://mirrors.tuna.tsinghua.edu.cn/"
+class="uri">https://mirrors.tuna.tsinghua.edu.cn/</a>下载最新对MX Linux
+IOS文件</li>
+</ul></li>
+<li><p>制作启动盘</p>
+<ol type="1">
+<li>使用fdisk命令清除了4G
+U盘的信息，再格式化成fat32（不格式化无法自动挂载，尝试着手工挂载unbootin工具均无法识别出U盘，于是放弃了使用unbootin工具制作启动U盘）；</li>
+<li>使用dd命令制作启动U盘，dd命令使用方法自行请百度
+<code>sudo dd if=/home/mxipp/Downloads/MX-19.2_x64.iso of=/dev/sdd</code>
+&gt; 由4G U盘是USB
+2.0接口的杂牌U盘，写入速度极慢，大约用10分钟才制作好启动U盘</li>
+</ol></li>
+<li><p>安装MX Linux</p>
+<ol type="1">
+<li>安装MX Linux前设置PC的启动选项为U盘启动</li>
+<li>如果PC只有一个USB 3.0接口，其他USB接口为USB
+2.0接口，建议将USB启动盘插到USB
+2.0接口（暂时<strong>不要</strong>插入64G
+U盘），重启PC当PC使用U盘启动盘启动时再插入64GU盘；</li>
+<li>系统启动后按照Live USB 系统的安装指引完成系统开始安装
+<ol type="a">
+<li>需要注意的是在设置安装盘时务必选择安装到64G
+U盘，<strong>如果错配成PC硬盘安装时会清除硬盘上的数据</strong>；</li>
+<li>引导程序也要选择安装到64G U盘上 &gt; 如果不清楚64G U盘挂载信息可用
+<code>sudo fdisk -l</code> 命令查询，或者简单用盘大小判断。</li>
+</ol></li>
+</ol>
+<p>整个安装过程都是图形化操作，其他安装设置这里就不赘述了。安装完成之后系统会要求重启，重启时请拔掉4G启动盘，系统启动时就会使用安装到U盘的MX
+Linux启动。</p></li>
+<li><p>设置MX Linux MX Linux是基于Debian
+10稳定版的发行版本，相关Debian文档进行设置，本文只说明几个关键设置。</p>
+<ul>
+<li><p>设置国内源</p>
+<ul>
+<li>不建议使用MX Linux图形化的repo manager修改源，repo
+manager修改非security源，security
+源还是使用debian，更新、安装还是很慢。</li>
+<li>建议按照清华镜像站的帮助<a
+href="https://mirrors.tuna.tsinghua.edu.cn/help/debian/"
+class="uri">https://mirrors.tuna.tsinghua.edu.cn/help/debian/</a>直接修改/etc/apt/sources.list</li>
+</ul></li>
+<li><p>更新系统 <code>sudo apt update &amp; upgrade</code></p></li>
+<li><p>安装中文输入法 推荐使用rime中文输入法:<a
+href="http://www.rime.im"
+class="uri">http://www.rime.im</a>。刚开始安装时直接按照rime官网指导使用如下命令安装rime输入法：
+<code>sudo apt intall ibus-rime</code>
+安装成功后遇到2个折腾了很久的问题：</p>
+<ol type="1">
+<li><p>rime部署时报错：
+rime提示部署失败，错误日志记录在/tmp/目录下，实际该目录下找不到错误文件，重试多次均无法使用</p></li>
+<li><p>Ibus不能随系统启动
+首先按照系统提示在.bashrc中添加环境变量，实际并不能生效； <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export XMODIFIERS=@im=ibus</span><br><span class="line">export GTK_IM_MODULE=ibus </span><br><span class="line">export QT_IM_MODULE=ibus</span><br></pre></td></tr></table></figure>
+于是又在百度查到有些人建议在/etc/environment或者/etc/profile中配置均无法正常工作，折腾了2个小时也无法解决问题，于是就想到在linxu系统自动启动程序中增加ibus-daemon
+-dx命令，保存了一下session貌似可以正常启动ibus了，但是rime仍然无法正确工作，还是放弃了此方法。最终通过bing搜索引擎在MX
+Linux的官网上查到配置中文输入法的wiki<a
+href="https://mxlinux.org/wiki/other/chinese-simplified-input/"
+class="uri">https://mxlinux.org/wiki/other/chinese-simplified-input/</a>，同时在archwiki查询ibus相关指导<a
+href="https://wiki.archlinux.org/index.php/IBus"
+class="uri">https://wiki.archlinux.org/index.php/IBus</a>，最终按照指导配置，ibus
+和rime均能够正常工作。</p>
+<ul>
+<li>具体设置如下：</li>
+</ul>
+<ol type="a">
+<li>在.xprofile和.bashrc中配置 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export XMODIFIERS=@im=ibus</span><br><span class="line">export GTK_IM_MODULE=ibus </span><br><span class="line">export QT_IM_MODULE=ibus</span><br><span class="line">ibus-daemon -drx</span><br></pre></td></tr></table></figure></li>
+<li>通过MX Package
+Installer安装chinese-ibus，系统在安装过程中会同步安装关联的im-config工具，执行im-config
+-n ibus</li>
+<li>重启PC，ibus和rime均能够正常工作</li>
+</ol></li>
+</ol>
+<blockquote>
+<p>实际在输入的安装过程中，mxlinux
+wiki和archwiki配置如何时ibus和rime正常工作暂未深入研究，后续有机会补充Display
+Manager和profile文件bashrc文件之间关系后续再详细说明</p>
+</blockquote></li>
+</ul></li>
+<li><p>几点折腾感悟</p>
+<ul>
+<li>技术试用、学习过程中遇到阻塞性问题，尽量在官方英文文档中查找解决问题的方法；</li>
+<li>国内百度搜索出来的东西实在不敢恭维了，<strong>使用百度搜索即使用多个英文关键字也无法搜索出强管理的英文官方网址</strong>，使用bing搜索前5条即可找到官方后者权威技术材料；</li>
+<li>Arch
+linux指导文档详细且全面，知识点之间的关联性非常好，而且文档指导性很强；</li>
+<li>MX Linux并不适合初学者用，遇到问题常常的方案很难解决；</li>
+<li>Debian稳定性比较好，在10年ThinkPad T400 + 64G
+U盘上运行的很流畅，没有出现在Manjaro、LinuxMint上出现卡死问题（基本上是由于浏览器、编辑器等软件要求硬件加速导致的）</li>
+</ul></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Windwos 10 WSL2中安装Docker</title>
+    <url>/2020/07/26/2020-07-26-20/</url>
+    <content><![CDATA[<p>最近在学习kubernets，正在阅读《Kubernetes in
+action》一书，为了感性化的理解书中内容决定同步在办公PC上安装书中涉及到工具和代码，今天先完成在win
+10 WSL2中安装Docker。首先在win 10
+WSL2中安装Docker想法是基于微软宣称的WSL2内核是真正的Linux内核，也就想当然的认为WSL2中的Ubuntu
+20.04和在PC上直接安装是一致的，结果在安装过程中遇到各种小插曲。</p>
+<ul>
+<li><p>打开硬件虚拟化支持
+在BIOS中设置Intel虚拟化支持，进入到Virtualization选项中，设置Intel
+Virtual
+Technology为enable。重启以后即可在windows任务管理器-〉性能面板中查询虚拟化已开启。</p></li>
+<li><p>升级WSL-〉WSL2</p>
+<ul>
+<li><p>升级win10到支持WLS2版本，Version 2004, Build 19041 or
+higher;</p></li>
+<li><p>设置WSL版本
+在cmd中输入如下命令：<code>wsl --set-default-version 2</code>，将wsl版本设置为WSL2。</p></li>
+<li><p>安全ubuntu 20.04 在windows store中搜索ubuntu 20.04，安装ubuntu
+20.04版本；安装完成后启动ubuntu 20.04系统提示</p></li>
+</ul>
+<p>详细配置参考：https://docs.microsoft.com/en-us/windows/wsl/</p></li>
+<li><p>安装Docker</p>
+<ul>
+<li>安装windows 10版本的Docker
+不要直接使用系统apt的命令安装docker.io；建议下载windows
+10的Docker版本，设置启动WSL即可。</li>
+<li>检查Docker安装是否成功
+使用：<code>sudo docker version</code>查询docker版本：</li>
+</ul>
+<ol type="1">
+<li>如果显示如下信息则说明server端没有启动或者连接失败：
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Client:</span><br><span class="line">Version:           19.03.12-ce</span><br><span class="line">API version:       1.40</span><br><span class="line">Go version:        go1.14.4</span><br><span class="line">Git commit:        48a66213fe</span><br><span class="line">Built:             Wed Jul  1 17:05:50 2020</span><br><span class="line">OS/Arch:           linux/amd64</span><br><span class="line">Experimental:      false</span><br><span class="line">Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &quot;http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version&quot;: dial unix /var/run/docker.sock: connect: permission denied</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>解决方案：
+<ul>
+<li>使用<code>sudo docker version</code>查询，如果仍然显示失败；</li>
+<li>检查server是否启动</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>如果显示如下信息则说明启动成功： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Client:</span><br><span class="line">Version:           19.03.12-ce</span><br><span class="line">API version:       1.40</span><br><span class="line">Go version:        go1.14.4</span><br><span class="line">Git commit:        48a66213fe</span><br><span class="line">Built:             Wed Jul  1 17:05:50 2020</span><br><span class="line">OS/Arch:           linux/amd64</span><br><span class="line">Experimental:      false</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line">Engine:</span><br><span class="line">Version:          19.03.12-ce</span><br><span class="line">API version:      1.40 (minimum version 1.12)</span><br><span class="line">Go version:       go1.14.4</span><br><span class="line">Git commit:       48a66213fe</span><br><span class="line">Built:            Wed Jul  1 17:05:26 2020</span><br><span class="line">OS/Arch:          linux/amd64</span><br><span class="line">Experimental:     false</span><br><span class="line">containerd:</span><br><span class="line">Version:          v1.3.4.m</span><br><span class="line">GitCommit:        d76c121f76a5fc8a462dc64594aea72fe18e1178.m</span><br><span class="line">runc:</span><br><span class="line">Version:          1.0.0-rc91</span><br><span class="line">GitCommit:        24a3cf88a7ae5f4995f6750654c0e2ca61ef4bb2</span><br><span class="line">docker-init:</span><br><span class="line">Version:          0.18.0</span><br><span class="line">GitCommit:        fec3683</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>配置Docker</p>
+<ul>
+<li>配置国内源 在Windows中配置国内源
+配置Dokcer国内源时需要打开（图形化的）Docker
+Desktop，直接设置国内源即可；如果
+在Linux系统中配置源，直接修改/etc/docker/daemon.json文件即可。详细请参考:<a
+href="https://docs.docker.com/registry/recipes/mirror/"
+class="uri">https://docs.docker.com/registry/recipes/mirror/</a>
+配置文件格式为JSON格式，例如： <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://&lt;my-docker-mirror-host&gt;&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure> 常用的国内Docker如下：
+<ul>
+<li>docker官方中国区: https://registry.docker-cn.com</li>
+<li>网易: http://hub-mirror.c.163.com</li>
+<li>ustc: http://docker.mirrors.ustc.edu.cn 可以同时配置多个源，例如：
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul></li>
+<li><p>重启Docker服务即可生效 在Linux执行如下命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+如果重启提示错误可以可根据提示的命令定位错误原因。 &gt; Job for
+docker.service failed because the control process exited with error
+code. &gt; &gt; See "systemctl status docker.service" and "journalctl
+-xe" for details.</p></li>
+<li><p>查询配置是否生效 <code>sudo docker info</code></p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Kubernetes</tag>
+        <tag>WSL2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>完成第一个docker应用程序</title>
+    <url>/2020/07/28/2020-07-28-23/</url>
+    <content><![CDATA[<p>本文参考《Kubernetes in
+action》中的案例，部署一个node.js应用。在vscode中搭建node.js开发环境请自行百度。</p>
+<ul>
+<li><p>创建应用程序</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">req,res</span>)&#123; </span><br><span class="line">  res.<span class="title function_">writeHead</span>(<span class="number">200</span>,&#123;<span class="string">&#x27;Content-Type&#x27;</span>:<span class="string">&#x27;text/plain&#x27;</span>&#125;);</span><br><span class="line">  res.<span class="title function_">end</span>(<span class="string">&#x27;hello node.js&#x27;</span>);</span><br><span class="line">  &#125;).<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="string">&#x27;0.0.0.0&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server running at http://localhost:3000&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用 node app.js启动应用程序，使用curl
+localhost:3000即可验证应用部署是否成功。</p>
+</blockquote></li>
+<li><p>编写Dockerfile</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">12</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> app.js /app.js </span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [ <span class="string">&quot;node&quot;</span>, <span class="string">&quot;app.js&quot;</span> ]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+注意：
+<ol type="1">
+<li>dockerfile 和app.js 在同一目录下</li>
+<li>node版本号最好根据当期开发环境中版本保存一致，具体版本号使用<code>node -v</code>查询</li>
+</ol>
+</blockquote></li>
+<li><p>制作镜像
+在dockerfile目录下执行命令：<code>sudo docker build -t kubia .</code></p></li>
+<li><p>运行程序
+<code>sudo docker run --name kubia-container -p 3000:3000 -d kubia</code></p></li>
+<li><p>验证应用 在浏览器中访问<a href="http://docker-ip:3000"
+class="uri">http://docker-ip:3000</a>，浏览器显示hello node.js。docker
+ip可以通过ifconfig/ipconfig 命令查询</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用minikube部署本地镜像</title>
+    <url>/2020/08/12/2020-08-12-23/</url>
+    <content><![CDATA[<h2 id="启用本地镜像hub">启用本地镜像Hub</h2>
+<ul>
+<li><p>使用如下命令启动本地镜像仓库</p>
+<p><code>sudo docker run -d -p 5000:5000 --restart=always --name registry registry</code></p></li>
+<li><p>查询是否启用成功</p>
+<p><code>curl -X GET 172.17.0.1:5000/v2/_catalog</code></p>
+<p>因为当前没有Push任何镜像到本地镜像仓库，查询结果是空。</p></li>
+</ul>
+<h2 id="push镜像到local-hub">Push镜像到local Hub</h2>
+<ul>
+<li><p>为本地镜像打一个tag</p>
+<p><code>docker tag kubia 172.17.0.1:5000/kubia</code></p></li>
+<li><p>向本地镜像仓库推送镜像</p>
+<p><code>docker push 172.17.0.1:5000/kubia</code></p></li>
+<li><p>再次查询本地镜像仓库</p>
+<p><code>curl -X GET 172.17.0.1:5000/v2/_catalog</code></p>
+<p>返回: <code>&#123;"repositories":["kubia"]&#125;</code></p></li>
+</ul>
+<h2 id="添加本地镜像到配置文件">添加本地镜像到配置文件</h2>
+<p><code>sudo vim /etc/docker/daemon.json</code></p>
+<p>加入如下信息：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;insecure-registries&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;172.17.0.1:5000&quot;</span><span class="punctuation">]</span> <span class="comment">//增加本地镜像地址</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的配置需要注意：172.17.0.1:5000，需要和tag镜像信息保持一致;
+重启docker服务是配置生效： <code>systemctl restart docker</code></p>
+</blockquote>
+<h2 id="新建一个minikube集群">新建一个minikube集群</h2>
+<p><code>minikube start --driver=docker --insecure-registry="172.17.0.1:5000" --registry-mirror="https://hub-mirror.c.163.com"</code></p>
+<blockquote>
+<p>这里的本地ip地址必须和上述配置的一致。 由于docker
+pull镜像默认使用的https协议，因此需要明确告诉docker服务和minikube使用http协议（insecure-registry）</p>
+</blockquote>
+<h2 id="从local-registry运行一个docker应用">从local
+registry运行一个docker应用</h2>
+<ul>
+<li><p>运行docker应用</p>
+<p><code>kubectl run kubia --image=172.17.0.1:5000/kubia --port 3000</code></p>
+<p>系统会返回：pod/kubia created</p>
+<p>docker
+run是运行一个rs，而不是delploy一个应用，无需要指定部署文件</p></li>
+<li><p>查询POD信息</p>
+<p>kubectl get pods，系统会返回pod运行状态，如果有异常可以使用
+<code>kubectl describe pod kubia</code> 查询详细信息。
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NAME    READY   STATUS    RESTARTS   AGE</span><br><span class="line">kubia   1/1     Running   0          16s</span><br></pre></td></tr></table></figure></p></li>
+<li><p>创建服务对象
+此时虽然已经集群内部部署成功，应用仍然无法从集群外部访问，此时需要通过服务开放接口</p>
+<p><code>sudo kubectl expose pod kubia --name kubia-http --type=LoadBalancer</code></p>
+<blockquote>
+<p>由于minikube不支持LoaderBalancer类型，使用默认的type类型也可以。</p>
+</blockquote></li>
+<li><p>列出服务</p>
+<p><code>kubectl get services</code> 系统返回服务信息：</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">NAME         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">Kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;        443/TCP          13m</span><br><span class="line">kubia-http   LoadBalancer   10.99.35.111   &lt;pending&gt;     3000:31902/TCP   97s</span><br></pre></td></tr></table></figure> 此时查询到服务仍然未分配外部IP，minikube可以使用
+<code>minikube service kubia-http</code>访问的服务的IP和端口。</p>
+<p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|-----------|------------|-------------|---------------------------|</span><br><span class="line">| NAMESPACE |    NAME    | TARGET PORT |            URL            |</span><br><span class="line">|-----------|------------|-------------|---------------------------|</span><br><span class="line">| default   | kubia-http |        3000 | http://192.168.3.15:31902 |</span><br><span class="line">|-----------|------------|-------------|---------------------------|</span><br><span class="line"></span><br></pre></td></tr></table></figure> 使用<a href="http://192.168.3.15:31902"
+class="uri">http://192.168.3.15:31902</a>即可访问服务。</p></li>
+</ul>
+<h2 id="podservice和rc之间的关系">pod，service和rc之间的关系</h2>
+<img src="/2020/08/12/2020-08-12-23/2020-08-12-23-1.jpg" class="">
+<h2 id="镜像推送部署和应用部署流程">镜像推送部署和应用部署流程</h2>
+<img src="/2020/08/12/2020-08-12-23/2020-08-12-23-2.jpg" class="">
+]]></content>
+  </entry>
+  <entry>
+    <title>Kubernetes发现服务</title>
+    <url>/2020/09/02/2020-09-02-20/</url>
+    <content><![CDATA[<h2 id="kubernetes发现服务">Kubernetes发现服务</h2>
+<p>由于Kubernetes的POD的生命是短暂的，可以随时被创建和销毁，不能通过指定IP和端口号被客户端发现。另外，对于水平伸缩的POD，由多个POD提供服务，客户端也无需关心由那个POD提供服务，也就无需关心POD的部署位置。</p>
+<p>通过引入服务（Service）提供稳定外部访问机制。</p>
+<p>我们可以为服务创建多个端口。例如：一个servcie可以有80和443端口，通过80和443端口将外部访问转发到POD的8080和8443端口。</p>
+<ul>
+<li>服务发现
+<ul>
+<li><p>通过环境变量发现服务
+服务的创建早于POD，POD创建时k8s会通过环境变量发现服务；</p></li>
+<li><p>通过DNS发现服务 k8s集群提供了一个kube-dns
+POD，所有的POD都使用DNS（通过修改POD的/etc/resolv.conf文件实现）。</p></li>
+<li><p>通过FQPN发现服务</p></li>
+</ul></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes将服务暴露给外部方式</title>
+    <url>/2020/09/16/2020-09-16-22/</url>
+    <content><![CDATA[<p>kubernets集群内部的服务可以直接环境变量、内部DNS等方式被发现，并在集群内部提供服务。如何将Kubernetes的服务暴露给外部客户端呢？
+Kubernetes提供以下集中方式将服务暴露给开外部客户端：</p>
+<h2 id="通过nodeport暴露服务">通过NodePort暴露服务</h2>
+<p>顾名思义，将服务类型设置成NodePort方式，Kubernetes会在集群每个节点上打开一个端口，将该端口的流量转发到服务的POD。</p>
+<img src="/2020/09/16/2020-09-16-22/2020-09-16-23-45-07.png" class="">
+<h2 id="通过负载均衡器暴露">通过负载均衡器暴露</h2>
+<p>负载均衡方式实际是NodePort方式的增强，将服务类型设置成LoadBalancer方式实际是通过云基础架构提供的负载均衡器，将流量转发到集群内部的NodePort上。</p>
+<img src="/2020/09/16/2020-09-16-22/2020-09-16-23-45-08.jpg" class="">
+<h2 id="通过ingress暴露">通过Ingress暴露</h2>
+<p>Ingress是Kubernetes一种资源，通过类似LoadBalancer类似的能力，区别在于每个LoadBalancer都需要一个独立的公网IP，而Ingress只需要一个公网IP即可根据规则将流量转发到对应的服务。</p>
+<img src="/2020/09/16/2020-09-16-22/2020-09-16-23-45-09.jpg" class="">
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes挂载存储</title>
+    <url>/2020/09/17/2020-09-17-22/</url>
+    <content><![CDATA[<h2 id="示例说明">示例说明</h2>
+<p>为演示在Kubernetes挂载存储以下面为例： <img src="/2020/09/17/2020-09-17-22/2020-09-21-21-48-12.png" class="" title="挂载存储"></p>
+<ul>
+<li><p>fortune进程
+利用fortune游戏每10秒钟更新一次html文档；并将更新过程钟写入日志。</p></li>
+<li><p>web-server进程
+使用nginx作为web服务器向外提供服务，客户展示fortune生成的html文件。</p></li>
+<li><p>log-server进程
+使用nginx作为服务器向外提供服务，可以查询fortune日志。</p></li>
+</ul>
+<p>分别将上述进程部署到不同的容器中，容器间通过挂载emptyDir卷共享信息。</p>
+<h2 id="测试代码">测试代码</h2>
+<ul>
+<li>fortune程序</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">&quot;exit&quot;</span> SIGINT</span><br><span class="line"><span class="built_in">mkdir</span> /var/htdocs</span><br><span class="line"><span class="built_in">mkdir</span> /var/fortune</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> : </span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">    <span class="built_in">echo</span> $(<span class="built_in">date</span>) writing fortune to /var/htdocs/index.html &gt;&gt; /var/log/fortune/$(<span class="built_in">date</span> +%Y-%m-%d).<span class="built_in">log</span></span><br><span class="line">    /usr/games/fortune &gt; /var/htdocs/index.html</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sleep</span> 10</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>每10秒钟生成一次html文件，并记录生成日志</p>
+</blockquote>
+<ul>
+<li>fortune的dockerfile</li>
+</ul>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update ; apt install -y fortune</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> fortuneloop.sh /bin/fortuneloop.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> /bin/fortuneloop.sh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>将三个示例容器部署到一个POD中</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nginx:log源于nginx:alpine镜像，只是将nginx默认80端口修改成8080端口，将默认的html
+root目录修改成/usr/share/nginx/log目录，具体修改方法下次在详细讲。</p>
+</blockquote>
+<ul>
+<li>建立一个NodePort类型的Service对外提供web服务</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">fortune-web-nodeport</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span>  <span class="string">fortune</span> </span><br><span class="line">  <span class="attr">type:</span>  <span class="string">NodePort</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span>  <span class="number">8088</span></span><br><span class="line">    <span class="attr">targetPort:</span>  <span class="number">80</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="number">30157</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意selector实际是按照POD中容器标签进行选择的，因此该信息必须和POD中设置的标签保持一致；
+targetPort和容器端口一致，nginx:alpine默认端口是80端口</p>
+</blockquote>
+<ul>
+<li>建立一个NodePort类型的Service对外提供log服务</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span>  <span class="string">fortune-log-nodeport</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span>  <span class="string">fortune</span></span><br><span class="line">  <span class="attr">type:</span>  <span class="string">NodePort</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span>  <span class="number">8090</span></span><br><span class="line">    <span class="attr">targetPort:</span>  <span class="number">8080</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="number">30159</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意selector实际是按照POD中容器标签进行选择的，因此该信息必须和POD中设置的标签保持一致；
+targetPort和容器端口一致，nginx:log默认端口是8080端口</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">fortune-web.local.com</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">                <span class="attr">backend:</span></span><br><span class="line">                      <span class="attr">serviceName:</span> <span class="string">fortune-web-nodeport</span></span><br><span class="line">                      <span class="attr">servicePort:</span> <span class="number">8088</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">fortune-log.local.com</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">                <span class="attr">backend:</span></span><br><span class="line">                      <span class="attr">serviceName:</span> <span class="string">fortune-log-nodeport</span></span><br><span class="line">                      <span class="attr">servicePort:</span> <span class="number">8090</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过Ingress对外提供访问策略，分别根据不同的域名选择到不同的服务中。
+新版本的Kubernetes提供了新的网络策略接口，在后续文章中详细测试。</p>
+</blockquote>
+<ul>
+<li>配置域名和IP地址</li>
+</ul>
+<p>在minikube中创建ingress后可以通过：<code>kubectl get ingress</code>
+查询ingress信息，该信息中包含了域名和IP地址的对应信息，在/etc/hosts中配置该信息即可在本机通过域名访问服务。</p>
+<h2 id="测试结果">测试结果</h2>
+<ul>
+<li><p>查询资源信息 <img src="/2020/09/17/2020-09-17-22/2020-09-21-23-45-41.png" class=""></p></li>
+<li><p>修改hosts文件 <img src="/2020/09/17/2020-09-17-22/2020-09-21-23-47-25.png" class=""></p></li>
+<li><p>访问web和log服务 <img src="/2020/09/17/2020-09-17-22/2020-09-21-23-49-32.png" class=""></p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改docker hub上的官方镜像</title>
+    <url>/2020/09/22/2020-09-22-23/</url>
+    <content><![CDATA[<p>之前一直有个疑问，如果要在同一个Kubernetes的POD中部署两个系统镜像的容器，两个容器岂不是会有资源（网络端口号，文件等）冲突。在尝试在Kubernetes挂载不同的存储时就遇到同一个nginx镜像部署在同一个POD中，第二个POD始终失败的问题，查看日志也提示尝试多次终止了容器。猜测应该是在同一个POD中端口冲突导致第二个容器启动失败，于是修改官方nginx镜像的端口号成功在一个POD中启动了两个nginx容器。</p>
+<p>具体操作如下：</p>
+<h2 id="从dokcer-hub官方下载nginxalpine镜像">从dokcer
+hub官方下载nginx:alpine镜像</h2>
+<p><code>docker pull nginx:alpine</code></p>
+<h2 id="查看镜像中的默认配置">查看镜像中的默认配置</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it --name nginx  nginx:alpine /bin/sh</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+<h2 id="修改官方镜像">修改官方镜像</h2>
+<ul>
+<li>根据官方镜像修改端口号及默认目录</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">user  nginx;</span><br><span class="line">worker_processes  auto;</span><br><span class="line"></span><br><span class="line">error_log  /var/log/nginx/error.log warn;</span><br><span class="line">pid        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       8080;</span><br><span class="line">        listen  [::]:8080;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/log;</span><br><span class="line">            # index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新的dockerfile</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx:alpine</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /usr/share/nginx/log</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> index.html /usr/share/nginx/log/index.html</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> nginx.conf /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>构建新的镜像</li>
+</ul>
+<p><code>docker build -t nginx:log .</code></p>
+<p>本地测试成功以后就可以推送到自己的镜像仓库了：）。</p>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes使用ConfigMap配置应用程序（一）</title>
+    <url>/2020/09/28/2020-09-28-22/</url>
+    <content><![CDATA[<p>传统的应用程序在部署时往往需要通过命令行参数、环境变量、配置文件等方式配置应用程序。Kubernetes应用程序可以通过ConfigMap和Secret来配置应用程序。ConfigMap和Secret的区别主要是Secret用于敏感数据配置，数据在Kubernetes中是加密存储的。</p>
+<p>选择ConfigMap和Secret的原则比较简单：</p>
+<ul>
+<li>非敏感数据则使用ConfigMap配置；</li>
+<li>敏感数据使用Secret配置；</li>
+<li>如果既有敏感数据又有非敏感数据则使用Secret配置。</li>
+</ul>
+<p>ConfigMap和Secret使用方式类似，这里主要描述ConfigMap的使用方式。</p>
+<p>这次还是以fortune应用程序为例，通过ConfigMap向fortune传递参数调整程序刷新的时间间隔。首先我看一下不借助ConfigMap我们如何通过命令参数和环境变量配置应用。</p>
+<h2 id="使用命令参数配置应用">1.使用命令参数配置应用</h2>
+<h3 id="修改fortune镜像增加间隔参数">修改fortune镜像，增加间隔参数</h3>
+<ul>
+<li>修改fortuneloop.sh，增加间隔参数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">&quot;exit&quot;</span> SIGINT</span><br><span class="line">INTERVAL=<span class="variable">$1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> /var/htdocs</span><br><span class="line"><span class="built_in">mkdir</span> /var/fortune</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Configured to generate new fortune every <span class="variable">$INTERVAL</span> seconds.</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> $(<span class="built_in">date</span>) writing fortune to /var/htdocs/index.html &gt;&gt; /var/log/fortune/$(<span class="built_in">date</span> +%Y-%m-%d).<span class="built_in">log</span></span><br><span class="line">    /usr/games/fortune &gt; /var/htdocs/index.html</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sleep</span> <span class="variable">$INTERVAL</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改Dockerfile增加默认参数</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update ; apt install -y fortune</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> fortuneloop.sh /bin/fortuneloop.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/bin/fortuneloop.sh&quot;</span>]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;10&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>重新制作镜像:<code>docker build -t 172.17.0.1:5000/fortune:args .</code>，并推送本地镜像仓库</p>
+<ul>
+<li>本地运行镜像测试</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name fortune-args -it 172.17.0.1:5000/fortune:args 15</span><br><span class="line">Configured to generate new fortune every 15 seconds.</span><br></pre></td></tr></table></figure>
+<h3 id="在pod中使用args覆盖容器参数">在POD中使用args覆盖容器参数</h3>
+<ul>
+<li>修改POD配置文件</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:args</span></span><br><span class="line">    <span class="attr">args:</span> [<span class="string">&quot;30&quot;</span>]</span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样重新创建POD即可看到应用参数更新成"30"秒。</p>
+</blockquote>
+<h2 id="使用环境变量配置应用">2.使用环境变量配置应用</h2>
+<h3
+id="修改fortune镜像增加间隔环境变量">修改fortune镜像，增加间隔环境变量</h3>
+<ul>
+<li>修改fortuneloop.sh，使用INTERVAL代替默认值</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">trap</span> <span class="string">&quot;exit&quot;</span> SIGINT</span><br><span class="line"><span class="built_in">mkdir</span> /var/htdocs</span><br><span class="line"><span class="built_in">mkdir</span> /var/fortune</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Configured to generate new fortune every <span class="variable">$INTERVAL</span> seconds.</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> $(<span class="built_in">date</span>) writing fortune to /var/htdocs/index.html &gt;&gt; /var/log/fortune/$(<span class="built_in">date</span> +%Y-%m-%d).<span class="built_in">log</span></span><br><span class="line">    /usr/games/fortune &gt; /var/htdocs/index.html</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sleep</span> <span class="variable">$INTERVAL</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改Dockerfile增加默认参数</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update ; apt install -y fortune</span></span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> fortuneloop.sh /bin/fortuneloop.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/bin/fortuneloop.sh&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>重新制作镜像:<code>docker build -t 172.17.0.1:5000/fortune:env .</code>，并推送本地镜像仓库</p>
+<h3 id="在pod中使用env覆盖容器参数">在POD中使用env覆盖容器参数</h3>
+<ul>
+<li>修改POD配置文件</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:env</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">INTERVAL</span></span><br><span class="line">      <span class="attr">value:</span> <span class="string">&quot;45&quot;</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这样重新创建POD即可看到应用参数更新成"45"秒。</p>
+</blockquote>
+<p>上述两种方式，无论时通过args方式还是env方式都是将配置参数硬编码在POD配置文件中。实际应用部署的过程中，我们希望配置参数和POD配置能够解藕，这个就需要用到Kubernetes提供的ConfigMap来实现。</p>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes使用ConfigMap配置应用程序（二）</title>
+    <url>/2020/09/29/2020-09-29-20/</url>
+    <content><![CDATA[<p>上一篇学习了通过args方式还是env方式都是将配置应用，配置参数硬编码在POD配置文件中，实际应用部署的过程中，我们希望配置参数和POD配置能够解藕，今天我们就看一下如何用ConfigMap配置应用。</p>
+<h2 id="创建一个configmap">创建一个ConfigMap</h2>
+<ul>
+<li>使用命令行创建</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl create configmap fortune-configmap --from-literal=sleep-interval=60</span><br></pre></td></tr></table></figure>
+<p>创建成功以后可以通过kubectl命令查询configmap的配置。</p>
+<p><code>kubectl get configmap fortune-configmap -o yaml</code>
+查询结果如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">sleep-interval:</span> <span class="string">&quot;60&quot;</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">creationTimestamp:</span> <span class="string">&quot;2020-09-29T12:29:40Z&quot;</span></span><br><span class="line">  <span class="attr">managedFields:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line">    <span class="attr">fieldsType:</span> <span class="string">FieldsV1</span></span><br><span class="line">    <span class="attr">fieldsV1:</span></span><br><span class="line">      <span class="attr">f:data:</span></span><br><span class="line">        <span class="string">.:</span> &#123;&#125;</span><br><span class="line">        <span class="attr">f:sleep-interval:</span> &#123;&#125;</span><br><span class="line">    <span class="attr">manager:</span> <span class="string">kubectl-create</span></span><br><span class="line">    <span class="attr">operation:</span> <span class="string">Update</span></span><br><span class="line">    <span class="attr">time:</span> <span class="string">&quot;2020-09-29T12:29:40Z&quot;</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune-configmap</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">resourceVersion:</span> <span class="string">&quot;2434&quot;</span></span><br><span class="line">  <span class="attr">selfLink:</span> <span class="string">/api/v1/namespaces/default/configmaps/fortune-configmap</span></span><br><span class="line">  <span class="attr">uid:</span> <span class="string">a6562e65-1431-47b1-b153-e4c270561a2c</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用yaml文件创建</li>
+</ul>
+<p>上述查询到信息将metadata中只保留名称就可以创建一个简单的ConfigMap配置文件，使用如下命令即可通过文件创建ConfigMap
+<code>kubectl create -f fortune-congfigmap.yaml</code></p>
+<h2
+id="在pod文件中使用congfigmap配置应用">在POD文件中使用CongfigMap配置应用</h2>
+<ul>
+<li>使用环境变量配置应用 修改POD配置文件，使用ConfigMap配置env参数</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune-env</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune-env</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:env</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">INTERVAL</span></span><br><span class="line">      <span class="attr">valueFrom:</span></span><br><span class="line">        <span class="attr">configMapKeyRef:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">fortune-configmap</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">sleep-interval</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>重新创建POD<code>kubectl create -f fortune-pod-env.yaml</code>，
+此时再查询fortune每个60秒更新一次。实际应用部署时，也可以修改ConfigMap的配置，当新新建POD时会使用新的ConfigMap值。</p>
+<ul>
+<li>使用参数配置应用</li>
+</ul>
+<p>和使用环境变量配置POD类似，修改POD配置文件，使用ConfigMap配置args参数</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fortune-args</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">fortune-args</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html-gen</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/fortune:args</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">INTERVAL</span></span><br><span class="line">      <span class="attr">valueFrom:</span></span><br><span class="line">        <span class="attr">configMapKeyRef:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">fortune-configmap</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">sleep-interval</span></span><br><span class="line">    <span class="attr">args:</span> [<span class="string">$(INTERVAL)</span>]</span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/htdocs</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/var/log/fortune</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">web-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:500/nginx:alpine</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span>  <span class="string">html</span></span><br><span class="line">        <span class="attr">mountPath:</span>  <span class="string">/usr/share/nginx/html</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log-server</span></span><br><span class="line">    <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/nginx:log</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">        <span class="attr">mountPath:</span> <span class="string">/usr/share/nginx/log</span></span><br><span class="line">        <span class="attr">readOnly:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">8080</span></span><br><span class="line">        <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">html</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">log</span></span><br><span class="line">      <span class="attr">emptyDir:</span> &#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>创建POD<code>kubectl create -f fortune-pod-args.yaml</code>，
+此时查询fortune每个60秒更新一次。</p>
+<p>此时，如果删除旧的ConfigMap，重新配置一个新的ConfigMap，再同时删除frotune-env
+pod和fortune-args pod并重新新建POD时会使用新的ConfigMap值。</p>
+<h2 id="configmap可以配置的资源">ConfigMap可以配置的资源</h2>
+<p>从文件、文件夹和字符创建的ConfigMap <img src="/2020/09/29/2020-09-29-20/2020-10-08-10-55-23.png" class="" title="ConfigMap可以使用的资源"></p>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes部署和升级应用</title>
+    <url>/2020/10/14/2020-10-14-19/</url>
+    <content><![CDATA[<p>之前文章中我们都是用POD部署应用，特别是用POD部署应用时如果要更新应用程序，必须先更新镜像（Image）/配置（ConfigMap），删除POD再重新部署应用程序才能整整的更新。Kubernetes提供了更高级的应用部署和升级方法。</p>
+<h2
+id="使用replicationcontroller部署应用">使用ReplicationController部署应用</h2>
+<p>　　 如果用ReplicationController（RC）部署的应用可以通过RC
+update来更新应用。 具体的kubia-rc.yaml文件如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ReplicationController</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubia</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">kubia</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">kubia</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">kubia</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">kubia</span></span><br><span class="line">          <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/kubia:v1</span></span><br><span class="line">          <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>kubectl create -f kubia-rc.yaml</code>创建RC，部署成功以后即可看到根据RC的配置会产生3个副本<code>kubectl get rc,po</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl get po,rc</span><br><span class="line">NAME              READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/kubia-bqszw   1/1     Running   0          62s</span><br><span class="line">pod/kubia-c4cb9   1/1     Running   0          62s</span><br><span class="line">pod/kubia-wxj55   1/1     Running   0          62s</span><br><span class="line"></span><br><span class="line">NAME                          DESIRED   CURRENT   READY   AGE</span><br><span class="line">replicationcontroller/kubia   3         3         3       62s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当前POD到到镜像版本为v1</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl describe po</span><br><span class="line">Name:         kubia-bqszw</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Wed, 14 Oct 2020 20:29:56 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.3</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.3</span><br><span class="line">Controlled By:  ReplicationController/kubia</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://ec65afaeea2e8726530863981512165bec02ceb8e953a3d6575f6ea4ad7cc3f3</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v1</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0a9705988c08da5cc4fd535f40216a7b0ef89325b594ddb97ffcbd220c6731f1</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过<code>kubectl set image rc/kubia kubia=172.17.0.1:5000/kubia:v2</code>更新镜像。此时的应用程序并不会自动更新。当POD
+异常或者手工删除以后RC 会自动拉起一个POD ，保证POD的副本数和RC
+中配置的一致，此时新的POD 就是使用新的镜像创建应用，也就是说有的POD
+使用新的镜像，有的POD
+使用老的镜像。可以通过<code>kubectl describe po</code>查询到POD中容器的镜像版本不同。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl describe po</span><br><span class="line">Name:         kubia-c4cb9</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Wed, 14 Oct 2020 20:29:56 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.4</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.4</span><br><span class="line">Controlled By:  ReplicationController/kubia</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://2b259af30a0c75987f027ac4516a7ea368774bbac4259a732f8141fdbcae376a</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v1</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0a9705988c08da5cc4fd535f40216a7b0ef89325b594ddb97ffcbd220c6731f1</span><br><span class="line">    Port:           3000/TCP</span><br><span class="line">    Host Port:      0/TCP</span><br><span class="line">    State:          Running</span><br><span class="line">      Started:      Wed, 14 Oct 2020 20:30:04 +0800</span><br><span class="line">    Ready:          True</span><br><span class="line">    Restart Count:  0</span><br><span class="line">    Environment:    &lt;none&gt;</span><br><span class="line">    Mounts:</span><br><span class="line">      /var/run/secrets/kubernetes.io/serviceaccount from default-token-d2hsm (ro)</span><br><span class="line">Conditions:</span><br><span class="line">  Type              Status</span><br><span class="line">  Initialized       True </span><br><span class="line">  Ready             True </span><br><span class="line">  ContainersReady   True </span><br><span class="line">  PodScheduled      True </span><br><span class="line">Volumes:</span><br><span class="line">  default-token-d2hsm:</span><br><span class="line">    Type:        Secret (a volume populated by a Secret)</span><br><span class="line">    SecretName:  default-token-d2hsm</span><br><span class="line">    Optional:    <span class="literal">false</span></span><br><span class="line">QoS Class:       BestEffort</span><br><span class="line">Node-Selectors:  &lt;none&gt;</span><br><span class="line">Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">                 node.kubernetes.io/unreachable:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">Events:</span><br><span class="line">  Type    Reason     Age    From               Message</span><br><span class="line">  ----    ------     ----   ----               -------</span><br><span class="line">  Normal  Scheduled  6m43s  default-scheduler  Successfully assigned default/kubia-c4cb9 to minikube</span><br><span class="line">  Normal  Pulled     6m36s  kubelet            Container image <span class="string">&quot;172.17.0.1:5000/kubia:v1&quot;</span> already present on machine</span><br><span class="line">  Normal  Created    6m36s  kubelet            Created container kubia</span><br><span class="line">  Normal  Started    6m35s  kubelet            Started container kubia</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Name:         kubia-s6822                        ‹--自动使用新的镜像创建新的POD</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Wed, 14 Oct 2020 20:35:57 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.6</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.6</span><br><span class="line">Controlled By:  ReplicationController/kubia</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://91fd664961c798256afbfd9b2e6cd47697a817f27803812da26e28d56212371e</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v2</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0709bbd6e3a34f306a16207b79b045e6a4bf33c22a3e7a88404166caee41e51f</span><br><span class="line">    Port:           3000/TCP</span><br><span class="line">    Host Port:      0/TCP</span><br><span class="line">    State:          Running</span><br><span class="line">      Started:      Wed, 14 Oct 2020 20:36:02 +0800</span><br><span class="line">    Ready:          True</span><br><span class="line">    Restart Count:  0</span><br><span class="line">    Environment:    &lt;none&gt;</span><br><span class="line">    Mounts:</span><br><span class="line">      /var/run/secrets/kubernetes.io/serviceaccount from default-token-d2hsm (ro)</span><br><span class="line">Conditions:</span><br><span class="line">  Type              Status</span><br><span class="line">  Initialized       True </span><br><span class="line">  Ready             True </span><br><span class="line">  ContainersReady   True </span><br><span class="line">  PodScheduled      True </span><br><span class="line">Volumes:</span><br><span class="line">  default-token-d2hsm:</span><br><span class="line">    Type:        Secret (a volume populated by a Secret)</span><br><span class="line">    SecretName:  default-token-d2hsm</span><br><span class="line">    Optional:    <span class="literal">false</span></span><br><span class="line">QoS Class:       BestEffort</span><br><span class="line">Node-Selectors:  &lt;none&gt;</span><br><span class="line">Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">                 node.kubernetes.io/unreachable:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">Events:</span><br><span class="line">  Type    Reason     Age   From               Message</span><br><span class="line">  ----    ------     ----  ----               -------</span><br><span class="line">  Normal  Scheduled  42s   default-scheduler  Successfully assigned default/kubia-s6822 to minikube</span><br><span class="line">  Normal  Pulled     38s   kubelet            Container image <span class="string">&quot;172.17.0.1:5000/kubia:v2&quot;</span> already present on machine</span><br><span class="line">  Normal  Created    37s   kubelet            Created container kubia</span><br><span class="line">  Normal  Started    37s   kubelet            Started container kubia</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Name:         kubia-wxj55</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Wed, 14 Oct 2020 20:29:56 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.2</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.2</span><br><span class="line">Controlled By:  ReplicationController/kubia</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://a5195a7ec8573d429445f7c79218372abc887d360b3564c8659b600c236c0248</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v1</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0a9705988c08da5cc4fd535f40216a7b0ef89325b594ddb97ffcbd220c6731f1</span><br><span class="line">    Port:           3000/TCP</span><br><span class="line">    Host Port:      0/TCP</span><br><span class="line">    State:          Running</span><br><span class="line">      Started:      Wed, 14 Oct 2020 20:30:04 +0800</span><br><span class="line">    Ready:          True</span><br><span class="line">    Restart Count:  0</span><br><span class="line">    Environment:    &lt;none&gt;</span><br><span class="line">    Mounts:</span><br><span class="line">      /var/run/secrets/kubernetes.io/serviceaccount from default-token-d2hsm (ro)</span><br><span class="line">Conditions:</span><br><span class="line">  Type              Status</span><br><span class="line">  Initialized       True </span><br><span class="line">  Ready             True </span><br><span class="line">  ContainersReady   True </span><br><span class="line">  PodScheduled      True </span><br><span class="line">Volumes:</span><br><span class="line">  default-token-d2hsm:</span><br><span class="line">    Type:        Secret (a volume populated by a Secret)</span><br><span class="line">    SecretName:  default-token-d2hsm</span><br><span class="line">    Optional:    <span class="literal">false</span></span><br><span class="line">QoS Class:       BestEffort</span><br><span class="line">Node-Selectors:  &lt;none&gt;</span><br><span class="line">Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">                 node.kubernetes.io/unreachable:NoExecute op=Exists <span class="keyword">for</span> 300s</span><br><span class="line">Events:</span><br><span class="line">  Type    Reason     Age    From               Message</span><br><span class="line">  ----    ------     ----   ----               -------</span><br><span class="line">  Normal  Scheduled  6m44s  default-scheduler  Successfully assigned default/kubia-wxj55 to minikube</span><br><span class="line">  Normal  Pulled     6m36s  kubelet            Container image <span class="string">&quot;172.17.0.1:5000/kubia:v1&quot;</span> already present on machine</span><br><span class="line">  Normal  Created    6m36s  kubelet            Created container kubia</span><br><span class="line">  Normal  Started    6m35s  kubelet            Started container kubia</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用ReplicationController部署应用，需要手工选择POD
+逐一进行升级。实际部署应用过程中我们希望这个过程可以可控、且自动完成，这就需要通过更高级更高级的概念来部署应用。</p>
+<h2 id="使用deployment部署应用">使用Deployment部署应用</h2>
+<p>　　
+Kubernetes提供更高级的概念来实现应用的部署、滚动升级以及回滚。一个典型的kubernetes的应用会包含：POD、RepliciaSet以及Deployment。他们之间的关系如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubia</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">kubia</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">kubia</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">kubia</span></span><br><span class="line">        <span class="attr">image:</span> <span class="number">172.17</span><span class="number">.0</span><span class="number">.1</span><span class="string">:5000/kubia:v1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>还是上面的例子，这次将ReplicationController的yaml文件中kinde替换城Deployment，并另存为kubia-deploymnent.yaml，使用<code>kubectl create -f kubia-deployment.yaml</code>重新部署应用，部署成功以后可以功过<code>kubectl get po,rs,deployment</code>查询部署的应用情况。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl get po,rs,deployment</span><br><span class="line">NAME                         READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/kubia-7fc889c9c9-b7b8f   1/1     Running   1          21h</span><br><span class="line">pod/kubia-7fc889c9c9-lp7m8   1/1     Running   1          21h</span><br><span class="line">pod/kubia-7fc889c9c9-qkz9w   1/1     Running   1          21h</span><br><span class="line"></span><br><span class="line">NAME                               DESIRED   CURRENT   READY   AGE</span><br><span class="line">replicaset.apps/kubia-7fc889c9c9   3         3         3       21h</span><br><span class="line"></span><br><span class="line">NAME                    READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">deployment.apps/kubia   3/3     3            3           21h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过<code>kubectl descibe po</code>查询到POD到详细情况如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl describe po</span><br><span class="line">Name:         kubia-7fc889c9c9-b7b8f</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Tue, 13 Oct 2020 22:44:19 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">              pod-template-hash=7fc889c9c9</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.2</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.2</span><br><span class="line">Controlled By:  ReplicaSet/kubia-7fc889c9c9</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://aa524c986c27e53d12961173a5a0adf43a3554e13aeac5fc1c5cca083da09271</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v1                        ‹-- 镜像版本是v1</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0a9705988c08da5cc4fd535f40216a7b0ef89325b594ddb97ffcbd220c6731f1</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="更新应用">更新应用</h2>
+<ul>
+<li>配置更新镜像</li>
+</ul>
+<p><code>kubectl set image deployment/kubia kubia=172.17.0.1:5000/kubia:v2</code></p>
+<p>设置完成以后deployment会自动滚动升级，可以通过<code>kubectl rollout deployment/kubia status</code>查询升级状态，此时查询应用部署的详情可以看到PO,RS更新中或者已经更新成功。
+<code>kubectl get po,rs,deployment</code>
+其中存在2个rs，一个升级前的rs，一个是当前到rs。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl get po,rs,deployment</span><br><span class="line">NAME                         READY   STATUS              RESTARTS   AGE</span><br><span class="line">pod/kubia-7fc889c9c9-b7b8f   1/1     Running             1          21h</span><br><span class="line">pod/kubia-7fc889c9c9-lp7m8   1/1     Running             1          21h</span><br><span class="line">pod/kubia-7fc889c9c9-qkz9w   1/1     Running             1          21h</span><br><span class="line">pod/kubia-84ddcd9474-bv8fl   0/1     ContainerCreating   0          3s      ‹-- 新建POD</span><br><span class="line"></span><br><span class="line">NAME                               DESIRED   CURRENT   READY   AGE</span><br><span class="line">replicaset.apps/kubia-7fc889c9c9   3         3         3       21h          ‹-- 升级前的rs</span><br><span class="line">replicaset.apps/kubia-84ddcd9474   1         1         0       4s           ‹-- 当前的rs</span><br><span class="line"></span><br><span class="line">NAME                    READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">deployment.apps/kubia   3/3     1            3           21h</span><br></pre></td></tr></table></figure>
+<p>查询POD详细信息，可以看到新建到POD已经更新为新到镜像。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl describe po kubia-84ddcd9474-bv8fl                                  ‹-- 新建POD</span><br><span class="line">Name:         kubia-84ddcd9474-bv8fl</span><br><span class="line">Namespace:    default</span><br><span class="line">Priority:     0</span><br><span class="line">Node:         minikube/172.17.0.3</span><br><span class="line">Start Time:   Wed, 14 Oct 2020 20:19:12 +0800</span><br><span class="line">Labels:       app=kubia</span><br><span class="line">              pod-template-hash=84ddcd9474</span><br><span class="line">Annotations:  &lt;none&gt;</span><br><span class="line">Status:       Running</span><br><span class="line">IP:           172.18.0.6</span><br><span class="line">IPs:</span><br><span class="line">  IP:           172.18.0.6</span><br><span class="line">Controlled By:  ReplicaSet/kubia-84ddcd9474</span><br><span class="line">Containers:</span><br><span class="line">  kubia:</span><br><span class="line">    Container ID:   docker://3de190659e28bebcde082b287c7c4c434ab706c08654f6d1c7db3db455304508</span><br><span class="line">    Image:          172.17.0.1:5000/kubia:v2                                ‹-- 镜像版本是v2</span><br><span class="line">    Image ID:       docker-pullable://172.17.0.1:5000/kubia@sha256:0709bbd6e3a34f306a16207b79b045e6a4bf33c22a3e7a88404166caee41e51f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理升级</li>
+</ul>
+<p>此时如果使用<code>kubectl rollout undo deployment/kubia</code>
+即可全部回滚应用，可以通过kubectl rollout
+pause/resume/restart/history等控制滚动升级过程（如果测试过程中难以观察到升级过程，可以讲deployment中副本数量调高）。</p>
+<hr />
+<p>此外，也可以使用StatefulSet部署有状态应用。StatefulSet和Deployment最大的区别是为每个副本POD实例提供店里存储，可以保证POD副本有固定的名字和主机，可以按照预期的顺序启停POD副本。</p>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>minikube addons enable ingress</title>
+    <url>/2020/10/14/2020-10-14-23/</url>
+    <content><![CDATA[<p>由于大家都知道到原因，国内无法直接访问gcr.io和quay.io很多Kubernetes相关镜像无法从国内下载，网上很多大神也给出了薅aliyun羊毛的方案，我自己也试了几次也总是不能成功，使用aliyun提供<a
+href="https://developer.aliyun.com/article/221687">minikube</a>的版本也总是无法启动ingress。</p>
+<p>通过查看启动ingress失败的POD信息发现是无法下载使用到镜像，于是按照网络指导按照如下步骤提前下载镜像到minikube节点，再启动ingress即可成功，具体操作如下：</p>
+<ul>
+<li><p>查询minikube版本对应的ingress镜像版本
+使用<code>kubectl get po -A</code>查询ingress对应POD</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl get po -A</span><br><span class="line">NAMESPACE     NAME                                        READY   STATUS              RESTARTS   AGE</span><br><span class="line">kube-system   coredns-546565776c-xgggd                    1/1     Running             0          27m</span><br><span class="line">kube-system   etcd-minikube                               1/1     Running             0          27m</span><br><span class="line">kube-system   ingress-nginx-admission-create-d9dtl        0/1     Completed           0          28s</span><br><span class="line">kube-system   ingress-nginx-admission-patch-x67q7         0/1     Completed           1          28s</span><br><span class="line">kube-system   ingress-nginx-controller-7bb4c67d67-hp5c7   0/1     ContainerCreating   0          28s</span><br><span class="line">kube-system   kube-apiserver-minikube                     1/1     Running             0          27m</span><br><span class="line">kube-system   kube-controller-manager-minikube            1/1     Running             0          27m</span><br><span class="line">kube-system   kube-proxy-7wbct                            1/1     Running             0          27m</span><br><span class="line">kube-system   kube-scheduler-minikube                     1/1     Running             0          27m</span><br><span class="line">kube-system   storage-provisioner                         1/1     Running             0          27m</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其中名字中包含ingress就是启动ingress新建到POD。</p>
+</blockquote>
+<p>再使用<code>kubectl describe po ingress-nginx-xxx --namespace kube-system</code>查询具体的失败信息，即可查询到失败原因为：获取镜像失败/超时。由于minikube
+1.12.0版本以上的ingress镜像目前在阿里云上也无法下载，我们将minikube的版本切换到1.12.0版本，此时查询到的ingress插件依赖镜像信息如下：</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0</span><br><span class="line">jettech/kube-webhook-certgen:v1.2.0</span><br></pre></td></tr></table></figure></p></li>
+<li><p>手动安装ingress镜像 使用minikube
+ssh登录到minikube的节点上，再动过docker命令手工pull镜像。</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.32.0</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.32.0 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0</span><br><span class="line">docker pull jettech/kube-webhook-certgen:v1.2.0</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0
+镜像可以由aliyun的镜像替代，再重新Tag成原有镜像。</p>
+</blockquote></li>
+<li><p>再次启用ingress
+上述操作均成功以后可以再次启动ingress插件即可秒成功 ：）</p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置Manjaro Linux上ibus-rime输入法</title>
+    <url>/2021/08/09/2021-08-08-09/</url>
+    <content><![CDATA[<p>在Manjaro系统中不能直接通过ibus-setup设置ibus-rime显示模式为水平模式（可能是Manjaro的bug）只能设置字体和文字大小。可以通过直接修改ibus-rime配置文件配置想要的显示方式。</p>
+<p>ibus-rime的配置文件默认在<code>~/.config/ibus/rime/build/</code>目录下，直接将<code>horizontal</code>配置项修改成<code>true</code>即可。</p>
+<p>其他的ibus配置可以参考<a href="https://wiki.archlinux.org/title/IBus"
+class="uri">https://wiki.archlinux.org/title/IBus</a></p>
+]]></content>
+      <tags>
+        <tag>rime</tag>
+        <tag>ibus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用pandoc生成PPT常用命令</title>
+    <url>/2021/09/14/2021-09-13-23/</url>
+    <content><![CDATA[<p>使用markdown + marp或者markdown +
+revealjs可以写PPT。使文档写作过程只专注于写作本身而不是各种格式。其实第一次还是要将常用的格式做好调试（主要是写一些常用的css文件自定义样式），后续则可以在markdown-&gt;html/PDF/docx/pptx/ebook间随意转换了。</p>
+<p>以下主要记录几个常用命令，完整的pandoc手册可以参考：<a
+href="https://pandoc.org/MANUAL.html"
+class="uri">https://pandoc.org/MANUAL.html</a></p>
+<ul>
+<li><p>markdown 2 pptx
+<code>pandoc mark.md -o mark.pptx --reference-doc=template.potx</code></p></li>
+<li><p>mardown 2 revealjs
+<code>pandoc -t revealjs mark.md -o mark.html --self-contained -V revealjs-url=./reveal.js/ --css=custom.css</code></p></li>
+</ul>
+<blockquote>
+<p>-t 参数还可以设置成s5, slidy, slideous, dzslides; -V revealjs-url
+可以制定本地目录reveal.js, 将<a
+href="https://github.com/hakimel/reveal.js"
+class="uri">https://github.com/hakimel/reveal.js</a>下载本地即可; -css
+可以制定css附件，通过定制css文件可以调整显示样式。</p>
+</blockquote>
+<ul>
+<li>对于revealjs可以在文件中设置width和height调整显示大小
+<ul>
+<li>markdown文件示例文件如下：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 使用pandoc生成PPT常用命令</span><br><span class="line">theme: white</span><br><span class="line">width: 1920</span><br><span class="line">height: 1280</span><br><span class="line">author:</span><br><span class="line"><span class="bullet">-</span> author</span><br><span class="line"><span class="section">date: 2021-09-14</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># markdown2pptx</span></span><br><span class="line"></span><br><span class="line"><span class="code">`pandoc mark.md -o mark.pptx --reference-doc=template.potx`</span></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="section"># markdown2revealjs</span></span><br><span class="line"></span><br><span class="line"><span class="code">`pandoc -t revealjs mark.md -o mark.html --self-contained -V revealjs-url=./reveal.js/ --css=custom.css`</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>css文件示例</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.reveal</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:olivedrab</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>pandoc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro安装vscode和edge</title>
+    <url>/2022/09/17/2022-09-17-20/</url>
+    <content><![CDATA[<p>这个方法是从archlinux
+build源手工安装软件。首先需要安装基础的软件包，再下载源编译和安装。</p>
+<h2 id="安装基础包只需要做一次">安装基础包(只需要做一次)</h2>
+<p><code>sudo pacman -S --needed git base-devel</code></p>
+<h2 id="下载编译源">下载编译源</h2>
+<ul>
+<li><p>vscode
+<code>git clone https://aur.archlinux.org/visual-studio-code-bin.git</code></p></li>
+<li><p>edge
+<code>git clone https://aur.archlinux.org/microsoft-edge-stable-bin.git</code></p>
+<blockquote>
+<p>如果不知道具体的编译源路径可以从https://aur.archlinux.org/packages搜索</p>
+</blockquote></li>
+</ul>
+<h2 id="编译并安装">编译并安装</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">~/Downloads cd microsoft-edge-stable-bin</span><br><span class="line">~/Downloads/microsoft-edge-stable-bin makepkg -si</span><br><span class="line">==&gt; 正在创建软件包：microsoft-edge-stable-bin 105.0.1343.42-1 (2022年09月17日 星期六 22时29分04秒)</span><br><span class="line">==&gt; 正在检查运行时依赖关系...</span><br><span class="line">==&gt; 正在检查编译时依赖关系==&gt; 获取源代码...</span><br><span class="line"></span><br><span class="line"> 正在下载 microsoft-edge-stable_105.0.1343.42-1_amd64.deb...</span><br><span class="line"></span><br><span class="line"> Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100  127M  100  127M    0     0  20.0M      0  0:00:06  0:00:06 --:--:-- 22.3M</span><br><span class="line"></span><br><span class="line"> 找到 microsoft-edge-stable.sh</span><br><span class="line"></span><br><span class="line"> 找到 Microsoft Standard Application License Terms - Standalone (free) Use Terms.pdf</span><br><span class="line">==&gt; 正在验证 source 文件，使用sha256sums...</span><br><span class="line">    microsoft-edge-stable_105.0.1343.42-1_amd64.deb ... 通过    microsoft-edge-stable.sh ... 通过    Microsoft Standard Application License Terms - Standalone (free) Use Terms.pdf ... 通过==&gt; 正在释放源码...</span><br><span class="line"></span><br><span class="line"> 正在解压缩 microsoft-edge-stable_105.0.1343.42-1_amd64.deb，使用 bsdtar</span><br><span class="line">==&gt; 正在进入 fakeroot 环境...</span><br><span class="line">==&gt; 正在开始 package()...</span><br><span class="line">==&gt; 正在清理安装...</span><br><span class="line"></span><br><span class="line"> 正在删除 libtool 文件...</span><br><span class="line"></span><br><span class="line"> 正在清除不打算要的文件...</span><br><span class="line"></span><br><span class="line"> 正在移除静态库文件...</span><br><span class="line">==&gt; 正在检查打包问题...</span><br><span class="line">==&gt; 正在构建软件包&quot;microsoft-edge-stable-bin&quot;...</span><br><span class="line"></span><br><span class="line"> 正在生成 .PKGINFO 文件...</span><br><span class="line"></span><br><span class="line"> 正在生成 .BUILDINFO 文件...</span><br><span class="line"></span><br><span class="line"> 正在生成 .MTREE 文件...</span><br><span class="line"></span><br><span class="line"> 正在压缩软件包...</span><br><span class="line">==&gt; 正在离开 fakeroot 环境。==&gt; 完成创建：microsoft-edge-stable-bin 105.0.1343.42-1 (2022年09月17日 星期六 22时29分27秒)</span><br><span class="line">==&gt; 正在安装软件包 microsoft-edge-stable-bin，使用 pacman -U...</span><br><span class="line">正在加载软件包...</span><br><span class="line">正在解析依赖关系...</span><br><span class="line">正在查找软件包冲突...</span><br><span class="line"></span><br><span class="line">软件包 (1) microsoft-edge-stable-bin-105.0.1343.42-1</span><br><span class="line"></span><br><span class="line">全部安装大小：  445.96 MiB</span><br><span class="line"></span><br><span class="line">:: 进行安装吗？ [Y/n] Y</span><br><span class="line">(1/1) 正在检查密钥环里的密钥                                       [####################################] 100%</span><br><span class="line">(1/1) 正在检查软件包完整性                                         [####################################] 100%</span><br><span class="line">(1/1) 正在加载软件包文件                                           [####################################] 100%</span><br><span class="line">(1/1) 正在检查文件冲突                                             [####################################] 100%</span><br><span class="line">(1/1) 正在检查可用存储空间                                         [####################################] 100%</span><br><span class="line">:: 正在处理软件包的变化...</span><br><span class="line">(1/1) 正在安装 microsoft-edge-stable-bin                           [####################################] 100%</span><br><span class="line">microsoft-edge-stable-bin 的可选依赖    libpipewire02: WebRTC desktop sharing under Wayland</span><br><span class="line">    kdialog: for file dialogs in KDE</span><br><span class="line">    gnome-keyring: for storing passwords in GNOME keyring</span><br><span class="line">    kwallet: for storing passwords in KWallet [已安装]</span><br><span class="line">    libunity: for download progress on KDE</span><br><span class="line">    ttf-liberation: fix fonts for some PDFs - CRBug #369991 [已安装]</span><br><span class="line">    xdg-utils [已安装]</span><br><span class="line">:: 正在运行事务后钩子函数...</span><br><span class="line">(1/4) Arming ConditionNeedsUpdate...</span><br><span class="line">(2/4) Refreshing PackageKit...</span><br><span class="line">(3/4) Updating icon theme caches...</span><br><span class="line">(4/4) Updating the desktop file MIME type cache...</span><br><span class="line">~/Downloads/microsoft-edge-stable-bin</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Manjaro下使用grub-customizer修改grub菜单</title>
+    <url>/2022/09/18/2022-09-18-20/</url>
+    <content><![CDATA[<p>Manjaro下没有grub-customizer，可以通过编译源码安装安装。再使用grub-customizer修改grub菜单。
+## 下载源码</p>
+<p>https://launchpad.net/grub-customizer</p>
+<h2 id="编译并安装">编译并安装</h2>
+<ul>
+<li><p>解压缩下载的源码文件
+<code>tar -xvf grub-customizer_5.2.2.tar.gz</code></p></li>
+<li><p>进入到源码的REAME文件，查看源码编译指导，从编译指导中可以查看到依赖项目</p></li>
+</ul>
+<blockquote>
+<p>由于我使用的是Manjaro
+KDE版本，只需要单独安装依赖的gtkmm包以及cmake和make</p>
+</blockquote>
+<ul>
+<li>安装依赖的包</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo pacman -S gtkmm3</span><br><span class="line">sudo pacman -S cmake</span><br><span class="line">sudo pacman -S make</span><br><span class="line">sudo pacman -S pkg-config </span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>编译grub-customizer <code>cmake . &amp;&amp; make</code></p></li>
+<li><p>安装grub-customizer
+<code>sudo make install grub-customizer</code></p></li>
+</ul>
+<h2 id="修改grub菜单">修改grub菜单</h2>
+<p><code>sudo grub-customizer</code>，打开grub-customizer修改或者删除不需要的启动项。</p>
+<blockquote>
+<p><strong>注意</strong> 在Manjaro
+21中务必要保留最后一个内存测试的选项‘Memory
+Tester’，否则更新grub时会报错语法错误。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Manjaro</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro系统中安装为fcitx5安装主题</title>
+    <url>/2022/09/20/2022-09-19-22/</url>
+    <content><![CDATA[<ol type="1">
+<li><p>安装fcitx5以及中文输入法 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S fcitx5-im</span><br><span class="line">sudo pacman -S fcitx5-chinese-addons</span><br><span class="line">sudo pacman -S fcitx5-rime</span><br></pre></td></tr></table></figure></p></li>
+<li><p>编辑<code>/etc/environment</code>文件增加如下信息</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">GTK_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="attr">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="attr">XMODIFIERS</span>=@im=fcitx</span><br></pre></td></tr></table></figure></li>
+<li><p>执行命令<code>pacman -S fcitx5-material-color</code>
+安装主题</p></li>
+<li><p>修改配置文件 ~/.config/fcitx5/conf/classicui.conf</p>
+<p><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate <span class="attr">List</span>=<span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line"><span class="attr">Font</span>=<span class="string">&quot;Noto Sans Regular 14&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line"><span class="attr">Theme</span>=Material-Color-Teal</span><br></pre></td></tr></table></figure></p></li>
+<li><p>可选的颜色主题如下</p>
+<p><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">Material-Color-Pink</span><br><span class="line">Material-Color-Blue</span><br><span class="line">Material-Color-Brown</span><br><span class="line">Material-Color-DeepPurple</span><br><span class="line">Material-Color-Indigo</span><br><span class="line">Material-Color-Red</span><br><span class="line">Material-Color-Teal</span><br><span class="line">Material-Color-Black</span><br><span class="line">Material-Color-Orange</span><br><span class="line">Material-Color-SakuraPink</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<blockquote>
+<p>参考链接：<a href="https://wiki.archlinux.org/title/Fcitx5"
+class="uri">https://wiki.archlinux.org/title/Fcitx5</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Manjaro</tag>
+        <tag>fcitx5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个典型的混合云弹性伸缩架构</title>
+    <url>/2022/09/20/2022-09-20-22/</url>
+    <content><![CDATA[<h2 id="一个典型的混合云弹性伸缩架构">一个典型的混合云弹性伸缩架构</h2>
+<img src="/2022/09/20/2022-09-20-22/as.svg" class="">
+]]></content>
+      <tags>
+        <tag>混合云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Archlinux设置KDE中文不全和Konsole中文乱码问题</title>
+    <url>/2022/09/25/2022-09-20-25/</url>
+    <content><![CDATA[<p>安装Archlinux时如果使用英文界面安装，安装成功后，即使设置了中文语言KDE仍有关机界面、应用程序菜单仍有英文。可以参考：<a
+href="https://wiki.archlinux.org/title/Localization/Simplified_Chinese"
+class="uri">https://wiki.archlinux.org/title/Localization/Simplified_Chinese</a>设置。</p>
+<ol type="1">
+<li>修改<code>/etc/locale.gen</code>文件，增加<code>zh_CN.UTF-8 UTF-8</code>（或者取消掉#注释）；</li>
+<li>修改~/.bashrc文件，增加如下描述 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=zh_CN.UTF-8</span><br><span class="line">export LANGUAGE=zh_CN:en_US</span><br></pre></td></tr></table></figure></li>
+<li>如果只修改<code>/etc/locale.gen</code>SDDM登录界面仍然是英文，此时需要修改<code>/etc/locale.conf</code>文件，首先备份此文件，只保留<code>LANG=zh_CN.UTF-8</code>其余的均删除。</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong> archlinux
+官方wiki说明了修改<code>/etc/locale.conf</code>可能会导致问题，具体描述为“It
+is not recommended to set a global Chinese locale in /etc/locale.conf
+because it causes tty to display garbled
+characters.”，<strong>此修改可能导致一些系统脚本处理异常</strong>，如果介意可以不做3步。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Archlinux</tag>
+        <tag>中文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Archlinux设置KDE中文不全和Konsole中文乱码问题</title>
+    <url>/2022/09/27/2022-09-20-27/</url>
+    <content><![CDATA[<p>公司办公PC是Windows，日常又会使用到一些linux做一些实验性工作，今天无意间看到了在WSL安装Archlinux。记录了一下安装过程。</p>
+<h2 id="下载安装archlinux">下载安装Archlinux</h2>
+<p>以下操作均在windows进行 1.
+从github上下载Archlinux的二进制文件，项目地址：https://github.com/yuk7/ArchWSL，下载Arch.zip</p>
+<ol start="2" type="1">
+<li>在Windows上解压缩Arch.zip会得到两个文件： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Arch.exe</span><br><span class="line">rootfs.tar</span><br></pre></td></tr></table></figure></li>
+<li>执行Arch.exe文件则会自动完成安装工作</li>
+</ol>
+<h2 id="设置用户">设置用户</h2>
+<p>以下操作均在wsl-archlinux进行。</p>
+<p>由于安装好的Archlinux默认使用root用户登录，passwd
+修改root用户密码</p>
+<ol type="1">
+<li><p>创建一个非root用户</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel -s /bin/bash &lt;username&gt;</span><br><span class="line">passwd &lt;username&gt;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将新增用户添加到sudo(wheel)组</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/sudouers</span><br></pre></td></tr></table></figure> 取消掉%wheel ALL=(AKK) ALL注释</p></li>
+</ol>
+<h2 id="设置archlinux默认登录用户">设置Archlinux默认登录用户</h2>
+<p>以下在Windows上进行 1.
+在cmd上执行<code>Arch.exe config --default-user &lt;username&gt;</code>，其中上一步在archlinux创建用户名。</p>
+<ol start="2" type="1">
+<li>此时在cmd上执行wsl -d
+arch即可使用默认新增用户进入到Archlinux中，如果安装了Windows
+terminal也可以直接使用新建标签按钮从Arch选项进入到Archlinux。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Archlinux</tag>
+        <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>纵横大数据主要观点</title>
+    <url>/2022/10/06/2022-10-06-20/</url>
+    <content><![CDATA[<h2 id="大数据时代企业数据特征">大数据时代企业数据特征</h2>
+<p>大数据时代企业大数据标为 <strong>“大、
+广、联”</strong>特征，“大”指的是数据量大，“广”指的是数据涉及各类不同胸痛，不同类型大数据，例如：IoT数据、日志数据等，“联”指的是企业内外部数据关联、不同业务部门大数据关联。</p>
+<h2 id="数据处理大要求没有变化">数据处理大要求没有变化</h2>
+<p>大数据时代虽然数据量激增，但是企业对数据处理的要求没有变化，甚至要求更高。主要是要求<strong>高可靠、高负载、
+低成本</strong>。</p>
+<h2 id="解决单一系统处理问题">解决单一系统处理问题</h2>
+<p>为了应对大数据大挑战，业界采用了而分布式+并行大处理方式，出现了分布式关系型数据库、NoSQL数据库、Hadoop等技术。此外，传统数据库厂商也推出了一体机数据产品。</p>
+<h2 id="解决多系统融合问题">解决多系统融合问题</h2>
+<p>大数据时代希望通过数据实现
+<strong>“数据驱动业务和运营优化”</strong>，业务上需要打通不同大业务系统以及内外部数据；技术上要求关系型数据库和NoSQL数据库产品技术融合；对上提供统一API（或者SQL）简化应用开发，对下需要利用基于云IaaS基础设施实现高弹性和低成本。</p>
+<h2 id="大数据本质">大数据本质</h2>
+<ol type="1">
+<li>大数据是云计算时代企业管理处理数据的方式，<strong>大数据的本质是云计算数据基础设施</strong>。研究大数据问题大实施是实现
+<strong>“数据驱动业务”</strong>，研究包括业务和技术本身。</li>
+<li>大数据系统包括关系型数据处理系统和NoSQL数据库处理系统。未来关系型和NoSQL两种技术会融合，同时企业的数据会整合（即构建统一的数据湖）。</li>
+</ol>
+<h2 id="现代企业数据处理面临的挑战">现代企业数据处理面临的挑战</h2>
+<ol type="1">
+<li>传统数据业务有两个特点
+<ol type="1">
+<li>数据量可预估（如典型的及融合电信业务系统，客户和数据量是可预估的）</li>
+<li>可以通过技术手段对高频、低频数据采取不同的策略（例如：将低频数据从在线系统中卸载）</li>
+</ol></li>
+<li>企业新的业务是面向社会、交互式业务，会产生海量<strong>不可预估</strong>的数据（例如：传感器、日志数据等），原有业务系统不会产生或者丢弃的数据</li>
+<li>关系型数据库要先设计模式（schema），一般遵循<strong>范式建模</strong>，NoSQL数据库不要求强制建模，可以根据业务发展调整数据模型，且不想要大规模修改数据库设计</li>
+</ol>
+<h2 id="为什么要引入nosql数据库">为什么要引入NoSQL数据库</h2>
+<ol type="1">
+<li>关系型数据库存储高价值数据，数据处理成本高、大规模分析效率低（数据模式和存储是隔离的）；传统关系型解决数据库系统的瓶颈主要是通过scale
+up（通常只能临时解决问题），也可以通过有限的scale
+out解决问题，但规模受限（例如：Oracle
+RAC线性比不佳，TeraData最大的商用规模大约为600节点）；厂商也通过一体机（通常是利用InfiniBand网络，NvME
+SSD等）解决性能问题。</li>
+<li>NoSQL数据库存储低价值的贴源数据（可根据业务需求重复分析），NoSQL数据库通常有如下优势：
+<ol type="1">
+<li>低成本水平扩展</li>
+<li>处理特定场景有优势（例如：图数据库、时空数据库、文档数据库）</li>
+<li>不要求遵循强制模式（schema），可以灵活调整设计模式</li>
+<li>存储性能高，部分数据库的设计可直接读取存储</li>
+</ol></li>
+</ol>
+<hr />
+<h2 id="扩展阅读">扩展阅读</h2>
+<h3 id="范式建模">范式建模</h3>
+<ol type="1">
+<li>1NF要求所有数据必须是不可再分的原子数据</li>
+<li>2NF在1NF基础上要求所有属性必须依赖主键，实现了所有行数据不冗余</li>
+<li>3NF在2NF基础上要求属性不能传递依赖主属性，实现列数据没有冗余。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>纵横大数据主要观点（二）</title>
+    <url>/2022/10/13/2022-10-13-21/</url>
+    <content><![CDATA[<h2 id="分布式关系型数据库典型的架构">分布式关系型数据库典型的架构</h2>
+<h3 id="share-nothing">Share-Nothing</h3>
+<p>MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB
+水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。</p>
+<h3 id="share-disk">Share-Disk</h3>
+<p>典型的应用是Oracle
+RAC，不同于传统的HA架构，ShareDisk架构中的每个节点都是工作节点，独立处理业务。由于是ShareDisk架构，读写磁盘就会出现冲突，会产生大量的存储网络流量，通常存储网络的流量会因为数据库节点规模增加变成瓶颈</p>
+<p>OLTP和OLAP
+通常部署在两套系统中主要原因是数据库系统追求的高TPS，OLTP追求的是高并发、随机读写，要保持交易十五的ACID
+特性，维护强大的数据库日志，目前实现OLTP单点能力（主机平台+高端IO存储）。OLAP追求的是批量操作、高并发读操作，技术上主要解决很好的分配与管理各种资源（即资源的精细化管理）。
+关于Join操作，跨表聚合操作，对于OLTP数据库需要大量的IO操作将表数据读取到内存进行操作；而MPP数据库本身就是根据某个键值对数据进行分布式存储，相当于提前为多表Join操作做了很多工作。OLTP通常是通过hash
+join进行优化，OLAP是通过分布式join。</p>
+<h2 id="nosql数据库">NoSQL数据库</h2>
+<p>NoSQL数据库是随着互联网应用发展起来的（是新兴数据库产品，并不是完全的新技术），主要是用来处理半结构化数据/非结构化数据。NewSQL是关系型数据库联邦（主要代表是VoltDB），内存数据库集群。</p>
+<h2 id="newsql数据库">NewSQL数据库</h2>
+<p>实现NewSQL通常是采用数据库“联邦”来实现。主要就是采用“垂直分库“，”水平分表”。分库分表以后，按照分库分表的策略会将数据分散到不同的物理设备上（只有这样才能增加数据库的处理能力），这就导致了应用会感知到数据在不同的数据库服务器上。此外，还可以通过读写分离来增加。</p>
+<h2 id="企业数据库变化的路径">企业数据库变化的路径</h2>
+<p><strong>小型数据库-&gt;大型数据库-&gt;现有数据库扩展</strong> 1.
+小型数据库：MySQL、SQL Server、PostgreSQL 2.
+大型数据库：Oracle、DB2甚至是基于大机（MainFrame）数据库解决方案 3.
+对现有数据库管理系统进行扩展（通常是已经上了Oracle、DB2等大型数据库的情况）
+- 直接scale up - 采用厂商提供高阶方案，例如：oracle rac - 分库分表 -
+读写分离</p>
+<h3 id="垂直分库">垂直分库</h3>
+<ol type="1">
+<li>将原来在中心物理数据库中不同类型database拆分到不同的物理数据库（也就是把原来数据库的关联操作要改成两个数据中心之间的关联消息通信服务）</li>
+<li>分库是业务人员需要对数据库进行重新设计优化，去掉不必要、复杂的关联操作</li>
+</ol>
+<h3 id="水平分表">水平分表</h3>
+<ol type="1">
+<li>按照独立数据库中的某一个大表按照某种方式拆分成“子表”，通常是按照某一列或者多列值进行均分或者按照哈希算法分割</li>
+<li>将子表部署在不同物理数据库服务器中以提升整体数据库性能</li>
+</ol>
+<h3 id="读写分离">读写分离</h3>
+<ol type="1">
+<li>将一个中心库分成两类库，一类用于处理读操作，一类用于处理写操作</li>
+<li>需要增加一个读写分离代理来专门完成该任务，屏蔽对应用的影响</li>
+<li>读写分离数据库中数据是完全一致的</li>
+<li>可以设置读操作一致性规则，例如要等到从R（大于等于1）个读库读到的数据库一致时才返回读操作结果</li>
+<li>写操作的数据库必须实时或者准实时将数据同步到读库。</li>
+</ol>
+<blockquote>
+<p><strong>小结</strong> 1.
+分库分表和读写分离是相辅相成，可单独实施也可以一起实施。分库包容了分表（一般在实施分库的基础上再实施分表），分库分表和读写分离是平行的，可以同时实施。
+2.
+数据库联邦牺牲即时一致性，但保证了最终的一致性（CAP原则中，牺牲了C），也就意味着实际应用中弱化了的事务和关联性。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>纵横大数据主要观点（三）</title>
+    <url>/2022/10/17/2022-10-17-15/</url>
+    <content><![CDATA[<h2 id="什么是数据库联邦">什么是数据库联邦</h2>
+<p>作者引入了一个数据库“联邦”的概念，是为了避免和数据库“集群”概念混淆。
+关系型数据库联邦是数据库设计的一种架构：将一组互相独立的关系型数据库用网络连接起来协同工作，综合采用各种技术（分库分表、读写分离）以达到更强的数据管理与服务能力，提供更加的性能、更大的容量与更多的并发用户数。</p>
+<h2
+id="一个联邦架构的数据系统需要提供以下关键服务">一个联邦架构的数据系统需要提供以下关键服务</h2>
+<ol type="1">
+<li>分布服务：确定由那个子数据库来执行相关的服务</li>
+<li>协调服务：数据库节点之间交互数据处理，统一调度控制等</li>
+<li>监控与管理服务：对分布式节点进行监控以及统一管理（例如节点升级、重启等）</li>
+<li>消息服务：跨节点数据处理时需要用消息机制传递数据</li>
+</ol>
+<h2 id="联邦的元数据库">联邦的元数据库</h2>
+<p>有两种思路： 1.
+在联邦数据库中迁移一个元数据系统，例如联邦MySQL数据库中增加一个HA
+MySQL来保存元数据，此时这个元数据数据库就成为新的瓶颈 2.
+将分库分表信息嵌入到应用中，应用课感知到分开分表信息，避免由数据库系统自身再次行程单点故障或者瓶颈</p>
+<h2 id="数据库联邦的应用实践">数据库联邦的应用实践</h2>
+<ol type="1">
+<li>OceanBase</li>
+<li>GaussDB for MySQL</li>
+<li>GaussDB for OpenGauss</li>
+</ol>
+<h2 id="数据库联邦nosql与主流数据库">数据库联邦、NoSQL与主流数据库</h2>
+<p>一句话：八仙过海、
+各显神通，每个类型的数据均有自己的擅长的领域，可综合使用各类技术。</p>
+<img src="/2022/10/17/2022-10-17-15/database-tech.png" class="">
+<h2 id="互联网企业如何解决问题">互联网企业如何解决问题</h2>
+<ol type="1">
+<li>互联网业务的复杂性、不同业务之间的关联性没有金融、电信行业复杂方便实现分库、分表策略</li>
+<li>即使是互联网企业在进行联邦数据库技术时<strong>应用也进行了改造</strong>，去除了不表要的表间的关联</li>
+<li>互联网业务本身对<strong>数据强制性要求也低</strong>于金融、电信产品</li>
+<li>互联网企业都有庞大的IT团队，在标准的软件包不能满足业务时，都是通过自研来满足业务，甚至可以说互联网企业本身就是一个IT企业，这对于传统的金融、
+电信行业是是不可能实现的5.
+大多数企业不能也不应该把自己变成一个IT企业，仍然需要<strong>专业的IT软件及服务来解决问题</strong>。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SOA架构和微服务架构的区别</title>
+    <url>/2022/11/25/2022-10-17-22/</url>
+    <content><![CDATA[<h2 id="什么是soa架构">什么是SOA架构</h2>
+<p>企业范围内的应用程序或者服务开发的方法，目的是复用组件和服务。在SOA架构中每个<strong>服务</strong>（service）都会提供独立的代码和数据来实现特定的企业业务功能（business
+function）。各个<strong>服务</strong>之间是松藕荷的，提供接口通过企业总线（ESB）进行集成；从而减少服务更新导致的大量的集成工作；在这种架构下，如果服务出现问题仍会影响到关联的服务。</p>
+<p>实践中XML数据是SOA架构重要的组成部分，基于XML的SOA应用程序可以构建web服务。在SOA架构出现在大约1990年代末，在此之前单体应用之间的集成是点对点集成，每增加一个应用都需要重新做开发和集成测试。</p>
+<h3 id="soa架构四中不同的服务类型">SOA架构四中不同的服务类型</h3>
+<ol type="1">
+<li>Functional services（功能服务）：用于表达业务逻辑</li>
+<li>Enterprise services（企业服务）：用于实现功能（functional）</li>
+<li>Application services（应用服务）：用于开发部署App</li>
+<li>infrastructure services
+（基础设施服务）：应用后端的基础服务（例如：认证鉴权、安全等）</li>
+</ol>
+<h3 id="每种服务都包含下三个组件">每种服务都包含下三个组件</h3>
+<ol type="1">
+<li>接口（interface）：定义了服务提供者如何执行来自消费者的请求</li>
+<li>协议（contract）：定义了服务提供者和消费者之间的交换方式</li>
+<li>实现（implementation）：服务的具体实现代码</li>
+</ol>
+<h2 id="什么是微服务">什么是微服务</h2>
+<p>和SOA架构类似，微服务也是需要解决松耦合和复用问题，微服务之间是相互独立。微服务是高内聚的，自己管理代码和数据。微服务是应用层级的（非企业层级）微服务之间通过API进行通信，实现一个特定的业务功能。微服务架构可以实现更加敏捷、扩展性和弹性的应用。Java语言是实现微服务的首选语言，其次是Golang和Python。</p>
+<p>微服务是真正的云原生架构，通常运行在容器中（容器更便于实现弹性、便携的portable、独立的服务）。</p>
+<h2
+id="微服务和soa架构的主要不同范围">微服务和SOA架构的主要不同：范围</h2>
+<p>SOA架构和微服架构最大的不同是范围不同。SOA架构针对的是企业业务层级，每个服务对应一个企业业务，每个业务之间通过企业总线（ESB）进行数据交换；微服是针对应用层级的，微服务之间是直接通信的。</p>
+<img src="/2022/11/25/2022-10-17-22/SOA_microservices.webp" class="">
+<h2 id="复用">复用</h2>
+<ul>
+<li>SOA架构是企业级的组件组件和服务（针对特定企业级业务功能）复用。</li>
+<li>微服务架构更是代码层级的复用，不同组件之间通过代码copy复用共性的内容，各自独立的维护。</li>
+</ul>
+<h2 id="调用机制">调用机制</h2>
+<p>SOA架构通过RESTful APIs实现同步调用
+微服务通过事件机制（发布/订阅）实现交互，减少微服务之间的耦合，便于实现独立的变更、弹性伸缩等。</p>
+<h2 id="数据">数据</h2>
+<ul>
+<li>SOA架构设计的目标之一就是需要同步获取更新主数据源，从而减少数据同步带来的复杂性。</li>
+<li>微服务架构则需要自己维护本地数据，且确保这些数据与其他微服务或者应用独立，即使这些数据在其他微服务中仍然重复存在。这带来一定的复杂性，这就需要平衡敏捷性和性能，这也被认为是可接受的实现。</li>
+</ul>
+<h2
+id="其他soa架构和微服务架构的不同">其他SOA架构和微服务架构的不同</h2>
+<ul>
+<li>通信方式：微服务架构每个服务是独立开发的，可以有自己的通信协议；SOA架构必须要使用ESB管理和协调。</li>
+<li>互操作性：微服务保持简单，通常只支持轻量化的消息机制，例如：HTTP/REST/JMS；SOA架构则支持多种类型的协议如：SOAP/AMQP/MSMQ等</li>
+<li>服务粒度：微服务是聚焦做好一件事，同样的SOA架构中服务也类似，但是服务粒度是一个企业级业务功能</li>
+<li>迭代速度：微服务快与SOA架构的服务</li>
+<li>服务治理：SOA架构会提供统一的服务治理方案；微服务则不会提供统一服务之类方案便于各微服务有更大灵活性，促使组织之间协作</li>
+<li>存储：SOA架构通常会为所有服务提供一个统一的存储层；微服务则会专门为需要他的服务提供一个专属存储或者数据库</li>
+</ul>
+<h2
+id="soa架构和微服务架构那个更适合你">SOA架构和微服务架构那个更适合你？</h2>
+<p>针对大型的企业级应用仍然保持SOA架构，针对小型应用可以使用微服务架构；也可以将两者结合起来，企业级超大型应用采用SOA架构，其中的某一个子应用可以采用微服务架构。</p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://www.ibm.com/cloud/blog/soa-vs-microservices"
+class="uri">https://www.ibm.com/cloud/blog/soa-vs-microservices</a></p>
+]]></content>
+      <tags>
+        <tag>微服务</tag>
+        <tag>SOA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个基于华为云ServiceStage简单的CI/CD过程</title>
+    <url>/2022/10/18/2022-10-18-21/</url>
+    <content><![CDATA[<h2 id="servicestage中的概念">ServiceStage中的概念</h2>
+<ul>
+<li>App：App中包含了不同的组件，在ServiceStage中𨈖一的应用组件是微服务组件；</li>
+<li>组件：组件能够独立实现特定功能，可独立开发、测试、运行以及部署；</li>
+<li>环境：部署App的一组计算、存储、网络基础设施合集，包括：VPC、ECS、CCE、CCI以及RDS、DSCS等，同一个环境内部网络是互通的；通常可以定义多种环境，例如：开发环境、测试环境、生产环境等。
+<img src="/2022/10/18/2022-10-18-21/servicestage-app.png" class=""></li>
+</ul>
+<h2
+id="servicestage的两种应用构建方式">ServiceStage的两种应用构建方式</h2>
+<ol type="1">
+<li>从源码构建</li>
+<li>从二进制包构建</li>
+</ol>
+<p>具体构建过程如下：</p>
+<img src="/2022/10/18/2022-10-18-21/servicestage.png" class="">
+]]></content>
+  </entry>
+  <entry>
+    <title>Archinux配置Proxy</title>
+    <url>/2022/10/28/2022-10-28-21/</url>
+    <content><![CDATA[<h2 id="添加proxy">添加Proxy</h2>
+<ol type="1">
+<li><p>在<code>.bashrc</code>文件中增加如下配置</p>
+<p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy= http://username:password@hostname:port/ </span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="variable">$http_proxy</span> </span><br><span class="line"><span class="built_in">export</span> ftp_proxy=<span class="variable">$http_proxy</span></span><br><span class="line"><span class="built_in">export</span> rsync_proxy=<span class="variable">$http_proxy</span></span><br><span class="line"><span class="built_in">export</span> no_proxy=<span class="string">&quot;localhost,127.0.0.1,localaddress,.localdomain.com&quot;</span></span><br></pre></td></tr></table></figure> &gt; 其中username和password是proxy帳號和密碼</p></li>
+<li><p>如果Proxy中密码有是特殊字符需要进行转码，具体转换规则参考： <a
+href="https://baike.baidu.com/item/URL%E7%BC%96%E7%A0%81/3703727"
+class="uri">https://baike.baidu.com/item/URL%E7%BC%96%E7%A0%81/3703727</a></p></li>
+</ol>
+<h2
+id="解決非root账号设置proxy后sudo命令不会生效">解決非root账号设置Proxy后sudo命令不会生效</h2>
+<p>编辑<code>/etc/sudoers.d/05_proxy</code> 文件，增加如下配置
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Defaults env_keep += <span class="string">&quot;*_proxy *_PROXY&quot;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://wiki.archlinux.org/title/Proxy_server"
+class="uri">https://wiki.archlinux.org/title/Proxy_server</a></p>
+]]></content>
+      <tags>
+        <tag>Archlinux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分辨率和像素</title>
+    <url>/2022/11/05/2022-11-05-19/</url>
+    <content><![CDATA[<h1 id="分辨率和像素">分辨率和像素</h1>
+<h2 id="像素">像素</h2>
+<ul>
+<li>屏幕像素
+<ul>
+<li>屏幕上物理像素点大小（通常用英寸衡量）</li>
+</ul></li>
+<li>数码像素
+<ul>
+<li>没有物理尺寸大小</li>
+<li>指的是数码图有多少像素（pixel）点</li>
+</ul></li>
+</ul>
+<h2 id="分辨率">分辨率</h2>
+<h3 id="概念以下均译作分辨率">概念——以下均译作分辨率</h3>
+<ul>
+<li>resolution：图像分辨率</li>
+<li>PPI：1英寸屏幕显示的密度</li>
+<li>DPI：1英寸打印点点密度</li>
+</ul>
+<h3 id="ppi和数码图像分辨率的关系">PPI和数码图像分辨率的关系</h3>
+<ul>
+<li>显示时没有直接关系</li>
+<li>如果数码图像要100%显示
+<ul>
+<li>图像分辨率 = PPI，图像占满整个屏幕</li>
+<li>图像分辨率 &gt; PPI，显示时图像只占屏幕一部分</li>
+<li>图像分辨率 &lt; PPI，只能显示部分图像</li>
+</ul></li>
+</ul>
+<h3 id="dpi和数据库图像分辨率的关系">DPI和数据库图像分辨率的关系</h3>
+<ul>
+<li>优先由图像分辨率决定</li>
+<li>图像分辨率越高，打印越精细</li>
+<li>同一个图像打印在同一大小纸张，DPI越高打印越精细</li>
+</ul>
+<h2 id="参考思维导图">参考思维导图</h2>
+<img src="/2022/11/05/2022-11-05-19/resolution_ppi_dpi.png" class="">
+]]></content>
+      <tags>
+        <tag>机器视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>景深和计算公式</title>
+    <url>/2022/11/21/2022-11-21-20/</url>
+    <content><![CDATA[<h2 id="景深焦距和拍摄距离的关系">景深、焦距和拍摄距离的关系</h2>
+<img src="/2022/11/21/2022-11-21-20/depth1.gif" class="">
+<p>在焦点前后各有一个容许<strong>弥散圆</strong>，这两个弥散圆之间的距离就叫景深，即：<strong>在被摄主体(对焦点)前后，其影像仍然有一段清晰范围的，就是景深</strong>。换言之，被摄体的前后纵深，呈现在底片面的影象模糊度，都在容许弥散圆的限定范围内。</p>
+<h2 id="景深的计算公式">景深的计算公式</h2>
+<ul>
+<li>前景深</li>
+</ul>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.093ex;" xmlns="http://www.w3.org/2000/svg" width="17.927ex" height="5.509ex" role="img" focusable="false" viewBox="0 -1509.9 7923.6 2434.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(1514,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(2291.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(3347.6,0)"><g data-mml-node="mrow" transform="translate(1132.7,676)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(749,0)"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="msup" transform="translate(1193,0)"><g data-mml-node="mi"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(714,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g><g data-mml-node="mrow" transform="translate(220,-719.9)"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(636,289) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(1261.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2262,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(3011,0)"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(3455,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g></g><rect width="4336" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></span></p>
+<ul>
+<li>后景深</li>
+</ul>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.093ex;" xmlns="http://www.w3.org/2000/svg" width="17.927ex" height="5.509ex" role="img" focusable="false" viewBox="0 -1509.9 7923.6 2434.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(1514,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(2291.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(3347.6,0)"><g data-mml-node="mrow" transform="translate(1132.7,676)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(749,0)"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="msup" transform="translate(1193,0)"><g data-mml-node="mi"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(714,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g><g data-mml-node="mrow" transform="translate(220,-719.9)"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(636,289) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(1261.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(2262,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(3011,0)"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mi" transform="translate(3455,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g></g><rect width="4336" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></span></p>
+<ul>
+<li>景深</li>
+</ul>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.11ex;" xmlns="http://www.w3.org/2000/svg" width="34.779ex" height="5.526ex" role="img" focusable="false" viewBox="0 -1509.9 15372.5 2442.6"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mo" transform="translate(1791.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2847.6,0)"><path data-c="394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"></path></g><g data-mml-node="mi" transform="translate(3680.6,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(4361.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5083.8,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(6084,0)"><path data-c="394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"></path></g><g data-mml-node="mi" transform="translate(6917,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(7598,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(8375.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(9431.6,0)"><g data-mml-node="mrow" transform="translate(1045.4,676)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="msup" transform="translate(500,0)"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(636,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mi" transform="translate(1539.6,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mi" transform="translate(2288.6,0)"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="msup" transform="translate(2732.6,0)"><g data-mml-node="mi"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(714,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g><g data-mml-node="mrow" transform="translate(220,-727.7)"><g data-mml-node="msup"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mn" transform="translate(636,289) scale(0.707)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g></g><g data-mml-node="mo" transform="translate(1261.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="msup" transform="translate(2262,0)"><g data-mml-node="mi"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g><g data-mml-node="mn" transform="translate(837.3,289) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="msup" transform="translate(3502.9,0)"><g data-mml-node="mi"><path data-c="1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path></g><g data-mml-node="mn" transform="translate(477,289) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="msup" transform="translate(4383.4,0)"><g data-mml-node="mi"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mn" transform="translate(714,289) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g><rect width="5701" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></span></p>
+<blockquote>
+<p><strong>说明</strong> - 镜头光圈
+光圈越大，景深越小；光圈越小，景深越大； - 镜头焦距
+镜头焦距越长，景深越小；焦距越短，景深越大； - 拍摄距离
+距离越远，景深越大；距离越近，景深越小。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>摄像机中的宽动态</title>
+    <url>/2022/11/24/2022-11-24-11/</url>
+    <content><![CDATA[<h2 id="什么是宽动态">什么是宽动态</h2>
+<p>宽动态是在非常强烈的对比下让摄像机看到影像特色而运用的一种技术。
+通常有强光源的场景下，强光照射的区域和阴影区域会有非常大的亮度区别，摄像机输出图像会出现明亮区（过曝导致的白色区域）和黑暗区（曝光不足导致的黑色区域）；摄像机在同一场景下，能够支持的最亮和最暗局限就是“动态范围”。</p>
+<h2 id="典型的环境与照度">典型的环境与照度</h2>
+<table>
+<thead>
+<tr class="header">
+<th>参考环境</th>
+<th>大概照度</th>
+<th>参照环境</th>
+<th>大概照度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>夏日阳光</td>
+<td>100000lux</td>
+<td>室内日光灯</td>
+<td>100lux</td>
+</tr>
+<tr class="even">
+<td>阴天室外</td>
+<td>10000lux</td>
+<td>黄昏室内</td>
+<td>10lux</td>
+</tr>
+<tr class="odd">
+<td>距离60W台灯60cm桌面</td>
+<td>300lux</td>
+<td>夜间路灯</td>
+<td>0.1lux</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>假设再酒店大堂中央从室内向室外拍摄，该场景下需要支持的动态范围大概为100:1（参考第一行），而一般相机动态范围大概是3:1。</p>
+</blockquote>
+<h3 id="不同相机工作的照度">不同相机工作的照度</h3>
+<ul>
+<li>普通型：1~300lux</li>
+<li>月光型：0.1lux</li>
+<li>星光型：0.01lux</li>
+<li>红外型：在没有可见光的情况下仍可以工作</li>
+</ul>
+<h2 id="摄像机的宽动态范围计算">摄像机的宽动态范围计算</h2>
+<ul>
+<li><p>宽动态范定义
+dB是一个比值，即摄像机能够是被的最亮部分和最暗部分的照度比值。</p></li>
+<li><p>宽动态计算公式 <span class="math display">\[ dB = 20 \times
+log(V2 \div V1)\]</span></p></li>
+</ul>
+<blockquote>
+<p>V2：最强照度，V1：最弱照度</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器视觉</tag>
+      </tags>
+  </entry>
+</search>
