@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,157 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://mixiang.tech/2022/10/13/2022-10-13-21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mxipp">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mixion">
+      <meta itemprop="description" content="ICT思潮">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mixion">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/13/2022-10-13-21/" class="post-title-link" itemprop="url">纵横大数据主要观点（二）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-13 20:51:53" itemprop="dateCreated datePublished" datetime="2022-10-13T20:51:53+08:00">2022-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-14 22:29:50" itemprop="dateModified" datetime="2022-10-14T22:29:50+08:00">2022-10-14</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    <a title="纵横大数据主要观点（二）" href="/2022/10/13/2022-10-13-21/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::a6ed9fe3728a2cc68f301f7d19458d5d" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="分布式关系型数据库典型的架构">分布式关系型数据库典型的架构</h2>
+<h3 id="share-nothing">Share-Nothing</h3>
+<p>MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB
+水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。</p>
+<h3 id="share-disk">Share-Disk</h3>
+<p>典型的应用是Oracle
+RAC，不同于传统的HA架构，ShareDisk架构中的每个节点都是工作节点，独立处理业务。由于是ShareDisk架构，读写磁盘就会出现冲突，会产生大量的存储网络流量，通常存储网络的流量会因为数据库节点规模增加变成瓶颈</p>
+<p>OLTP和OLAP
+通常部署在两套系统中主要原因是数据库系统追求的高TPS，OLTP追求的是高并发、随机读写，要保持交易十五的ACID
+特性，维护强大的数据库日志，目前实现OLTP单点能力（主机平台+高端IO存储）。OLAP追求的是批量操作、高并发读操作，技术上主要解决很好的分配与管理各种资源（即资源的精细化管理）。
+关于Join操作，跨表聚合操作，对于OLTP数据库需要大量的IO操作将表数据读取到内存进行操作；而MPP数据库本身就是根据某个键值对数据进行分布式存储，相当于提前为多表Join操作做了很多工作。OLTP通常是通过hash
+join进行优化，OLAP是通过分布式join。</p>
+<h2 id="nosql数据库">NoSQL数据库</h2>
+<p>NoSQL数据库是随着互联网应用发展起来的（是新兴数据库产品，并不是完全的新技术），主要是用来处理半结构化数据/非结构化数据。NewSQL是关系型数据库联邦（主要代表是VoltDB），内存数据库集群。</p>
+<h2 id="newsql数据库">NewSQL数据库</h2>
+<p>实现NewSQL通常是采用数据库“联邦”来实现。主要就是采用“垂直分库“，”水平分表”。分库分表以后，按照分库分表的策略会将数据分散到不同的物理设备上（只有这样才能增加数据库的处理能力），这就导致了应用会感知到数据在不同的数据库服务器上。此外，还可以通过读写分离来增加。</p>
+<h2 id="企业数据库变化的路径">企业数据库变化的路径</h2>
+<p><strong>小型数据库-&gt;大型数据库-&gt;现有数据库扩展</strong> 1.
+小型数据库：MySQL、SQL Server、PostgreSQL 2.
+大型数据库：Oracle、DB2甚至是基于大机（MainFrame）数据库解决方案 3.
+对现有数据库管理系统进行扩展（通常是已经上了Oracle、DB2等大型数据库的情况）
+- 直接scale up - 采用厂商提供高阶方案，例如：oracle rac - 分库分表 -
+读写分离</p>
+<h3 id="垂直分库">垂直分库</h3>
+<ol type="1">
+<li>将原来在中心物理数据库中不同类型database拆分到不同的物理数据库（也就是把原来数据库的关联操作要改成两个数据中心之间的关联消息通信服务）</li>
+<li>分库是业务人员需要对数据库进行重新设计优化，去掉不必要、复杂的关联操作</li>
+</ol>
+<h3 id="水平分表">水平分表</h3>
+<ol type="1">
+<li>按照独立数据库中的某一个大表按照某种方式拆分成“子表”，通常是按照某一列或者多列值进行均分或者按照哈希算法分割</li>
+<li>将子表部署在不同物理数据库服务器中以提升整体数据库性能</li>
+</ol>
+<h3 id="读写分离">读写分离</h3>
+<ol type="1">
+<li>将一个中心库分成两类库，一类用于处理读操作，一类用于处理写操作</li>
+<li>需要增加一个读写分离代理来专门完成该任务，屏蔽对应用的影响</li>
+<li>读写分离数据库中数据是完全一致的</li>
+<li>可以设置读操作一致性规则，例如要等到从R（大于等于1）个读库读到的数据库一致时才返回读操作结果</li>
+<li>写操作的数据库必须实时或者准实时将数据同步到读库。</li>
+</ol>
+<blockquote>
+<p><strong>小结</strong> 1.
+分库分表和读写分离是相辅相成，可单独实施也可以一起实施。分库包容了分表（一般在实施分库的基础上再实施分表），分库分表和读写分离是平行的，可以同时实施。
+2.
+数据库联邦牺牲即时一致性，但保证了最终的一致性（CAP原则中，牺牲了C），也就意味着实际应用中弱化了的事务和关联性。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1311,133 +1462,6 @@ class="uri">https://wiki.archlinux.org/title/IBus</a></p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://mixiang.tech/2020/10/14/2020-10-14-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mxipp">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mixion">
-      <meta itemprop="description" content="ICT思潮">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mixion">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/14/2020-10-14-23/" class="post-title-link" itemprop="url">minikube addons enable ingress</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-10-14 22:51:07" itemprop="dateCreated datePublished" datetime="2020-10-14T22:51:07+08:00">2020-10-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-10-05 14:41:33" itemprop="dateModified" datetime="2022-10-05T14:41:33+08:00">2022-10-05</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan: </span>
-    
-    <a title="minikube addons enable ingress" href="/2020/10/14/2020-10-14-23/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::02b477e431e556b39083016882887f2f" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于大家都知道到原因，国内无法直接访问gcr.io和quay.io很多Kubernetes相关镜像无法从国内下载，网上很多大神也给出了薅aliyun羊毛的方案，我自己也试了几次也总是不能成功，使用aliyun提供<a
-target="_blank" rel="noopener" href="https://developer.aliyun.com/article/221687">minikube</a>的版本也总是无法启动ingress。</p>
-<p>通过查看启动ingress失败的POD信息发现是无法下载使用到镜像，于是按照网络指导按照如下步骤提前下载镜像到minikube节点，再启动ingress即可成功，具体操作如下：</p>
-<ul>
-<li><p>查询minikube版本对应的ingress镜像版本
-使用<code>kubectl get po -A</code>查询ingress对应POD</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po -A</span><br><span class="line">NAMESPACE     NAME                                        READY   STATUS              RESTARTS   AGE</span><br><span class="line">kube-system   coredns-546565776c-xgggd                    1/1     Running             0          27m</span><br><span class="line">kube-system   etcd-minikube                               1/1     Running             0          27m</span><br><span class="line">kube-system   ingress-nginx-admission-create-d9dtl        0/1     Completed           0          28s</span><br><span class="line">kube-system   ingress-nginx-admission-patch-x67q7         0/1     Completed           1          28s</span><br><span class="line">kube-system   ingress-nginx-controller-7bb4c67d67-hp5c7   0/1     ContainerCreating   0          28s</span><br><span class="line">kube-system   kube-apiserver-minikube                     1/1     Running             0          27m</span><br><span class="line">kube-system   kube-controller-manager-minikube            1/1     Running             0          27m</span><br><span class="line">kube-system   kube-proxy-7wbct                            1/1     Running             0          27m</span><br><span class="line">kube-system   kube-scheduler-minikube                     1/1     Running             0          27m</span><br><span class="line">kube-system   storage-provisioner                         1/1     Running             0          27m</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>其中名字中包含ingress就是启动ingress新建到POD。</p>
-</blockquote>
-<p>再使用<code>kubectl describe po ingress-nginx-xxx --namespace kube-system</code>查询具体的失败信息，即可查询到失败原因为：获取镜像失败/超时。由于minikube
-1.12.0版本以上的ingress镜像目前在阿里云上也无法下载，我们将minikube的版本切换到1.12.0版本，此时查询到的ingress插件依赖镜像信息如下：</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0</span><br><span class="line">jettech/kube-webhook-certgen:v1.2.0</span><br></pre></td></tr></table></figure></p></li>
-<li><p>手动安装ingress镜像 使用minikube
-ssh登录到minikube的节点上，再动过docker命令手工pull镜像。</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.32.0</span><br><span class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.32.0 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0</span><br><span class="line">docker pull jettech/kube-webhook-certgen:v1.2.0</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0
-镜像可以由aliyun的镜像替代，再重新Tag成原有镜像。</p>
-</blockquote></li>
-<li><p>再次启用ingress
-上述操作均成功以后可以再次启动ingress插件即可秒成功 ：）</p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1463,14 +1487,14 @@ ssh登录到minikube的节点上，再动过docker命令手工pull镜像。</p>
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">49k</span>
+    <span title="Symbols count total">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:21</span>
+    <span title="Reading time total">1:23</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>

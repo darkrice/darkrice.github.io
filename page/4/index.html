@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,175 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://mixiang.tech/2020/07/26/2020-07-26-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mxipp">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mixion">
+      <meta itemprop="description" content="ICT思潮">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Mixion">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/26/2020-07-26-20/" class="post-title-link" itemprop="url">在Windwos 10 WSL2中安装Docker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-26 20:41:34" itemprop="dateCreated datePublished" datetime="2020-07-26T20:41:34+08:00">2020-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-10-05 14:41:33" itemprop="dateModified" datetime="2022-10-05T14:41:33+08:00">2022-10-05</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan: </span>
+    
+    <a title="在Windwos 10 WSL2中安装Docker" href="/2020/07/26/2020-07-26-20/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::53c4da8a0c1ded63db5bc6f9f5436f89" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在学习kubernets，正在阅读《Kubernetes in
+action》一书，为了感性化的理解书中内容决定同步在办公PC上安装书中涉及到工具和代码，今天先完成在win
+10 WSL2中安装Docker。首先在win 10
+WSL2中安装Docker想法是基于微软宣称的WSL2内核是真正的Linux内核，也就想当然的认为WSL2中的Ubuntu
+20.04和在PC上直接安装是一致的，结果在安装过程中遇到各种小插曲。</p>
+<ul>
+<li><p>打开硬件虚拟化支持
+在BIOS中设置Intel虚拟化支持，进入到Virtualization选项中，设置Intel
+Virtual
+Technology为enable。重启以后即可在windows任务管理器-〉性能面板中查询虚拟化已开启。</p></li>
+<li><p>升级WSL-〉WSL2</p>
+<ul>
+<li><p>升级win10到支持WLS2版本，Version 2004, Build 19041 or
+higher;</p></li>
+<li><p>设置WSL版本
+在cmd中输入如下命令：<code>wsl --set-default-version 2</code>，将wsl版本设置为WSL2。</p></li>
+<li><p>安全ubuntu 20.04 在windows store中搜索ubuntu 20.04，安装ubuntu
+20.04版本；安装完成后启动ubuntu 20.04系统提示</p></li>
+</ul>
+<p>详细配置参考：https://docs.microsoft.com/en-us/windows/wsl/</p></li>
+<li><p>安装Docker</p>
+<ul>
+<li>安装windows 10版本的Docker
+不要直接使用系统apt的命令安装docker.io；建议下载windows
+10的Docker版本，设置启动WSL即可。</li>
+<li>检查Docker安装是否成功
+使用：<code>sudo docker version</code>查询docker版本：</li>
+</ul>
+<ol type="1">
+<li>如果显示如下信息则说明server端没有启动或者连接失败：
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Client:</span><br><span class="line">Version:           19.03.12-ce</span><br><span class="line">API version:       1.40</span><br><span class="line">Go version:        go1.14.4</span><br><span class="line">Git commit:        48a66213fe</span><br><span class="line">Built:             Wed Jul  1 17:05:50 2020</span><br><span class="line">OS/Arch:           linux/amd64</span><br><span class="line">Experimental:      false</span><br><span class="line">Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &quot;http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version&quot;: dial unix /var/run/docker.sock: connect: permission denied</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>解决方案：
+<ul>
+<li>使用<code>sudo docker version</code>查询，如果仍然显示失败；</li>
+<li>检查server是否启动</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>如果显示如下信息则说明启动成功： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Client:</span><br><span class="line">Version:           19.03.12-ce</span><br><span class="line">API version:       1.40</span><br><span class="line">Go version:        go1.14.4</span><br><span class="line">Git commit:        48a66213fe</span><br><span class="line">Built:             Wed Jul  1 17:05:50 2020</span><br><span class="line">OS/Arch:           linux/amd64</span><br><span class="line">Experimental:      false</span><br><span class="line"></span><br><span class="line">Server:</span><br><span class="line">Engine:</span><br><span class="line">Version:          19.03.12-ce</span><br><span class="line">API version:      1.40 (minimum version 1.12)</span><br><span class="line">Go version:       go1.14.4</span><br><span class="line">Git commit:       48a66213fe</span><br><span class="line">Built:            Wed Jul  1 17:05:26 2020</span><br><span class="line">OS/Arch:          linux/amd64</span><br><span class="line">Experimental:     false</span><br><span class="line">containerd:</span><br><span class="line">Version:          v1.3.4.m</span><br><span class="line">GitCommit:        d76c121f76a5fc8a462dc64594aea72fe18e1178.m</span><br><span class="line">runc:</span><br><span class="line">Version:          1.0.0-rc91</span><br><span class="line">GitCommit:        24a3cf88a7ae5f4995f6750654c0e2ca61ef4bb2</span><br><span class="line">docker-init:</span><br><span class="line">Version:          0.18.0</span><br><span class="line">GitCommit:        fec3683</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol></li>
+<li><p>配置Docker</p>
+<ul>
+<li>配置国内源 在Windows中配置国内源
+配置Dokcer国内源时需要打开（图形化的）Docker
+Desktop，直接设置国内源即可；如果
+在Linux系统中配置源，直接修改/etc/docker/daemon.json文件即可。详细请参考:<a
+target="_blank" rel="noopener" href="https://docs.docker.com/registry/recipes/mirror/"
+class="uri">https://docs.docker.com/registry/recipes/mirror/</a>
+配置文件格式为JSON格式，例如： <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;https://&lt;my-docker-mirror-host&gt;&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure> 常用的国内Docker如下：
+<ul>
+<li>docker官方中国区: https://registry.docker-cn.com</li>
+<li>网易: http://hub-mirror.c.163.com</li>
+<li>ustc: http://docker.mirrors.ustc.edu.cn 可以同时配置多个源，例如：
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul></li>
+<li><p>重启Docker服务即可生效 在Linux执行如下命令： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+如果重启提示错误可以可根据提示的命令定位错误原因。 &gt; Job for
+docker.service failed because the control process exited with error
+code. &gt; &gt; See "systemctl status docker.service" and "journalctl
+-xe" for details.</p></li>
+<li><p>查询配置是否生效 <code>sudo docker info</code></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1309,14 +1478,14 @@ class="uri">https://templates.office.com/</a>中选择喜欢的模板，将模�
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">49k</span>
+    <span title="Symbols count total">50k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:21</span>
+    <span title="Reading time total">1:23</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
