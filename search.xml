@@ -1531,19 +1531,35 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 <li>称为总视场角或扫描视场角，表热成像仪位置固定时，所能观察到的最大空间交付范围。如图：</li>
 </ul></li>
 <li><p>空间分辨率计算 <span
-class="math display">\[m=\frac{l}{f}\]</span> &gt;
-m是空间分辨率（mrad），l是像间距（μm），f是镜头焦距（mm）</p></li>
+class="math display">\[m=\frac{l}{f}\]</span></p>
+<blockquote>
+<p>m是空间分辨率（mrad），l是像间距（μm），f是镜头焦距（mm）</p>
+</blockquote></li>
 <li><p>视场角算法 <span class="math display">\[\theta_H =
-\frac{\frac{l}{f}\times n_H}{17.45}\]</span> &gt; 水平视场角<span
-class="math inline">\(\theta_H\)</span>
+\frac{\frac{l}{f}\times n_H}{17.45}\]</span></p>
+<blockquote>
+<p>水平视场角<span class="math inline">\(\theta_H\)</span>
 ，像间距l，镜头焦距f，水平像素数<span
 class="math inline">\(n_H\)</span>，17.45mrad对应1°∠</p>
+</blockquote>
 <p><span class="math display">\[\theta_V = \frac{\frac{l}{f}\times
-n_V}{17.45}\]</span> &gt; 垂直视场角<span
-class="math inline">\(\theta_V\)</span>
+n_V}{17.45}\]</span></p>
+<blockquote>
+<p>垂直视场角<span class="math inline">\(\theta_V\)</span>
 ，像间距l，镜头焦距f，水平像素数<span
-class="math inline">\(n_V\)</span>，17.45mrad对应1°∠</p></li>
+class="math inline">\(n_V\)</span>，17.45mrad对应1°∠</p>
+</blockquote></li>
 </ul>
+<h2 id="探测等级">探测等级</h2>
+<p>业界根据约翰逊准则将目标探测分成<strong>探测（发现）、
+识别和辨认</strong>三个等级：</p>
+<ol type="1">
+<li>探测：在市场内发现一个目标，目标所成的像在临界尺寸方向上必须占到1.5像素以上；</li>
+<li>识别：可将目标分类，即可识别出目标是坦克、卡车或者人等，这时目标所成像在临界尺寸方向上必须占到6个像素以上</li>
+<li>辨认：可区分开目标的型号及其他特征，这时目标缩成的像在临界尺寸方向上必须占到12个像素以上。</li>
+</ol>
+<p>以上是概率目标在50%以上，背景对比度为1的情况下得到的数据。如果需要更高的探测率则需要提高成像目标占据的像素数（此时需要提升红外摄像机的硬件，例如增加镜头焦距、
+减少像间距、增加分辨率等手段）。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li>弧度：<a
@@ -1551,5 +1567,8 @@ href="https://baike.baidu.com/item/%E5%BC%A7%E5%BA%A6/1533188"
 class="uri">https://baike.baidu.com/item/%E5%BC%A7%E5%BA%A6/1533188</a></li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>机器视觉</tag>
+      </tags>
   </entry>
 </search>
