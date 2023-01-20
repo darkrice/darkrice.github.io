@@ -1652,4 +1652,66 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>纵横大数据主要观点（四）</title>
+    <url>/2023/01/20/2023-01-20-22/</url>
+    <content><![CDATA[<h2 id="经典dbms的挑战">经典DBMS的挑战</h2>
+<ol type="1">
+<li>数据量与处理压力带来的扩展性的挑战,主要体现在：
+<ol type="1">
+<li>企业的核心业务系统，应付用户并发量与数据量增长的压力越来越严重；</li>
+<li>企业的业务分析系统应付数据处理强度与数据量增长的压力也越来越严重。</li>
+</ol></li>
+<li>对多种数据类型管理以及弱模式管理需求满足。</li>
+<li>主流关系型数据库应对现代数据管理需求的挑战的主要策略，主要分两种（基于分布式与并行技术解决方案架构）：
+<ol type="1">
+<li>Share
+Disk：从名字上可以判断，主要是扩展了数据库计算能力，但是磁盘、网络IO依旧是瓶颈；典型产品Oracle
+RAC，实际项目中超过4个RAC节点OLTP的集群很少，当增加第一个RAC节点时数据库性能可以显著提升性能，增加更多节点数据库性能则不能线性增加，甚至可能出现多节点的数据库性能还不如单机性能（数据库主要性能瓶颈时磁盘IO瓶颈，在OLTP和OLAP都有可能发生，OLAP场景更多一些；节点数量增加并没有解决硬盘IO瓶颈，且增加节点导致的协调、控制等损耗更大）。</li>
+<li>Share Nothing
+：通过分片技术让每个节点上存储的数据都不相同，这样即可解决水平扩展中磁盘IO问题，典型产品TeraData，GreenPlum；这种架构下由于数据分散在不同节点，这种架构天然就不适合OLTP的场景（例如：表关联操作不得不进行节点间数据迁移工作）。Share
+Nothing架构基本上都用于OLAP场景。</li>
+</ol></li>
+</ol>
+<span id="more"></span>
+<h2 id="数据库的改进">数据库的改进</h2>
+<h3 id="技术改进">技术改进</h3>
+<ol type="1">
+<li>列存储：数据按列存储，对于少量的查询操作则可以只读出需要列的数据而不是整表数据，数据库主要瓶颈磁盘IO/网络IO，减少读取的数据则可以提升效率；</li>
+<li>智能扫描：主要是在存储节点提供计算能力，在存储节点上根据SQL语句过滤不必要的数据，例如传统数据库技术中对于一个没有索引的表执行select
+c_1,c_2 from t where
+r1=4需要将整个表读取到内存再根据SQL规则计算，而有智能扫描能力数据库则可以在存储节点上加入了CPU操作，过滤那些不必要的数据，减少了计算节点和存储节点之间的数据传输；</li>
+<li>高速缓存与内存：一是通过高速缓存（Flash
+Cache）批量写数据减少磁盘IO操作，二是把内存当硬盘，硬盘当磁带使用，将所有数据装载到内存，定期更新内存数据到硬盘；</li>
+<li>数据压缩：对同一列数据进行压缩，压缩以后传输到内存的数据变少，减少IO操作</li>
+</ol>
+<h3 id="数据库一体机">数据库一体机</h3>
+<p>典型的产品包括：TeraData一体机（OLAP），Oracle
+Exadata一体机（OLTP和OLAP混合负载，实际更优于OLAP），Oracle
+Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniBand网络。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关系型数据库和MapReduce的差异</title>
+    <url>/2023/01/20/2023-01-20-23/</url>
+    <content><![CDATA[<h2 id="关系型数据库和MapReduce的差异"><a href="#关系型数据库和MapReduce的差异" class="headerlink" title="关系型数据库和MapReduce的差异"></a>关系型数据库和MapReduce的差异</h2><ol>
+<li>OLAP关系型数据库SQL语义对表达复杂BI报表与分析要方便很多，开发人员使用MapReduce来模拟表达同样的效果SQL语义往往比较复杂；</li>
+<li>关系型数据库的执行引擎，对SQL的执行有很多优化机制，例如执行路径优化、关联算法等，对于BI的处理和分析比较方便，而采用MapReduce则需要大量的开发工作，以及较强编程技能；</li>
+<li>很多在SQL体系不适合实现数据处理需求（如：预测、高级聚类算法），在MapReduce中则比较容易实现；</li>
+<li>MapReduce扩展性比OLAP关系型数据库扩展性强，更适合大规模数据处理分析与工作；</li>
+<li>在数据处理结果展示方面，很对BI工具都是基于关系型数据库，即使采用MapReduce实现数据处理分析工作，最终还是会导入到数据库中做展示。</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="为什么还需要MapReduce"><a href="#为什么还需要MapReduce" class="headerlink" title="为什么还需要MapReduce"></a>为什么还需要MapReduce</h2><ol>
+<li>更大的数据处理规模却需要更低的成本；</li>
+<li>不适合关系模型的数据类型；</li>
+<li>不适合SQL体系的处理逻辑（如：模糊聚类、孤立点分析、关联分析等）。</li>
+</ol>
+<blockquote>
+<p><strong>简而言之</strong></p>
+<p>关系型数据库设计的目标是，只需要你告诉他“需要什么”就行，MapReduce则需要用户告诉他具体“怎么做”，他就会帮助你在MPP环境中执行“怎么做”的过程，因此MapReduce比关系型数据库灵活很多，无论什么数据类型都是根据你要求处理。</p>
+</blockquote>
+]]></content>
+  </entry>
 </search>
