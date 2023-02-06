@@ -1902,8 +1902,10 @@ alt="Unified Lamdba" />
 <ol type="1">
 <li><p>由于Lamdba架构的复杂性导致应用开发复杂，需要使用不同框架同时处理实时数据和批处理数据；Unified
 Lamdba架构就提出来对实时数据和批处理数据处理使用统一的API进行封装，如果处理的是批处理数据则从批处理视图中查询，如果是实时数据则从实时视图中查询。典型架构如下：</p></li>
-<li><p>Unified Lamdba架构的特点
-使用统一的API查询，屏蔽和实时和批处理的差异，简化应用开发</p></li>
+<li><p>Unified Lamdba架构的特点</p>
+<ul>
+<li>使用统一的API查询，屏蔽和实时和批处理的差异，简化应用开发</li>
+</ul></li>
 </ol>
 ]]></content>
       <tags>
