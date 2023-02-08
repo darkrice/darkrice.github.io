@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>典型等分布式数据库以及应用改造 - Mixion</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Mixion ICT"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mixion ICT"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="典型的分布式数据库的实现  增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件） 内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件） 不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：  分库能力 分表能力 分布式事务（有限的分布式事务能力：Local、XA、Free&amp;#x2F;Base） 支持读写分离 兼容有限的数据库协议和客户"><meta property="og:type" content="blog"><meta property="og:title" content="典型等分布式数据库以及应用改造"><meta property="og:url" content="http://mixiang.tech/2023/02/08/2023-02-08-19/"><meta property="og:site_name" content="Mixion"><meta property="og:description" content="典型的分布式数据库的实现  增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件） 内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件） 不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：  分库能力 分表能力 分布式事务（有限的分布式事务能力：Local、XA、Free&amp;#x2F;Base） 支持读写分离 兼容有限的数据库协议和客户"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://mixiang.tech/img/og_image.png"><meta property="article:published_time" content="2023-02-08T11:48:32.000Z"><meta property="article:modified_time" content="2023-02-08T12:10:52.471Z"><meta property="article:author" content="Mixion"><meta property="article:tag" content="数据库"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://mixiang.tech/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mixiang.tech/2023/02/08/2023-02-08-19/"},"headline":"典型等分布式数据库以及应用改造","image":["http://mixiang.tech/img/og_image.png"],"datePublished":"2023-02-08T11:48:32.000Z","dateModified":"2023-02-08T12:10:52.471Z","author":{"@type":"Person","name":"Mixion"},"publisher":{"@type":"Organization","name":"Mixion","logo":{"@type":"ImageObject","url":"https://i.328888.xyz/img/2022/12/02/iPf6V.png"}},"description":"典型的分布式数据库的实现  增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件） 内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件） 不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：  分库能力 分表能力 分布式事务（有限的分布式事务能力：Local、XA、Free&#x2F;Base） 支持读写分离 兼容有限的数据库协议和客户"}</script><link rel="canonical" href="http://mixiang.tech/2023/02/08/2023-02-08-19/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://i.328888.xyz/img/2022/12/02/iPf6V.png" alt="Mixion" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-02-08T11:48:32.000Z" title="2/8/2023, 7:48:32 PM">2023-02-08</time>发表</span><span class="level-item"><time dateTime="2023-02-08T12:10:52.471Z" title="2/8/2023, 8:10:52 PM">2023-02-08</time>更新</span><span class="level-item">11 分钟读完 (大约1627个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">典型等分布式数据库以及应用改造</h1><div class="content"><h2 id="典型的分布式数据库的实现">典型的分布式数据库的实现</h2>
+<ol type="1">
+<li>增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件）</li>
+<li>内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）</li>
+<li>不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
+<ol type="1">
+<li>分库能力</li>
+<li>分表能力</li>
+<li>分布式事务（有限的分布式事务能力：Local、XA、Free/Base）</li>
+<li>支持读写分离</li>
+<li>兼容有限的数据库协议和客户端</li>
+<li>支持水平扩展，（可选）提供前端负载均衡能力</li>
+</ol></li>
+</ol>
+<span id="more"></span>
+<h2 id="关于分布式事务">关于分布式事务</h2>
+<p>通常分布式数据库或者分布式数据库中间件通常会提供多种分布式事务模式，Apache
+SharedingSphere分布式事务的能力举例：</p>
+<table>
+<thead>
+<tr class="header">
+<th>影响</th>
+<th>Local</th>
+<th>XA</th>
+<th>BASE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>业务改造</td>
+<td>无</td>
+<td>无</td>
+<td>需要 seata server</td>
+</tr>
+<tr class="even">
+<td>一致性</td>
+<td>不支持</td>
+<td>支持</td>
+<td>最终一致性</td>
+</tr>
+<tr class="odd">
+<td>隔离性</td>
+<td>不支持</td>
+<td>支持</td>
+<td>业务方保证</td>
+</tr>
+<tr class="even">
+<td>并发性能</td>
+<td>无影响</td>
+<td>严重衰退</td>
+<td>略微衰退</td>
+</tr>
+<tr class="odd">
+<td>适合场景</td>
+<td>业务方处理不一致</td>
+<td>短事务 &amp; 低并发</td>
+<td>长事务 &amp; 高并发</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>详细信息可参考<a
+target="_blank" rel="noopener" href="https://shardingsphere.apache.org/document/current/cn/features/transaction/"
+class="uri">https://shardingsphere.apache.org/document/current/cn/features/transaction/</a></p>
+</blockquote>
+<p>其中Local和XA是最典型的分布式事务处理方式，典型等分布式数据库产品如下：</p>
+<ul>
+<li>阿里云PolarDB-X的分布式事务实现类似XA类型的事务；</li>
+<li>华为云GaussDB
+支持GTM-Lite（强一致性）和GTM-Free（弱一致性）事务模型，其中的强一致性事务类似于XA事务的实现，弱一致性方案则类似于Base事务的实现。</li>
+<li>华为云数据库中间件DDM也提供了三种分布式事务模型：单机（类似local）、
+XA和Free（类似Base）</li>
+</ul>
+<h2 id="分布式应用改造">分布式应用改造</h2>
+<p>对于新的敏态应用如果要真正发挥分布式数据库的优势，厂商通常推荐使用弱一致性模式。弱一致性模式就需要应用进行分布式改造，以下是华为云GaussDB分布式事务改造建议（来源于华为于官网<a
+target="_blank" rel="noopener" href="https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html"
+class="uri">https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html</a>）。</p>
+<h3
+id="主要涉及的约束语法和改造建议">主要涉及的约束语法和改造建议：</h3>
+<ol type="1">
+<li>总体原则：所有用户表必须指定分布键（DISTRIBUTE BY），且选择合理：
+<ul>
+<li>考虑数据分布均匀。</li>
+<li>尽量选择查询中的关联条件作为分布键，保证关联查询不会引起DN节点之间的数据流动。</li>
+<li>考虑将表的主键作为分布键。</li>
+</ul></li>
+<li>SELECT：
+<ul>
+<li>表查询时，WHERE条件应包含所有分布键字段等值查询条件。</li>
+<li>避免在SELECT目标列中使用子查询，可能导致计划无法下推到DN执行，影响执行性能。</li>
+</ul></li>
+<li>DML:
+默认不支持跨节点事务，如果所执行的DML语句包含跨节点事务，会报错处理，具体分为两种场景：
+<ol type="1">
+<li>如果用户语句在数据库内部被拆分成多条独立语句执行，会报错：INSERT/UPDATE/DELETE/MERGE
+contains multiple remote queries under GTM-free mode Unsupport DML two
+phase commit under gtm free mode. modify your SQL to generate
+light-proxy or fast-query-shipping
+plan。这时，需要修改语句，来单节点执行。 举例： insert into t select *
+from b where b.c = xx;
+假设t表和b表的分布键不同，且上述where条件只会过滤出一条数据。在不打开enable_stream_operator的情况下，
+上面的查询在数据内部会被拆分成两条独立语句串行执行：首先执行select *
+from b where b.c = xx从某个DN节点抽取到目标记录；然后再执行insert into
+t语句，将抽取的目标记录下发到另一个节点DN节点完成插入。在gtm-free模式下，这样的语句执行方式会返回上述报错。类似的，create
+table as select *
+from、带子查询的delete/join/insert等语句，也可能会出现类似报错。
+业务改造方案：在业务执行之前，需要加上set
+enable_stream_operator=on命令，打开流算子，使得业务语句可以被整体下推执行。</li>
+<li>如果同一个用户语句在数据库内部涉及多节点执行，会报错：Your SQL needs
+more than one datanode to be involved
+in。这时，建议对语句进行修改，使得能够单节点执行。 举例： insert into t
+values(3,3),(1,1);
+假设(3,3)和(1,1)被分布在不同的DN节点上，那么上述语句在数据库内部的执行过程会涉及两个DN节点。在gtm-free模式下，这样的语句执行方式会返回上述报错。
+业务改造方式：对于上述语句，如果业务确有需要在多个节点上执行，需要在语句中添加一个hint来避免报错，如下：
+insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
+类似的，对delete和update语句也有类似约束，一般建议用户在delete和update语句的where条件中加上分布键等值过滤条件。</li>
+</ol></li>
+<li>建议开发阶段在jdbc连接串内设置application_type=perfect_sharding_type，这样所有跨节点读写操作的SQL都会报错，用来提示开发人员尽早优化语句。</li>
+</ol>
+<blockquote>
+<p><strong>对于应用改造一句话总结</strong>：
+通过表设计及应用改造将跨节点的分布式事务变成单一节点的事务，从而将数据库的XA事务模式转换成Base/Free事务模式。通常通过数据库、表设计以及业务改造（复杂事务逻辑由应用代码实现而不是SQL）。</p>
+</blockquote>
+<h2 id="淘宝分布式改造">淘宝分布式改造</h2>
+<ol type="1">
+<li>分库
+将跨库之间操作变成异步操作消息通信（这个的前提是业务数据库本身就没有复杂的关联操作）</li>
+<li>分表
+按照某种规则将表分区，分区表存放在不同的数据库节点上，存在跨表事务的表要分布在同一个数据库节点</li>
+<li>读写分离</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>典型等分布式数据库以及应用改造</p><p><a href="http://mixiang.tech/2023/02/08/2023-02-08-19/">http://mixiang.tech/2023/02/08/2023-02-08-19/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Mixion</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2023-02-08</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-02-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://i.328888.xyz/img/2022/12/03/iPw6p.md.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/02/06/2023-02-06-19/"><span class="level-item">大数据通用架构</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://i.328888.xyz/img/2022/12/02/iMKOQ.th.png" alt="Mixion"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Mixion</p><p class="is-size-6 is-block">ICT思潮</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>XI&#039;AN</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">46</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">14</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/darkrice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/1430123077"><i class="fab fa-weibo"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-08T11:48:32.000Z">2023-02-08</time></p><p class="title"><a href="/2023/02/08/2023-02-08-19/">典型等分布式数据库以及应用改造</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-06T11:36:52.000Z">2023-02-06</time></p><p class="title"><a href="/2023/02/06/2023-02-06-19/">大数据通用架构</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-02-02T13:52:20.000Z">2023-02-02</time></p><p class="title"><a href="/2023/02/02/2023-02-02-21/">数据治理到通用概念</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-01-26T04:57:44.000Z">2023-01-26</time></p><p class="title"><a href="/2023/01/26/2023-01-26-12/">在linxu上搭建miniconda和pyspark环境</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-01-20T14:48:11.000Z">2023-01-20</time></p><p class="title"><a href="/2023/01/20/2023-01-20-23/">关系型数据库和MapReduce的差异</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/BigData/"><span class="tag">BigData</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kubernetes/"><span class="tag">Kubernetes</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="tag">云计算</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%89%93%E6%95%B0%E6%8D%AE/"><span class="tag">打数据</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"><span class="tag">机器视觉</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/"><span class="tag">非暴力沟通</span><span class="tag">2</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#典型的分布式数据库的实现"><span class="level-left"><span class="level-item">1</span><span class="level-item">典型的分布式数据库的实现</span></span></a></li><li><a class="level is-mobile" href="#关于分布式事务"><span class="level-left"><span class="level-item">2</span><span class="level-item">关于分布式事务</span></span></a></li><li><a class="level is-mobile" href="#分布式应用改造"><span class="level-left"><span class="level-item">3</span><span class="level-item">分布式应用改造</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#主要涉及的约束语法和改造建议"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">主要涉及的约束语法和改造建议：</span></span></a></li></ul></li><li><a class="level is-mobile" href="#淘宝分布式改造"><span class="level-left"><span class="level-item">4</span><span class="level-item">淘宝分布式改造</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://i.328888.xyz/img/2022/12/02/iPf6V.png" alt="Mixion" height="28"></a><p class="is-size-7"><span>&copy; 2023 Mixion</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

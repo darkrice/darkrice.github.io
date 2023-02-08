@@ -1912,4 +1912,143 @@ Lamdba架构就提出来对实时数据和批处理数据处理使用统一的AP
         <tag>BigData</tag>
       </tags>
   </entry>
+  <entry>
+    <title>典型等分布式数据库以及应用改造</title>
+    <url>/2023/02/08/2023-02-08-19/</url>
+    <content><![CDATA[<h2 id="典型的分布式数据库的实现">典型的分布式数据库的实现</h2>
+<ol type="1">
+<li>增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件）</li>
+<li>内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）</li>
+<li>不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
+<ol type="1">
+<li>分库能力</li>
+<li>分表能力</li>
+<li>分布式事务（有限的分布式事务能力：Local、XA、Free/Base）</li>
+<li>支持读写分离</li>
+<li>兼容有限的数据库协议和客户端</li>
+<li>支持水平扩展，（可选）提供前端负载均衡能力</li>
+</ol></li>
+</ol>
+<span id="more"></span>
+<h2 id="关于分布式事务">关于分布式事务</h2>
+<p>通常分布式数据库或者分布式数据库中间件通常会提供多种分布式事务模式，Apache
+SharedingSphere分布式事务的能力举例：</p>
+<table>
+<thead>
+<tr class="header">
+<th>影响</th>
+<th>Local</th>
+<th>XA</th>
+<th>BASE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>业务改造</td>
+<td>无</td>
+<td>无</td>
+<td>需要 seata server</td>
+</tr>
+<tr class="even">
+<td>一致性</td>
+<td>不支持</td>
+<td>支持</td>
+<td>最终一致性</td>
+</tr>
+<tr class="odd">
+<td>隔离性</td>
+<td>不支持</td>
+<td>支持</td>
+<td>业务方保证</td>
+</tr>
+<tr class="even">
+<td>并发性能</td>
+<td>无影响</td>
+<td>严重衰退</td>
+<td>略微衰退</td>
+</tr>
+<tr class="odd">
+<td>适合场景</td>
+<td>业务方处理不一致</td>
+<td>短事务 &amp; 低并发</td>
+<td>长事务 &amp; 高并发</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>详细信息可参考<a
+href="https://shardingsphere.apache.org/document/current/cn/features/transaction/"
+class="uri">https://shardingsphere.apache.org/document/current/cn/features/transaction/</a></p>
+</blockquote>
+<p>其中Local和XA是最典型的分布式事务处理方式，典型等分布式数据库产品如下：</p>
+<ul>
+<li>阿里云PolarDB-X的分布式事务实现类似XA类型的事务；</li>
+<li>华为云GaussDB
+支持GTM-Lite（强一致性）和GTM-Free（弱一致性）事务模型，其中的强一致性事务类似于XA事务的实现，弱一致性方案则类似于Base事务的实现。</li>
+<li>华为云数据库中间件DDM也提供了三种分布式事务模型：单机（类似local）、
+XA和Free（类似Base）</li>
+</ul>
+<h2 id="分布式应用改造">分布式应用改造</h2>
+<p>对于新的敏态应用如果要真正发挥分布式数据库的优势，厂商通常推荐使用弱一致性模式。弱一致性模式就需要应用进行分布式改造，以下是华为云GaussDB分布式事务改造建议（来源于华为于官网<a
+href="https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html"
+class="uri">https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html</a>）。</p>
+<h3
+id="主要涉及的约束语法和改造建议">主要涉及的约束语法和改造建议：</h3>
+<ol type="1">
+<li>总体原则：所有用户表必须指定分布键（DISTRIBUTE BY），且选择合理：
+<ul>
+<li>考虑数据分布均匀。</li>
+<li>尽量选择查询中的关联条件作为分布键，保证关联查询不会引起DN节点之间的数据流动。</li>
+<li>考虑将表的主键作为分布键。</li>
+</ul></li>
+<li>SELECT：
+<ul>
+<li>表查询时，WHERE条件应包含所有分布键字段等值查询条件。</li>
+<li>避免在SELECT目标列中使用子查询，可能导致计划无法下推到DN执行，影响执行性能。</li>
+</ul></li>
+<li>DML:
+默认不支持跨节点事务，如果所执行的DML语句包含跨节点事务，会报错处理，具体分为两种场景：
+<ol type="1">
+<li>如果用户语句在数据库内部被拆分成多条独立语句执行，会报错：INSERT/UPDATE/DELETE/MERGE
+contains multiple remote queries under GTM-free mode Unsupport DML two
+phase commit under gtm free mode. modify your SQL to generate
+light-proxy or fast-query-shipping
+plan。这时，需要修改语句，来单节点执行。 举例： insert into t select *
+from b where b.c = xx;
+假设t表和b表的分布键不同，且上述where条件只会过滤出一条数据。在不打开enable_stream_operator的情况下，
+上面的查询在数据内部会被拆分成两条独立语句串行执行：首先执行select *
+from b where b.c = xx从某个DN节点抽取到目标记录；然后再执行insert into
+t语句，将抽取的目标记录下发到另一个节点DN节点完成插入。在gtm-free模式下，这样的语句执行方式会返回上述报错。类似的，create
+table as select *
+from、带子查询的delete/join/insert等语句，也可能会出现类似报错。
+业务改造方案：在业务执行之前，需要加上set
+enable_stream_operator=on命令，打开流算子，使得业务语句可以被整体下推执行。</li>
+<li>如果同一个用户语句在数据库内部涉及多节点执行，会报错：Your SQL needs
+more than one datanode to be involved
+in。这时，建议对语句进行修改，使得能够单节点执行。 举例： insert into t
+values(3,3),(1,1);
+假设(3,3)和(1,1)被分布在不同的DN节点上，那么上述语句在数据库内部的执行过程会涉及两个DN节点。在gtm-free模式下，这样的语句执行方式会返回上述报错。
+业务改造方式：对于上述语句，如果业务确有需要在多个节点上执行，需要在语句中添加一个hint来避免报错，如下：
+insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
+类似的，对delete和update语句也有类似约束，一般建议用户在delete和update语句的where条件中加上分布键等值过滤条件。</li>
+</ol></li>
+<li>建议开发阶段在jdbc连接串内设置application_type=perfect_sharding_type，这样所有跨节点读写操作的SQL都会报错，用来提示开发人员尽早优化语句。</li>
+</ol>
+<blockquote>
+<p><strong>对于应用改造一句话总结</strong>：
+通过表设计及应用改造将跨节点的分布式事务变成单一节点的事务，从而将数据库的XA事务模式转换成Base/Free事务模式。通常通过数据库、表设计以及业务改造（复杂事务逻辑由应用代码实现而不是SQL）。</p>
+</blockquote>
+<h2 id="淘宝分布式改造">淘宝分布式改造</h2>
+<ol type="1">
+<li>分库
+将跨库之间操作变成异步操作消息通信（这个的前提是业务数据库本身就没有复杂的关联操作）</li>
+<li>分表
+按照某种规则将表分区，分区表存放在不同的数据库节点上，存在跨表事务的表要分布在同一个数据库节点</li>
+<li>读写分离</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
 </search>
