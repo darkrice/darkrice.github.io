@@ -1901,10 +1901,11 @@ alt="Unified Lamdba" />
 </figure>
 <ol type="1">
 <li><p>由于Lamdba架构的复杂性导致应用开发复杂，需要使用不同框架同时处理实时数据和批处理数据；Unified
-Lamdba架构就提出来对实时数据和批处理数据处理使用统一的API进行封装，如果处理的是批处理数据则从批处理视图中查询，如果是实时数据则从实时视图中查询。典型架构如下：</p></li>
+Lamdba架构就提出来对实时数据和批处理数据处理使用统一的API进行封装，如果处理的是批处理数据则从批处理视图中查询，如果是实时数据则从实时视图中查询。现在华为开源等openlooKeng也可以看作是Unified
+Lamdba的一种实现。</p></li>
 <li><p>Unified Lamdba架构的特点</p>
 <ul>
-<li>使用统一的API查询，屏蔽和实时和批处理的差异，简化应用开发</li>
+<li>使用统一的API查询，屏蔽和实时和批处理的差异，简化应用开发。</li>
 </ul></li>
 </ol>
 ]]></content>
@@ -1913,26 +1914,23 @@ Lamdba架构就提出来对实时数据和批处理数据处理使用统一的AP
       </tags>
   </entry>
   <entry>
-    <title>典型等分布式数据库以及应用改造</title>
+    <title>分布式数据库以及应用改造</title>
     <url>/2023/02/08/2023-02-08-19/</url>
-    <content><![CDATA[<h2 id="典型的分布式数据库的实现">典型的分布式数据库的实现</h2>
-<ol type="1">
-<li>增加分布式数据中间件（多个独立数据库实例中增加一个数据库中间件）</li>
-<li>内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）</li>
-<li>不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
-<ol type="1">
-<li>分库能力</li>
-<li>分表能力</li>
-<li>分布式事务（有限的分布式事务能力：Local、XA、Free/Base）</li>
-<li>支持读写分离</li>
-<li>兼容有限的数据库协议和客户端</li>
-<li>支持水平扩展，（可选）提供前端负载均衡能力</li>
-</ol></li>
-</ol>
+    <content><![CDATA[<h2 id="分布式数据库">分布式数据库</h2>
+<p>典型的分布式数据库及实现有： 1.
+增加分布式数据中间件（即在多个独立数据库实例前增加一个数据库中间件），由分布式数据库中间件实现分库分表，分布式SQL执行，分布式事务等。
+2.
+内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）
+3.
+不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
+1. 分库能力 2. 分表能力 3.
+分布式事务（有限的分布式事务能力：Local、XA、Free/Base） 4. 支持读写分离
+5. 兼容有限的数据库协议和客户端 6.
+支持水平扩展，（可选）提供前端负载均衡能力</p>
 <span id="more"></span>
 <h2 id="关于分布式事务">关于分布式事务</h2>
-<p>通常分布式数据库或者分布式数据库中间件通常会提供多种分布式事务模式，Apache
-SharedingSphere分布式事务的能力举例：</p>
+<p>通常分布式数据库或者分布式数据库中间件会提供多种分布式事务模式，以Apache
+SharedingSphere的分布式事务的能力举例：</p>
 <table>
 <thead>
 <tr class="header">
@@ -1980,7 +1978,7 @@ SharedingSphere分布式事务的能力举例：</p>
 href="https://shardingsphere.apache.org/document/current/cn/features/transaction/"
 class="uri">https://shardingsphere.apache.org/document/current/cn/features/transaction/</a></p>
 </blockquote>
-<p>其中Local和XA是最典型的分布式事务处理方式，典型等分布式数据库产品如下：</p>
+<p>其中Local和XA是最典型的分布式事务模式，常见分布式数据库产品如下：</p>
 <ul>
 <li>阿里云PolarDB-X的分布式事务实现类似XA类型的事务；</li>
 <li>华为云GaussDB
@@ -1991,9 +1989,7 @@ XA和Free（类似Base）</li>
 <h2 id="分布式应用改造">分布式应用改造</h2>
 <p>对于新的敏态应用如果要真正发挥分布式数据库的优势，厂商通常推荐使用弱一致性模式。弱一致性模式就需要应用进行分布式改造，以下是华为云GaussDB分布式事务改造建议（来源于华为于官网<a
 href="https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html"
-class="uri">https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html</a>）。</p>
-<h3
-id="主要涉及的约束语法和改造建议">主要涉及的约束语法和改造建议：</h3>
+class="uri">https://support.huaweicloud.com/distributed-devg-v2-opengauss/devg_02_1289.html</a>）。主要涉及的约束语法和改造建议如下：</p>
 <ol type="1">
 <li>总体原则：所有用户表必须指定分布键（DISTRIBUTE BY），且选择合理：
 <ul>
@@ -2039,13 +2035,12 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 通过表设计及应用改造将跨节点的分布式事务变成单一节点的事务，从而将数据库的XA事务模式转换成Base/Free事务模式。通常通过数据库、表设计以及业务改造（复杂事务逻辑由应用代码实现而不是SQL）。</p>
 </blockquote>
 <h2 id="淘宝分布式改造">淘宝分布式改造</h2>
-<ol type="1">
-<li>分库
-将跨库之间操作变成异步操作消息通信（这个的前提是业务数据库本身就没有复杂的关联操作）</li>
-<li>分表
-按照某种规则将表分区，分区表存放在不同的数据库节点上，存在跨表事务的表要分布在同一个数据库节点</li>
-<li>读写分离</li>
-</ol>
+<p>淘宝是中国最最成功大规模等实现分布式改造等案例，经历了人工分库、分表，中间件分库分表等阶段。
+1. 分库
+将跨库之间操作变成异步操作消息通信（这个的前提是业务数据库本身就没有复杂的关联操作）
+2. 分表
+按照某种规则将表分区，分区表存放在不同的数据库节点上，存在跨表事务的表要分布在同一个数据库节点
+3. 读写分离</p>
 ]]></content>
       <tags>
         <tag>数据库</tag>
