@@ -1183,7 +1183,7 @@ MySQL来保存元数据，此时这个元数据数据库就成为新的瓶颈 2.
   </entry>
   <entry>
     <title>SOA架构和微服务架构的区别</title>
-    <url>/2022/11/25/2022-10-17-22/</url>
+    <url>/2024/05/11/2022-10-17-22/</url>
     <content><![CDATA[<h2 id="什么是soa架构">什么是SOA架构</h2>
 <p>企业范围内的应用程序或者服务开发的方法，目的是复用组件和服务。在SOA架构中每个<strong>服务</strong>（service）都会提供独立的代码和数据来实现特定的企业业务功能（business
 function）。各个<strong>服务</strong>之间是松藕荷的，提供接口通过企业总线（ESB）进行集成；从而减少服务更新导致的大量的集成工作；在这种架构下，如果服务出现问题仍会影响到关联的服务。</p>
@@ -1209,7 +1209,7 @@ function）。各个<strong>服务</strong>之间是松藕荷的，提供接口�
 <h2
 id="微服务和soa架构的主要不同范围">微服务和SOA架构的主要不同：范围</h2>
 <p>SOA架构和微服架构最大的不同是范围不同。SOA架构针对的是企业业务层级，每个服务对应一个企业业务，每个业务之间通过企业总线（ESB）进行数据交换；微服是针对应用层级的，微服务之间是直接通信的。</p>
-<img src="/2022/11/25/2022-10-17-22/SOA_microservices.webp" class="">
+<img src="/2024/05/11/2022-10-17-22/SOA_microservices.webp" class="">
 <h2 id="复用">复用</h2>
 <ul>
 <li>SOA架构是企业级的组件组件和服务（针对特定企业级业务功能）复用。</li>
@@ -1398,69 +1398,6 @@ distance，亦称泛焦距离）；通过将相机对焦在超焦距上可以获
       </tags>
   </entry>
   <entry>
-    <title>摄像机中的宽动态</title>
-    <url>/2022/11/24/2022-11-24-11/</url>
-    <content><![CDATA[<h2 id="什么是宽动态">什么是宽动态</h2>
-<p>宽动态是在非常强烈的对比下让摄像机看到影像特色而运用的一种技术。
-通常有强光源的场景下，强光照射的区域和阴影区域会有非常大的亮度区别，摄像机输出图像会出现明亮区（过曝导致的白色区域）和黑暗区（曝光不足导致的黑色区域）；摄像机在同一场景下，能够支持的最亮和最暗局限就是“动态范围”。</p>
-<span id="more"></span>
-<h2 id="典型的环境与照度">典型的环境与照度</h2>
-<table>
-<thead>
-<tr class="header">
-<th>参考环境</th>
-<th>大概照度</th>
-<th>参照环境</th>
-<th>大概照度</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>夏日阳光</td>
-<td>100000lux</td>
-<td>室内日光灯</td>
-<td>100lux</td>
-</tr>
-<tr class="even">
-<td>阴天室外</td>
-<td>10000lux</td>
-<td>黄昏室内</td>
-<td>10lux</td>
-</tr>
-<tr class="odd">
-<td>距离60W台灯60cm桌面</td>
-<td>300lux</td>
-<td>夜间路灯</td>
-<td>0.1lux</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>假设再酒店大堂中央从室内向室外拍摄，该场景下需要支持的动态范围大概为100:1（参考第一行），而一般相机动态范围大概是3:1。</p>
-</blockquote>
-<h3 id="不同相机工作的照度">不同相机工作的照度</h3>
-<ul>
-<li>普通型：1~300lux</li>
-<li>月光型：0.1lux</li>
-<li>星光型：0.01lux</li>
-<li>红外型：在没有可见光的情况下仍可以工作</li>
-</ul>
-<h2 id="摄像机的宽动态范围计算">摄像机的宽动态范围计算</h2>
-<ul>
-<li><p>宽动态范定义
-dB是一个比值，即摄像机能够是被的最亮部分和最暗部分的照度比值。</p></li>
-<li><p>宽动态计算公式</p></li>
-</ul>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="24.058ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 10633.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(520,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mo" transform="translate(1556.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2612.6,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g><g data-mml-node="mo" transform="translate(3834.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(4835,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(5133,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(5618,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mo" transform="translate(6095,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(6484,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mn" transform="translate(7253,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(7975.2,0)"><path data-c="F7" d="M318 466Q318 500 339 518T386 537Q418 537 438 517T458 466Q458 438 440 417T388 396Q355 396 337 417T318 466ZM56 237T56 250T70 270H706Q721 262 721 250T706 230H70Q56 237 56 250ZM318 34Q318 68 339 86T386 105Q418 105 438 85T458 34Q458 6 440 -15T388 -36Q355 -36 337 -15T318 34Z"></path></g><g data-mml-node="mi" transform="translate(8975.4,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mn" transform="translate(9744.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(10244.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span></p>
-<blockquote>
-<p>V2：最强照度，V1：最弱照度</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>机器视觉</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>什么是白平衡</title>
     <url>/2022/11/25/2022-11-25-17/</url>
     <content><![CDATA[<h2 id="一些基本概念">一些基本概念</h2>
@@ -1526,6 +1463,69 @@ body），是一个理想化的物体，它能够吸收外来的全部电磁辐�
       </tags>
   </entry>
   <entry>
+    <title>摄像机中的宽动态</title>
+    <url>/2022/11/24/2022-11-24-11/</url>
+    <content><![CDATA[<h2 id="什么是宽动态">什么是宽动态</h2>
+<p>宽动态是在非常强烈的对比下让摄像机看到影像特色而运用的一种技术。
+通常有强光源的场景下，强光照射的区域和阴影区域会有非常大的亮度区别，摄像机输出图像会出现明亮区（过曝导致的白色区域）和黑暗区（曝光不足导致的黑色区域）；摄像机在同一场景下，能够支持的最亮和最暗局限就是“动态范围”。</p>
+<span id="more"></span>
+<h2 id="典型的环境与照度">典型的环境与照度</h2>
+<table>
+<thead>
+<tr class="header">
+<th>参考环境</th>
+<th>大概照度</th>
+<th>参照环境</th>
+<th>大概照度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>夏日阳光</td>
+<td>100000lux</td>
+<td>室内日光灯</td>
+<td>100lux</td>
+</tr>
+<tr class="even">
+<td>阴天室外</td>
+<td>10000lux</td>
+<td>黄昏室内</td>
+<td>10lux</td>
+</tr>
+<tr class="odd">
+<td>距离60W台灯60cm桌面</td>
+<td>300lux</td>
+<td>夜间路灯</td>
+<td>0.1lux</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>假设再酒店大堂中央从室内向室外拍摄，该场景下需要支持的动态范围大概为100:1（参考第一行），而一般相机动态范围大概是3:1。</p>
+</blockquote>
+<h3 id="不同相机工作的照度">不同相机工作的照度</h3>
+<ul>
+<li>普通型：1~300lux</li>
+<li>月光型：0.1lux</li>
+<li>星光型：0.01lux</li>
+<li>红外型：在没有可见光的情况下仍可以工作</li>
+</ul>
+<h2 id="摄像机的宽动态范围计算">摄像机的宽动态范围计算</h2>
+<ul>
+<li><p>宽动态范定义
+dB是一个比值，即摄像机能够是被的最亮部分和最暗部分的照度比值。</p></li>
+<li><p>宽动态计算公式</p></li>
+</ul>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="24.058ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 10633.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(520,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mo" transform="translate(1556.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2612.6,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g><g data-mml-node="mo" transform="translate(3834.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(4835,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(5133,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(5618,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mo" transform="translate(6095,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(6484,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mn" transform="translate(7253,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(7975.2,0)"><path data-c="F7" d="M318 466Q318 500 339 518T386 537Q418 537 438 517T458 466Q458 438 440 417T388 396Q355 396 337 417T318 466ZM56 237T56 250T70 270H706Q721 262 721 250T706 230H70Q56 237 56 250ZM318 34Q318 68 339 86T386 105Q418 105 438 85T458 34Q458 6 440 -15T388 -36Q355 -36 337 -15T318 34Z"></path></g><g data-mml-node="mi" transform="translate(8975.4,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mn" transform="translate(9744.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(10244.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span></p>
+<blockquote>
+<p>V2：最强照度，V1：最弱照度</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>机器视觉</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>空间分辨率和视场角及其计算方式</title>
     <url>/2022/11/29/2022-11-29-22/</url>
     <content><![CDATA[<h2 id="弧度和角度的关系">弧度和角度的关系</h2>
@@ -1583,77 +1583,60 @@ body），是一个理想化的物体，它能够吸收外来的全部电磁辐�
       </tags>
   </entry>
   <entry>
-    <title>Hexo Quick Start</title>
-    <url>/2022/11/25/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="mathjax">Mathjax</h2>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.063ex;" xmlns="http://www.w3.org/2000/svg" width="21.558ex" height="5.232ex" role="img" focusable="false" viewBox="0 -1400.6 9528.6 2312.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="393" d="M128 619Q121 626 117 628T101 631T58 634H25V680H554V676Q556 670 568 560T582 444V440H542V444Q542 445 538 478T523 545T492 598Q454 634 349 634H334Q264 634 249 633T233 621Q232 618 232 339L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path></g><g data-mml-node="mo" transform="translate(625,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1014,0)"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(1479,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2145.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msubsup" transform="translate(3201.6,0)"><g data-mml-node="mo" transform="translate(0 1)"><path data-c="222B" d="M114 -798Q132 -824 165 -824H167Q195 -824 223 -764T275 -600T320 -391T362 -164Q365 -143 367 -133Q439 292 523 655T645 1127Q651 1145 655 1157T672 1201T699 1257T733 1306T777 1346T828 1360Q884 1360 912 1325T944 1245Q944 1220 932 1205T909 1186T887 1183Q866 1183 849 1198T832 1239Q832 1287 885 1296L882 1300Q879 1303 874 1307T866 1313Q851 1323 833 1323Q819 1323 807 1311T775 1255T736 1139T689 936T633 628Q574 293 510 -5T410 -437T355 -629Q278 -862 165 -862Q125 -862 92 -831T55 -746Q55 -711 74 -698T112 -685Q133 -685 150 -700T167 -741Q167 -789 114 -798Z"></path></g><g data-mml-node="mi" transform="translate(1046.4,1088.1) scale(0.707)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g><g data-mml-node="mn" transform="translate(589,-896.4) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="msup" transform="translate(5171.7,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="TeXAtom" transform="translate(394,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(465,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(1243,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><g data-mml-node="msup" transform="translate(6848.2,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(778,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g></g></g><g data-mml-node="mi" transform="translate(8202.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(8722.6,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mstyle" transform="translate(9083.6,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(9250.6,0)"><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g></g></g></svg></mjx-container></span></p>
-<span id="more"></span>
-<h2 id="local-image">Local Image</h2>
-<img src="/2022/11/25/hello-world/wechat_pay.png" class="">
-<h2 id="create-a-new-post">Create a new post</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h2 id="run-server">Run server</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h2 id="generate-static-files">Generate static files</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h2 id="deploy-to-remote-sites">Deploy to remote sites</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+Github优化小结</title>
     <url>/2022/12/03/2022-12-03-08/</url>
     <content><![CDATA[<p>本文主要是对Hexo+Github部署个人Blog遇到小问题的一个汇总，涉及到主题，Pages服务及网站加速。</p>
-<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>目前比较流行的next主题和icarus主题，这两个主题都具备一定的定制性和插件。个人更喜欢icarus主题，以下以icarus主题为例进行说明。</p>
-<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>执行如下命令可以安装icarus主题</p>
+<h2 id="主题选择">主题选择</h2>
+<p>目前比较流行的next主题和icarus主题，这两个主题都具备一定的定制性和插件。个人更喜欢icarus主题，以下以icarus主题为例进行说明。</p>
+<h3 id="安装主题">安装主题</h3>
+<p>执行如下命令可以安装icarus主题</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -S hexo-theme-icarus hexo-renderer-inferno</span><br></pre></td></tr></table></figure>
-<h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-<p>上述命令可以生产配置文件<code>_config.icarus.yml</code>文件及样例配置文件。此时就可以按照<a href="http://ppoffice.github.io/hexo-theme-icarus/">http://ppoffice.github.io/hexo-theme-icarus/</a>自定义主题，对不需要样式或者插件可以在配置文件中直接注释；可以参考样例配置文件<code>_config.icarus.yml.example</code>进行配置。</p>
+<h3 id="主题配置">主题配置</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
+<p>上述命令可以生产配置文件<code>_config.icarus.yml</code>文件及样例配置文件。此时就可以按照<a
+href="http://ppoffice.github.io/hexo-theme-icarus/"
+class="uri">http://ppoffice.github.io/hexo-theme-icarus/</a>自定义主题，对不需要样式或者插件可以在配置文件中直接注释；可以参考样例配置文件<code>_config.icarus.yml.example</code>进行配置。</p>
 <span id="more"></span>
-
-<h2 id="Pages服务选择"><a href="#Pages服务选择" class="headerlink" title="Pages服务选择"></a>Pages服务选择</h2><p>当前可以选择Pages服务主要有github，gitee以及coding。</p>
-<ul>
-<li>github访问较慢，配置简单方便，部署后可自动更新，网上可以查询到很多hexo+github的配置知道，这里就不再赘述了</li>
-<li>gitee访问快，可定义从github同步pages库，每次更新均需要需要手动部署且会出莫名其妙的审查问题</li>
-<li>coding被腾讯云收购以后只提供静态网站部署，但是资料写的稀烂，完全不知道怎么操作</li>
-</ul>
+<h2 id="pages服务选择">Pages服务选择</h2>
+<p>当前可以选择Pages服务主要有github，gitee以及coding。 -
+github访问较慢，配置简单方便，部署后可自动更新，网上可以查询到很多hexo+github的配置知道，这里就不再赘述了
+-
+gitee访问快，可定义从github同步pages库，每次更新均需要需要手动部署且会出莫名其妙的审查问题
+-
+coding被腾讯云收购以后只提供静态网站部署，但是资料写的稀烂，完全不知道怎么操作</p>
 <blockquote>
-<p>新手还是<strong>推荐使用github pags服务</strong>，未来流量增加以后可以考虑同步到coding&#x2F;gitee上</p>
+<p>新手还是<strong>推荐使用github
+pags服务</strong>，未来流量增加以后可以考虑同步到coding/gitee上</p>
 </blockquote>
-<h2 id="网站加速"><a href="#网站加速" class="headerlink" title="网站加速"></a>网站加速</h2><p>从浏览器<strong>开发人员工具</strong>上可以看到部署在github上加载最慢元素主要是图片**、js、css、字体。根据上述问题可以选择不同的加速方案。</p>
-<ol>
-<li>针对hexo和主题本身的js\css则只能通过更换国内Pags服务（本次暂不优化）</li>
+<h2 id="网站加速">网站加速</h2>
+<p>从浏览器<strong>开发人员工具</strong>上可以看到部署在github上加载最慢元素主要是图片**、js、css、字体。根据上述问题可以选择不同的加速方案。</p>
+<ol type="1">
+<li>针对hexo和主题本身的js（本次暂不优化）</li>
 <li>针对第三方插件和css可以使用内建或者自定义CDN来加速</li>
 <li>针对图片文件则可以使用国内图床进行加速</li>
 </ol>
-<h3 id="使用内建或者自定义CDN进行css和js加速"><a href="#使用内建或者自定义CDN进行css和js加速" class="headerlink" title="使用内建或者自定义CDN进行css和js加速"></a>使用内建或者自定义CDN进行css和js加速</h3><ul>
-<li><p>next配置加速</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line"><span class="comment"># The CDN provider of NexT internal scripts.</span></span><br><span class="line"><span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs | custom</span></span><br><span class="line"><span class="comment"># Warning: If you are using the latest master branch of NexT, please set `internal: local`</span></span><br><span class="line"><span class="attr">internal:</span> <span class="string">local</span></span><br><span class="line"><span class="comment"># The default CDN provider of third-party plugins.</span></span><br><span class="line"><span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs | custom</span></span><br><span class="line"><span class="comment"># Dependencies for `plugins: local`: https://github.com/next-theme/plugins</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">custom</span></span><br><span class="line"><span class="comment"># Custom CDN URL</span></span><br><span class="line"><span class="comment"># For example:</span></span><br><span class="line"><span class="comment"># custom_cdn_url: https://cdn.jsdelivr.net/npm/$&#123;npm_name&#125;@$&#123;version&#125;/$&#123;minified&#125;</span></span><br><span class="line"><span class="comment"># custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br><span class="line"><span class="attr">custom_cdn_url:</span> <span class="string">https://lib.baomitu.com/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br></pre></td></tr></table></figure>
-<p>详细配置可参考<a href="https://theme-next.js.org/docs/advanced-settings/vendors">https://theme-next.js.org/docs/advanced-settings/vendors</a>，国内建议配置baomitu。</p>
-</li>
-<li><p>icarus配置加速</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CDN provider settings</span></span><br><span class="line"><span class="comment"># https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/</span></span><br><span class="line"><span class="attr">providers:</span></span><br><span class="line">    <span class="comment"># Name or URL template of the JavaScript and/or stylesheet CDN provider</span></span><br><span class="line">    <span class="attr">cdn:</span> <span class="string">loli</span></span><br><span class="line">    <span class="comment"># Name or URL template of the webfont CDN provider</span></span><br><span class="line">    <span class="attr">fontcdn:</span> <span class="string">loli</span></span><br><span class="line">    <span class="comment"># Name or URL of the fontawesome icon font CDN provider</span></span><br><span class="line">    <span class="attr">iconcdn:</span> <span class="string">loli</span></span><br></pre></td></tr></table></figure>
-<p>详细配置可参考<a href="https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/">https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/</a>，国内建议配置loli。</p>
-</li>
+<h3
+id="使用内建或者自定义cdn进行css和js加速">使用内建或者自定义CDN进行css和js加速</h3>
+<ul>
+<li><p>next配置加速 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line"><span class="comment"># The CDN provider of NexT internal scripts.</span></span><br><span class="line"><span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs | custom</span></span><br><span class="line"><span class="comment"># Warning: If you are using the latest master branch of NexT, please set `internal: local`</span></span><br><span class="line"><span class="attr">internal:</span> <span class="string">local</span></span><br><span class="line"><span class="comment"># The default CDN provider of third-party plugins.</span></span><br><span class="line"><span class="comment"># Available values: local | jsdelivr | unpkg | cdnjs | custom</span></span><br><span class="line"><span class="comment"># Dependencies for `plugins: local`: https://github.com/next-theme/plugins</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">custom</span></span><br><span class="line"><span class="comment"># Custom CDN URL</span></span><br><span class="line"><span class="comment"># For example:</span></span><br><span class="line"><span class="comment"># custom_cdn_url: https://cdn.jsdelivr.net/npm/$&#123;npm_name&#125;@$&#123;version&#125;/$&#123;minified&#125;</span></span><br><span class="line"><span class="comment"># custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br><span class="line"><span class="attr">custom_cdn_url:</span> <span class="string">https://lib.baomitu.com/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br></pre></td></tr></table></figure> 详细配置可参考<a
+href="https://theme-next.js.org/docs/advanced-settings/vendors"
+class="uri">https://theme-next.js.org/docs/advanced-settings/vendors</a>，国内建议配置baomitu。</p></li>
+<li><p>icarus配置加速 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CDN provider settings</span></span><br><span class="line"><span class="comment"># https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/</span></span><br><span class="line"><span class="attr">providers:</span></span><br><span class="line">    <span class="comment"># Name or URL template of the JavaScript and/or stylesheet CDN provider</span></span><br><span class="line">    <span class="attr">cdn:</span> <span class="string">loli</span></span><br><span class="line">    <span class="comment"># Name or URL template of the webfont CDN provider</span></span><br><span class="line">    <span class="attr">fontcdn:</span> <span class="string">loli</span></span><br><span class="line">    <span class="comment"># Name or URL of the fontawesome icon font CDN provider</span></span><br><span class="line">    <span class="attr">iconcdn:</span> <span class="string">loli</span></span><br></pre></td></tr></table></figure> 详细配置可参考<a
+href="https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/"
+class="uri">https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/</a>，国内建议配置loli。</p></li>
 </ul>
-<h3 id="使用图床进行图片下载加速"><a href="#使用图床进行图片下载加速" class="headerlink" title="使用图床进行图片下载加速"></a>使用图床进行图片下载加速</h3><p>当前只试用了一个图床<a href="https://imgloc.com/">https://imgloc.com/</a>，只需要将主题&#x2F;博客中使用到图片上传到图床，图床会生成一个或者多个外网链接（大图片图床会给出缩略图、中等规模图和原始图的链接），可以将图床外网链接直接配置在hexo主题或者博客中。本次我只是将profile图片和logo图片上传到图片。后续新写的博客则可以直接使用图床的图片链接。</p>
-<h3 id="其他加速措施"><a href="#其他加速措施" class="headerlink" title="其他加速措施"></a>其他加速措施</h3><ul>
+<h3 id="使用图床进行图片下载加速">使用图床进行图片下载加速</h3>
+<p>当前只试用了一个图床<a href="https://imgloc.com/"
+class="uri">https://imgloc.com/</a>，只需要将主题/博客中使用到图片上传到图床，图床会生成一个或者多个外网链接（大图片图床会给出缩略图、中等规模图和原始图的链接），可以将图床外网链接直接配置在hexo主题或者博客中。本次我只是将profile图片和logo图片上传到图片。后续新写的博客则可以直接使用图床的图片链接。</p>
+<h3 id="其他加速措施">其他加速措施</h3>
+<ul>
 <li>关闭不必要第三方插件，例如评论系统、分析系统（因为这些插件通常都会被浏览器隐私保护、去广告插件主动拦截，实际效果可自行评估）</li>
-<li>打开博客的read more开关（在博客文件中增加<code>&lt;!--more--&gt;</code>），主页只显示博客的关键文字信息，<strong>不显示公式、图片等需要额外加载资源的内容</strong></li>
+<li>打开博客的read
+more开关（在博客文件中增加<code>&lt;!--more--&gt;</code>），主页只显示博客的关键文字信息，<strong>不显示公式、图片等需要额外加载资源的内容</strong></li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://ppoffice.github.io/hexo-theme-icarus/">http://ppoffice.github.io/hexo-theme-icarus/</a></p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="http://ppoffice.github.io/hexo-theme-icarus/"
+class="uri">http://ppoffice.github.io/hexo-theme-icarus/</a></p>
 ]]></content>
       <tags>
         <tag>Hexo</tag>
@@ -1705,7 +1688,9 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
   <entry>
     <title>关系型数据库和MapReduce的差异</title>
     <url>/2023/01/20/2023-01-20-23/</url>
-    <content><![CDATA[<h2 id="关系型数据库和MapReduce的差异"><a href="#关系型数据库和MapReduce的差异" class="headerlink" title="关系型数据库和MapReduce的差异"></a>关系型数据库和MapReduce的差异</h2><ol>
+    <content><![CDATA[<h2
+id="关系型数据库和mapreduce的差异">关系型数据库和MapReduce的差异</h2>
+<ol type="1">
 <li>OLAP关系型数据库SQL语义对表达复杂BI报表与分析要方便很多，开发人员使用MapReduce来模拟表达同样的效果SQL语义往往比较复杂；</li>
 <li>关系型数据库的执行引擎，对SQL的执行有很多优化机制，例如执行路径优化、关联算法等，对于BI的处理和分析比较方便，而采用MapReduce则需要大量的开发工作，以及较强编程技能；</li>
 <li>很多在SQL体系不适合实现数据处理需求（如：预测、高级聚类算法），在MapReduce中则比较容易实现；</li>
@@ -1713,8 +1698,8 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 <li>在数据处理结果展示方面，很对BI工具都是基于关系型数据库，即使采用MapReduce实现数据处理分析工作，最终还是会导入到数据库中做展示。</li>
 </ol>
 <span id="more"></span>
-
-<h2 id="为什么还需要MapReduce"><a href="#为什么还需要MapReduce" class="headerlink" title="为什么还需要MapReduce"></a>为什么还需要MapReduce</h2><ol>
+<h2 id="为什么还需要mapreduce">为什么还需要MapReduce</h2>
+<ol type="1">
 <li>更大的数据处理规模却需要更低的成本；</li>
 <li>不适合关系模型的数据类型；</li>
 <li>不适合SQL体系的处理逻辑（如：模糊聚类、孤立点分析、关联分析等）。</li>
@@ -1728,29 +1713,33 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
   <entry>
     <title>在linxu上搭建miniconda和pyspark环境</title>
     <url>/2023/01/26/2023-01-26-12/</url>
-    <content><![CDATA[<h2 id="下载安装miniconda"><a href="#下载安装miniconda" class="headerlink" title="下载安装miniconda"></a>下载安装miniconda</h2><ul>
-<li><p>下载miniconda<br>从清华大学镜像站中下载miniconda，下载地址<a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p>
-</li>
-<li><p>安装miniconda<br>执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code> 按照指引完成安装。<br>安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p>
-</li>
+    <content><![CDATA[<h2 id="下载安装miniconda">下载安装miniconda</h2>
+<ul>
+<li><p>下载miniconda 从清华大学镜像站中下载miniconda，下载地址<a
+href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/"
+class="uri">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p></li>
+<li><p>安装miniconda
+执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code>
+按照指引完成安装。
+安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p></li>
 </ul>
 <span id="more"></span>
-
 <ul>
-<li><p>修改miniconda默认源<br>在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
+<li><p>修改miniconda默认源
+在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch-lts:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>运行<code>conda clean -i</code>清除索引缓存，保证用的是镜像站提供的索引。</p>
 <blockquote>
 <p><strong>参考资料</strong></p>
-<p>请参考<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></p>
-</blockquote>
-</li>
+<p>请参考<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/"
+class="uri">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></p>
+</blockquote></li>
 </ul>
-<h2 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h2><ul>
-<li><p>安装方式<br>conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
+<h2 id="安装pyspark">安装pyspark</h2>
+<ul>
+<li><p>安装方式
+conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip instal pyspark</span><br></pre></td></tr></table></figure>
-
 <p>此外，还可以通过<code>PYSPARK_HADOOP_VERSION</code>指定Hadoop版本。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PYSPARK_HADOOP_VERSION=2 pip instal pyspark</span><br></pre></td></tr></table></figure>
 <p>其中 PYSPARK_HADOOP_VERSION值可以是：</p>
@@ -1761,14 +1750,13 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 </ul>
 <blockquote>
 <p><strong>参考资料</strong></p>
-<p><a href="https://spark.apache.org/docs/latest/api/python/getting_started/install.html">https://spark.apache.org/docs/latest/api/python/getting_started/install.html</a></p>
-</blockquote>
-</li>
-<li><p>验证安装是否成功<br>通过如下代码验证是否安装成功</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
-
-<p>pyspark以来JDK，如果没有安装JDK需要先安装JDK。在debian环境下可以执行如下命令查找安装支持JDK</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache search openjdk</span><br><span class="line">sudo apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure></li>
+<p><a
+href="https://spark.apache.org/docs/latest/api/python/getting_started/install.html"
+class="uri">https://spark.apache.org/docs/latest/api/python/getting_started/install.html</a></p>
+</blockquote></li>
+<li><p>验证安装是否成功 通过如下代码验证是否安装成功 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure></p>
+<p>pyspark以来JDK，如果没有安装JDK需要先安装JDK。在debian环境下可以执行如下命令查找安装支持JDK
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache search openjdk</span><br><span class="line">sudo apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure></p></li>
 </ul>
 ]]></content>
       <tags>
@@ -1859,7 +1847,7 @@ WHERE条件）、报表标签等。纬度多数具有层级结构，如：地理
     <url>/2023/02/06/2023-02-06-19/</url>
     <content><![CDATA[<h2 id="lambda架构">Lambda架构</h2>
 <figure>
-<img src="https://i.328888.xyz/2023/02/06/rRp8q.jpeg"
+<img src="https://img2.imgtp.com/2024/05/12/4QurYHWN.png"
 alt="Lambda架构" />
 <figcaption aria-hidden="true">Lambda架构</figcaption>
 </figure>
@@ -1881,7 +1869,8 @@ alt="Lambda架构" />
 <span id="more"></span>
 <h2 id="kappa架构">Kappa架构</h2>
 <figure>
-<img src="https://i.328888.xyz/2023/02/06/rRQut.jpeg" alt="Kappa架构" />
+<img src="https://img2.imgtp.com/2024/05/12/bOBM6ysQ.png"
+alt="Kappa架构" />
 <figcaption aria-hidden="true">Kappa架构</figcaption>
 </figure>
 <ol type="1">
@@ -1917,16 +1906,20 @@ Lamdba的一种实现。</p></li>
     <title>分布式数据库以及应用改造</title>
     <url>/2023/02/08/2023-02-08-19/</url>
     <content><![CDATA[<h2 id="分布式数据库">分布式数据库</h2>
-<p>典型的分布式数据库及实现有： 1.
-增加分布式数据中间件（即在多个独立数据库实例前增加一个数据库中间件），由分布式数据库中间件实现分库分表，分布式SQL执行，分布式事务等。
-2.
-内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）
-3.
-不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
-1. 分库能力 2. 分表能力 3.
-分布式事务（有限的分布式事务能力：Local、XA、Free/Base） 4. 支持读写分离
-5. 兼容有限的数据库协议和客户端 6.
-支持水平扩展，（可选）提供前端负载均衡能力</p>
+<p>典型的分布式数据库及实现</p>
+<ol type="1">
+<li>增加分布式数据中间件（即在多个独立数据库实例前增加一个数据库中间件），由分布式数据库中间件实现分库分表，分布式SQL执行，分布式事务等。</li>
+<li>内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）</li>
+<li>不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
+<ol type="1">
+<li>分库能力</li>
+<li>分表能力</li>
+<li>分布式事务（有限的分布式事务能力：Local、XA、Free/Base）</li>
+<li>支持读写分离</li>
+<li>兼容有限的数据库协议和客户端</li>
+<li>支持水平扩展，（可选）提供前端负载均衡能力</li>
+</ol></li>
+</ol>
 <span id="more"></span>
 <h2 id="关于分布式事务">关于分布式事务</h2>
 <p>通常分布式数据库或者分布式数据库中间件会提供多种分布式事务模式，以Apache
@@ -2044,6 +2037,36 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 ]]></content>
       <tags>
         <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Quick Start</title>
+    <url>/2024/05/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="mathjax">Mathjax</h2>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.063ex;" xmlns="http://www.w3.org/2000/svg" width="21.558ex" height="5.232ex" role="img" focusable="false" viewBox="0 -1400.6 9528.6 2312.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="393" d="M128 619Q121 626 117 628T101 631T58 634H25V680H554V676Q556 670 568 560T582 444V440H542V444Q542 445 538 478T523 545T492 598Q454 634 349 634H334Q264 634 249 633T233 621Q232 618 232 339L233 61Q240 54 245 52T270 48T333 46H360V0H348Q324 3 182 3Q51 3 36 0H25V46H58Q100 47 109 49T128 61V619Z"></path></g><g data-mml-node="mo" transform="translate(625,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1014,0)"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(1479,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2145.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msubsup" transform="translate(3201.6,0)"><g data-mml-node="mo" transform="translate(0 1)"><path data-c="222B" d="M114 -798Q132 -824 165 -824H167Q195 -824 223 -764T275 -600T320 -391T362 -164Q365 -143 367 -133Q439 292 523 655T645 1127Q651 1145 655 1157T672 1201T699 1257T733 1306T777 1346T828 1360Q884 1360 912 1325T944 1245Q944 1220 932 1205T909 1186T887 1183Q866 1183 849 1198T832 1239Q832 1287 885 1296L882 1300Q879 1303 874 1307T866 1313Q851 1323 833 1323Q819 1323 807 1311T775 1255T736 1139T689 936T633 628Q574 293 510 -5T410 -437T355 -629Q278 -862 165 -862Q125 -862 92 -831T55 -746Q55 -711 74 -698T112 -685Q133 -685 150 -700T167 -741Q167 -789 114 -798Z"></path></g><g data-mml-node="mi" transform="translate(1046.4,1088.1) scale(0.707)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g><g data-mml-node="mn" transform="translate(589,-896.4) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="msup" transform="translate(5171.7,0)"><g data-mml-node="mi"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="TeXAtom" transform="translate(394,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mo" transform="translate(465,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(1243,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><g data-mml-node="msup" transform="translate(6848.2,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(778,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g></g></g><g data-mml-node="mi" transform="translate(8202.6,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(8722.6,0)"><path data-c="1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path></g><g data-mml-node="mstyle" transform="translate(9083.6,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mo" transform="translate(9250.6,0)"><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g></g></g></svg></mjx-container></span></p>
+<span id="more"></span>
+<h2 id="local-image">Local Image</h2>
+<img src="/2024/05/11/hello-world/wechat_pay.png" class="">
+<h2 id="create-a-new-post">Create a new post</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h2 id="run-server">Run server</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h2 id="generate-static-files">Generate static files</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h2 id="deploy-to-remote-sites">Deploy to remote sites</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>

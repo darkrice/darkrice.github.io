@@ -10838,6 +10838,9 @@ article.article .content code {
   background: transparent;
   overflow-wrap: break-word;
 }
+article.article .content ol ol {
+  list-style-type: lower-roman;
+}
 article.article .content blockquote.pullquote {
   float: right;
   max-width: 50%;
