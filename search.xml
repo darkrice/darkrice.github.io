@@ -2047,4 +2047,31 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
         <tag>数据库</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo图片两种处理方式</title>
+    <url>/2024/05/18/2024-05-18-10/</url>
+    <content><![CDATA[<h2 id="公共免费图床">公共免费图床</h2>
+<p>可以将图片上传至图床，图床通常会提供CDN支持，提供更好的下载的速度。免费图床<a
+href="https://www.imgtp.com/" class="uri">https://www.imgtp.com/</a></p>
+<h2 id="本地图片">本地图片</h2>
+<p>使用本地图片国内下载速度较慢且需要注意图片保存的相对的路径。在不同也页面下需要保证都能够正常链接到。</p>
+<p>使用hexo-image-link
+插件，可以自动作为md链接和hexo链接的自动转换。</p>
+<span id="more"></span>
+<p>在Hexo启用post_asset_folder:
+true选项后，将Markdown语法的图片路径转换为asset_img的方式，使图片能够在使用typora编辑和hexo预览发布时都能正常显示。</p>
+<ul>
+<li><strong>示例图片：</strong> <img src="/2024/05/18/2024-05-18-10/loginfo-example.png" class="" title="图片转换过程"></li>
+</ul>
+<p>需要注意本地图片路径不能加<code>./</code></p>
+<blockquote>
+<p>hexo-image-link插件链接 <a
+href="https://github.com/cocowool/hexo-image-link"
+class="uri">https://github.com/cocowool/hexo-image-link</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
