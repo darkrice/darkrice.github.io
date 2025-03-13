@@ -1939,5 +1939,49 @@
 <h2 id="说明">05说明</h2>
 <p>本文主体内容由DeepSeek R1生成，作者只是做了检查及适当格式调整。</p>
 ]]></content>
+      <tags>
+        <tag>云计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pandoc将Markdown文件导出成PDF文件</title>
+    <url>/2025/03/13/2025-03-13-22/</url>
+    <content><![CDATA[<p>Pandoc将Markdown文件转换成PDF文件时是先将Markdown文件转换成Latex文件，再将Latex文件专程PDF文件。</p>
+<p>参考命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pandoc example.md -o example.pdf --from markdown --template eisvogel --listings</span><br></pre></td></tr></table></figure></p>
+<h2 id="选择编译引擎">选择编译引擎</h2>
+<p>一般默认的编译引擎是<code>pdflatex</code>编译引擎，这个引擎对中文支撑不太友好，可以通过<code>--pdf-engine=xelatex</code> 修改编译引擎</p>
+<h2 id="选择模板">选择模板</h2>
+<p>使用pandoc模板 eisvogel ，eisvogel可以导出很漂亮的PDF文件。</p>
+<ol type="1">
+<li>将 eisvogel 模板拷贝到pandoc用户模板目录下，具体配置：</li>
+</ol>
+<ul>
+<li>在Linux系统下: <code>/home/USERNAME/.local/share/pandoc/templates/</code></li>
+<li>在Windows系统下：<code>C:\Users\USERNAME\AppData\Roaming\pandoc\templates\</code></li>
+</ul>
+<ol start="2" type="1">
+<li>改善中文支持，需要在eisvogel添加如下参数：</li>
+</ol>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\else</span> <span class="comment">% if not pdftex</span></span><br><span class="line">  <span class="built_in">$</span>if(mainfont)<span class="built_in">$</span></span><br><span class="line">  <span class="built_in">$</span>else<span class="built_in">$</span></span><br><span class="line">  <span class="keyword">\usepackage</span>[fallback]&#123;xeCJK&#125;</span><br><span class="line">  <span class="keyword">\setCJKmainfont</span>&#123;SimSun&#125;[BoldFont=SimHei, ItalicFont=KaiTi] <span class="comment">%配置中文字体</span></span><br><span class="line">  <span class="keyword">\setCJKfallbackfamilyfont</span>&#123;rm&#125;&#123;SimSun&#125;</span><br><span class="line">  <span class="keyword">\usepackage</span>[default]&#123;sourcesanspro&#125;</span><br><span class="line">  <span class="keyword">\usepackage</span>&#123;sourcecodepro&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>增加首行缩进，在 eisvogel.tex 文件中查找，在<code>\begin&#123;document&#125;</code>请增加一段代码：</li>
+</ol>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125; <span class="comment">%调用中文字体宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;indentfirst&#125; <span class="comment">%调用首行缩进宏包</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;2em&#125; <span class="comment">%设置首行缩进为2字符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="其他命令建议">其他命令建议</h2>
+<ol type="1">
+<li>查询系统支持的中文字体<code>fc-list :lang=zh</code> eisvogel.tex 中使用的字体必须是系统中可以查询到字体；</li>
+<li>在转换命令中增加参数指定字体： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">- V CJKmainfont=&quot;Noto Sans Mono CJK SC&quot; -V mainfont=&quot;Noto Serif CJK SC&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>https://github.com/enhuiz/eisvogel</li>
+<li>https://zhuanlan.zhihu.com/p/564587260</li>
+<li>https://pandoc.org/MANUAL.html</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Latex</tag>
+      </tags>
   </entry>
 </search>
