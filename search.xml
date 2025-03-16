@@ -2047,4 +2047,178 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
         <tag>数据库</tag>
       </tags>
   </entry>
+  <entry>
+    <title>安装Linux发行版本日常工具</title>
+    <url>/2025/03/10/2025-03-10-23/</url>
+    <content><![CDATA[<h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><p>无论安装那个Linux发行版本都要注意下载完成镜像文件以后需要验证一下sha256sum文件一支</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sha256sum /path/Linux.iso</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改发行版本的源为中国镜像源"><a href="#修改发行版本的源为中国镜像源" class="headerlink" title="修改发行版本的源为中国镜像源"></a>修改发行版本的源为中国镜像源</h2><ol>
+<li>修改Linux系统源，以下以POP OS为例</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-apps.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-release.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/@g&#x27; /etc/apt/sources.list.d/system.sources</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改flatpak源</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub</span><br></pre></td></tr></table></figure>
+
+<p>如果报错了，尝试以下操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://mirror.sjtu.edu.cn/flathub/flathub.gpg</span><br><span class="line">sudo flatpak remote-modify --gpg-import=flathub.gpg flathub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h2><h3 id="安装ibus-rime"><a href="#安装ibus-rime" class="headerlink" title="安装ibus-rime"></a>安装ibus-rime</h3><ol>
+<li>执行 sudo apt install ibus-rime 安装软件</li>
+<li>在系统设置中搜索input&#x2F;keyboard等，添加ibus-rime为中文输入法</li>
+<li>如果配置失败，尝试重启ibus-daemon -rdx</li>
+<li>将rime输入法配置文件拷贝到~&#x2F;.config&#x2F;ibus&#x2F;rime目录下</li>
+<li>安装ibus-tweaker: <a href="https://extensions.gnome.org/extension/2820/ibus-tweaker/">https://extensions.gnome.org/extension/2820/ibus-tweaker/</a></li>
+<li>通过ibus-tweaker设置输入法</li>
+</ol>
+<h3 id="安装编辑软件"><a href="#安装编辑软件" class="headerlink" title="安装编辑软件"></a>安装编辑软件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flatpak install md.obsidian.Obsidian</span><br><span class="line">flatpak install dev.zed.Zed</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
+
+<p>::: Tip</p>
+<p><strong>重要说明</strong></p>
+<ol>
+<li>在某些发行版本中zed会出现 unsupported GPU的问题，可以将&#x2F;etc&#x2F;prime-discrete 翻转配置修改</li>
+<li>If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux, etc) you may be able to configure Zed to work by switching &#x2F;etc&#x2F;prime-discrete from ‘off’ to ‘on’ (or the reverse)</li>
+<li>参考：<a href="https://zed.dev/docs/linux?highlight=PRIME#zed-on-linux">https://zed.dev/docs/linux?highlight=PRIME#zed-on-linux</a></li>
+</ol>
+<p>:::</p>
+<h3 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><ol>
+<li>从国内源下载适当版本，建议下载压缩包<br><a href="https://registry.npmmirror.com/binary.html?path=node/">https://registry.npmmirror.com/binary.html?path=node/</a></li>
+<li>解压缩文件后将文件拷贝到 &#x2F;usr&#x2F;local 目录下</li>
+<li>配置Node.js国内源 <code>npm config set registry https://registry.npmmirror.com/</code></li>
+<li>安装hexo <code>sudo npm install -g hexo-cli</code></li>
+</ol>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><ol>
+<li>在本地设置git用户和邮箱</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>生成密钥<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>拷贝公钥信息并配置到GitHub<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li>
+<li>测试是否已经配置成功<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>云计算中VM资源利用率和宿主机资源利用率之间的关系</title>
+    <url>/2025/03/10/2025-03-10-24/</url>
+    <content><![CDATA[<h2 id="资源分配模型"><a href="#资源分配模型" class="headerlink" title="资源分配模型"></a>资源分配模型</h2><ul>
+<li>虚拟机利用率：指分配给VM的CPU、内存、磁盘I&#x2F;O等资源被实际使用的百分比。</li>
+<li>宿主机利用率：宿主机物理资源被所有运行中VM实际消耗的总和。</li>
+</ul>
+<p>关系公式（简化为CPU场景）：</p>
+<p>$$<br>\text{Host利用率} &#x3D; \sum_{i&#x3D;1}^{n} \left( \text{VM}_i利用率 \times \frac{\text{VM}_i分配量}{\text{Host总资源}} \right)<br>$$</p>
+<p>::: tip<br>假设宿主机有16个物理CPU核心和64GB内存：</p>
+<ul>
+<li>静态分配：若为4个VM各分配4核+16GB，则宿主机利用率上限为：</li>
+<li>CPU利用率 &#x3D; Σ（VM实际使用CPU时间） &#x2F; 宿主机总CPU时间</li>
+<li>内存利用率 &#x3D; Σ（VM实际使用内存） &#x2F; 64GB</li>
+<li>动态超售：若超售50%（分配24核+96GB），实际利用率可能超过100%，但需依赖调度算法避免性能下降。</li>
+</ul>
+<p>:::</p>
+<h2 id="关键影响因素"><a href="#关键影响因素" class="headerlink" title="关键影响因素"></a>关键影响因素</h2><ol>
+<li>资源超分（Overcommitment）</li>
+</ol>
+<ul>
+<li>场景：当宿主机分配的虚拟资源（如vCPU、内存）总和超过物理资源时，可能提高宿主机利用率，但会引入资源争用风险。</li>
+<li>权衡：<ul>
+<li>高VM利用率 -&gt; 宿主机利用率提升，但VM可能因资源不足出现性能抖动。</li>
+<li>低VM利用率 -&gt; 宿主机资源浪费，但VM稳定性更高。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>资源隔离技术</li>
+</ol>
+<ul>
+<li>CPU调度：通过份额（Shares）、限制（Limits）和预留（Reservations）控制VM的优先级和资源上限。示例：若VM设置CPU Limit为2核，即使宿主机有空闲资源，VM也无法突破该限制。</li>
+<li>内存Ballooning&#x2F;KSM：动态调整VM内存占用以优化宿主机利用率，但可能增加延迟。</li>
+</ul>
+<ol start="3">
+<li>负载均衡与碎片化</li>
+</ol>
+<ul>
+<li>动态迁移（Live Migration）：将VM在宿主机间迁移以消除资源碎片，提高宿主机利用率。</li>
+<li>反亲和性策略：避免高负载VM集中于同一宿主机，降低资源争用概率。</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="典型场景对比"><a href="#典型场景对比" class="headerlink" title="典型场景对比"></a>典型场景对比</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>VM利用率</th>
+<th>Host利用率</th>
+<th>潜在问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所有VM低负载</td>
+<td>低</td>
+<td>低</td>
+<td>宿主机资源闲置，成本浪费</td>
+</tr>
+<tr>
+<td>VM负载均衡</td>
+<td>高且分布均匀</td>
+<td>高</td>
+<td>理想状态，资源利用率最大化</td>
+</tr>
+<tr>
+<td>部分VM负载高</td>
+<td>部分高，部分低</td>
+<td>中等或略高</td>
+<td>可能引发资源争用（如CPU争抢）</td>
+</tr>
+<tr>
+<td>超售过度</td>
+<td>高（实际性能可能下降）</td>
+<td>接近100%或更高</td>
+<td>性能瓶颈，服务质量（QoS）下降</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虚拟机资源利用率直接影响宿主机的整体效率，但需平衡超售收益与性能风险。优化的核心在于动态调度、资源隔离和精细化监控，以实现高利用率与稳定服务质量 的共存。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文主体内容由DeepSeek R1生成，作者只是做了检查及适当格式调整。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Pandoc将Markdown文件导出成PDF文件</title>
+    <url>/2025/03/13/2025-03-13-22/</url>
+    <content><![CDATA[<p>Pandoc将Markdown文件转换成PDF文件时是先将Markdown文件转换成Latex文件，再将Latex文件专程PDF文件。 参考命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pandoc example.md -o example.pdf --from markdown --pdf-engine=xelatex --template=eisvogel --listings</span><br></pre></td></tr></table></figure>
+<h2 id="选择编译引擎">选择编译引擎</h2>
+<p>一般默认的编译引擎是pdflatex编译引擎，这个引擎对中文支撑不太友好，可以通过--pdf-engine=xelatex 修改编译引擎</p>
+<h2 id="选择模板">选择模板</h2>
+<p>使用pandoc模板 eisvogel ，eisvogel可以导出很漂亮的PDF文件。</p>
+<ol type="1">
+<li>将 eisvogel 模板拷贝到pandoc用户模板目录下，具体配置：
+<ul>
+<li>在Linux系统下：<code>/home/USERNAME/.local/share/pandoc/templates/</code></li>
+<li>在Windows系统下：<code>C:\Users\USERNAME\AppData\Roaming\pandoc\templates\</code></li>
+</ul></li>
+<li>改善中文支持，需要在eisvogel添加如下参数：</li>
+</ol>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\else</span> <span class="comment">% if not pdftex</span></span><br><span class="line">  <span class="built_in">$</span>if(mainfont)<span class="built_in">$</span></span><br><span class="line">  <span class="built_in">$</span>else<span class="built_in">$</span></span><br><span class="line">  <span class="keyword">\usepackage</span>[fallback]&#123;xeCJK&#125;</span><br><span class="line">  <span class="keyword">\setCJKmainfont</span>&#123;SimSun&#125;[BoldFont=SimHei, ItalicFont=KaiTi] <span class="comment">%配置中文字体</span></span><br><span class="line">  <span class="keyword">\setCJKfallbackfamilyfont</span>&#123;rm&#125;&#123;SimSun&#125;</span><br><span class="line">  <span class="keyword">\usepackage</span>[default]&#123;sourcesanspro&#125;</span><br><span class="line">  <span class="keyword">\usepackage</span>&#123;sourcecodepro&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>增加首行缩进，在 eisvogel.tex 文件中查找，在\begin{document}请增加一段代码：</li>
+</ol>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125; <span class="comment">%调用中文字体宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;indentfirst&#125; <span class="comment">%调用首行缩进宏包</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;2em&#125; <span class="comment">%设置首行缩进为2字符</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="其他命令建议">其他命令建议</h2>
+<ol type="1">
+<li>查询系统支持的中文字体<code>fc-list :lang=zh</code>，在eisvogel.tex 中使用的字体必须是系统中可以查询到字体；</li>
+<li>在转换命令中增加参数指定字体： `- V CJKmainfont="Noto Sans Mono CJK SC" -V mainfont="Noto Serif CJK SC"`</li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>https://github.com/enhuiz/eisvogel</li>
+<li>https://zhuanlan.zhihu.com/p/564587260</li>
+<li>https://pandoc.org/MANUAL.html</li>
+</ul>
+]]></content>
+  </entry>
 </search>
