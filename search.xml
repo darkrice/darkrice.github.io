@@ -2050,56 +2050,68 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
   <entry>
     <title>安装Linux发行版本日常工具</title>
     <url>/2025/03/10/2025-03-10-23/</url>
-    <content><![CDATA[<h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><p>无论安装那个Linux发行版本都要注意下载完成镜像文件以后需要验证一下sha256sum文件一支</p>
+    <content><![CDATA[<h2 id="安装linux">安装Linux</h2>
+<p>无论安装那个Linux发行版本都要注意下载完成镜像文件以后需要验证一下sha256sum文件一支</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sha256sum /path/Linux.iso</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改发行版本的源为中国镜像源"><a href="#修改发行版本的源为中国镜像源" class="headerlink" title="修改发行版本的源为中国镜像源"></a>修改发行版本的源为中国镜像源</h2><ol>
+<h2 id="修改发行版本的源为中国镜像源">修改发行版本的源为中国镜像源</h2>
+<ol type="1">
 <li>修改Linux系统源，以下以POP OS为例</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-apps.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-release.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/@g&#x27; /etc/apt/sources.list.d/system.sources</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol start="2" type="1">
 <li>修改flatpak源</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub</span><br></pre></td></tr></table></figure>
-
 <p>如果报错了，尝试以下操作</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://mirror.sjtu.edu.cn/flathub/flathub.gpg</span><br><span class="line">sudo flatpak remote-modify --gpg-import=flathub.gpg flathub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
-<h2 id="安装常用软件"><a href="#安装常用软件" class="headerlink" title="安装常用软件"></a>安装常用软件</h2><h3 id="安装ibus-rime"><a href="#安装ibus-rime" class="headerlink" title="安装ibus-rime"></a>安装ibus-rime</h3><ol>
+<h2 id="安装常用软件">安装常用软件</h2>
+<h3 id="安装ibus-rime">安装ibus-rime</h3>
+<ol type="1">
 <li>执行 sudo apt install ibus-rime 安装软件</li>
-<li>在系统设置中搜索input&#x2F;keyboard等，添加ibus-rime为中文输入法</li>
+<li>在系统设置中搜索input/keyboard等，添加ibus-rime为中文输入法</li>
 <li>如果配置失败，尝试重启ibus-daemon -rdx</li>
-<li>将rime输入法配置文件拷贝到~&#x2F;.config&#x2F;ibus&#x2F;rime目录下</li>
-<li>安装ibus-tweaker: <a href="https://extensions.gnome.org/extension/2820/ibus-tweaker/">https://extensions.gnome.org/extension/2820/ibus-tweaker/</a></li>
+<li>将rime输入法配置文件拷贝到~/.config/ibus/rime目录下</li>
+<li>安装ibus-tweaker: https://extensions.gnome.org/extension/2820/ibus-tweaker/</li>
 <li>通过ibus-tweaker设置输入法</li>
 </ol>
-<h3 id="安装编辑软件"><a href="#安装编辑软件" class="headerlink" title="安装编辑软件"></a>安装编辑软件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flatpak install md.obsidian.Obsidian</span><br><span class="line">flatpak install dev.zed.Zed</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
-
-<p>::: Tip</p>
-<p><strong>重要说明</strong></p>
+<h3 id="安装编辑软件">安装编辑软件</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">flatpak install md.obsidian.Obsidian</span><br><span class="line">flatpak install dev.zed.Zed</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
+<div class="admonition info">
+<p class="admonition-title">
+info
+</p>
+<p>
+<strong>重要说明</strong>
+</p>
 <ol>
-<li>在某些发行版本中zed会出现 unsupported GPU的问题，可以将&#x2F;etc&#x2F;prime-discrete 翻转配置修改</li>
-<li>If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux, etc) you may be able to configure Zed to work by switching &#x2F;etc&#x2F;prime-discrete from ‘off’ to ‘on’ (or the reverse)</li>
-<li>参考：<a href="https://zed.dev/docs/linux?highlight=PRIME#zed-on-linux">https://zed.dev/docs/linux?highlight=PRIME#zed-on-linux</a></li>
+<li>
+在某些发行版本中zed会出现 unsupported GPU的问题，可以将/etc/prime-discrete 翻转配置修改
+</li>
+<li>
+If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux, etc) you may be able to configure Zed to work by switching /etc/prime-discrete from ‘off’ to ‘on’ (or the reverse)
+</li>
+<li>
+参考：https://zed.dev/docs/linux?highlight=PRIME#zed-on-linux
+</li>
 </ol>
-<p>:::</p>
-<h3 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><ol>
-<li>从国内源下载适当版本，建议下载压缩包<br><a href="https://registry.npmmirror.com/binary.html?path=node/">https://registry.npmmirror.com/binary.html?path=node/</a></li>
-<li>解压缩文件后将文件拷贝到 &#x2F;usr&#x2F;local 目录下</li>
+</div>
+<h3 id="安装nodejs">安装Nodejs</h3>
+<ol type="1">
+<li>从国内源下载适当版本，建议下载压缩包 <a href="https://registry.npmmirror.com/binary.html?path=node/" class="uri">https://registry.npmmirror.com/binary.html?path=node/</a></li>
+<li>解压缩文件后将文件拷贝到 /usr/local 目录下</li>
 <li>配置Node.js国内源 <code>npm config set registry https://registry.npmmirror.com/</code></li>
 <li>安装hexo <code>sudo npm install -g hexo-cli</code></li>
 </ol>
-<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><ol>
+<h3 id="配置github">配置github</h3>
+<ol type="1">
 <li>在本地设置git用户和邮箱</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>生成密钥<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure></li>
-<li>拷贝公钥信息并配置到GitHub<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li>
-<li>测试是否已经配置成功<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
+<ol start="2" type="1">
+<li>生成密钥 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;GitHub 邮箱&quot;</span><br></pre></td></tr></table></figure></li>
+<li>拷贝公钥信息并配置到GitHub <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li>
+<li>测试是否已经配置成功 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
   </entry>
@@ -2219,6 +2231,13 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <li>https://zhuanlan.zhihu.com/p/564587260</li>
 <li>https://pandoc.org/MANUAL.html</li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>安装中LaTeX环境</title>
+    <url>/2025/03/22/2025-03-22-16/</url>
+    <content><![CDATA[<h2 id="安装中latex环境">安装中LaTeX环境</h2>
+<p>sudo apt install texlive texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra -y</p>
 ]]></content>
   </entry>
 </search>
