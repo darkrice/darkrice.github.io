@@ -2118,39 +2118,57 @@ If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux
   <entry>
     <title>云计算中VM资源利用率和宿主机资源利用率之间的关系</title>
     <url>/2025/03/10/2025-03-10-24/</url>
-    <content><![CDATA[<h2 id="资源分配模型"><a href="#资源分配模型" class="headerlink" title="资源分配模型"></a>资源分配模型</h2><ul>
-<li>虚拟机利用率：指分配给VM的CPU、内存、磁盘I&#x2F;O等资源被实际使用的百分比。</li>
+    <content><![CDATA[<h2 id="资源分配模型">资源分配模型</h2>
+<ul>
+<li>虚拟机利用率：指分配给VM的CPU、内存、磁盘I/O等资源被实际使用的百分比。</li>
 <li>宿主机利用率：宿主机物理资源被所有运行中VM实际消耗的总和。</li>
 </ul>
 <p>关系公式（简化为CPU场景）：</p>
-<p>$$<br>\text{Host利用率} &#x3D; \sum_{i&#x3D;1}^{n} \left( \text{VM}_i利用率 \times \frac{\text{VM}_i分配量}{\text{Host总资源}} \right)<br>$$</p>
-<p>::: tip<br>假设宿主机有16个物理CPU核心和64GB内存：</p>
+<p><span class="math display">\[
+\text{Host利用率} = \sum_{i=1}^{n} \left( \text{VM}_i利用率 \times \frac{\text{VM}_i分配量}{\text{Host总资源}} \right)
+\]</span></p>
+<div class="admonition info">
+<p class="admonition-title">
+info
+</p>
+<p>
+假设宿主机有16个物理CPU核心和64GB内存：
+</p>
 <ul>
-<li>静态分配：若为4个VM各分配4核+16GB，则宿主机利用率上限为：</li>
-<li>CPU利用率 &#x3D; Σ（VM实际使用CPU时间） &#x2F; 宿主机总CPU时间</li>
-<li>内存利用率 &#x3D; Σ（VM实际使用内存） &#x2F; 64GB</li>
-<li>动态超售：若超售50%（分配24核+96GB），实际利用率可能超过100%，但需依赖调度算法避免性能下降。</li>
+<li>
+静态分配：若为4个VM各分配4核+16GB，则宿主机利用率上限为：
+</li>
+<li>
+CPU利用率 = Σ（VM实际使用CPU时间） / 宿主机总CPU时间
+</li>
+<li>
+内存利用率 = Σ（VM实际使用内存） / 64GB
+</li>
+<li>
+动态超售：若超售50%（分配24核+96GB），实际利用率可能超过100%，但需依赖调度算法避免性能下降。
+</li>
 </ul>
-<p>:::</p>
-<h2 id="关键影响因素"><a href="#关键影响因素" class="headerlink" title="关键影响因素"></a>关键影响因素</h2><ol>
+</div>
+<h2 id="关键影响因素">关键影响因素</h2>
+<ol type="1">
 <li>资源超分（Overcommitment）</li>
 </ol>
 <ul>
 <li>场景：当宿主机分配的虚拟资源（如vCPU、内存）总和超过物理资源时，可能提高宿主机利用率，但会引入资源争用风险。</li>
-<li>权衡：<ul>
+<li>权衡：
+<ul>
 <li>高VM利用率 -&gt; 宿主机利用率提升，但VM可能因资源不足出现性能抖动。</li>
 <li>低VM利用率 -&gt; 宿主机资源浪费，但VM稳定性更高。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<ol start="2">
+<ol start="2" type="1">
 <li>资源隔离技术</li>
 </ol>
 <ul>
 <li>CPU调度：通过份额（Shares）、限制（Limits）和预留（Reservations）控制VM的优先级和资源上限。示例：若VM设置CPU Limit为2核，即使宿主机有空闲资源，VM也无法突破该限制。</li>
-<li>内存Ballooning&#x2F;KSM：动态调整VM内存占用以优化宿主机利用率，但可能增加延迟。</li>
+<li>内存Ballooning/KSM：动态调整VM内存占用以优化宿主机利用率，但可能增加延迟。</li>
 </ul>
-<ol start="3">
+<ol start="3" type="1">
 <li>负载均衡与碎片化</li>
 </ol>
 <ul>
@@ -2158,43 +2176,47 @@ If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux
 <li>反亲和性策略：避免高负载VM集中于同一宿主机，降低资源争用概率。</li>
 </ul>
 <span id="more"></span>
-
-<h2 id="典型场景对比"><a href="#典型场景对比" class="headerlink" title="典型场景对比"></a>典型场景对比</h2><table>
+<h2 id="典型场景对比">典型场景对比</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>场景</th>
 <th>VM利用率</th>
 <th>Host利用率</th>
 <th>潜在问题</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>所有VM低负载</td>
 <td>低</td>
 <td>低</td>
 <td>宿主机资源闲置，成本浪费</td>
 </tr>
-<tr>
+<tr class="even">
 <td>VM负载均衡</td>
 <td>高且分布均匀</td>
 <td>高</td>
 <td>理想状态，资源利用率最大化</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>部分VM负载高</td>
 <td>部分高，部分低</td>
 <td>中等或略高</td>
 <td>可能引发资源争用（如CPU争抢）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>超售过度</td>
 <td>高（实际性能可能下降）</td>
 <td>接近100%或更高</td>
 <td>性能瓶颈，服务质量（QoS）下降</td>
 </tr>
-</tbody></table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虚拟机资源利用率直接影响宿主机的整体效率，但需平衡超售收益与性能风险。优化的核心在于动态调度、资源隔离和精细化监控，以实现高利用率与稳定服务质量 的共存。</p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文主体内容由DeepSeek R1生成，作者只是做了检查及适当格式调整。</p>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>虚拟机资源利用率直接影响宿主机的整体效率，但需平衡超售收益与性能风险。优化的核心在于动态调度、资源隔离和精细化监控，以实现高利用率与稳定服务质量 的共存。</p>
+<h2 id="说明">说明</h2>
+<p>本文主体内容由DeepSeek R1生成，作者只是做了检查及适当格式调整。</p>
 ]]></content>
   </entry>
   <entry>
@@ -2234,10 +2256,62 @@ If you have a discrete GPU and you are using PRIME (e.g. Pop_OS 24.04, ArchLinux
 ]]></content>
   </entry>
   <entry>
-    <title>安装中LaTeX环境</title>
+    <title>安装中文LaTeX环境</title>
     <url>/2025/03/22/2025-03-22-16/</url>
-    <content><![CDATA[<h2 id="安装中latex环境">安装中LaTeX环境</h2>
-<p>sudo apt install texlive texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra -y</p>
+    <content><![CDATA[<h2 id="安装中文latex环境">安装中文LaTeX环境</h2>
+<p>sudo apt install texlive texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra -y</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo 支持admonition 插件</title>
+    <url>/2025/03/23/2025-03-23-20/</url>
+    <content><![CDATA[<h2 id="安装hexo-admonition-插件">安装hexo-admonition 插件</h2>
+<ol type="1">
+<li>在Blog目录下执行如下命令安装插件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-admonition --save</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><p>在修改主题样式，增加admonition样式</p>
+<ul>
+<li>在Blog根目录下找到./node_modules/hexo-theme-icarus/source/css目录</li>
+<li>添加一个自定义css文件，例如 custom.styl，具体的css样式文件拷贝此文件中；</li>
+<li>在style.styl中引入custom.styl文件<code>@import 'custom'</code></li>
+</ul></li>
+</ol>
+<h2 id="如何使用hexo-admonition">如何使用hexo-admonition</h2>
+<p>在md文件中加入如下内容</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">!!! note Hexo-admonition 插件使用示例</span><br><span class="line"><span class="code">    这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。</span></span><br><span class="line"><span class="code">    **提示内容开头留 4 个空格**，可以有多行，最后用空行结束此标记。</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">   提示类型 type 将用作 CSS 类名称，暂支持如下类型：</span><br><span class="line"><span class="bullet">    -</span> note</span><br><span class="line"><span class="bullet">    -</span>  info, todo</span><br><span class="line"><span class="bullet">    -</span> warning, attention, caution</span><br><span class="line"><span class="bullet">    -</span>  error, failure, missing, fail</span><br></pre></td></tr></table></figure>
+<div class="admonition note">
+<p class="admonition-title">
+Hexo-admonition 插件使用示例
+</p>
+<p>
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。 <strong>提示内容开头留 4 个空格</strong>，可以有多行，最后用空行结束此标记。
+</p>
+<p>
+提示类型 type 将用作 CSS 类名称，暂支持如下类型：
+</p>
+<ul>
+<li>
+note
+</li>
+<li>
+info, todo
+</li>
+<li>
+warning, attention, caution
+</li>
+<li>
+error, failure, missing, fail
+</li>
+</ul>
+</div>
+<span id="more"></span>
+<h2 id="参考信息">参考信息</h2>
+<ol type="1">
+<li>github地址：<a href="https://github.com/lxl80/hexo-admonition" class="uri">https://github.com/lxl80/hexo-admonition</a></li>
+<li>参考样式文件 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.admonition</span> &#123;</span><br><span class="line"><span class="attribute">margin</span>: <span class="number">1.5625em</span> <span class="number">0</span>;</span><br><span class="line"><span class="attribute">padding</span>: <span class="number">1rem</span>;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line"><span class="attribute">font-size</span>: .<span class="number">64rem</span>;</span><br><span class="line"><span class="attribute">page-break-inside</span>: avoid;</span><br><span class="line"><span class="attribute">border-left</span>: .<span class="number">3rem</span> solid <span class="number">#42b983</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: .<span class="number">3rem</span>;</span><br><span class="line"><span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0.1rem</span> <span class="number">0.4rem</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">05</span>), <span class="number">0</span> <span class="number">0</span> <span class="number">0.05rem</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">1</span>);</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.admonition-title</span> &#123;</span><br><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line"><span class="attribute">margin</span>: -.<span class="number">6rem</span> -.<span class="number">6rem</span> .<span class="number">8em</span> -.<span class="number">6rem</span> <span class="meta">!important</span>;</span><br><span class="line"><span class="attribute">padding</span>: .<span class="number">4rem</span> .<span class="number">6rem</span> .<span class="number">4rem</span> <span class="number">2.5rem</span>;</span><br><span class="line"><span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line"><span class="attribute">background-color</span>:<span class="built_in">rgba</span>(<span class="number">66</span>, <span class="number">185</span>, <span class="number">131</span>, .<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line"><span class="attribute">position</span>: absolute;</span><br><span class="line"><span class="attribute">top</span>: .<span class="number">9rem</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">1rem</span>;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">12px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">12px</span>;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#42b983</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">content</span>: <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.info</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.todo</span>&gt;<span class="selector-class">.admonition-title</span> &#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">184</span>,<span class="number">212</span>,.<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.warning</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.attention</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.caution</span>&gt;<span class="selector-class">.admonition-title</span> &#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">145</span>,<span class="number">0</span>,.<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.failure</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.missing</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.fail</span>&gt;<span class="selector-class">.admonition-title</span>, <span class="selector-class">.error</span>&gt;<span class="selector-class">.admonition-title</span> &#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">82</span>,<span class="number">82</span>,.<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.admonition</span><span class="selector-class">.info</span>, <span class="selector-class">.admonition</span><span class="selector-class">.todo</span> &#123;</span><br><span class="line"><span class="attribute">border-color</span>: <span class="number">#00b8d4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.admonition</span><span class="selector-class">.warning</span>, <span class="selector-class">.admonition</span><span class="selector-class">.attention</span>, <span class="selector-class">.admonition</span><span class="selector-class">.caution</span> &#123;</span><br><span class="line"><span class="attribute">border-color</span>: <span class="number">#ff9100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.admonition</span><span class="selector-class">.failure</span>, <span class="selector-class">.admonition</span><span class="selector-class">.missing</span>, <span class="selector-class">.admonition</span><span class="selector-class">.fail</span>, <span class="selector-class">.admonition</span><span class="selector-class">.error</span> &#123;</span><br><span class="line"><span class="attribute">border-color</span>: <span class="number">#ff5252</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.info</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>, <span class="selector-class">.todo</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#00b8d4</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.warning</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>, <span class="selector-class">.attention</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>, <span class="selector-class">.caution</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#ff9100</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.failure</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.missing</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.fail</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.error</span>&gt;<span class="selector-class">.admonition-title</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#ff5252</span>;</span><br><span class="line"><span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.admonition</span>&gt;<span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line"><span class="attribute">margin-bottom</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
   </entry>
 </search>
