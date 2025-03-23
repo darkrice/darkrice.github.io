@@ -11681,7 +11681,7 @@ figure.highlight.foldable div.level-left {
   margin: 1.5625em 0;
   padding: 0.6rem;
   overflow: hidden;
-  font-size: 0.64rem;
+  font-size: 1rem;
   page-break-inside: avoid;
   border-left: 0.3rem solid #42b983;
   border-radius: 0.3rem;
