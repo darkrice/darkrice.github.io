@@ -2254,6 +2254,9 @@ $$</p>
 </ul>
 </li>
 </ol>
+<div class="admonition warning"><p class="admonition-title">如果无法显示样式
+</p><p>如果在本地可以显示admonition样式但是在github上无法显示样式可以尝试将 custom.styl 样式文件内容直接写入到tyle.styl</p>
+</div>
 <h2 id="如何使用hexo-admonition">如何使用hexo-admonition</h2>
 <p>在md文件中加入如下内容</p>
 <figure class="highlight md"><table><tr><td class="code"><pre><span class="line">!!! note Hexo-admonition 插件使用示例</span><br><span class="line"><span class="code">    这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。</span></span><br><span class="line"><span class="code">    **提示内容开头留 4 个空格**，可以有多行，最后用空行结束此标记。</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">   提示类型 type 将用作 CSS 类名称，暂支持如下类型：</span><br><span class="line"><span class="bullet">    -</span> note</span><br><span class="line"><span class="bullet">    -</span>  info, todo</span><br><span class="line"><span class="bullet">    -</span> warning, attention, caution</span><br><span class="line"><span class="bullet">    -</span>  error, failure, missing, fail</span><br></pre></td></tr></table></figure>
