@@ -2163,11 +2163,19 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </li>
 </ol>
 <h2 id="测试新渲染引擎">测试新渲染引擎</h2>
+<ol>
+<li>
 <p>markdown-it-container插件，支持容器显示内容</p>
 <div class="tips">
 <p><strong>测试</strong><br>
 测试markdown-it-container生效</p>
 </div>
+</li>
+<li>
+<p>支持上述内容显示，还需要在主题的css文件中增加样式，参考样式如下：</p>
+ <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">// custom css for markdown-it-container</span><br><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <span id="more"></span>
 <h2 id="参考资料">参考资料</h2>
 <ul>
@@ -2314,6 +2322,14 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </ol>
 <figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="comment"># flatpak support</span></span><br><span class="line">xdg.portal.<span class="attr">extraPortals</span> = [ pkgs.xdg-desktop-portal-kde ];</span><br><span class="line">xdg.portal.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br><span class="line">services.flatpak.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
 <ol start="2">
+<li>启用蓝牙</li>
+</ol>
+  <figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">hardware.bluetooth.<span class="attr">enable</span> = <span class="literal">true</span>; <span class="comment"># enables support for Bluetooth</span></span><br><span class="line">hardware.bluetooth.<span class="attr">powerOnBoot</span> = <span class="literal">true</span>; <span class="comment"># powers up the default Bluetooth controller on boot</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启用系统级工具</li>
+</ol>
+  <figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">environment.<span class="attr">systemPackages</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">  vim</span><br><span class="line">  wget</span><br><span class="line">  pkgs.nodejs_20</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<ol start="4">
 <li>
 <p>更新系统执行<code>sudo nixos-rebuild switch</code>更新系统</p>
 </li>
