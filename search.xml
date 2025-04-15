@@ -2300,4 +2300,36 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>安装nixos后要做的事情</title>
+    <url>/2025/04/15/2025-04-15-08/</url>
+    <content><![CDATA[<h2 id="更新channel源">更新channel源</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-24.11 nixos</span><br><span class="line">sudo nix-channel --update</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意修改<code>nixos-24.11</code>到匹配的版本</p>
+</blockquote>
+<h2 id="启用flatpak">启用flatpak</h2>
+<ol>
+<li>在<code>/etc/nixos/configuration.nix</code>中添加如下代码，启用flatpak</li>
+</ol>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="comment"># flatpak support</span></span><br><span class="line">xdg.portal.<span class="attr">extraPortals</span> = [ pkgs.xdg-desktop-portal-kde ];</span><br><span class="line">xdg.portal.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br><span class="line">services.flatpak.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p>更新系统执行<code>sudo nixos-rebuild switch</code>更新系统</p>
+</li>
+<li>
+<p>修改flatpak源，并安装常用软件</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub</span><br><span class="line"></span><br><span class="line">flatpak install flathub md.obsidian.Obsidian</span><br><span class="line">flatpak install flathub com.microsoft.Edge</span><br><span class="line">flatpak install flathub com.visualstudio.code</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="其他参考网站">其他参考网站</h2>
+<h3 id="包搜索">包搜索</h3>
+<ul>
+<li><a href="https://search.nixos.org/packages">https://search.nixos.org/packages</a></li>
+<li><a href="https://flathub.org/">https://flathub.org/</a></li>
+</ul>
+<h3 id="删除历史版本">删除历史版本</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nixos-rebuild list-generations</span><br><span class="line">sudo nix-collect-garbage -d</span><br><span class="line">sudo nixos-rebuild boot</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
 </search>
