@@ -2356,4 +2356,19 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <h3 id="删除历史版本">删除历史版本</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nixos-rebuild list-generations</span><br><span class="line">sudo nix-collect-garbage -d</span><br><span class="line">sudo nixos-rebuild boot</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
+  <entry>
+    <title>nix-rebuild命令</title>
+    <url>/2025/04/19/2025-04-19-16/</url>
+    <content><![CDATA[<h2 id="nix-rebuil命令">nix-rebuil命令</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nixos-rebuild &#123;switch | boot | test | build | dry-build | dry-activate | edit | build-vm | build-vm-with-bootloader&#125;</span><br><span class="line">[&#123; --upgrade | --upgrade-all &#125;] [--install-bootloader] [--no-build-nix] [--fast] [--rollback] [--builders builder-spec]</span><br><span class="line">[--flake flake-uri] [--override-input input-name flake-uri]</span><br><span class="line">[&#123; --profile-name | -p &#125; name]</span><br><span class="line">[--build-host host] [--target-host host] [--use-remote-sudo]</span><br><span class="line">[--show-trace] [-I path] [&#123;--verbose | -v&#125;] [&#123;--impure&#125;] [&#123;--max-jobs | -j&#125; number] [&#123;--keep-failed | -K&#125;] [&#123;--keep-going | -k&#125;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>几个常见的命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nixos-rebuild list-generations</span><br><span class="line">sudo nix-collect-garbage -d</span><br><span class="line">sudo nixos-rebuild boot</span><br><span class="line">sudo nixos-rebuild switch -p profile-name </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其中最后一条命令详解如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--profile-name,  -p</span><br><span class="line"></span><br><span class="line">    Instead of using the Nix profile /nix/var/nix/profiles/system to keep track of the current and previous system configurations, use /nix/var/nix/profiles/system-profiles/name. When you use GRUB 2, for every system profile created with this flag, NixOS will create a submenu named “NixOS - Profile &#x27;name&#x27;” in GRUB’s boot menu, containing the current and previous configurations of this profile.</span><br><span class="line"></span><br><span class="line">    For instance, if you want to test a configuration file named test.nix without affecting the default system profile, you would do:</span><br><span class="line"></span><br><span class="line">    $ nixos-rebuild switch -p test -I nixos-config=./test.nix</span><br><span class="line"></span><br><span class="line">    The new configuration will appear in the GRUB 2 submenu “NixOS - Profile &#x27;test&#x27;”.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以在<code>/nix/var/nix/profiles/system-profiles/</code> 目录下找到标签相关的文件，删除掉标签目录，重新执行一次<code>sudo nixos-rebuild boot</code> 就可以删除标签相关grub启动项目。</p>
+<span id="more"></span>
+<h2 id="参考信息">参考信息</h2>
+<p><a href="https://www.mankier.com/8/nixos-rebuild">https://www.mankier.com/8/nixos-rebuild</a></p>
+]]></content>
+  </entry>
 </search>
