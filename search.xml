@@ -2371,4 +2371,14 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <p><a href="https://www.mankier.com/8/nixos-rebuild">https://www.mankier.com/8/nixos-rebuild</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Excel合并单元格同时保留数据</title>
+    <url>/2025/05/10/2025-05-10-10/</url>
+    <content><![CDATA[<h2 id="合并Excel单元格并保留所有单元格值">合并Excel单元格并保留所有单元格值</h2>
+<p>TEXTJOIN(分隔符, ignore_empty, text1, [text2], …)</p>
+<p>新建一列，可以将待合并的内容通过<code>TEXTJOIN</code>函数合并。</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://support.microsoft.com/zh-cn/office/textjoin-%E5%87%BD%E6%95%B0-357b449a-ec91-49d0-80c3-0e8fc845691c">https://support.microsoft.com/zh-cn/office/textjoin-函数-357b449a-ec91-49d0-80c3-0e8fc845691c</a></p>
+]]></content>
+  </entry>
 </search>
