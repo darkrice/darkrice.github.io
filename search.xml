@@ -2381,4 +2381,29 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <p><a href="https://support.microsoft.com/zh-cn/office/textjoin-%E5%87%BD%E6%95%B0-357b449a-ec91-49d0-80c3-0e8fc845691c">https://support.microsoft.com/zh-cn/office/textjoin-函数-357b449a-ec91-49d0-80c3-0e8fc845691c</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Linux下如何修改分区Label</title>
+    <url>/2025/08/24/2025-08-25-21/</url>
+    <content><![CDATA[<h2 id="如何修改Linux分区标签Label">如何修改Linux分区标签Label</h2>
+<p>安装系统时如果没有为分区打标签，正常启动启动后不同文件管理器会显示对分区显示不同的名称。有的文件管理器会隐藏系统分区，显示其他分区类型（同一类分区类型特别容易误操作）。因此可以根据自己分区用途来设定不同的分区标签。</p>
+<ul>
+<li>
+<p>查询系统分区情况<br>
+<code>lsblk -o name,mountpoint,label,size,uuid</code></p>
+</li>
+<li>
+<p>修改ntfs分区标签</p>
+<p>需要先安装ntfs3g软件，再通过ntfslabel命令修改；</p>
+</li>
+<li>
+<p>修改btrfs分区标签<br>
+<code>sudo btrfs filesystem label / NixOS</code></p>
+</li>
+<li>
+<p>修改ext3/ext4分区标签<br>
+<code>e2label device newlabel</code></p>
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
