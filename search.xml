@@ -174,7 +174,7 @@ test image是图片描述，可以自己修改。</p></li>
   </entry>
   <entry>
     <title>使用PAC文件实现浏览器自动代理</title>
-    <url>/2020/07/19/2020-07-19-00/</url>
+    <url>/2020/07/18/2020-07-19-00/</url>
     <content><![CDATA[<p>由于工作原因需要经常在不同的地方（办公室、家庭网络、机场酒店公共网络）接入到办公网络，而办公网络需要通过公司代理服务器才能访问互联网，同时公司IT部门提供了国内、海外等不同的代理服务器，这样就需要根据是否接入办公网络及访问对网址经常修改代理服务器（打开、关闭、修改不同对代理服务器等）。</p>
 <p>目前各主流浏览器均支持Proxy Auto-Configuration (PAC)
 file自动设置代理，详细对配置指导可参考<a
@@ -816,7 +816,7 @@ class="uri">https://wiki.archlinux.org/title/IBus</a></p>
   </entry>
   <entry>
     <title>使用pandoc生成PPT常用命令</title>
-    <url>/2021/09/14/2021-09-13-23/</url>
+    <url>/2021/09/13/2021-09-13-23/</url>
     <content><![CDATA[<p>使用markdown + marp或者markdown +
 revealjs可以写PPT。使文档写作过程只专注于写作本身而不是各种格式。其实第一次还是要将常用的格式做好调试（主要是写一些常用的css文件自定义样式），后续则可以在markdown-&gt;html/PDF/docx/pptx/ebook间随意转换了。</p>
 <p>以下主要记录几个常用命令，完整的pandoc手册可以参考：<a
@@ -2143,7 +2143,7 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
   </entry>
   <entry>
     <title>更换Hexo渲染引擎</title>
-    <url>/2025/04/02/2025-04-02-23/</url>
+    <url>/2025/04/01/2025-04-02-23/</url>
     <content><![CDATA[<h2 id="更换渲染引擎">更换渲染引擎</h2>
 <p>hexo-renderer-markdown-it渲染引擎，自带很多插件，社区也比较活跃。可以将自带的渲染引擎替换成。</p>
 <ol>
@@ -2379,6 +2379,76 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <p>新建一列，可以将待合并的内容通过<code>TEXTJOIN</code>函数合并。</p>
 <h2 id="参考">参考</h2>
 <p><a href="https://support.microsoft.com/zh-cn/office/textjoin-%E5%87%BD%E6%95%B0-357b449a-ec91-49d0-80c3-0e8fc845691c">https://support.microsoft.com/zh-cn/office/textjoin-函数-357b449a-ec91-49d0-80c3-0e8fc845691c</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux下如何修改分区Label</title>
+    <url>/2025/08/24/2025-08-25-23/</url>
+    <content><![CDATA[<h2 id="如何修改Linux分区标签Label">如何修改Linux分区标签Label</h2>
+<p>安装系统时如果没有为分区打标签，正常启动启动后不同文件管理器会显示对分区显示不同的名称。有的文件管理器会隐藏系统分区，显示其他分区类型（同一类分区类型特别容易误操作）。因此可以根据自己分区用途来设定不同的分区标签。</p>
+<ul>
+<li>
+<p>查询系统分区情况<br>
+<code>lsblk -o name,mountpoint,label,size,uuid</code></p>
+</li>
+<li>
+<p>修改ntfs分区标签</p>
+<p>需要先安装ntfs3g软件，再通过ntfslabel命令修改；</p>
+</li>
+<li>
+<p>修改btrfs分区标签<br>
+<code>sudo btrfs filesystem label / NixOS</code></p>
+</li>
+<li>
+<p>修改ext3/ext4分区标签<br>
+<code>e2label device newlabel</code></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>2025-08-31-18</title>
+    <url>/2025/08/31/2025-08-31-18/</url>
+    <content><![CDATA[<h2 id="在WSL中安装NixOS">在WSL中安装NixOS</h2>
+<h3 id="Install-NixOS-WSL">Install NixOS-WSL</h3>
+<p>First, download nixos.wsl from the latest release.1 <a href="https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0">https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0</a></p>
+<p>If you have WSL version 2.4.4 or later installed, you can open (double-click) the .wsl file to install it. It is also possible to perform the installation from a PowerShell:</p>
+<figure class="highlight nixos"><table><tr><td class="code"><pre><span class="line">wsl --install --from-file nixos.wsl</span><br></pre></td></tr></table></figure>
+<p>nixos.wsl must be the path to the file you just downloaded if you’re running the command in another directory.</p>
+<p>You can use the --name and --location flags to change the name the distro is registered under (default: NixOS) and the location of the disk image (default: %localappdata%\wsl\{some random GUID}). For a full list of options, refer to wsl --help</p>
+<p>To open a shell in your NixOS environment, run wsl -d NixOS, select NixOS from the profile dropdown in Windows Terminal or run it from your Start Menu. (Adjust the name accordingly if you changed it)</p>
+<ul>
+<li>参考资料</li>
+</ul>
+<p><a href="https://nix-community.github.io/NixOS-WSL/install.html">https://nix-community.github.io/NixOS-WSL/install.html</a></p>
+<h3 id="配置vscode远程访问">配置vscode远程访问</h3>
+<p>The VSCode Remote server can not be run as-is on NixOS, because it downloads a nodejs binary that requires /lib64/ld-linux-x86-64.so.2 to be present, which isn’t the case on NixOS.</p>
+<p>There are two options to get the server to run. Option 1 is more robust but might impact other programs. Option 2 is a little bit more brittle and sometimes breaks on updates but doesn’t influence other programs. Both options require wget to be installed:</p>
+<figure class="highlight nixos"><table><tr><td class="code"><pre><span class="line">environment.<span class="attr">systemPackages</span> = [</span><br><span class="line">    pkgs.wget</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>Option 1: Set up nix-ld<br>
+nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign binaries to run on NixOS.</p>
+<p>To set it up, add the following to your configuration:</p>
+<p><code>programs.nix-ld.enable = true;</code></p>
+<ul>
+<li>参考资料</li>
+</ul>
+<p><a href="https://nix-community.github.io/NixOS-WSL/how-to/vscode.html">https://nix-community.github.io/NixOS-WSL/how-to/vscode.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux 文件权限简记</title>
+    <url>/2025/08/31/2025-08-31-19/</url>
+    <content><![CDATA[<h2 id="数字权限使用格式">数字权限使用格式</h2>
+<p>在这种使用方式中，首先我们需要了解数字如何表示权限。 首先，我们规定 数字 4 、2 和 1表示读、写、执行权限，即 r=4，w=2，x=1 。此时其他的权限组合也可以用其他的八进制数字表示出来，</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rwx = 4 + 2 + 1 = 7</span><br><span class="line">rw = 4 + 2 = 6</span><br><span class="line">rx = 4 +1 = 5</span><br></pre></td></tr></table></figure>
+<p>即：</p>
+<ul>
+<li>若要同时设置 rwx （可读写运行） 权限则将该权限位 设置 为 4 + 2 + 1 = 7</li>
+<li>若要同时设置 rw- （可读写不可运行）权限则将该权限位 设置 为 4 + 2 = 6</li>
+<li>若要同时设置 r-x （可读可运行不可写）权限则将该权限位 设置 为 4 +1 = 5</li>
+</ul>
+<p>命令格式<code> chmod [可选项] &lt;mode&gt; &lt;file…&gt;</code></p>
 ]]></content>
   </entry>
 </search>
