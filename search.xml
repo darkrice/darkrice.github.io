@@ -2328,7 +2328,7 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <ol start="3">
 <li>启用系统级工具</li>
 </ol>
-  <figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 允许安装unfree包</span></span><br><span class="line">nixpkgs.config.<span class="attr">allowUnfree</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment"># 安装常用的软件包</span></span><br><span class="line">environment.<span class="attr">systemPackages</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">  vim</span><br><span class="line">  wget</span><br><span class="line">  pkgs.git</span><br><span class="line">  pkgs.nodejs_20</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line">  cpkgs.hexo-cli</span><br><span class="line">  pkgs.pandoc</span><br><span class="line">  pkgs.vscode</span><br><span class="line">  pkgs.microsoft-edge</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line"></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+  <figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 允许安装unfree包</span></span><br><span class="line">nixpkgs.config.<span class="attr">allowUnfree</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment"># 安装常用的软件包</span></span><br><span class="line">environment.<span class="attr">systemPackages</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">  vim</span><br><span class="line">  wget</span><br><span class="line">  pkgs.git</span><br><span class="line">  pkgs.nodejs_20</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line">  cpkgs.hexo-cli</span><br><span class="line">  pkgs.pandoc</span><br><span class="line">  pkgs.vscode</span><br><span class="line">  pkgs.microsoft-edge</span><br><span class="line"></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>安装字体及输入法</li>
 </ol>
@@ -2405,5 +2405,132 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Linux下如何修改分区Label</title>
+    <url>/2025/08/24/2025-08-25-23/</url>
+    <content><![CDATA[<h2 id="如何修改Linux分区标签Label">如何修改Linux分区标签Label</h2>
+<p>安装系统时如果没有为分区打标签，正常启动启动后不同文件管理器会显示对分区显示不同的名称。有的文件管理器会隐藏系统分区，显示其他分区类型（同一类分区类型特别容易误操作）。因此可以根据自己分区用途来设定不同的分区标签。</p>
+<ul>
+<li>
+<p>查询系统分区情况<br>
+<code>lsblk -o name,mountpoint,label,size,uuid</code></p>
+</li>
+<li>
+<p>修改ntfs分区标签</p>
+<p>需要先安装ntfs3g软件，再通过ntfslabel命令修改；</p>
+</li>
+<li>
+<p>修改btrfs分区标签<br>
+<code>sudo btrfs filesystem label / NixOS</code></p>
+</li>
+<li>
+<p>修改ext3/ext4分区标签<br>
+<code>e2label device newlabel</code></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>2025-08-31-18</title>
+    <url>/2025/08/31/2025-08-31-18/</url>
+    <content><![CDATA[<h2 id="在WSL中安装NixOS">在WSL中安装NixOS</h2>
+<h3 id="Install-NixOS-WSL">Install NixOS-WSL</h3>
+<p>First, download nixos.wsl from the latest release.1 <a href="https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0">https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0</a></p>
+<p>If you have WSL version 2.4.4 or later installed, you can open (double-click) the .wsl file to install it. It is also possible to perform the installation from a PowerShell:</p>
+<figure class="highlight nixos"><table><tr><td class="code"><pre><span class="line">wsl --install --from-file nixos.wsl</span><br></pre></td></tr></table></figure>
+<p>nixos.wsl must be the path to the file you just downloaded if you’re running the command in another directory.</p>
+<p>You can use the --name and --location flags to change the name the distro is registered under (default: NixOS) and the location of the disk image (default: %localappdata%\wsl\{some random GUID}). For a full list of options, refer to wsl --help</p>
+<p>To open a shell in your NixOS environment, run wsl -d NixOS, select NixOS from the profile dropdown in Windows Terminal or run it from your Start Menu. (Adjust the name accordingly if you changed it)</p>
+<ul>
+<li>参考资料</li>
+</ul>
+<p><a href="https://nix-community.github.io/NixOS-WSL/install.html">https://nix-community.github.io/NixOS-WSL/install.html</a></p>
+<h3 id="配置vscode远程访问">配置vscode远程访问</h3>
+<p>The VSCode Remote server can not be run as-is on NixOS, because it downloads a nodejs binary that requires /lib64/ld-linux-x86-64.so.2 to be present, which isn’t the case on NixOS.</p>
+<p>There are two options to get the server to run. Option 1 is more robust but might impact other programs. Option 2 is a little bit more brittle and sometimes breaks on updates but doesn’t influence other programs. Both options require wget to be installed:</p>
+<figure class="highlight nixos"><table><tr><td class="code"><pre><span class="line">environment.<span class="attr">systemPackages</span> = [</span><br><span class="line">    pkgs.wget</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>Option 1: Set up nix-ld<br>
+nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign binaries to run on NixOS.</p>
+<p>To set it up, add the following to your configuration:</p>
+<p><code>programs.nix-ld.enable = true;</code></p>
+<ul>
+<li>参考资料</li>
+</ul>
+<p><a href="https://nix-community.github.io/NixOS-WSL/how-to/vscode.html">https://nix-community.github.io/NixOS-WSL/how-to/vscode.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux 文件权限简记</title>
+    <url>/2025/08/31/2025-08-31-19/</url>
+    <content><![CDATA[<h2 id="数字权限使用格式">数字权限使用格式</h2>
+<p>在这种使用方式中，首先我们需要了解数字如何表示权限。 首先，我们规定 数字 4 、2 和 1表示读、写、执行权限，即 r=4，w=2，x=1 。此时其他的权限组合也可以用其他的八进制数字表示出来，</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rwx = 4 + 2 + 1 = 7</span><br><span class="line">rw = 4 + 2 = 6</span><br><span class="line">rx = 4 +1 = 5</span><br></pre></td></tr></table></figure>
+<p>即：</p>
+<ul>
+<li>若要同时设置 rwx （可读写运行） 权限则将该权限位 设置 为 4 + 2 + 1 = 7</li>
+<li>若要同时设置 rw- （可读写不可运行）权限则将该权限位 设置 为 4 + 2 = 6</li>
+<li>若要同时设置 r-x （可读可运行不可写）权限则将该权限位 设置 为 4 +1 = 5</li>
+</ul>
+<p>命令格式<code> chmod [可选项] &lt;mode&gt; &lt;file…&gt;</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Obsdian导出增强配置</title>
+    <url>/2026/02/10/2026-02-20-18/</url>
+    <content><![CDATA[<h2 id="配置插件及工具">配置插件及工具</h2>
+<ol>
+<li>Pandoc：万能文档格式转换工具，可以从<a href="http://pandoc.org">http://pandoc.org</a>下载。</li>
+<li>Obsdian导出增强（Enhancing Export）插件，这个是目前最好用的Obsdian导出插件。</li>
+</ol>
+<h2 id="导出PDF文件">导出PDF文件</h2>
+<h3 id="PDF引擎">PDF引擎</h3>
+<ol>
+<li>建议Windows下建议使用MiKTeX<a href="https://mirror.tuna.tsinghua.edu.cn/help/CTAN/">https://mirror.tuna.tsinghua.edu.cn/help/CTAN/</a>，建议定期更新宏包（否则会出一些莫名其妙的问题）。可以再MiKTex Console上设置Proxy，更新时可以选择国内源进行更新。</li>
+<li>在Obsdian导出增强插件中配置自定义参数，设置 <code>--pdf-engine=xelatex</code> ，即PDF引擎为xelatex</li>
+</ol>
+<h2 id="Pandoc表格插件">Pandoc表格插件</h2>
+<ol>
+<li>Pandoc导出PDF文件时，如果表格比较大，表格内容则会溢出PDF文件导致表格显示不全，可以默认开启Pandoc表格插件功能。</li>
+<li>可以在Pandoc参数中增加表格插件，可参考<a href="https://pandoc.org/MANUAL.html#extension-multiline_tables">https://pandoc.org/MANUAL.html#extension-multiline_tables</a>，此外还有grid_tables等表格插件。</li>
+<li>Pandoc参数为：<code>-f markdown+multiline_tables</code></li>
+</ol>
+<h2 id="导出PDF模板（可选）">导出PDF模板（可选）</h2>
+<ol>
+<li>推荐使用eisvogel模板，详细下载地质<a href="https://github.com/Wandmalfarbe/pandoc-latex-template">https://github.com/Wandmalfarbe/pandoc-latex-template</a>，作者持续在更新模板。</li>
+<li>将现在好的模板可以放到用户目录下或者放到Obsdian附件目录</li>
+<li>Pandoc参数为：<code>--template=eisvogel</code>, 如果模板不是在默认的用户目录还需要指定具体模板路径。</li>
+</ol>
+<h2 id="中文字体">中文字体</h2>
+<p>PDF模板和引擎对中文支持不好，需要通过强制指定中文字体解决。具体参数如下：</p>
+<p><code>-V mainfont=&quot;Microsoft Yahei&quot; -V CJKmainfont=&quot;Microsoft Yahei&quot;</code><br>
+应用程序或者插件会将参数拼接成完整的Pandoc导出命令，如果应用程序有Bug可能将有空格的参数截断，导致最终拼接导出命令错误。例如Typora会将上述“Microsoft Yahei”从空格处截断，此时可将可在空格前加转义字符“\”，将命令修改成：<code>-V mainfont=&quot;Microsoft\ Yahei&quot; -V CJKmainfont=&quot;Microsoft\ Yahei&quot;</code><br>
+当然，也可以选择其他不带空格的字体。</p>
+<h2 id="导出Word文件">导出Word文件</h2>
+<p>导出Word文件相对配置简单一些，可以直接使用默认命令；如果导出Word样式不满意，可以指定导出Word模板。<br>
+<code>--reference-doc=&quot;/path/templates.doc&quot;</code></p>
+<p>比较舒服的Word模板可以参考：<a href="https://github.com/Achuan-2/pandoc_docx_template">https://github.com/Achuan-2/pandoc_docx_template</a>，当然也可以基于上述模板二次修改成自己喜欢的。</p>
+]]></content>
+      <tags>
+        <tag>Obsidian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian + Slides Extended 打造Markdown演示文稿</title>
+    <url>/2026/02/10/2026-02-20-19/</url>
+    <content><![CDATA[<h2 id="插件介绍">插件介绍</h2>
+<p>Slides extended是Obsdian一个演示文稿插件，支持用Markdown书写基于Reveal.js的演示文稿。非常适合快速输出教学演示文稿。<br>
+Sildes extended是最早是由MSzturc开发的Advacned Silde&lt;<a href="http://github.com/MSzturc/obsidian-advanced-slides">github.com/MSzturc/obsidian-advanced-slides</a>&gt;插件，24年以后原作者不再更新后Erin fork出后以Slides Extended<a href="https://github.com/ebullient/obsidian-slides-extended">https://github.com/ebullient/obsidian-slides-extended</a>继续开发。</p>
+<p>Slides extended是目前遇到的最好用的Markdown写演示文稿的工具。当前唯一的缺点是不能直接导出PPT格式，这个估计需要reveal.js支持才能支持。</p>
+<h2 id="插件的详细介绍参考">插件的详细介绍参考</h2>
+<p><a href="https://mszturc.github.io/obsidian-advanced-slides/">https://mszturc.github.io/obsidian-advanced-slides/</a></p>
+<p>配合使用模板和布局可以预配置好演示文稿的布局风格，日常写作时专注于文件本身。</p>
+<p><a href="https://mszturc.github.io/obsidian-advanced-slides/templates/">https://mszturc.github.io/obsidian-advanced-slides/templates/</a><br>
+<a href="https://mszturc.github.io/obsidian-advanced-slides/layout/">https://mszturc.github.io/obsidian-advanced-slides/layout/</a></p>
+]]></content>
+      <tags>
+        <tag>Obsidian</tag>
+      </tags>
   </entry>
 </search>
