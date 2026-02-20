@@ -1728,18 +1728,22 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
   <entry>
     <title>在linxu上搭建miniconda和pyspark环境</title>
     <url>/2023/01/26/2023-01-26-12/</url>
-    <content><![CDATA[<h2 id="下载安装miniconda"><a href="#下载安装miniconda" class="headerlink" title="下载安装miniconda"></a>下载安装miniconda</h2><ul>
-<li><p>下载miniconda<br>从清华大学镜像站中下载miniconda，下载地址<a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p>
+    <content><![CDATA[<h2 id="下载安装miniconda">下载安装miniconda</h2>
+<ul>
+<li>
+<p>下载miniconda<br>
+从清华大学镜像站中下载miniconda，下载地址<a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p>
 </li>
-<li><p>安装miniconda<br>执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code> 按照指引完成安装。<br>安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p>
+<li>
+<p>安装miniconda<br>
+执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code> 按照指引完成安装。安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p>
 </li>
 </ul>
 <span id="more"></span>
-
 <ul>
-<li><p>修改miniconda默认源<br>在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
+<li>
+<p>修改miniconda默认源在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch-lts:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>运行<code>conda clean -i</code>清除索引缓存，保证用的是镜像站提供的索引。</p>
 <blockquote>
 <p><strong>参考资料</strong></p>
@@ -1747,10 +1751,12 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 </blockquote>
 </li>
 </ul>
-<h2 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h2><ul>
-<li><p>安装方式<br>conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
+<h2 id="安装pyspark">安装pyspark</h2>
+<ul>
+<li>
+<p>安装方式<br>
+conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip instal pyspark</span><br></pre></td></tr></table></figure>
-
 <p>此外，还可以通过<code>PYSPARK_HADOOP_VERSION</code>指定Hadoop版本。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PYSPARK_HADOOP_VERSION=2 pip instal pyspark</span><br></pre></td></tr></table></figure>
 <p>其中 PYSPARK_HADOOP_VERSION值可以是：</p>
@@ -1764,15 +1770,15 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 <p><a href="https://spark.apache.org/docs/latest/api/python/getting_started/install.html">https://spark.apache.org/docs/latest/api/python/getting_started/install.html</a></p>
 </blockquote>
 </li>
-<li><p>验证安装是否成功<br>通过如下代码验证是否安装成功</p>
+<li>
+<p>验证安装是否成功通过如下代码验证是否安装成功</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
-
 <p>pyspark以来JDK，如果没有安装JDK需要先安装JDK。在debian环境下可以执行如下命令查找安装支持JDK</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache search openjdk</span><br><span class="line">sudo apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <tags>
-        <tag>打数据</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
