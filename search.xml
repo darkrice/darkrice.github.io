@@ -1728,18 +1728,22 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
   <entry>
     <title>在linxu上搭建miniconda和pyspark环境</title>
     <url>/2023/01/26/2023-01-26-12/</url>
-    <content><![CDATA[<h2 id="下载安装miniconda"><a href="#下载安装miniconda" class="headerlink" title="下载安装miniconda"></a>下载安装miniconda</h2><ul>
-<li><p>下载miniconda<br>从清华大学镜像站中下载miniconda，下载地址<a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p>
+    <content><![CDATA[<h2 id="下载安装miniconda">下载安装miniconda</h2>
+<ul>
+<li>
+<p>下载miniconda<br>
+从清华大学镜像站中下载miniconda，下载地址<a href="https://mirrors.bfsu.edu.cn/anaconda/miniconda/">https://mirrors.bfsu.edu.cn/anaconda/miniconda/</a>，下载<code>Miniconda3-latest-Linux-x86_64.sh</code></p>
 </li>
-<li><p>安装miniconda<br>执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code> 按照指引完成安装。<br>安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p>
+<li>
+<p>安装miniconda<br>
+执行<code>bash Miniconda3-latest-Linux-x86_64.sh</code> 按照指引完成安装。安装时可以完成一次conda初始化，初始化脚本会在用户<code>.bashrc</code>中增加初始化操作。安装成功以后需要重新打开一次console，即可进入conda默认环境中。使用<code>conda list</code>可以查询默认环境中已经安装的包。</p>
 </li>
 </ul>
 <span id="more"></span>
-
 <ul>
-<li><p>修改miniconda默认源<br>在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
+<li>
+<p>修改miniconda默认源在用户目录（如：<code>/home/xxxuser/</code>）下面新建一个<code>.condarc</code>，添加如下内容，即可修改miniconda默认源为清华大学镜像源</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch-lts:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>运行<code>conda clean -i</code>清除索引缓存，保证用的是镜像站提供的索引。</p>
 <blockquote>
 <p><strong>参考资料</strong></p>
@@ -1747,10 +1751,12 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 </blockquote>
 </li>
 </ul>
-<h2 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h2><ul>
-<li><p>安装方式<br>conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
+<h2 id="安装pyspark">安装pyspark</h2>
+<ul>
+<li>
+<p>安装方式<br>
+conda环境中可以使用pip和conda安装包。conda安装pyspark是由社区维护到，具体命令可以参考<code>conda install -h</code>命令说明。下文使用spark推荐到pip方式安装。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip instal pyspark</span><br></pre></td></tr></table></figure>
-
 <p>此外，还可以通过<code>PYSPARK_HADOOP_VERSION</code>指定Hadoop版本。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PYSPARK_HADOOP_VERSION=2 pip instal pyspark</span><br></pre></td></tr></table></figure>
 <p>其中 PYSPARK_HADOOP_VERSION值可以是：</p>
@@ -1764,15 +1770,15 @@ Exadata一体机计算节点采用了RAC的计算架构，存储上采用InfiniB
 <p><a href="https://spark.apache.org/docs/latest/api/python/getting_started/install.html">https://spark.apache.org/docs/latest/api/python/getting_started/install.html</a></p>
 </blockquote>
 </li>
-<li><p>验证安装是否成功<br>通过如下代码验证是否安装成功</p>
+<li>
+<p>验证安装是否成功通过如下代码验证是否安装成功</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br></pre></td></tr></table></figure>
-
 <p>pyspark以来JDK，如果没有安装JDK需要先安装JDK。在debian环境下可以执行如下命令查找安装支持JDK</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-cache search openjdk</span><br><span class="line">sudo apt install openjdk-17-jdk</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <tags>
-        <tag>打数据</tag>
+        <tag>BigData</tag>
       </tags>
   </entry>
   <entry>
@@ -2450,5 +2456,62 @@ nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign 
 </ul>
 <p>命令格式<code> chmod [可选项] &lt;mode&gt; &lt;file…&gt;</code></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Obsdian导出增强配置</title>
+    <url>/2026/02/20/2026-02-20-18/</url>
+    <content><![CDATA[<h2 id="配置插件及工具">配置插件及工具</h2>
+<ol>
+<li>Pandoc：万能文档格式转换工具，可以从<a href="http://pandoc.org">http://pandoc.org</a>下载。</li>
+<li>Obsdian导出增强（Enhancing Export）插件，这个是目前最好用的Obsdian导出插件。</li>
+</ol>
+<h2 id="导出PDF文件">导出PDF文件</h2>
+<h3 id="PDF引擎">PDF引擎</h3>
+<ol>
+<li>建议Windows下建议使用MiKTeX<a href="https://mirror.tuna.tsinghua.edu.cn/help/CTAN/">https://mirror.tuna.tsinghua.edu.cn/help/CTAN/</a>，建议定期更新宏包（否则会出一些莫名其妙的问题）。可以再MiKTex Console上设置Proxy，更新时可以选择国内源进行更新。</li>
+<li>在Obsdian导出增强插件中配置自定义参数，设置 <code>--pdf-engine=xelatex</code> ，即PDF引擎为xelatex</li>
+</ol>
+<h2 id="Pandoc表格插件">Pandoc表格插件</h2>
+<ol>
+<li>Pandoc导出PDF文件时，如果表格比较大，表格内容则会溢出PDF文件导致表格显示不全，可以默认开启Pandoc表格插件功能。</li>
+<li>可以在Pandoc参数中增加表格插件，可参考<a href="https://pandoc.org/MANUAL.html#extension-multiline_tables">https://pandoc.org/MANUAL.html#extension-multiline_tables</a>，此外还有grid_tables等表格插件。</li>
+<li>Pandoc参数为：<code>-f markdown+multiline_tables</code></li>
+</ol>
+<h2 id="导出PDF模板（可选）">导出PDF模板（可选）</h2>
+<ol>
+<li>推荐使用eisvogel模板，详细下载地质<a href="https://github.com/Wandmalfarbe/pandoc-latex-template">https://github.com/Wandmalfarbe/pandoc-latex-template</a>，作者持续在更新模板。</li>
+<li>将现在好的模板可以放到用户目录下或者放到Obsdian附件目录</li>
+<li>Pandoc参数为：<code>--template=eisvogel</code>, 如果模板不是在默认的用户目录还需要指定具体模板路径。</li>
+</ol>
+<h2 id="中文字体">中文字体</h2>
+<p>PDF模板和引擎对中文支持不好，需要通过强制指定中文字体解决。具体参数如下：</p>
+<p><code>-V mainfont=&quot;Microsoft Yahei&quot; -V CJKmainfont=&quot;Microsoft Yahei&quot;</code><br>
+应用程序或者插件会将参数拼接成完整的Pandoc导出命令，如果应用程序有Bug可能将有空格的参数截断，导致最终拼接导出命令错误。例如Typora会将上述“Microsoft Yahei”从空格处截断，此时可将可在空格前加转义字符“\”，将命令修改成：<code>-V mainfont=&quot;Microsoft\ Yahei&quot; -V CJKmainfont=&quot;Microsoft\ Yahei&quot;</code><br>
+当然，也可以选择其他不带空格的字体。</p>
+<h2 id="导出Word文件">导出Word文件</h2>
+<p>导出Word文件相对配置简单一些，可以直接使用默认命令；如果导出Word样式不满意，可以指定导出Word模板。<br>
+<code>--reference-doc=&quot;/path/templates.doc&quot;</code></p>
+<p>比较舒服的Word模板可以参考：<a href="https://github.com/Achuan-2/pandoc_docx_template">https://github.com/Achuan-2/pandoc_docx_template</a>，当然也可以基于上述模板二次修改成自己喜欢的。</p>
+]]></content>
+      <tags>
+        <tag>Obsidian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Obsidian + Slides Extended 打造Markdown演示文稿</title>
+    <url>/2026/02/20/2026-02-20-19/</url>
+    <content><![CDATA[<h2 id="插件介绍">插件介绍</h2>
+<p>Slides extended是Obsdian一个演示文稿插件，支持用Markdown书写基于Reveal.js的演示文稿。非常适合快速输出教学演示文稿。<br>
+Sildes extended是最早是由MSzturc开发的Advacned Silde&lt;<a href="http://github.com/MSzturc/obsidian-advanced-slides">github.com/MSzturc/obsidian-advanced-slides</a>&gt;插件，24年以后原作者不再更新后Erin fork出后以Slides Extended<a href="https://github.com/ebullient/obsidian-slides-extended">https://github.com/ebullient/obsidian-slides-extended</a>继续开发。</p>
+<p>Slides extended是目前遇到的最好用的Markdown写演示文稿的工具。当前唯一的缺点是不能直接导出PPT格式，这个估计需要reveal.js支持才能支持。</p>
+<h2 id="插件的详细介绍参考">插件的详细介绍参考</h2>
+<p><a href="https://mszturc.github.io/obsidian-advanced-slides/">https://mszturc.github.io/obsidian-advanced-slides/</a></p>
+<p>配合使用模板和布局可以预配置好演示文稿的布局风格，日常写作时专注于文件本身。</p>
+<p><a href="https://mszturc.github.io/obsidian-advanced-slides/templates/">https://mszturc.github.io/obsidian-advanced-slides/templates/</a><br>
+<a href="https://mszturc.github.io/obsidian-advanced-slides/layout/">https://mszturc.github.io/obsidian-advanced-slides/layout/</a></p>
+]]></content>
+      <tags>
+        <tag>Obsidian</tag>
+      </tags>
   </entry>
 </search>
