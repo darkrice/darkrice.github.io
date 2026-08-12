@@ -174,7 +174,7 @@ test image是图片描述，可以自己修改。</p></li>
   </entry>
   <entry>
     <title>使用PAC文件实现浏览器自动代理</title>
-    <url>/2020/07/18/2020-07-19-00/</url>
+    <url>/2020/07/19/2020-07-19-00/</url>
     <content><![CDATA[<p>由于工作原因需要经常在不同的地方（办公室、家庭网络、机场酒店公共网络）接入到办公网络，而办公网络需要通过公司代理服务器才能访问互联网，同时公司IT部门提供了国内、海外等不同的代理服务器，这样就需要根据是否接入办公网络及访问对网址经常修改代理服务器（打开、关闭、修改不同对代理服务器等）。</p>
 <p>目前各主流浏览器均支持Proxy Auto-Configuration (PAC)
 file自动设置代理，详细对配置指导可参考<a
@@ -816,7 +816,7 @@ class="uri">https://wiki.archlinux.org/title/IBus</a></p>
   </entry>
   <entry>
     <title>使用pandoc生成PPT常用命令</title>
-    <url>/2021/09/13/2021-09-13-23/</url>
+    <url>/2021/09/14/2021-09-13-23/</url>
     <content><![CDATA[<p>使用markdown + marp或者markdown +
 revealjs可以写PPT。使文档写作过程只专注于写作本身而不是各种格式。其实第一次还是要将常用的格式做好调试（主要是写一些常用的css文件自定义样式），后续则可以在markdown-&gt;html/PDF/docx/pptx/ebook间随意转换了。</p>
 <p>以下主要记录几个常用命令，完整的pandoc手册可以参考：<a
@@ -2149,7 +2149,7 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
   </entry>
   <entry>
     <title>更换Hexo渲染引擎</title>
-    <url>/2025/04/01/2025-04-02-23/</url>
+    <url>/2025/04/02/2025-04-02-23/</url>
     <content><![CDATA[<h2 id="更换渲染引擎">更换渲染引擎</h2>
 <p>hexo-renderer-markdown-it渲染引擎，自带很多插件，社区也比较活跃。可以将自带的渲染引擎替换成。</p>
 <ol>
@@ -2513,5 +2513,199 @@ Sildes extended是最早是由MSzturc开发的Advacned Silde&lt;<a href="http://
       <tags>
         <tag>Obsidian</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>在WSL上部署Dify</title>
+    <url>/2026/04/30/2026-04-30-14/</url>
+    <content><![CDATA[<h2 id="安装准备">安装准备</h2>
+<p>Dify安装部署依赖Docker和Docker Compose。安装Dify前需要先在WSL openEuler 24.03上安装好上述Docker软件。配置Docker需要的内核参数，开启IP转发与桥接功能</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置内核参数</span></span><br><span class="line"></span><br><span class="line">sudo tee /etc/sysctl.d/docker.conf &lt;&lt; EOF</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生效参数</span></span><br><span class="line">sudo sysctl --system</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="安装Docker依赖的工具">安装Docker依赖的工具</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 dnf 相关的工具包（openEuler 使用 dnf 作为包管理器）</span></span><br><span class="line">sudo dnf install -y dnf-utils dnf-plugins-core</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装设备映射和 LVM2 工具</span></span><br><span class="line">sudo dnf install -y device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装其他可能需要的工具</span></span><br><span class="line">sudo dnf install -y curl wget git vim</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>执行<code>sysctl -a | grep ip_forward</code>验证内核参数是否生效。如果有提示<code>net.ipv4.ip_forward = 1</code>则已经生效。添加Docker源</p>
+<p>由于docker源国内访问很慢，我们可以直接添加docker的国内镜像源。</p>
+<p><code>sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
+<p>使用如下命令修改源配置中的操作系统版本信息以适配openEuler 24.03</p>
+<p><code>sudo sed -i 's/$releasever/8/g' /etc/yum.repos.d/docker-ce.repo</code></p>
+<blockquote>
+<p>这个参数<code>$releasever</code> 在openEuler里面是24.03 LTS，因此执行安装命令过程中无法从docker源中找到软件，上述命令版本替换成8（对应CentOS 8版本）。</p>
+</blockquote>
+<h2 id="安装Docker软件">安装Docker软件</h2>
+<ol>
+<li>安装docker软件</li>
+</ol>
+<p><code>sudo dnf install -y docker-ce docker-ce-cli containerd.io</code></p>
+<ol start="2">
+<li>验证安装结果</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动Docker服务并设置开机自启</span></span><br><span class="line">sudo systemctl start docker </span><br><span class="line">sudo systemctl enable docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证Docker服务状态</span> </span><br><span class="line">sudo systemctl status docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将当前用户加入docker组（避免每次sudo）</span> </span><br><span class="line">sudo usermod -aG docker $USER </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新登录生效后验证Docker版本</span> </span><br><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+<h2 id="安装Docker-Compose">安装Docker Compose</h2>
+<ol>
+<li>下载并安装</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载Docker Compose二进制文件</span></span><br><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v5.1.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予执行权限</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建符号链接</span> </span><br><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证安装</span> </span><br><span class="line">docker-compose --version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中第一步也可以直接从<a href="https://github.com/docker/compose/releases%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%9A%84Linux">https://github.com/docker/compose/releases下载最新的Linux</a> x86_64版本的。</p>
+</blockquote>
+<ol start="2">
+<li>配置用户权限</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">避免频繁使用</span></span><br><span class="line">sudo sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker $USER </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新登录生效</span></span><br><span class="line">newgrp docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证非特权用户操作</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>配置docker hub国内镜像</li>
+</ol>
+<p>编辑/etc/docker/daemon.json，配置docker hub的镜像地址：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://docker.xuanyuan.me&quot;,</span><br><span class="line">    &quot;https://docker.1ms.run&quot;,</span><br><span class="line">    &quot;https://docker.m.daocloud.io&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：上述的镜像可能失效，需要查询最新可用的镜像。如果不配置国内镜像或者国内镜像不可用会导致后续安装Dify失败。保存后需要重启docker 服务 sudo systemctl restart docker。</p>
+</blockquote>
+<h2 id="安装Dify">安装Dify</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/langgenius/dify.git</span><br><span class="line">cd dify</span><br><span class="line">cp .env.example .env</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一步也可以从github网站上手工下载最新的dify release版本，再解压缩。.env 文件是配置文件，Dify主要配置参数都可以再这里修改。第一次启动Dify时会从docker hub上拉取依赖的镜像。因此需要与配置好docker hub国内镜像源。第一次安装时建议先不使用-d 参数，方便观察启动信息。</p>
+</blockquote>
+<p>在Windows 浏览器中输入<a href="http://xn--wslip-gm7j446r/install%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AEDify%E5%8D%B3%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82%E5%85%B6%E4%B8%ADwsl%E8%99%9A%E6%8B%9Fip%E5%9C%B0%E5%9D%80%E5%8F%AF%E4%BB%A5%E5%9C%A8wsl">http://wsl虚拟ip/install，如果可以访问Dify即安装成功。其中wsl虚拟ip地址可以在wsl</a> 中用过ifconfig | grep 172查询，对应eth0虚拟网卡的地址。</p>
+<h2 id="配置Dify">配置Dify</h2>
+<p>Dify主要的配置都在.env文件。可以通过编辑 .env文件，配置Dify。几个推荐修改配置如下：</p>
+<ol>
+<li>
+<p>PIP国内镜像PIP_MIRROR_URL=<a href="https://mirrors.aliyun.com/pypi/simple%E3%80%82%E9%85%8D%E7%BD%AE%E6%AD%A4%E9%95%9C%E5%83%8F%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E5%9B%A0%E4%B8%BADify%E6%8F%92%E4%BB%B6%E9%83%BD%E6%98%AFpython%E5%8C%85%E5%BD%A2%E5%BC%8F%E7%BB%84%E7%BB%87%E3%80%82%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%8D%B3%E5%AE%89%E8%A3%85%E5%AF%B9%E5%BA%94%E7%9A%84python%E8%BD%AF%E4%BB%B6%E5%8C%85%E3%80%82">https://mirrors.aliyun.com/pypi/simple。配置此镜像的目的是因为Dify插件都是python包形式组织。安装插件即安装对应的python软件包。</a></p>
+</li>
+<li>
+<p>配置插件初始化时间<br>
+PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插件是和容易超时，可以配置成600秒；</p>
+</li>
+<li>
+<p>配置WEB UI端口</p>
+</li>
+</ol>
+<p><code>EXPOSE_NGINX_PORT=5080</code> # 默认是80端口，可能会和Windows上服务端口冲突，修改成其他端口。</p>
+<blockquote>
+<p>注意：Dify启动、配置的其他问题都可以将错误直接丢给DeepSeek询问如何解决。比自己搜索快很多：）。</p>
+</blockquote>
+<h2 id="启动停止Dify">启动停止Dify</h2>
+<p>进入到Dify安装的目录中执行以下命令启动/停止Dify：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up -d # 启动Dify</span><br><span class="line">docker-compose down # 停止Dify</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>在WSL上部署langchain-chatchat</title>
+    <url>/2026/05/05/2026-05-05-14/</url>
+    <content><![CDATA[<h2 id="安装Python">安装Python</h2>
+<p>Langchain Chatchat目前只支持Python 3.11版本。需要确保操作系统的Python 版本是3.11。当前我是用的是OpenEuler 24.03 WSL，默认支持的Python是3.11版本，直接安装Python即可。如果使用的是Ubuntu 24.04或者其他版本需要确保安装Python版本是3.11，如果不是求助豆包或者DeepSeek。安装好Python后可以通过python -V 查询Python版本。创建并激活虚拟Python环境</p>
+<p>大模型各种软件依赖比较多，版本也不一致。最好把不同软件部署在不同的虚拟化环境中。</p>
+<ol>
+<li>执行如下命令创建虚拟化环境：<code>python -m venv reg_env</code> 即可创建一个reg_env虚拟环境，在ubuntu系统下该命令可能执行失败，如果执行失败按系统提示安装虚拟环境创建的命令再执行上述命令。上述命令执行成功后后会在工作目录创建一个reg_env目录，目录中就是虚拟换机各种软件资源。</li>
+<li>执行如下命令激活虚拟环境：<code>source ./reg_env/bin/activate</code> 即可激活当前虚拟环境。虚拟环境激活成功以后会在命令行提示符增加(rag_env)信息。</li>
+</ol>
+<h2 id="安装langchain-chatchat">安装langchain-chatchat</h2>
+<h3 id="安装方式一">安装方式一</h3>
+<p>执行如下命令安装<code>chatchat：pip install langchain-chatchat -U -i https://mirrors.aliyun.com/pypi/simple/</code>。</p>
+<pre><code>[!Notes]
+上述命令会默认安装langchain-chatchat和依赖的包。某些依赖包版本升级后可能存在兼容性的问题。比如：chatchat当前支持httpx 0.27.x版本，上述命令默认安装了0.28.x版本，httx 0.28.x版本会出现一个proxies参数错误的问题。需要重新手工安装httpx版本，具体执行如下命令：pip install httpx==0.27.2 -i https://mirrors.aliyun.com/pypi/simple/
+</code></pre>
+<h3 id="安装方式二">安装方式二</h3>
+<p>在网上搜索chatchat 按照的requirements.txt，可以执行如下命令安装：<code>pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/</code></p>
+<blockquote>
+<p>上述的requirements.txt 可以通过已经部署好的环境通过如下命令导出：<code>python freeze &gt; requirements.txt</code></p>
+</blockquote>
+<h2 id="配置chatchat环境">配置chatchat环境</h2>
+<h3 id="关闭SSL鉴权">关闭SSL鉴权</h3>
+<p>为避免调用大模型错误，需要关闭chatchat SSL。进入到安装好chatchat的的虚拟化环境目录./rag_env/lib/python3.11/site-packages/requests，编辑session.py文件，将517行的 verify=None，改成verify=False。</p>
+<h3 id="配置模型参数">配置模型参数</h3>
+<ol>
+<li>首先要执行 chatchat init 初始化运行环境，此时会在工作目录下生成一些测试数据和默认配置文件。</li>
+<li>在model_settings.yaml 文件中配置模型LLM模型和Embedding模型。以硅基流动的Qwen3模型为例，可以在<a href="https://siliconflow.cn/models">https://siliconflow.cn/models</a> 查询模型信息：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">DEFAULT_LLM_MODEL: Qwen/Qwen3-32B</span><br><span class="line">DEFAULT_EMBEDDING_MODEL: Qwen/Qwen3-Embedding-4B</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部分内容省略，MODEL_PLATFORMS增加如下信息</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MODEL_PLATFORMS:</span></span><br><span class="line"></span><br><span class="line">  - platform_name: siliconflow</span><br><span class="line">    platfrom_type: openai</span><br><span class="line">    api_base_url: https://api.siliconflow.cn/v1</span><br><span class="line">    api_key: api_key</span><br><span class="line">    api_proxy: </span><br><span class="line">    api_concurrencies: 5</span><br><span class="line">    auto_detect_model: false</span><br><span class="line">    llm_models:</span><br><span class="line">      - Qwen/Qwen3-32B</span><br><span class="line">    embed_models:</span><br><span class="line">      - Qwen/Qwen3-Embedding-4B</span><br><span class="line">    text2image_models: []</span><br><span class="line">    image2text_models: []</span><br><span class="line">    rerank_models: []</span><br><span class="line">    speech2text_models: []</span><br><span class="line">    text2speech_models: []</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下省略</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置基础配置参数">配置基础配置参数</h3>
+<ol>
+<li>配置服务器地址在 basic_settings.yaml 中可以设置访问chatchat的IP地址和端口。默认WEBUI_SERVER配置的host ip地址 0.0.0.0地址，可以将此地址改成wsl的虚拟ip地址方便从Windows系统中点击链接访问（可选）。</li>
+</ol>
+<blockquote>
+<p>注意：不要修改API_SERVER的host地址，由于chatchat默认的知识库也部署在wsl里，如果修改此地址会导致chatchat无法通过本机地址访问知识库，如果需要对外提供支持库地址则修改public_host地址即可（暂未测试）。</p>
+</blockquote>
+<ol start="2">
+<li>配置知识库存储路径</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">KB_ROOT_PATH: /工作目录/data/knowledge_base</span><br><span class="line">DB_ROOT_PATH: /工作目录/data/knowledge_base/info.db</span><br></pre></td></tr></table></figure>
+<h2 id="启动chatchat环境">启动chatchat环境</h2>
+<ol>
+<li>执行 chatcaht kb -r 初始化知识库，在执行此命令之前可以删除一些测试文件，加速知识库的生成过程。具体数据在./data/knowledge_base/samples/content/ 目录下。</li>
+<li>执行 chatchat start -a 启动chatchat。当启动完成以后就可以在Windows上通过wsl的虚拟ip地址访问chatchat了。</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>在Pop!OS 24.04安装常用软件</title>
+    <url>/2026/08/11/2026-08-11-17/</url>
+    <content><![CDATA[<h2 id="安装中文输入法">安装中文输入法</h2>
+<ol>
+<li>
+<p>iBus输入法在PopOS 24.04上不能正常使用，需要安装fcitx输入法。</p>
+</li>
+<li>
+<p>安装fcitx输入法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fcitx5 \</span><br><span class="line">   fcitx5-chinese-addons \</span><br><span class="line">   fcitx5-rime \</span><br><span class="line">   fcitx5-frontend-gtk3 \</span><br><span class="line">   fcitx5-frontend-gtk4 \</span><br><span class="line">   fcitx5-frontend-qt4 \</span><br><span class="line">   fcitx5-frontend-qt5 \</span><br><span class="line">   fcitx5-frontend-qt6</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装fcitx5以后在系统设置中将fcitx5设置随系统启动。在cosmic settings → applications → startup applications 中添加fcitx5启动项。</p>
+</li>
+<li>
+<p>重启系统后，在系统设置中将fcitx5设置为默认输入法。在language support 中将 keyboard input method system修改成fcitx5。或者使用<code>im-config -n fcitx5</code>将默认输入法设置成fcitx5。</p>
+</li>
+<li>
+<p>设置输入法适应的环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=ibus&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;XMODIFIERS=@im=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">source</span> ~/.pam_environment</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>注意：cosmic使用Wayland，相关的配置参考 <a href="https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland">https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland</a><br>
+有指导建议在<code>~/.config/environment.d/im.conf</code> 中做上述配置，实际测试过程中对部分应用（如Firefox、LibreOffice等）<strong>无法生效</strong>。</p>
+</blockquote>
+<ol start="6">
+<li>再次重启系统就可以用fcitx5愉快的输入了。</li>
+</ol>
+<h2 id="解决WPS缩放问题">解决WPS缩放问题</h2>
+<h3 id="方式一：设置系统缩放">方式一：设置系统缩放</h3>
+<p>在cosmic settings → applications → x11 applications compatibility 中将x11 application scaling设置为: Maximum compatibility mode。</p>
+<h3 id="方式二：设置应用缩放">方式二：设置应用缩放</h3>
+<p>在<code>/usr/share/applications</code>（或者 Faltpak应用安装）目录下找到WPS的.desktop文件，在<code>Exec=...</code>前增加<code>Exec=env QT_FONT_DPI=144 ...</code>。如果采用的flatpak安装则可以使用<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code>，com.wps.Office需要替换成实际安装的Application ID。</p>
+<blockquote>
+<p>QT应用中默认的DPI是96，对应的缩放比例是1.0，以此类推DPI和缩放比例对应关系如下：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>DPI(QT_FONT_DPI)</th>
+<th>缩放比例(QT_SCREEN_SCALE_FACTORS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>96</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>120</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>144</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>192</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>288</td>
+<td>3.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这两种方式各有利弊，第一种方式会导致WPS显示发虚；第二种方式在输入时Fcitx5输入法无法自动缩放。</strong></p>
+<h2 id="其他问题">其他问题</h2>
+<p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
+]]></content>
   </entry>
 </search>
