@@ -2726,4 +2726,20 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 </ul>
 ]]></content>
   </entry>
+  <entry>
+    <title>在Zed中配置opencode</title>
+    <url>/2026/08/13/2026-08-13-14/</url>
+    <content><![CDATA[<p>在zed和opencode继承有两种方式：</p>
+<ol>
+<li>通过agent server自动安装，这是一个黑盒安装方式，进度不明</li>
+<li>通过手工配置opencode和zed继承</li>
+</ol>
+<h2 id="下载opencode">下载opencode</h2>
+<p>首先下载opencode二进制文件，然后将其放置在合适的位置，例如<code>/usr/local/bin/opencode</code>。或者直接通过官网命令安装<code>sudo npm i -g opencode-ai</code>。安装完成后使用opencode命令启动opencode，启动成功以后可以配置API_KEY等。</p>
+<h2 id="在zed中配置opencode">在zed中配置opencode</h2>
+<p>在zed配置文件中增加如下配置，即以外部agent方式配置opencode:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;agent_servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;OpenCode&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;custom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/usr/local/bin/opencode&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;acp&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>配置好重启zed，既可以在agent panel中打开opencode。</p>
+]]></content>
+  </entry>
 </search>
