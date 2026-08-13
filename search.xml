@@ -2708,4 +2708,22 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>在单系统中如何隐藏grub菜单</title>
+    <url>/2026/08/12/2026-08-12-11/</url>
+    <content><![CDATA[<h2 id="在单系统中隐藏grub菜单">在单系统中隐藏grub菜单</h2>
+<p>在 Fedora 44 中，可以启用 GRUB 的自动隐藏功能让启动过程更流畅。启用后，每次启动都会直接进入系统，如果需要时，可以在启动时按 F8 或长按左 Shift 键唤出菜单。具体操作如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-editenv - set menu_auto_hide=1</span><br></pre></td></tr></table></figure>
+<p>执行后重启电脑，GRUB 菜单应该就不再显示了。</p>
+<p>如果之后想恢复菜单，可以取消这个设置：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-editenv - unset menu_auto_hide</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：将值设为 0 是无效的，必须使用 unset 命令来移除这个变量</p>
+</blockquote>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665">https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665</a></li>
+</ul>
+]]></content>
+  </entry>
 </search>
