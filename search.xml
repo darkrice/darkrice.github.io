@@ -2755,4 +2755,13 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将以下内容拷贝到 default.custom.yaml文件中。</span></span><br><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="comment">#候选数量以及候选词编号</span></span><br><span class="line">  <span class="attr">menu/page_size:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">menu/alternative_select_labels:</span> [<span class="number">1</span><span class="string">.</span>, <span class="number">2</span><span class="string">.</span>, <span class="number">3</span><span class="string">.</span>, <span class="number">4</span><span class="string">.</span>, <span class="number">5</span><span class="string">.</span>, <span class="number">6</span><span class="string">.</span>, <span class="number">7</span><span class="string">.</span>, <span class="number">8</span><span class="string">.</span>, <span class="number">9</span><span class="string">.</span>, <span class="number">10</span><span class="string">.</span>]</span><br><span class="line"></span><br><span class="line">  <span class="attr">schema_list:</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">schema:</span> <span class="string">wanxiang_pure</span>&#125;</span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">schema:</span> <span class="string">wanxiang</span>&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
+  <entry>
+    <title>cosmic桌面系统中增加dns配置解决github无法访问的问题</title>
+    <url>/2026/08/14/2026-08-14-11/</url>
+    <content><![CDATA[<h2 id="GitHub访问慢可能的原因">GitHub访问慢可能的原因</h2>
+<p>GitHub访问慢大概率是是因为DNS污染，无法解写GitHub域名。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>通常可以通过本机的网络的DNS配置来解决。现代Linux系统DNS配置通常是由取自DHCP服务，由系统网络管理服务自动配置，因此我们可以通过修改本机网络服务，增加额外的DNS服务器即可解决此问题。在cosmic桌面环境中可以在 cosmic settings → network &amp; wireless → 选择链接的网络上connected（三个点）→ settings → IPV4 settings → Additional DNS servers 增加DNS服务配置，如果增加多个可以用英文逗号隔开，如<code>223.5.5.5,8.8.8.8</code>。</p>
+]]></content>
+  </entry>
 </search>
