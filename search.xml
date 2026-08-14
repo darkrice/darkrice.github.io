@@ -2724,6 +2724,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <ul>
 <li><a href="https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665">https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665</a></li>
 </ul>
+<span id="more"></span>
+<h2 id="其他方法">其他方法</h2>
+<p>如果上述操作不生效，可以尝试修改<code>/etc/default/grub</code>文件，将<code>GRUB_TIMEOUT</code>设置为 0 并更新 GRUB 配置：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">GRUB_TIMEOUT</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">GRUB_HIDDEN_TIMEOUT</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">GRUB_HIDDEN_TIMEOUT_QUIET</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>完成文件修改后，运行以下命令重新生成 GRUB 配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">sudo grub2-mkconfig -o /etc/grub2-efi.cfg # 如果是 UEFI 系统</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
