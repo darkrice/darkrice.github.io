@@ -2730,6 +2730,20 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">GRUB_TIMEOUT</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">GRUB_HIDDEN_TIMEOUT</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">GRUB_HIDDEN_TIMEOUT_QUIET</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>完成文件修改后，运行以下命令重新生成 GRUB 配置文件：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line">sudo grub2-mkconfig -o /etc/grub2-efi.cfg # 如果是 UEFI 系统</span><br></pre></td></tr></table></figure>
+<h2 id="Fedora-Atomic系统">Fedora Atomic系统</h2>
+<h3 id="强制隐藏">强制隐藏</h3>
+<p>如果用命令配置不生效可以强制隐藏。</p>
+<p>编辑 <code>/boot/grub2/user.cfg</code>（<strong>/boot 可写，rpm‑ostree 更新不会覆盖此文件</strong>）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo tee /boot/grub2/user.cfg &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">set timeout=0</span><br><span class="line">set timeout_style=hidden</span><br><span class="line">set disable_os_prober=true</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>timeout=0</code>：0 秒等待</li>
+<li><code>timeout_style=hidden</code>：隐藏菜单，不显示倒计时</li>
+<li><code>disable_os_prober=true</code>：关闭其他操作系统探测</li>
+</ul>
+<h3 id="恢复菜单">恢复菜单</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo tee /boot/grub2/user.cfg &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h3 id="组合使用">组合使用</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-editenv - set menu_auto_hide=1</span><br><span class="line">sudo tee /boot/grub2/user.cfg &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">set timeout=0</span><br><span class="line">set timeout_style=hidden</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -2771,6 +2785,58 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <p>GitHub访问慢大概率是是因为DNS污染，无法解写GitHub域名。</p>
 <h2 id="解决方案">解决方案</h2>
 <p>通常可以通过本机的网络的DNS配置来解决。现代Linux系统DNS配置通常是由取自DHCP服务，由系统网络管理服务自动配置，因此我们可以通过修改本机网络服务，增加额外的DNS服务器即可解决此问题。在cosmic桌面环境中可以在 cosmic settings → network &amp; wireless → 选择链接的网络上connected（三个点）→ settings → IPV4 settings → Additional DNS servers 增加DNS服务配置，如果增加多个可以用英文逗号隔开，如<code>223.5.5.5,8.8.8.8</code>。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Fedora Atomic安装node.js和npm</title>
+    <url>/2026/08/22/2026-08-22-18/</url>
+    <content><![CDATA[<h2 id="原因">原因</h2>
+<p>Atomic <code>/usr</code> 是只读OSTree镜像；系统nodejs的npm默认全局目录指向 <code>/usr/lib/node_modules</code>，<strong>root也无法写入</strong>，会直接报错 EACCES。</p>
+<blockquote>
+<p>sudo npm‑g 不仅会权限报错，npm脚本以root执行还有安全风险。</p>
+</blockquote>
+<h2 id="通过NVM安装">通过NVM安装</h2>
+<p>node、npm、全部全局包都放在家目录，完全不碰系统layered包。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>写入shell配置，重启终端：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>安装LTS版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install --lts</span><br><span class="line">nvm use --lts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看默认的全局包位置，通常在用户的home目录下</span></span><br><span class="line">npm config get prefix</span><br></pre></td></tr></table></figure>
+<p>安装成功之后就可以不需要sudo安装全局包：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
+<p><strong>全程不需要sudo</strong>，全局包自动放在 <code>~/.nvm/versions/node/*</code> 下面。</p>
+<blockquote>
+<p>优点：可以随意切换node版本；系统rpm‑ostree操作完全不影响node环境。</p>
+</blockquote>
+<hr>
+<h2 id="排查命令">排查命令</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm全局安装路径</span></span><br><span class="line">npm config get prefix</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看PATH是否包含npm‑global bin</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出已经安装的全局包</span></span><br><span class="line">npm list -g --depth=0</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Fedora Atomic安装docker</title>
+    <url>/2026/08/22/2026-08-22-19/</url>
+    <content><![CDATA[<h2 id="安装软件包">安装软件包</h2>
+<h3 id="下载-docker-官方-repo-文件到系统-etc">下载 docker 官方 repo 文件到系统 etc</h3>
+<p>ostree 只读，不能 dnf config‑manager</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/fedora/docker-ce.repo -o docker-ce.repo</span><br><span class="line">sudo install -o root -g root -m 644 docker-ce.repo /etc/yum.repos.d/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<p>替换 docker‑ce.repo 为阿里云源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rm -f /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"></span><br><span class="line">sudo tee /etc/yum.repos.d/docker-ce.repo &gt; /dev/null &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">[docker-ce-stable]</span><br><span class="line">name=Docker CE Stable - $basearch</span><br><span class="line">baseurl=https://mirrors.aliyun.com/docker-ce/linux/fedora/$releasever/$basearch/stable</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/docker-ce/linux/fedora/gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h3 id="安装软件">安装软件</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo rpm-ostree install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br><span class="line"></span><br><span class="line">systemctl reboot</span><br></pre></td></tr></table></figure>
+<h2 id="配置docker服务">配置docker服务</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl enable --now docker</span><br><span class="line">sudo usermod -aG docker $USER     # 没有报错，但实际会执行失败</span><br><span class="line">sudo gpasswd -a s$USER docker     # 用此命令替换，仍然执行失败</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>失败原因</strong><br>
+<code>docker</code> 组由 docker‑ce rpm 在 **<code>/usr/lib/group</code>**注册，<strong>没有写入可写的 <code>/etc/group</code></strong>。<br>
+<code>gpasswd</code> / <code>usermod</code> 只会读写 <code>/etc/group</code></p>
+</blockquote>
+<p>把 docker 组条目复制到可写的 <code>/etc/group</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">getent group docker | sudo tee -a /etc/group</span><br><span class="line">grep docker /etc/group</span><br></pre></td></tr></table></figure>
+<p>输出应当看到 <code>docker:x:964:</code>。</p>
+<p>此时再次执行<code>sudo usermod -aG docker $USER  </code>。把用户加入 docker 组。通过<code>id</code>命令查询到groups 列表里面出现 <code>docker</code>。</p>
+<h2 id="测试">测试</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --rm hello-world</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>
