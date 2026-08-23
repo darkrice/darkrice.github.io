@@ -2716,7 +2716,8 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 </ul>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Font</span></span><br><span class="line"><span class="attr">Font</span>=<span class="string">&quot;Sans Serif 20&quot;</span>          <span class="comment"># 默认10号字，20大约等于200%缩放</span></span><br><span class="line"><span class="comment"># Use Per Screen DPI on X11</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">False</span>            <span class="comment"># 关闭x11自动缩放</span></span><br><span class="line"><span class="comment"># Force font DPI on Wayland</span></span><br><span class="line"><span class="attr">ForceWaylandDPI</span>=<span class="number">48</span>            <span class="comment"># 系统200%缩放会导致在Wayland过大，把100%系统下对应的96缩小一半则刚刚好</span></span><br><span class="line"><span class="comment"># Enable fractional scale under Wayland</span></span><br><span class="line"><span class="attr">EnableFractionalScale</span>=<span class="literal">False</span>   <span class="comment"># 关闭Wayland自动缩放</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>修改 <code>~/.config/fcitx5/conf/classicui.conf</code>文件以后要重启fcitx5服务，保证新的配置已经生效。解决了fcitx5面板缩放问题，配合wps的<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code> 缩放配置，就完美解决未随系统缩放、模糊、fcitx5过小各种问题。</p>
+<p>修改<code>~/.config/fcitx5/conf/classicui.conf</code>文件以后要重启fcitx5服务，保证新的配置已经生效。</p>
+<p>解决了fcitx5面板缩放问题，配合wps的<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code> 缩放配置，就完美解决未随系统缩放、模糊、fcitx5过小各种问题。</p>
 </blockquote>
 <h2 id="其他问题">其他问题</h2>
 <p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
