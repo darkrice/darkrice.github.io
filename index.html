@@ -99,7 +99,7 @@
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665">https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665</a></li>
-</ul></div><a class="article-more button is-small is-size-7" href="/2026/08/12/2026-08-12-11/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-08-11T09:17:41.000Z" title="8/11/2026, 5:17:41 PM">2026-08-11</time>发表</span><span class="level-item"><time dateTime="2026-08-12T02:24:17.899Z" title="8/12/2026, 10:24:17 AM">2026-08-12</time>更新</span><span class="level-item">4 分钟读完 (大约538个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/08/11/2026-08-11-17/">在Pop!OS 24.04安装常用软件</a></h1><div class="content"><h2 id="安装中文输入法">安装中文输入法</h2>
+</ul></div><a class="article-more button is-small is-size-7" href="/2026/08/12/2026-08-12-11/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-08-11T09:17:41.000Z" title="8/11/2026, 5:17:41 PM">2026-08-11</time>发表</span><span class="level-item"><time dateTime="2026-08-23T15:42:08.788Z" title="8/23/2026, 11:42:08 PM">2026-08-23</time>更新</span><span class="level-item">6 分钟读完 (大约837个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/08/11/2026-08-11-17/">在Pop!OS 24.04安装常用软件</a></h1><div class="content"><h2 id="安装中文输入法">安装中文输入法</h2>
 <ol>
 <li>
 <p>iBus输入法在PopOS 24.04上不能正常使用，需要安装fcitx输入法。</p>
@@ -165,6 +165,20 @@
 </tbody>
 </table>
 <p><strong>这两种方式各有利弊，第一种方式会导致WPS显示发虚；第二种方式在输入时Fcitx5输入法无法自动缩放。</strong></p>
+<h3 id="解决WPS中Fcitx5输入面板过小的问题">解决WPS中Fcitx5输入面板过小的问题</h3>
+<ol>
+<li>fcitx5的配置文件在<code>~/.config/fcitx5/conf/classicui.conf</code></li>
+<li>有三个配置型控制输入面板的缩放</li>
+</ol>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use Per Screen DPI on X11</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">False</span></span><br><span class="line"><span class="comment"># Force font DPI on Wayland</span></span><br><span class="line"><span class="attr">ForceWaylandDPI</span>=<span class="number">0</span></span><br><span class="line"><span class="comment"># Enable fractional scale under Wayland</span></span><br><span class="line"><span class="attr">EnableFractionalScale</span>=<span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个控制fcitx5在x11应用中如何缩放；</li>
+<li>第二、三个控制Wayland应用中缩放；为了统一控制fcitx5大小，我们同时关闭x11和Wayland的缩放功能，只有字体大小来控制面板大小。完整配置如下：</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Font</span></span><br><span class="line"><span class="attr">Font</span>=<span class="string">&quot;Sans Serif 20&quot;</span>          <span class="comment"># 默认10号字，20大约等于200%缩放</span></span><br><span class="line"><span class="comment"># Use Per Screen DPI on X11</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">False</span>            <span class="comment"># 关闭x11自动缩放</span></span><br><span class="line"><span class="comment"># Force font DPI on Wayland</span></span><br><span class="line"><span class="attr">ForceWaylandDPI</span>=<span class="number">48</span>            <span class="comment"># 系统200%缩放会导致在Wayland过大，把100%系统下对应的96缩小一半则刚刚好</span></span><br><span class="line"><span class="comment"># Enable fractional scale under Wayland</span></span><br><span class="line"><span class="attr">EnableFractionalScale</span>=<span class="literal">False</span>   <span class="comment"># 关闭Wayland自动缩放</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改 <code>~/.config/fcitx5/conf/classicui.conf</code>文件以后要重启fcitx5服务，保证新的配置已经生效。解决了fcitx5面板缩放问题，配合wps的<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code> 缩放配置，就完美解决未随系统缩放、模糊、fcitx5过小各种问题。</p>
+</blockquote>
 <h2 id="其他问题">其他问题</h2>
 <p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-05-05T10:33:24.000Z" title="5/5/2026, 6:33:24 PM">2026-05-05</time>发表</span><span class="level-item"><time dateTime="2026-05-23T10:39:57.176Z" title="5/23/2026, 6:39:57 PM">2026-05-23</time>更新</span><span class="level-item">7 分钟读完 (大约1089个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/05/05/2026-05-05-14/">在WSL上部署langchain-chatchat</a></h1><div class="content"><h2 id="安装Python">安装Python</h2>
