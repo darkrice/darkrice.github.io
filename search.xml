@@ -2929,16 +2929,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 ]]></content>
   </entry>
   <entry>
-    <title>Windows下通过nssm将piclist-core安装成服务</title>
+    <title>为Obsidian配置本地图床</title>
     <url>/2026/09/12/2026-09-12-22/</url>
-    <content><![CDATA[<h2 id="准备工作">准备工作</h2>
-<ol>
-<li>官网下载：<a href="https://nssm.cc/download">https://nssm.cc/download</a></li>
-<li>解压后出nssm.exe后，<strong>不要移动 / 删除 nssm.exe</strong>，注册服务后它是服务载体NSSM</li>
-<li>右键【开始菜单】→ <strong>以管理员身份打开 CMD / PowerShell</strong>（必须管理员权限）</li>
-<li>cd 进入 nssm 所在目录</li>
-</ol>
-<h2 id="安装piclist-core">安装piclist-core</h2>
+    <content><![CDATA[<h2 id="安装piclist-core">安装piclist-core</h2>
 <ol>
 <li>通过npm命令安装</li>
 </ol>
@@ -2948,7 +2941,18 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list -g --depth 0 <span class="comment"># 查看全局安装的包</span></span><br><span class="line">npm get prefix <span class="comment"># 查看全局安装路径</span></span><br></pre></td></tr></table></figure>
 <p>找出<code>picgo-server</code>安装的具体路径。</p>
-<h2 id="通过nssm安装Windows服务">通过nssm安装Windows服务</h2>
+<h3 id="config-json配置">config.json配置</h3>
+<p>根据系统情况下修改picgo-server的配置文件，并将config.json拷贝到piclist默认的用户目录下</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;current&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;local&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;图片需要本地存储的目录&quot;</span><span class="punctuation">,</span>         <span class="comment">//注意不同系统本地路径不一致，此路径也需要和http服务路径保持一致</span></span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://localhost:8045&quot;</span><span class="punctuation">,</span>  <span class="comment">//此为图床访问的http服务地址</span></span><br><span class="line">      <span class="attr">&quot;webPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;buildIn&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rename&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;format&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123;Y&#125;&#123;m&#125;&#123;d&#125;&#123;h&#125;&#123;i&#125;&#123;s&#125;&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">36677</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;host&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Windows系统">Windows系统</h2>
+<h3 id="准备工作">准备工作</h3>
+<ol>
+<li>官网下载：<a href="https://nssm.cc/download">https://nssm.cc/download</a></li>
+<li>解压后出nssm.exe后，<strong>不要移动 / 删除 nssm.exe</strong>，注册服务后它是服务载体NSSM</li>
+<li>右键【开始菜单】→ <strong>以管理员身份打开 CMD / PowerShell</strong>（必须管理员权限）</li>
+<li>cd 进入 nssm 所在目录</li>
+</ol>
+<h3 id="通过nssm安装Windows服务">通过nssm安装Windows服务</h3>
 <ol>
 <li>注册服务</li>
 </ol>
@@ -2960,11 +2964,47 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <li>启动服务</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nssm start picgoServer</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="卸载服务">卸载服务</h2>
+<h3 id="卸载服务">卸载服务</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nssm remove picgoServer</span><br></pre></td></tr></table></figure>
-<h2 id="config-json配置">config.json配置</h2>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;current&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;local&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;D:\\WorkNote\\assets\\img\\&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://localhost:8045&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;webPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;img&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;buildIn&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rename&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;format&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123;Y&#125;&#123;m&#125;&#123;d&#125;&#123;h&#125;&#123;i&#125;&#123;s&#125;&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;server&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">36677</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;host&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="Linux系统">Linux系统</h2>
+<h3 id="准备工作-2">准备工作</h3>
+<ol>
+<li>下载小型http服务器软件 <code>miniserve</code> <a href="https://github.com/svenstaro/miniserve/releases">https://github.com/svenstaro/miniserve/releases</a></li>
+<li>将<code>miniserve</code> 拷贝到<code>~/.local/bin</code> 目录，并赋予应用可执行权限</li>
+</ol>
+<h3 id="配置systemd服务">配置systemd服务</h3>
+<p>新建一个<code>/home/$user$/.config/systemd/user/piclist.service</code>文件</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=PicList local image bed</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="comment"># 注意：这里使用你 ~/.local/bin 下的picgo-serve进制</span></span><br><span class="line"><span class="attr">ExecStart</span>=/home/<span class="variable">$user</span>$/.local/bin/picgo-server -c /home/<span class="variable">$user</span>$/.piclist/config.json</span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">3</span></span><br><span class="line"><span class="attr">StandardOutput</span>=journal</span><br><span class="line"><span class="attr">StandardError</span>=journal</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=default.target</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：将上面所有的<code>$user$</code>替换本地用户。在实际部署以前可以先执行<code>/home/$user$/.local/bin/picgo-server -c /home/$user$/.piclist/config.json</code>命令，检查各项配置是否正确</p>
+</blockquote>
+<h3 id="部署与启动">部署与启动</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重载systemd用户配置</span></span><br><span class="line">systemctl --user daemon-reload</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开机自启 + 立即启动</span></span><br><span class="line">systemctl --user enable --now piclist.service</span><br></pre></td></tr></table></figure>
+<h2 id="部署http服务">部署http服务</h2>
+<p>根据不同操作系统，可以将miniserve也部署成一个服务，以下以Linux系统为例：</p>
+<p>新建一个<code>/home/$user$/.config/systemd/user/miniserve.service</code>文件</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Miniserve static asset server for PicList local image bed</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="comment"># 注意：这里使用你 ~/.local/bin 下的miniserve二进制</span></span><br><span class="line"><span class="comment"># 这里的web 目录和上面的picgo-server配置一致</span></span><br><span class="line"><span class="attr">ExecStart</span>=/home/<span class="variable">$user</span>$/.local/bin/miniserve /home/<span class="variable">$user</span>$/Pictures/images/ -p <span class="number">8045</span> -i <span class="number">127.0</span>.<span class="number">0.1</span> --<span class="literal">no</span>-symlinks</span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">3</span></span><br><span class="line"><span class="attr">StandardOutput</span>=journal</span><br><span class="line"><span class="attr">StandardError</span>=journal</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=default.target</span><br></pre></td></tr></table></figure>
+<h3 id="部署与启动-2">部署与启动</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重载systemd用户配置</span></span><br><span class="line">systemctl --user daemon-reload</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开机自启 + 立即启动</span></span><br><span class="line">systemctl --user enable --now miniserve.service</span><br></pre></td></tr></table></figure>
+<h2 id="配置Obsdian">配置Obsdian</h2>
+<p>在Obsidan第三方插件市场下载image-auto-upload插件。配置image-auto-upload：</p>
+<ol>
+<li>开启<code>剪切板自动上传</code>功能， 开启这个功能以后粘贴的图片会自动上传图床；</li>
+<li>将默认上传器配置成<code>picgo（app）</code> ；</li>
+<li>其他用默认配置</li>
+</ol>
+<p>此时，即可在obsdian中直接粘贴图片，图片会借助image auto load插件，通过piclist自动上传到图床。piclist会按照配置的本地url返回给obsdian，此时就可以在预览页面上直接查看到粘贴的图片。</p>
+<h2 id="配置typora">配置typora</h2>
+<p>typora原生支持粘贴图片通过第三方工具自动上传。在Image配置界面中：</p>
+<ol>
+<li>
+<p>将When-insert-images 选型配置成：<code>Upload Image</code>，并勾选触发条件<code>Apply above rules to local images</code>。</p>
+</li>
+<li>
+<p>Image Upload Setting 选配置成：<code>Custom Command</code>，具体名配置成： <code>picgo upload</code>，如果typora提示错误，则将<code>picgo upload</code>配置完整路径。</p>
+</li>
+</ol>
 ]]></content>
   </entry>
 </search>
