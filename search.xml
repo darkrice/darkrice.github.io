@@ -2863,7 +2863,7 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h3 id="安装nofree源">安装nofree源</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm-ostree install \</span><br><span class="line">  https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \</span><br><span class="line">  https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm</span><br></pre></td></tr></table></figure>
 <h2 id="安装高频软件">安装高频软件</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm-ostree install fcitx5 fcitx5-rime fcitx5-configtool fcitx5-gtk3 fcitx5-gtk4 fcitx5-qt5 fcitx5-qt6 \</span><br><span class="line">  vim net-tools host-spawn \</span><br><span class="line">  docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm-ostree install fcitx5 fcitx5-rime fcitx5-configtool fcitx5-gtk3 fcitx5-gtk4 fcitx5-qt5 fcitx5-qt6 librime-lua \</span><br><span class="line">  vim net-tools host-spawn \</span><br><span class="line">  docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl reboot</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <h2 id="配置flatpak">配置flatpak</h2>
