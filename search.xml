@@ -2884,19 +2884,22 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <li>安装pyenv</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://pyenv.run | bash</span><br><span class="line"><span class="comment"># 或者 git clone https://github.com/pyenv/pyenv.git ~/.pyenv</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(pyenv init -)&quot;&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li>配置镜像加速</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHON_BUILD_MIRROR_URL=<span class="string">&quot;https://mirrors.aliyun.com/python-source/%s&quot;</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol>
 <li>安装Python</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pyenv install --list | grep 3.12 <span class="comment"># 查看可用版本</span></span><br><span class="line">pyenv install 3.12.14</span><br></pre></td></tr></table></figure>
-<ol start="4">
+<blockquote>
+<p>如果安装Python失败，或者需要特殊版本的Python可以从<a href="https://github.com/astral-sh/python-build-standalone/releases">https://github.com/astral-sh/python-build-standalone/releases</a> 下载编译好的二进制文件；再将编译好的二进制文件拷贝到<code>~/.pyenv/versions/</code>目录下</p>
+</blockquote>
+<ol>
 <li>配置默认的Python版本</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pyenv versions  <span class="comment"># 查看已安装的版本</span></span><br><span class="line">pyenv global 3.12.14 <span class="comment"># 设置默认版本</span></span><br><span class="line">pyenv global system <span class="comment"># 恢复系统默认版本</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
+<ol>
 <li>配置pip中国源</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">pip config <span class="built_in">set</span> global.trusted-host pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
@@ -2910,9 +2913,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <p><strong>方式一：</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=ibus&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;XMODIFIERS=@im=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">source</span> ~/.pam_environment</span><br></pre></td></tr></table></figure>
 <p><strong>方式二：</strong></p>
-<p>在<code>~/.config/environment.d/im.conf </code>文件中增加</p>
+<p>在<code>~/.config/environment.d/im.conf</code>文件中增加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QT_IM_MODULE=fcitx5</span><br><span class="line">QT_IM_MODULE=ibus</span><br><span class="line">XMODIFIERS=@im=fcitx5</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li>fcitx5 UI</li>
 </ol>
 <p>修改ui文件：<code>~/.config/fcitx5/conf/classicui.conf</code></p>
@@ -2931,7 +2934,7 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <li>配置pip中国源</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">pip config <span class="built_in">set</span> global.trusted-host pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li>配置npm中国源</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
