@@ -2287,32 +2287,46 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
     <url>/2025/04/14/2025-04-14-23/</url>
     <content><![CDATA[<p>Pandoc将Markdown文件转换成PDF文件时是先将Markdown文件转换成Latex文件，再将Latex文件专程PDF文件。参考命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pandoc example.md -o example.pdf --from markdown --pdf-engine=xelatex --template=eisvogel --listings</span><br></pre></td></tr></table></figure>
-
-<h2 id="选择编译引擎"><a href="#选择编译引擎" class="headerlink" title="选择编译引擎"></a>选择编译引擎</h2><p>一般默认的编译引擎是pdflatex编译引擎，这个引擎对中文支撑不太友好，可以通过–pdf-engine&#x3D;xelatex 修改编译引擎。</p>
-<h2 id="选择模板"><a href="#选择模板" class="headerlink" title="选择模板"></a>选择模板</h2><p>使用pandoc模板 eisvogel ，eisvogel可以导出很漂亮的PDF文件。</p>
+<h2 id="选择编译引擎">选择编译引擎</h2>
+<p>一般默认的编译引擎是pdflatex编译引擎，这个引擎对中文支撑不太友好，可以通过–pdf-engine=xelatex 修改编译引擎。</p>
+<h2 id="选择模板">选择模板</h2>
+<p>使用pandoc模板 eisvogel ，eisvogel可以导出很漂亮的PDF文件。</p>
 <ol>
-<li><p>将 eisvogel 模板拷贝到pandoc用户模板目录下，具体配置：</p>
+<li>
+<p>将 eisvogel 模板拷贝到pandoc用户模板目录下，具体配置：</p>
 <ul>
-<li>在Linux系统下：&#x2F;home&#x2F;USERNAME&#x2F;.local&#x2F;share&#x2F;pandoc&#x2F;templates&#x2F;</li>
+<li>在Linux系统下：/home/USERNAME/.local/share/pandoc/templates/</li>
 <li>在Windows系统下：C:\Users\USERNAME\AppData\Roaming\pandoc\templates\</li>
 </ul>
 </li>
-<li><p>改善中文支持，需要在eisvogel添加如下参数：</p>
- <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\else</span> <span class="comment">% if not pdftex</span></span><br><span class="line"><span class="built_in">$</span>if(mainfont)<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>else<span class="built_in">$</span></span><br><span class="line"><span class="keyword">\usepackage</span>[fallback]&#123;xeCJK&#125;</span><br><span class="line"><span class="keyword">\setCJKmainfont</span>&#123;SimSun&#125;[BoldFont=SimHei, ItalicFont=KaiTi] <span class="comment">%配置中文字体</span></span><br><span class="line"><span class="keyword">\setCJKfallbackfamilyfont</span>&#123;rm&#125;&#123;SimSun&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[default]&#123;sourcesanspro&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;sourcecodepro&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p>增加首行缩进，在 eisvogel.tex 文件中查找，在\begin{document}请增加一段代码：</p>
- <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125; <span class="comment">%调用中文字体宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;indentfirst&#125; <span class="comment">%调用首行缩进宏包</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;2em&#125; <span class="comment">%设置首行缩进为2字符</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>改善中文支持，需要在eisvogel添加如下参数：</p>
+ <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\else</span> <span class="comment">% if not pdftex</span></span><br><span class="line"><span class="built_in">$</span>if(mainfont)<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>else<span class="built_in">$</span></span><br><span class="line"><span class="keyword">\usepackage</span>[fallback]&#123;xeCJK&#125;</span><br><span class="line"><span class="keyword">\setCJKmainfont</span>&#123;SimSun&#125;[BoldFont=SimHei, ItalicFont=KaiTi] <span class="comment">%配置中文字体</span></span><br><span class="line"><span class="keyword">\setCJKfallbackfamilyfont</span>&#123;rm&#125;&#123;SimSun&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[default]&#123;sourcesanspro&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;sourcecodepro&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>增加首行缩进，在 eisvogel.tex 文件中查找，在\begin{document}请增加一段代码：</p>
+ <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125; <span class="comment">%调用中文字体宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;indentfirst&#125; <span class="comment">%调用首行缩进宏包</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;2em&#125; <span class="comment">%设置首行缩进为2字符</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <span id="more"></span>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><ol>
-<li>查询系统支持的中文字体fc-list :lang&#x3D;zh，在eisvogel.tex 中使用的字体必须是系统中可以查询到字体；</li>
-<li>在转换命令中增加参数指定字体： - V CJKmainfont&#x3D;”Noto Sans Mono CJK SC” -V mainfont&#x3D;”Noto Serif CJK SC”</li>
+<h2 id="其他命令">其他命令</h2>
+<ol>
+<li>查询系统支持的中文字体fc-list :lang=zh，在eisvogel.tex 中使用的字体必须是系统中可以查询到字体；</li>
+<li>在转换命令中增加参数指定字体： - V CJKmainfont=“Noto Sans Mono CJK SC” -V mainfont=“Noto Serif CJK SC”</li>
 </ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
 <li><a href="https://github.com/enhuiz/eisvogel">https://github.com/enhuiz/eisvogel</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/564587260">https://zhuanlan.zhihu.com/p/564587260</a></li>
 <li><a href="https://pandoc.org/MANUAL.html">https://pandoc.org/MANUAL.html</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Pandoc</tag>
+      </tags>
   </entry>
   <entry>
     <title>安装nixos后要做的事情</title>
@@ -2361,6 +2375,12 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </ul>
 <h3 id="删除历史版本">删除历史版本</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nixos-rebuild list-generations</span><br><span class="line">sudo nix-collect-garbage -d</span><br><span class="line">sudo nixos-rebuild boot</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>NixOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>nix-rebuild命令</title>
@@ -2376,6 +2396,12 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <h2 id="参考信息">参考信息</h2>
 <p><a href="https://www.mankier.com/8/nixos-rebuild">https://www.mankier.com/8/nixos-rebuild</a></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>NixOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Excel合并单元格同时保留数据</title>
@@ -2386,6 +2412,9 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 <h2 id="参考">参考</h2>
 <p><a href="https://support.microsoft.com/zh-cn/office/textjoin-%E5%87%BD%E6%95%B0-357b449a-ec91-49d0-80c3-0e8fc845691c">https://support.microsoft.com/zh-cn/office/textjoin-函数-357b449a-ec91-49d0-80c3-0e8fc845691c</a></p>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
   </entry>
   <entry>
     <title>Linux下如何修改分区Label</title>
@@ -2411,9 +2440,12 @@ insert /<em>+ multinode </em>/ into t values(3,3),(1,1);
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
   </entry>
   <entry>
-    <title>2025-08-31-18</title>
+    <title>在WSL中安装NixOS</title>
     <url>/2025/08/31/2025-08-31-18/</url>
     <content><![CDATA[<h2 id="在WSL中安装NixOS">在WSL中安装NixOS</h2>
 <h3 id="Install-NixOS-WSL">Install NixOS-WSL</h3>
@@ -2440,6 +2472,12 @@ nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign 
 </ul>
 <p><a href="https://nix-community.github.io/NixOS-WSL/how-to/vscode.html">https://nix-community.github.io/NixOS-WSL/how-to/vscode.html</a></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>NixOS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux 文件权限简记</title>
@@ -2456,6 +2494,9 @@ nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign 
 </ul>
 <p>命令格式<code> chmod [可选项] &lt;mode&gt; &lt;file…&gt;</code></p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
   </entry>
   <entry>
     <title>Obsdian导出增强配置</title>
@@ -2493,6 +2534,9 @@ nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign 
 <code>--reference-doc=&quot;/path/templates.doc&quot;</code></p>
 <p>比较舒服的Word模板可以参考：<a href="https://github.com/Achuan-2/pandoc_docx_template">https://github.com/Achuan-2/pandoc_docx_template</a>，当然也可以基于上述模板二次修改成自己喜欢的。</p>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
       <tags>
         <tag>Obsidian</tag>
       </tags>
@@ -2510,6 +2554,9 @@ Sildes extended是最早是由MSzturc开发的Advacned Silde&lt;<a href="http://
 <p><a href="https://mszturc.github.io/obsidian-advanced-slides/templates/">https://mszturc.github.io/obsidian-advanced-slides/templates/</a><br>
 <a href="https://mszturc.github.io/obsidian-advanced-slides/layout/">https://mszturc.github.io/obsidian-advanced-slides/layout/</a></p>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
       <tags>
         <tag>Obsidian</tag>
       </tags>
@@ -2586,6 +2633,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h2 id="启动停止Dify">启动停止Dify</h2>
 <p>进入到Dify安装的目录中执行以下命令启动/停止Dify：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up -d # 启动Dify</span><br><span class="line">docker-compose down # 停止Dify</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
   </entry>
   <entry>
     <title>在WSL上部署langchain-chatchat</title>
@@ -2634,6 +2684,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <li>执行 chatchat start -a 启动chatchat。当启动完成以后就可以在Windows上通过wsl的虚拟ip地址访问chatchat了。</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
   </entry>
   <entry>
     <title>在Pop!OS 24.04安装常用软件</title>
@@ -2722,6 +2775,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h2 id="其他问题">其他问题</h2>
 <p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
   </entry>
   <entry>
     <title>在单系统中如何隐藏grub菜单</title>
@@ -2760,6 +2816,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h3 id="组合使用">组合使用</h3>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo grub2-editenv - set menu_auto_hide=1</span><br><span class="line">sudo tee /boot/grub2/user.cfg &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">set timeout=0</span><br><span class="line">set timeout_style=hidden</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Fedora</tag>
+      </tags>
   </entry>
   <entry>
     <title>在Zed中配置opencode</title>
@@ -2776,6 +2838,13 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;agent_servers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;OpenCode&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;custom&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/usr/local/bin/opencode&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;acp&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>配置好重启zed，既可以在agent panel中打开opencode。</p>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Zed</tag>
+        <tag>OpenCode</tag>
+      </tags>
   </entry>
   <entry>
     <title>万象输入法自定义配置</title>
@@ -2792,6 +2861,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <p>如果系统中无法正常执行lua脚本，可以尝试重新安装<code>librime-lua</code> ，具体执行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install librime-lua</span><br><span class="line">sudo dnf update fcitx5-rime</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>输入法</tag>
+      </tags>
   </entry>
   <entry>
     <title>cosmic桌面系统中增加dns配置解决github无法访问的问题</title>
@@ -2801,6 +2876,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h2 id="解决方案">解决方案</h2>
 <p>通常可以通过本机的网络的DNS配置来解决。现代Linux系统DNS配置通常是由取自DHCP服务，由系统网络管理服务自动配置，因此我们可以通过修改本机网络服务，增加额外的DNS服务器即可解决此问题。在cosmic桌面环境中可以在 cosmic settings → network &amp; wireless → 选择链接的网络上connected（三个点）→ settings → IPV4 settings → Additional DNS servers 增加DNS服务配置，如果增加多个可以用英文逗号隔开，如<code>223.5.5.5,8.8.8.8</code>。</p>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>COSMIC</tag>
+      </tags>
   </entry>
   <entry>
     <title>Fedora Atomic安装node.js和npm</title>
@@ -2827,6 +2908,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h2 id="排查命令">排查命令</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm全局安装路径</span></span><br><span class="line">npm config get prefix</span><br><span class="line"></span><br><span class="line"><span class="comment"># 看PATH是否包含npm‑global bin</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出已经安装的全局包</span></span><br><span class="line">npm list -g --depth=0</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Fedora</tag>
+      </tags>
   </entry>
   <entry>
     <title>Fedora Atomic安装docker</title>
@@ -2853,6 +2940,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <h2 id="测试">测试</h2>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --rm hello-world</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Fedora</tag>
+      </tags>
   </entry>
   <entry>
     <title>Fedora COSMIC Atomic 后需要安装必要的软件</title>
@@ -2939,6 +3032,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Fedora</tag>
+      </tags>
   </entry>
   <entry>
     <title>为Obsidian配置本地图床</title>
@@ -2947,7 +3046,7 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <ol>
 <li>通过npm命令安装</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install piclist-core -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install piclist -g</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>查询安装的路径</li>
 </ol>
@@ -3018,6 +3117,12 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Obsdian</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用http ppt skill生成演示文稿</title>
@@ -3028,5 +3133,11 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
 <p>在文件的工作目录下，使用以下提示词生成演示文稿</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">根据xxx文件，使用html ppt skill生成一个xxx类型演示文稿。</span><br><span class="line"></span><br><span class="line">## 要求：</span><br><span class="line"></span><br><span class="line">1. 同时提供深色（xxx主题名称）和深色（xxx主题名称）主题</span><br><span class="line">2. 将生成的或依赖的本地css/图片/js等文件复制和html文件同级目录下`./assets `目录下</span><br><span class="line">3. 屏幕比例要求16:10，分辨率不低于1920×1200</span><br><span class="line">4. 提供演讲者视图，提供简版提示词</span><br><span class="line">5. 演示文稿提供如下功能及按键：</span><br><span class="line"></span><br><span class="line">| 按键         | 功能                                                    |</span><br><span class="line">|--------------|---------------------------------------------------------|</span><br><span class="line">| `← →` / 滑动 | 翻页                                                    |</span><br><span class="line">| `T`          | 切换深色 / 浅色主题                                     |</span><br><span class="line">| `+` / `−`    | 增大 / 减小正文字号（80%–130%，`0` 复位，刷新保留）         |</span><br><span class="line">| `S`          | 演讲者模式（当前页 / 下一页 / 提词稿 / 计时器四卡片窗口） |</span><br><span class="line">| `F`          | 全屏                                                    |</span><br><span class="line">| `O`          | 幻灯片总览网格                                          |</span><br><span class="line">| `N`          | 快速备注抽屉                                            |</span><br><span class="line">| `#/N`        | URL 深链到第 N 页                                       |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>skill</tag>
+      </tags>
   </entry>
 </search>
