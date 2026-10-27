@@ -3140,4 +3140,44 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
         <tag>skill</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Fedora COSMIC Atomic解决访问GitHub域名污染问题</title>
+    <url>/2026/10/27/2026-10-27-11/</url>
+    <content><![CDATA[<h2 id="原理">原理</h2>
+<p>让域名解析从本地<code>/etc/hosts</code>文件读取ip地址，正确的IP地址从<a href="https://raw.githubusercontent.com/521xueweihan/GitHub520/main/hosts">https://raw.githubusercontent.com/521xueweihan/GitHub520/main/hosts</a>获取。</p>
+<h2 id="方法">方法</h2>
+<p>获取github域名对应的IP地址，更新到<code>/etc/hosts</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update-github-hosts</span></span><br><span class="line">set -e</span><br><span class="line">HOSTS_FILE=&quot;/etc/hosts&quot;</span><br><span class="line">TMP=$(mktemp)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载github520 hosts</span></span><br><span class="line">curl -s https://raw.githubusercontent.com/521xueweihan/GitHub520/main/hosts &gt; &quot;$TMP&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先把旧的 <span class="comment"># GitHub520 区块删掉，再追加新的</span></span></span><br><span class="line">sudo sed -i &#x27;/# GitHub520/,/# GitHub520 End/d&#x27; &quot;$HOSTS_FILE&quot;</span><br><span class="line">sudo tee -a &quot;$HOSTS_FILE&quot; &lt; &quot;$TMP&quot;</span><br><span class="line">rm &quot;$TMP&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">刷新dns缓存</span></span><br><span class="line">resolvectl flush-caches</span><br><span class="line">echo &quot;hosts 更新完成&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>将上述脚本拷贝到可执行文件目录中，赋予执行权限，如果遇到github无法访问时可以尝试执行<code>sudo /patch/update-github-hosts</code></p>
+</li>
+<li>
+<p>执行<code>dig github.com</code>命令检查域名对应的IP地址是否已经刷新。</p>
+</li>
+</ol>
+<span id="more"></span>
+<h2 id="Fedora-COSMIC-Atomic中强制从hosts文件中解析域名">Fedora COSMIC Atomic中强制从hosts文件中解析域名</h2>
+<p>系统是否允许从hosts文件解析域名，在<code>/usr/lib/systemd/resolved.conf</code>配置，在Fedora COSMIC Atomic中不能直接修改此文件，可以通过drop-in 片段才修改 Atomic 系统配置。</p>
+<ol>
+<li>创建drop-in配置</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/systemd/resolved.conf.d</span><br><span class="line">sudo tee /etc/systemd/resolved.conf.d/00-readhosts.conf &lt;&lt;&#x27;EOF&#x27;</span><br><span class="line">[Resolve]</span><br><span class="line">ReadEtcHosts=yes</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>重载 systemd + 重启 resolved</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart systemd-resolved</span><br><span class="line">resolvectl flush-caches</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>检查配置是否生效</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemd-analyze cat-config systemd/resolved.conf | grep ReadEtcHosts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>执行上述命令即可看到一行不再带 <code>#</code>的<code>ReadEtcHosts=yes</code>的配置。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Fedora</tag>
+      </tags>
+  </entry>
 </search>
