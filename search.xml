@@ -3180,4 +3180,22 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
         <tag>Fedora</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Fedora COSMIC Atomic upgrade和rebase</title>
+    <url>/2026/11/10/2026-11-10-19/</url>
+    <content><![CDATA[<h2 id="查询基线">查询基线</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询基线</span></span><br><span class="line">sudo ostree remote refs fedora | grep 45</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询基线更新情况</span></span><br><span class="line">sudo ostree remote summary fedora | grep -E <span class="string">&#x27;45/86|45.2026&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="切换基线">切换基线</h2>
+<p><code>rpm-ostree rebase fedora/45/x86_64/updates/cosmic-atomic</code></p>
+<div class="admonition info"><p class="admonition-title">说明
+</p><p>第一次切换基线时间比较长，基本需要下载全量包；后续在不同基线中切换时，只会下载更新的包。</p>
+</div>
+<span id="more"></span>
+<h2 id="pin版本">pin版本</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 查看部署状态</span></span><br><span class="line">rpm-ostree status --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 固定某个部署</span></span><br><span class="line">sudo ostree admin pin INDEX</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消固定</span></span><br><span class="line">sudo ostree admin pin INDEX --unpin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理历史部署</span></span><br><span class="line">rpm-ostree cleanup --rollback</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Fedora</tag>
+      </tags>
+  </entry>
 </search>
