@@ -1,34 +1,414 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Mixion</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Mixion ICT"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mixion ICT"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="ICT思潮"><meta property="og:type" content="blog"><meta property="og:title" content="Mixion"><meta property="og:url" content="http://mixiang.tech/"><meta property="og:site_name" content="Mixion"><meta property="og:description" content="ICT思潮"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://mixiang.tech/img/og_image.png"><meta property="article:author" content="Mixion"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://mixiang.tech/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mixiang.tech"},"headline":"Mixion","image":["http://mixiang.tech/img/og_image.png"],"author":{"@type":"Person","name":"Mixion"},"publisher":{"@type":"Organization","name":"Mixion","logo":{"@type":"ImageObject","url":"http://mixiang.tech/img/logomx.svg"}},"description":"ICT思潮"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo, Linux, 云原生, 人工智能">
+  <meta name="description" content="ICT思潮">
+  <meta name="author" content="Shawn">
+  
+  <title>
+    
+    迷巷笔记
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+  
+    <link rel="shortcut icon" href="/images/favicon.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(location.hash);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+    
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/admonition.css">
+
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+      
+    
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-08-12T03:31:28.000Z" title="8/12/2026, 11:31:28 AM">2026-08-12</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:05:09.633Z" title="10/25/2026, 7:05:09 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">3 分钟读完 (大约434个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/08/12/2026-08-12-11/">在单系统中如何隐藏grub菜单</a></h1><div class="content"><h2 id="在单系统中隐藏grub菜单">在单系统中隐藏grub菜单</h2>
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"mixiang.tech","root":"/","language":["zh-CN","en","default"]}
+    KEEP.theme_config = {"base_info":{"primary_color":"#c0392b","title":"迷巷笔记","author":"Shawn","avatar":"/images/avatar.svg","logo":"/images/mixion-logo.svg","favicon":"/images/favicon.svg","mode":"light"},"menu":{"home":"/","archives":"/archives","categories":"/categories","tags":"/tags","about":"/about","atomgit":"https://gitcode.com/mixion"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"ttps://github.com/darkrice","weixin":null,"qq":null,"weibo":"https://weibo.com/u/1430123077","zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"word":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"giscus","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/admonition.css","/css/custom.css"],"js":null},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" id="hexo-admonition-icon-injected">
+  </head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+    <span class="scroll-progress-bar"></span>
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box is-home">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper transparent-1">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/mixion-logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        迷巷笔记
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/categories">
+                
+                分类
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/tags">
+                
+                标签
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/about">
+                
+                关于
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+                
+                ATOMGIT
+                
+              </a>
+              
+            </li>
+          
+          
+            <li class="menu-item search search-popup-trigger">
+              <i class="menu-text-color fas search fa-search"></i>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+          <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+              
+              分类
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+              
+              标签
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+              
+              关于
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+              
+              ATOMGIT
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          <div class="home-content-container fade-in-down-animation">
+  
+  <ul class="home-post-list border-box">
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/08/14/2026-08-14-10/">
+                万象输入法自定义配置
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="wanxiang-pure输入法自定义配置">wanxiang_pure输入法自定义配置</h2>
+<p>主要是在万象pure输入配置中增加常用的lua和OpenCC和简繁体转换。其中lua来自与wanxiang base，OpenCC和简繁体转换来自于moran。简化配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将以下内容拷贝到wanxiang_pure.custom.yaml文件中。</span></span><br><span class="line"><span class="comment"># 1. 需要从moran输入法中拷贝opencc目录（只需要保留和emoji和简中转繁体相关配置即可）</span></span><br><span class="line"><span class="comment"># 2. 从wanxiang base配置中拷贝lua文件夹</span></span><br><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="comment">#候选数量</span></span><br><span class="line">  <span class="attr">menu/page_size:</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">  <span class="string">schema/dependencies/=:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">wanxiang_mixedcode</span>  <span class="comment">#混合编码</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">wanxiang_reverse</span>    <span class="comment">#反查</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">wanxiang_english</span>    <span class="comment">#英文</span></span><br><span class="line"></span><br><span class="line">  <span class="string">switches/=:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_mode</span></span><br><span class="line">      <span class="attr">states:</span> [<span class="string">中文</span>, <span class="string">英文</span>]</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_punc</span></span><br><span class="line">      <span class="attr">states:</span> [<span class="string">中标</span>, <span class="string">英标</span>]</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">full_shape</span></span><br><span class="line">      <span class="attr">states:</span> [<span class="string">半角</span>, <span class="string">全角</span>]</span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">emoji</span></span><br><span class="line">      <span class="attr">states:</span> [ <span class="string">表情关</span>, <span class="string">表情开</span>]</span><br><span class="line">      <span class="attr">reset:</span> <span class="number">1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">options:</span> [ <span class="string">std_s</span>, <span class="string">std_s2t</span> ]</span><br><span class="line">      <span class="attr">states:</span> [ <span class="string">简</span>, <span class="string">繁</span> ]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 输入引擎，增加常用功能</span></span><br><span class="line">  <span class="string">engine/processors/=:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">lua_processor@*wanxiang.super_processor</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ascii_composer</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">recognizer</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">key_binder</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">speller</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">punctuator</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">selector</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">navigator</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">express_editor</span></span><br><span class="line">  <span class="string">engine/segmentors/=:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ascii_segmentor</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">matcher</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">matcher@recognizer_secondary</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">abc_segmentor</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">punct_segmentor</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">fallback_segmentor</span></span><br><span class="line">  <span class="string">engine/translators/=:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">punct_translator</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">script_translator</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">lua_translator@*wanxiang.shijian</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">table_translator@custom_phrase</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">table_translator@wanxiang_english</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">table_translator@wanxiang_mixedcode</span></span><br><span class="line">  <span class="attr">engine/filters:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">lua_filter@*wanxiang.super_lookup</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">simplifier@emoji</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">simplifier@std_s2t</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">uniquifier</span>  <span class="comment">#去重,必须在最后</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 主翻译器，自定义用户字典</span></span><br><span class="line">  <span class="string">translator/+:</span></span><br><span class="line">    <span class="attr">user_dict:</span> <span class="string">custom/cn.pure</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 中文、英文、数字、符号等混合词汇</span></span><br><span class="line">  <span class="attr">wanxiang_english:</span></span><br><span class="line">    <span class="attr">dictionary:</span> <span class="string">wanxiang_english</span></span><br><span class="line">    <span class="attr">user_dict:</span> <span class="string">custom/en.pure</span></span><br><span class="line">    <span class="attr">enable_completion:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_sentence:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">initial_quality:</span> <span class="number">2.1</span></span><br><span class="line">    <span class="attr">comment_format:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">xform/^~.+$//</span></span><br><span class="line">    <span class="attr">english_spacing:</span> <span class="string">smart</span></span><br><span class="line">    <span class="attr">spacing_timeout:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">max_candidates:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">trigger:</span> <span class="string">&quot;\\&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wanxiang_mixedcode:</span></span><br><span class="line">    <span class="attr">dictionary:</span> <span class="string">wanxiang_mixedcode</span></span><br><span class="line">    <span class="attr">db_class:</span> <span class="string">stabledb</span></span><br><span class="line">    <span class="attr">enable_completion:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_sentence:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">initial_quality:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">comment_format:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">xform/.*//</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">super_processor:</span></span><br><span class="line">    <span class="attr">enable_backspace_limit:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_seg_loop:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_tone_fallback:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_predict_space:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">kp_number_mode:</span> <span class="string">auto</span></span><br><span class="line">    <span class="attr">limit_repeated:</span> <span class="string">&quot;8,40&quot;</span>  <span class="comment">#格式：&quot;最大重复声母数,最大候选字数&quot;</span></span><br><span class="line">    <span class="attr">select_character:</span> <span class="string">&quot;[,]&quot;</span>  <span class="comment"># 开启以词定字，自动拆解第一位上屏首字，第二位上屏尾字</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 部件拆字反查</span></span><br><span class="line">  <span class="attr">wanxiang_reverse:</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="string">wanxiang_reverse</span></span><br><span class="line">    <span class="attr">dictionary:</span> <span class="string">wanxiang_reverse</span></span><br><span class="line">    <span class="attr">enable_completion:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">prefix:</span> <span class="string">&quot;`&quot;</span></span><br><span class="line">    <span class="attr">tips:</span> <span class="string">&quot;〔反查：拆分|笔画〕&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wanxiang_lookup:</span></span><br><span class="line">    <span class="attr">tags:</span> [<span class="string">abc</span>]</span><br><span class="line">    <span class="attr">key:</span> <span class="string">&quot;`&quot;</span></span><br><span class="line">    <span class="attr">lookup:</span> [<span class="string">wanxiang_reverse</span>]</span><br><span class="line">    <span class="attr">data_source:</span> [<span class="string">db</span>]</span><br><span class="line">    <span class="attr">enable_tone:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_direct:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">emoji:</span></span><br><span class="line">    <span class="attr">opencc_config:</span> <span class="string">moran_emoji.json</span></span><br><span class="line">    <span class="attr">option_name:</span> <span class="string">emoji</span></span><br><span class="line">    <span class="attr">tips:</span> <span class="string">none</span></span><br><span class="line">    <span class="attr">tags:</span> [<span class="string">abc</span>, <span class="string">number</span>]</span><br><span class="line"></span><br><span class="line">  <span class="attr">std_s2t:</span></span><br><span class="line">    <span class="attr">opencc_config:</span> <span class="string">s2t.json</span></span><br><span class="line">    <span class="attr">option_name:</span> <span class="string">std_s2t</span></span><br><span class="line">    <span class="attr">tags:</span> [<span class="string">abc</span>, <span class="string">number</span>]</span><br><span class="line"></span><br><span class="line">  <span class="attr">recognizer_secondary:</span></span><br><span class="line">    <span class="attr">patterns:</span></span><br><span class="line">      <span class="attr">english:</span> <span class="string">&#x27;(^[A-Za-z]&#123;4&#125;[A-Za-z]*)|(^[A-Z][A-Za-z]*)|(^[a-z][A-Z][a-zA-Z]*)|(^[a-z][a-z][A-Z][a-zA-Z]*)&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 拼写设定</span></span><br><span class="line">  <span class="attr">speller/alphabet:</span> <span class="string">zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`;/\›</span></span><br><span class="line">  <span class="attr">speller/initials:</span> <span class="string">zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA/›</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 处理符合特定规则的输入码，如网址、反查</span></span><br><span class="line">  <span class="string">recognizer/patterns/=:</span></span><br><span class="line">    <span class="attr">punct:</span> <span class="string">&quot;^/([0-9]|10|[A-Za-z]+)$&quot;</span></span><br><span class="line">    <span class="attr">wanxiang_reverse:</span> <span class="string">&quot;^`[A-Za-z;]*$&quot;</span></span><br><span class="line">    <span class="attr">sjc:</span> <span class="string">&quot;^[/v]rc\\d+[-+=op]?$&quot;</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">&quot;^[A-Za-z][-_.0-9A-Za-z]*@.*$&quot;</span>  <span class="comment"># email @ 之后不上屏</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">&quot;^(www[.]|https?:|ftp[.:]|mailto:|file:).*$&quot;</span>  <span class="comment"># URL</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 导入足够的符号，用于/查询符号</span></span><br><span class="line">  <span class="string">punctuator/=:</span></span><br><span class="line">    <span class="attr">digit_separators:</span> <span class="string">&quot;,.&quot;</span></span><br><span class="line">    <span class="attr">__include:</span> <span class="string">wanxiang_symbols:/symbol_table</span></span><br><span class="line">    <span class="attr">__patch:</span> <span class="string">wanxiang_symbols:/symbols</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 从 default 继承快捷键</span></span><br><span class="line">  <span class="attr">key_binder/shijian_keys:</span> [<span class="string">&quot;/&quot;</span>, <span class="string">&quot;v&quot;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 设置时间格式</span></span><br><span class="line">  <span class="attr">date_formats:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y年m月d日&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y-m-d&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y/m/d&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y.m.d&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Ymd&quot;</span></span><br><span class="line">  <span class="attr">time_formats:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;H:M&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;H点M分&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;H:M:S&quot;</span></span><br><span class="line">  <span class="attr">datetime_formats:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y-m-d H:M:S&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;YmdHMS&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;Y年m月d日 H点M分&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Fri Aug 14 2026 10:39:18 GMT+0800"
+        >2026-08-14 10:39:18</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/08/14/2026-08-14-10/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/08/13/2026-08-13-14/">
+                在Zed中配置opencode
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              在zed和opencode继承有两种方式：
+
+通过agent server自动安装，这是一个黑盒安装方式，进度不明
+通过手工配置opencode和zed继承
+
+下载opencode
+首先下载opencode二进制文件，然后将其放置在合适的位置，例如/...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Thu Aug 13 2026 14:29:59 GMT+0800"
+        >2026-08-13 14:29:59</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/08/13/2026-08-13-14/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/08/12/2026-08-12-11/">
+                在单系统中如何隐藏grub菜单
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="在单系统中隐藏grub菜单">在单系统中隐藏grub菜单</h2>
 <p>在 Fedora 44 中，可以启用 GRUB 的自动隐藏功能让启动过程更流畅。启用后，每次启动都会直接进入系统，如果需要时，可以在启动时按 F8 或长按左 Shift 键唤出菜单。具体操作如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo grub2-editenv - set menu_auto_hide=1</span><br><span class="line">sudo grub2-editenv - unset menu_show_once</span><br></pre></td></tr></table></figure>
 <p>执行后重启电脑，GRUB 菜单应该就不再显示了。</p>
@@ -39,360 +419,662 @@
 </blockquote>
 <h2 id="参考资料">参考资料</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665">https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665</a></li>
-</ul></div><a class="article-more button is-small is-size-7" href="/2026/08/12/2026-08-12-11/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-08-11T09:17:41.000Z" title="8/11/2026, 5:17:41 PM">2026-08-11</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:05:17.948Z" title="10/25/2026, 7:05:17 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">6 分钟读完 (大约837个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/08/11/2026-08-11-17/">在Pop!OS 24.04安装常用软件</a></h1><div class="content"><h2 id="安装中文输入法">安装中文输入法</h2>
-<ol>
-<li>
-<p>iBus输入法在PopOS 24.04上不能正常使用，需要安装fcitx输入法。</p>
-</li>
-<li>
-<p>安装fcitx输入法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fcitx5 \</span><br><span class="line">   fcitx5-chinese-addons \</span><br><span class="line">   fcitx5-rime \</span><br><span class="line">   fcitx5-frontend-gtk3 \</span><br><span class="line">   fcitx5-frontend-gtk4 \</span><br><span class="line">   fcitx5-frontend-qt4 \</span><br><span class="line">   fcitx5-frontend-qt5 \</span><br><span class="line">   fcitx5-frontend-qt6</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>安装fcitx5以后在系统设置中将fcitx5设置随系统启动。在cosmic settings → applications → startup applications 中添加fcitx5启动项。</p>
-</li>
-<li>
-<p>重启系统后，在系统设置中将fcitx5设置为默认输入法。在language support 中将 keyboard input method system修改成fcitx5。或者使用<code>im-config -n fcitx5</code>将默认输入法设置成fcitx5。</p>
-</li>
-<li>
-<p>设置输入法适应的环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;QT_IM_MODULE=ibus&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;XMODIFIERS=@im=fcitx5&#x27;</span> &gt;&gt; ~/.pam_environment</span><br><span class="line"><span class="built_in">source</span> ~/.pam_environment</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>注意：cosmic使用Wayland，相关的配置参考 <a target="_blank" rel="noopener" href="https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland">https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland</a><br>
-有指导建议在<code>~/.config/environment.d/im.conf</code> 中做上述配置，实际测试过程中对部分应用（如Firefox、LibreOffice等）<strong>无法生效</strong>。</p>
-</blockquote>
-<ol start="6">
-<li>再次重启系统就可以用fcitx5愉快的输入了。</li>
-</ol>
-<h2 id="解决WPS缩放问题">解决WPS缩放问题</h2>
-<h3 id="方式一：设置系统缩放">方式一：设置系统缩放</h3>
-<p>在cosmic settings → applications → x11 applications compatibility 中将x11 application scaling设置为: Maximum compatibility mode。</p>
-<h3 id="方式二：设置应用缩放">方式二：设置应用缩放</h3>
-<p>在<code>/usr/share/applications</code>（或者 Faltpak应用安装）目录下找到WPS的.desktop文件，在<code>Exec=...</code>前增加<code>Exec=env QT_FONT_DPI=144 ...</code>。如果采用的flatpak安装则可以使用<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code>，com.wps.Office需要替换成实际安装的Application ID。</p>
-<blockquote>
-<p>QT应用中默认的DPI是96，对应的缩放比例是1.0，以此类推DPI和缩放比例对应关系如下：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>DPI(QT_FONT_DPI)</th>
-<th>缩放比例(QT_SCREEN_SCALE_FACTORS)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>96</td>
-<td>1.0</td>
-</tr>
-<tr>
-<td>120</td>
-<td>1.25</td>
-</tr>
-<tr>
-<td>144</td>
-<td>1.5</td>
-</tr>
-<tr>
-<td>192</td>
-<td>2.0</td>
-</tr>
-<tr>
-<td>288</td>
-<td>3.0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>这两种方式各有利弊，第一种方式会导致WPS显示发虚；第二种方式在输入时Fcitx5输入法无法自动缩放。</strong></p>
-<h3 id="解决WPS中Fcitx5输入面板过小的问题">解决WPS中Fcitx5输入面板过小的问题</h3>
-<ol>
-<li>fcitx5的配置文件在<code>~/.config/fcitx5/conf/classicui.conf</code></li>
-<li>有三个配置型控制输入面板的缩放</li>
-</ol>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use Per Screen DPI on X11</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">False</span></span><br><span class="line"><span class="comment"># Force font DPI on Wayland</span></span><br><span class="line"><span class="attr">ForceWaylandDPI</span>=<span class="number">0</span></span><br><span class="line"><span class="comment"># Enable fractional scale under Wayland</span></span><br><span class="line"><span class="attr">EnableFractionalScale</span>=<span class="literal">True</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>第一个控制fcitx5在x11应用中如何缩放；</li>
-<li>第二、三个控制Wayland应用中缩放；为了统一控制fcitx5大小，我们同时关闭x11和Wayland的缩放功能，只有字体大小来控制面板大小。完整配置如下：</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665" >https://discussion.fedoraproject.org/t/hide-grub-menu-to-access-directly-to-fedora-unless-esc-pressed-fedora-44/196665<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Font</span></span><br><span class="line"><span class="attr">Font</span>=<span class="string">&quot;Sans Serif 20&quot;</span>          <span class="comment"># 默认10号字，20大约等于200%缩放</span></span><br><span class="line"><span class="comment"># Use Per Screen DPI on X11</span></span><br><span class="line"><span class="attr">PerScreenDPI</span>=<span class="literal">False</span>            <span class="comment"># 关闭x11自动缩放</span></span><br><span class="line"><span class="comment"># Force font DPI on Wayland</span></span><br><span class="line"><span class="attr">ForceWaylandDPI</span>=<span class="number">48</span>            <span class="comment"># 系统200%缩放会导致在Wayland过大，把100%系统下对应的96缩小一半则刚刚好</span></span><br><span class="line"><span class="comment"># Enable fractional scale under Wayland</span></span><br><span class="line"><span class="attr">EnableFractionalScale</span>=<span class="literal">False</span>   <span class="comment"># 关闭Wayland自动缩放</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>修改<code>~/.config/fcitx5/conf/classicui.conf</code>文件以后要重启fcitx5服务，保证新的配置已经生效。</p>
-<p>解决了fcitx5面板缩放问题，配合wps的<code>flatpak override --user --env=QT_FONT_DPI=144 com.wps.Office</code> 缩放配置，就完美解决未随系统缩放、模糊、fcitx5过小各种问题。</p>
-</blockquote>
-<h2 id="其他问题">其他问题</h2>
-<p>WPS在Linux有个一个很恶心的bug，如果添加过新的字体需要reboot一下系统，否则WPS登录界面会卡死。在Linux系统中用LibreOffice替换WPS Office。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-05-05T10:33:24.000Z" title="5/5/2026, 6:33:24 PM">2026-05-05</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:05:36.562Z" title="10/25/2026, 7:05:36 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span><span class="level-item">7 分钟读完 (大约1089个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/05/05/2026-05-05-14/">在WSL上部署langchain-chatchat</a></h1><div class="content"><h2 id="安装Python">安装Python</h2>
-<p>Langchain Chatchat目前只支持Python 3.11版本。需要确保操作系统的Python 版本是3.11。当前我是用的是OpenEuler 24.03 WSL，默认支持的Python是3.11版本，直接安装Python即可。如果使用的是Ubuntu 24.04或者其他版本需要确保安装Python版本是3.11，如果不是求助豆包或者DeepSeek。安装好Python后可以通过python -V 查询Python版本。创建并激活虚拟Python环境</p>
-<p>大模型各种软件依赖比较多，版本也不一致。最好把不同软件部署在不同的虚拟化环境中。</p>
-<ol>
-<li>执行如下命令创建虚拟化环境：<code>python -m venv reg_env</code> 即可创建一个reg_env虚拟环境，在ubuntu系统下该命令可能执行失败，如果执行失败按系统提示安装虚拟环境创建的命令再执行上述命令。上述命令执行成功后后会在工作目录创建一个reg_env目录，目录中就是虚拟换机各种软件资源。</li>
-<li>执行如下命令激活虚拟环境：<code>source ./reg_env/bin/activate</code> 即可激活当前虚拟环境。虚拟环境激活成功以后会在命令行提示符增加(rag_env)信息。</li>
-</ol>
-<h2 id="安装langchain-chatchat">安装langchain-chatchat</h2>
-<h3 id="安装方式一">安装方式一</h3>
-<p>执行如下命令安装<code>chatchat：pip install langchain-chatchat -U -i https://mirrors.aliyun.com/pypi/simple/</code>。</p>
-<pre><code>[!Notes]
-上述命令会默认安装langchain-chatchat和依赖的包。某些依赖包版本升级后可能存在兼容性的问题。比如：chatchat当前支持httpx 0.27.x版本，上述命令默认安装了0.28.x版本，httx 0.28.x版本会出现一个proxies参数错误的问题。需要重新手工安装httpx版本，具体执行如下命令：pip install httpx==0.27.2 -i https://mirrors.aliyun.com/pypi/simple/
-</code></pre>
-<h3 id="安装方式二">安装方式二</h3>
-<p>在网上搜索chatchat 按照的requirements.txt，可以执行如下命令安装：<code>pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/</code></p>
-<blockquote>
-<p>上述的requirements.txt 可以通过已经部署好的环境通过如下命令导出：<code>python freeze &gt; requirements.txt</code></p>
-</blockquote>
-<h2 id="配置chatchat环境">配置chatchat环境</h2>
-<h3 id="关闭SSL鉴权">关闭SSL鉴权</h3>
-<p>为避免调用大模型错误，需要关闭chatchat SSL。进入到安装好chatchat的的虚拟化环境目录./rag_env/lib/python3.11/site-packages/requests，编辑session.py文件，将517行的 verify=None，改成verify=False。</p>
-<h3 id="配置模型参数">配置模型参数</h3>
-<ol>
-<li>首先要执行 chatchat init 初始化运行环境，此时会在工作目录下生成一些测试数据和默认配置文件。</li>
-<li>在model_settings.yaml 文件中配置模型LLM模型和Embedding模型。以硅基流动的Qwen3模型为例，可以在<a target="_blank" rel="noopener" href="https://siliconflow.cn/models">https://siliconflow.cn/models</a> 查询模型信息：</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DEFAULT_LLM_MODEL: Qwen/Qwen3-32B</span><br><span class="line">DEFAULT_EMBEDDING_MODEL: Qwen/Qwen3-Embedding-4B</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部分内容省略，MODEL_PLATFORMS增加如下信息</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MODEL_PLATFORMS:</span></span><br><span class="line"></span><br><span class="line">  - platform_name: siliconflow</span><br><span class="line">    platfrom_type: openai</span><br><span class="line">    api_base_url: https://api.siliconflow.cn/v1</span><br><span class="line">    api_key: api_key</span><br><span class="line">    api_proxy: </span><br><span class="line">    api_concurrencies: 5</span><br><span class="line">    auto_detect_model: false</span><br><span class="line">    llm_models:</span><br><span class="line">      - Qwen/Qwen3-32B</span><br><span class="line">    embed_models:</span><br><span class="line">      - Qwen/Qwen3-Embedding-4B</span><br><span class="line">    text2image_models: []</span><br><span class="line">    image2text_models: []</span><br><span class="line">    rerank_models: []</span><br><span class="line">    speech2text_models: []</span><br><span class="line">    text2speech_models: []</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下省略</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置基础配置参数">配置基础配置参数</h3>
-<ol>
-<li>配置服务器地址在 basic_settings.yaml 中可以设置访问chatchat的IP地址和端口。默认WEBUI_SERVER配置的host ip地址 0.0.0.0地址，可以将此地址改成wsl的虚拟ip地址方便从Windows系统中点击链接访问（可选）。</li>
-</ol>
-<blockquote>
-<p>注意：不要修改API_SERVER的host地址，由于chatchat默认的知识库也部署在wsl里，如果修改此地址会导致chatchat无法通过本机地址访问知识库，如果需要对外提供支持库地址则修改public_host地址即可（暂未测试）。</p>
-</blockquote>
-<ol start="2">
-<li>配置知识库存储路径</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KB_ROOT_PATH: /工作目录/data/knowledge_base</span><br><span class="line">DB_ROOT_PATH: /工作目录/data/knowledge_base/info.db</span><br></pre></td></tr></table></figure>
-<h2 id="启动chatchat环境">启动chatchat环境</h2>
-<ol>
-<li>执行 chatcaht kb -r 初始化知识库，在执行此命令之前可以删除一些测试文件，加速知识库的生成过程。具体数据在./data/knowledge_base/samples/content/ 目录下。</li>
-<li>执行 chatchat start -a 启动chatchat。当启动完成以后就可以在Windows上通过wsl的虚拟ip地址访问chatchat了。</li>
-</ol>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-04-30T10:23:46.000Z" title="4/30/2026, 6:23:46 PM">2026-04-30</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:05:54.745Z" title="10/25/2026, 7:05:54 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span><span class="level-item">8 分钟读完 (大约1141个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/04/30/2026-04-30-14/">在WSL上部署Dify</a></h1><div class="content"><h2 id="安装准备">安装准备</h2>
-<p>Dify安装部署依赖Docker和Docker Compose。安装Dify前需要先在WSL openEuler 24.03上安装好上述Docker软件。配置Docker需要的内核参数，开启IP转发与桥接功能</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置内核参数</span></span><br><span class="line"></span><br><span class="line">sudo tee /etc/sysctl.d/docker.conf &lt;&lt; EOF</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生效参数</span></span><br><span class="line">sudo sysctl --system</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="安装Docker依赖的工具">安装Docker依赖的工具</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 dnf 相关的工具包（openEuler 使用 dnf 作为包管理器）</span></span><br><span class="line">sudo dnf install -y dnf-utils dnf-plugins-core</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装设备映射和 LVM2 工具</span></span><br><span class="line">sudo dnf install -y device-mapper-persistent-data lvm2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装其他可能需要的工具</span></span><br><span class="line">sudo dnf install -y curl wget git vim</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>执行<code>sysctl -a | grep ip_forward</code>验证内核参数是否生效。如果有提示<code>net.ipv4.ip_forward = 1</code>则已经生效。添加Docker源</p>
-<p>由于docker源国内访问很慢，我们可以直接添加docker的国内镜像源。</p>
-<p><code>sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
-<p>使用如下命令修改源配置中的操作系统版本信息以适配openEuler 24.03</p>
-<p><code>sudo sed -i 's/$releasever/8/g' /etc/yum.repos.d/docker-ce.repo</code></p>
-<blockquote>
-<p>这个参数<code>$releasever</code> 在openEuler里面是24.03 LTS，因此执行安装命令过程中无法从docker源中找到软件，上述命令版本替换成8（对应CentOS 8版本）。</p>
-</blockquote>
-<h2 id="安装Docker软件">安装Docker软件</h2>
-<ol>
-<li>安装docker软件</li>
-</ol>
-<p><code>sudo dnf install -y docker-ce docker-ce-cli containerd.io</code></p>
-<ol start="2">
-<li>验证安装结果</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动Docker服务并设置开机自启</span></span><br><span class="line">sudo systemctl start docker </span><br><span class="line">sudo systemctl enable docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证Docker服务状态</span> </span><br><span class="line">sudo systemctl status docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将当前用户加入docker组（避免每次sudo）</span> </span><br><span class="line">sudo usermod -aG docker $USER </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新登录生效后验证Docker版本</span> </span><br><span class="line">docker --version</span><br></pre></td></tr></table></figure>
-<h2 id="安装Docker-Compose">安装Docker Compose</h2>
-<ol>
-<li>下载并安装</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载Docker Compose二进制文件</span></span><br><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v5.1.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予执行权限</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建符号链接</span> </span><br><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证安装</span> </span><br><span class="line">docker-compose --version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中第一步也可以直接从<a target="_blank" rel="noopener" href="https://github.com/docker/compose/releases%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%9A%84Linux">https://github.com/docker/compose/releases下载最新的Linux</a> x86_64版本的。</p>
-</blockquote>
-<ol start="2">
-<li>配置用户权限</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">避免频繁使用</span></span><br><span class="line">sudo sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker $USER </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新登录生效</span></span><br><span class="line">newgrp docker </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证非特权用户操作</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>配置docker hub国内镜像</li>
-</ol>
-<p>编辑/etc/docker/daemon.json，配置docker hub的镜像地址：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://docker.xuanyuan.me&quot;,</span><br><span class="line">    &quot;https://docker.1ms.run&quot;,</span><br><span class="line">    &quot;https://docker.m.daocloud.io&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：上述的镜像可能失效，需要查询最新可用的镜像。如果不配置国内镜像或者国内镜像不可用会导致后续安装Dify失败。保存后需要重启docker 服务 sudo systemctl restart docker。</p>
-</blockquote>
-<h2 id="安装Dify">安装Dify</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/langgenius/dify.git</span><br><span class="line">cd dify</span><br><span class="line">cp .env.example .env</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>第一步也可以从github网站上手工下载最新的dify release版本，再解压缩。.env 文件是配置文件，Dify主要配置参数都可以再这里修改。第一次启动Dify时会从docker hub上拉取依赖的镜像。因此需要与配置好docker hub国内镜像源。第一次安装时建议先不使用-d 参数，方便观察启动信息。</p>
-</blockquote>
-<p>在Windows 浏览器中输入<a target="_blank" rel="noopener" href="http://xn--wslip-gm7j446r/install%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AEDify%E5%8D%B3%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82%E5%85%B6%E4%B8%ADwsl%E8%99%9A%E6%8B%9Fip%E5%9C%B0%E5%9D%80%E5%8F%AF%E4%BB%A5%E5%9C%A8wsl">http://wsl虚拟ip/install，如果可以访问Dify即安装成功。其中wsl虚拟ip地址可以在wsl</a> 中用过ifconfig | grep 172查询，对应eth0虚拟网卡的地址。</p>
-<h2 id="配置Dify">配置Dify</h2>
-<p>Dify主要的配置都在.env文件。可以通过编辑 .env文件，配置Dify。几个推荐修改配置如下：</p>
-<ol>
-<li>
-<p>PIP国内镜像PIP_MIRROR_URL=<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple%E3%80%82%E9%85%8D%E7%BD%AE%E6%AD%A4%E9%95%9C%E5%83%8F%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E5%9B%A0%E4%B8%BADify%E6%8F%92%E4%BB%B6%E9%83%BD%E6%98%AFpython%E5%8C%85%E5%BD%A2%E5%BC%8F%E7%BB%84%E7%BB%87%E3%80%82%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%8D%B3%E5%AE%89%E8%A3%85%E5%AF%B9%E5%BA%94%E7%9A%84python%E8%BD%AF%E4%BB%B6%E5%8C%85%E3%80%82">https://mirrors.aliyun.com/pypi/simple。配置此镜像的目的是因为Dify插件都是python包形式组织。安装插件即安装对应的python软件包。</a></p>
-</li>
-<li>
-<p>配置插件初始化时间<br>
-PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插件是和容易超时，可以配置成600秒；</p>
-</li>
-<li>
-<p>配置WEB UI端口</p>
-</li>
-</ol>
-<p><code>EXPOSE_NGINX_PORT=5080</code> # 默认是80端口，可能会和Windows上服务端口冲突，修改成其他端口。</p>
-<blockquote>
-<p>注意：Dify启动、配置的其他问题都可以将错误直接丢给DeepSeek询问如何解决。比自己搜索快很多：）。</p>
-</blockquote>
-<h2 id="启动停止Dify">启动停止Dify</h2>
-<p>进入到Dify安装的目录中执行以下命令启动/停止Dify：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d # 启动Dify</span><br><span class="line">docker-compose down # 停止Dify</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-02-20T02:48:38.000Z" title="2/20/2026, 10:48:38 AM">2026-02-20</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:06:22.210Z" title="10/25/2026, 7:06:22 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span><span class="level-item">4 分钟读完 (大约600个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/02/20/2026-02-20-18/">Obsdian导出增强配置</a></h1><div class="content"><h2 id="配置插件及工具">配置插件及工具</h2>
-<ol>
-<li>Pandoc：万能文档格式转换工具，可以从<a target="_blank" rel="noopener" href="http://pandoc.org">http://pandoc.org</a>下载。</li>
-<li>Obsdian导出增强（Enhancing Export）插件，这个是目前最好用的Obsdian导出插件。</li>
-</ol>
-<h2 id="导出PDF文件">导出PDF文件</h2>
-<h3 id="PDF引擎">PDF引擎</h3>
-<ol>
-<li>建议Windows下建议使用MiKTeX<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/CTAN/">https://mirror.tuna.tsinghua.edu.cn/help/CTAN/</a>，建议定期更新宏包（否则会出一些莫名其妙的问题）。可以再MiKTex Console上设置Proxy，更新时可以选择国内源进行更新。</li>
-<li>在Obsdian导出增强插件中配置自定义参数，设置 <code>--pdf-engine=xelatex</code> ，即PDF引擎为xelatex</li>
-</ol>
-<h2 id="Pandoc表格插件">Pandoc表格插件</h2>
-<ol>
-<li>Pandoc导出PDF文件时，如果表格比较大，表格内容则会溢出PDF文件导致表格显示不全，可以默认开启Pandoc表格插件功能。</li>
-<li>可以在Pandoc参数中增加表格插件，可参考<a target="_blank" rel="noopener" href="https://pandoc.org/MANUAL.html#extension-multiline_tables">https://pandoc.org/MANUAL.html#extension-multiline_tables</a>，此外还有grid_tables等表格插件。</li>
-<li>Pandoc参数为：<code>-f markdown+multiline_tables</code></li>
-</ol>
-<h2 id="导出PDF模板（可选）">导出PDF模板（可选）</h2>
-<ol>
-<li>推荐使用eisvogel模板，详细下载地质<a target="_blank" rel="noopener" href="https://github.com/Wandmalfarbe/pandoc-latex-template">https://github.com/Wandmalfarbe/pandoc-latex-template</a>，作者持续在更新模板。</li>
-<li>将现在好的模板可以放到用户目录下或者放到Obsdian附件目录</li>
-<li>Pandoc参数为：<code>--template=eisvogel</code>, 如果模板不是在默认的用户目录还需要指定具体模板路径。</li>
-</ol>
-<h2 id="中文字体">中文字体</h2>
-<p>PDF模板和引擎对中文支持不好，需要通过强制指定中文字体解决。具体参数如下：</p>
-<p><code>-V mainfont=&quot;Microsoft Yahei&quot; -V CJKmainfont=&quot;Microsoft Yahei&quot;</code><br>
-应用程序或者插件会将参数拼接成完整的Pandoc导出命令，如果应用程序有Bug可能将有空格的参数截断，导致最终拼接导出命令错误。例如Typora会将上述“Microsoft Yahei”从空格处截断，此时可将可在空格前加转义字符“\”，将命令修改成：<code>-V mainfont=&quot;Microsoft\ Yahei&quot; -V CJKmainfont=&quot;Microsoft\ Yahei&quot;</code><br>
-当然，也可以选择其他不带空格的字体。</p>
-<h2 id="导出Word文件">导出Word文件</h2>
-<p>导出Word文件相对配置简单一些，可以直接使用默认命令；如果导出Word样式不满意，可以指定导出Word模板。<br>
-<code>--reference-doc=&quot;/path/templates.doc&quot;</code></p>
-<p>比较舒服的Word模板可以参考：<a target="_blank" rel="noopener" href="https://github.com/Achuan-2/pandoc_docx_template">https://github.com/Achuan-2/pandoc_docx_template</a>，当然也可以基于上述模板二次修改成自己喜欢的。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2026-02-20T02:48:38.000Z" title="2/20/2026, 10:48:38 AM">2026-02-20</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:06:09.618Z" title="10/25/2026, 7:06:09 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span><span class="level-item">1 分钟读完 (大约189个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/02/20/2026-02-20-19/">Obsidian + Slides Extended 打造Markdown演示文稿</a></h1><div class="content"><h2 id="插件介绍">插件介绍</h2>
-<p>Slides extended是Obsdian一个演示文稿插件，支持用Markdown书写基于Reveal.js的演示文稿。非常适合快速输出教学演示文稿。<br>
-Sildes extended是最早是由MSzturc开发的Advacned Silde&lt;<a target="_blank" rel="noopener" href="http://github.com/MSzturc/obsidian-advanced-slides">github.com/MSzturc/obsidian-advanced-slides</a>&gt;插件，24年以后原作者不再更新后Erin fork出后以Slides Extended<a target="_blank" rel="noopener" href="https://github.com/ebullient/obsidian-slides-extended">https://github.com/ebullient/obsidian-slides-extended</a>继续开发。</p>
-<p>Slides extended是目前遇到的最好用的Markdown写演示文稿的工具。当前唯一的缺点是不能直接导出PPT格式，这个估计需要reveal.js支持才能支持。</p>
-<h2 id="插件的详细介绍参考">插件的详细介绍参考</h2>
-<p><a target="_blank" rel="noopener" href="https://mszturc.github.io/obsidian-advanced-slides/">https://mszturc.github.io/obsidian-advanced-slides/</a></p>
-<p>配合使用模板和布局可以预配置好演示文稿的布局风格，日常写作时专注于文件本身。</p>
-<p><a target="_blank" rel="noopener" href="https://mszturc.github.io/obsidian-advanced-slides/templates/">https://mszturc.github.io/obsidian-advanced-slides/templates/</a><br>
-<a target="_blank" rel="noopener" href="https://mszturc.github.io/obsidian-advanced-slides/layout/">https://mszturc.github.io/obsidian-advanced-slides/layout/</a></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-08-31T03:15:02.000Z" title="8/31/2025, 11:15:02 AM">2025-08-31</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:06:30.934Z" title="10/25/2026, 7:06:30 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">1 分钟读完 (大约185个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/08/31/2025-08-31-19/">Linux 文件权限简记</a></h1><div class="content"><h2 id="数字权限使用格式">数字权限使用格式</h2>
-<p>在这种使用方式中，首先我们需要了解数字如何表示权限。 首先，我们规定 数字 4 、2 和 1表示读、写、执行权限，即 r=4，w=2，x=1 。此时其他的权限组合也可以用其他的八进制数字表示出来，</p>
-<p>如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rwx = 4 + 2 + 1 = 7</span><br><span class="line">rw = 4 + 2 = 6</span><br><span class="line">rx = 4 +1 = 5</span><br></pre></td></tr></table></figure>
-<p>即：</p>
-<ul>
-<li>若要同时设置 rwx （可读写运行） 权限则将该权限位 设置 为 4 + 2 + 1 = 7</li>
-<li>若要同时设置 rw- （可读写不可运行）权限则将该权限位 设置 为 4 + 2 = 6</li>
-<li>若要同时设置 r-x （可读可运行不可写）权限则将该权限位 设置 为 4 +1 = 5</li>
-</ul>
-<p>命令格式<code> chmod [可选项] &lt;mode&gt; &lt;file…&gt;</code></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-08-31T02:48:38.000Z" title="8/31/2025, 10:48:38 AM">2025-08-31</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:07:49.591Z" title="10/25/2026, 7:07:49 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">2 分钟读完 (大约311个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/08/31/2025-08-31-18/">在WSL中安装NixOS</a></h1><div class="content"><h2 id="在WSL中安装NixOS">在WSL中安装NixOS</h2>
-<h3 id="Install-NixOS-WSL">Install NixOS-WSL</h3>
-<p>First, download nixos.wsl from the latest release.1 <a target="_blank" rel="noopener" href="https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0">https://github.com/nix-community/NixOS-WSL/releases/tag/2505.7.0</a></p>
-<p>If you have WSL version 2.4.4 or later installed, you can open (double-click) the .wsl file to install it. It is also possible to perform the installation from a PowerShell:</p>
-<figure class="highlight nixos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install --from-file nixos.wsl</span><br></pre></td></tr></table></figure>
-<p>nixos.wsl must be the path to the file you just downloaded if you’re running the command in another directory.</p>
-<p>You can use the --name and --location flags to change the name the distro is registered under (default: NixOS) and the location of the disk image (default: %localappdata%\wsl\{some random GUID}). For a full list of options, refer to wsl --help</p>
-<p>To open a shell in your NixOS environment, run wsl -d NixOS, select NixOS from the profile dropdown in Windows Terminal or run it from your Start Menu. (Adjust the name accordingly if you changed it)</p>
-<ul>
-<li>参考资料</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://nix-community.github.io/NixOS-WSL/install.html">https://nix-community.github.io/NixOS-WSL/install.html</a></p>
-<h3 id="配置vscode远程访问">配置vscode远程访问</h3>
-<p>The VSCode Remote server can not be run as-is on NixOS, because it downloads a nodejs binary that requires /lib64/ld-linux-x86-64.so.2 to be present, which isn’t the case on NixOS.</p>
-<p>There are two options to get the server to run. Option 1 is more robust but might impact other programs. Option 2 is a little bit more brittle and sometimes breaks on updates but doesn’t influence other programs. Both options require wget to be installed:</p>
-<figure class="highlight nixos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">environment.<span class="attr">systemPackages</span> = [</span><br><span class="line">    pkgs.wget</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-<p>Option 1: Set up nix-ld<br>
-nix-ld is a program that provides /lib64/ld-linux-x86-64.so.2, allowing foreign binaries to run on NixOS.</p>
-<p>To set it up, add the following to your configuration:</p>
-<p><code>programs.nix-ld.enable = true;</code></p>
-<ul>
-<li>参考资料</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://nix-community.github.io/NixOS-WSL/how-to/vscode.html">https://nix-community.github.io/NixOS-WSL/how-to/vscode.html</a></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-08-24T13:56:02.000Z" title="8/24/2025, 9:56:02 PM">2025-08-24</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:07:07.058Z" title="10/25/2026, 7:07:07 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">1 分钟读完 (大约182个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/08/24/2025-08-25-23/">Linux下如何修改分区Label</a></h1><div class="content"><h2 id="如何修改Linux分区标签Label">如何修改Linux分区标签Label</h2>
-<p>安装系统时如果没有为分区打标签，正常启动启动后不同文件管理器会显示对分区显示不同的名称。有的文件管理器会隐藏系统分区，显示其他分区类型（同一类分区类型特别容易误操作）。因此可以根据自己分区用途来设定不同的分区标签。</p>
-<ul>
-<li>
-<p>查询系统分区情况<br>
-<code>lsblk -o name,mountpoint,label,size,uuid</code></p>
-</li>
-<li>
-<p>修改ntfs分区标签</p>
-<p>需要先安装ntfs3g软件，再通过ntfslabel命令修改；</p>
-</li>
-<li>
-<p>修改btrfs分区标签<br>
-<code>sudo btrfs filesystem label / NixOS</code></p>
-</li>
-<li>
-<p>修改ext3/ext4分区标签<br>
-<code>e2label device newlabel</code></p>
-</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-05-10T03:06:50.000Z" title="5/10/2025, 11:06:50 AM">2025-05-10</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:07:18.546Z" title="10/25/2026, 7:07:18 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span><span class="level-item">几秒读完 (大约68个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/05/10/2025-05-10-10/">Excel合并单元格同时保留数据</a></h1><div class="content"><h2 id="合并Excel单元格并保留所有单元格值">合并Excel单元格并保留所有单元格值</h2>
-<p>TEXTJOIN(分隔符, ignore_empty, text1, [text2], …)</p>
-<p>新建一列，可以将待合并的内容通过<code>TEXTJOIN</code>函数合并。</p>
-<h2 id="参考">参考</h2>
-<p><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/textjoin-%E5%87%BD%E6%95%B0-357b449a-ec91-49d0-80c3-0e8fc845691c">https://support.microsoft.com/zh-cn/office/textjoin-函数-357b449a-ec91-49d0-80c3-0e8fc845691c</a></p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">上一页</a></div><div class="pagination-next"><a href="/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="Mixion"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Mixion</p><p class="is-size-6 is-block">ICT思潮</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>XI&#039;AN</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">74</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">23</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/darkrice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/1430123077"><i class="fab fa-weibo"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-11-10T11:49:13.000Z">2026-11-10</time></p><p class="title"><a href="/2026/11/10/2026-11-10-19/">Fedora COSMIC Atomic upgrade和rebase</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-27T03:00:01.000Z">2026-10-27</time></p><p class="title"><a href="/2026/10/27/2026-10-27-11/">Fedora COSMIC Atomic解决访问GitHub域名污染问题</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-20T09:18:15.000Z">2026-10-20</time></p><p class="title"><a href="/2026/10/20/2026-10-20-17/">使用http ppt skill生成演示文稿</a></p><p class="categories"><a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T14:09:12.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-22/">为Obsidian配置本地图床</a></p><p class="categories"><a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T11:06:43.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-19/">Fedora COSMIC Atomic 后需要安装必要的软件</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="level-start"><span class="level-item">人工智能</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/11/"><span class="level-start"><span class="level-item">十一月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/10/"><span class="level-start"><span class="level-item">十月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/09/"><span class="level-start"><span class="level-item">九月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/08/"><span class="level-start"><span class="level-item">八月 2026</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/08/"><span class="level-start"><span class="level-item">八月 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/05/"><span class="level-start"><span class="level-item">五月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/BigData/"><span class="tag">BigData</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/COSMIC/"><span class="tag">COSMIC</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Fedora/"><span class="tag">Fedora</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kubernetes/"><span class="tag">Kubernetes</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NixOS/"><span class="tag">NixOS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsdian/"><span class="tag">Obsdian</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsidian/"><span class="tag">Obsidian</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OpenCode/"><span class="tag">OpenCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Pandoc/"><span class="tag">Pandoc</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Zed/"><span class="tag">Zed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/skill/"><span class="tag">skill</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="tag">云计算</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"><span class="tag">机器视觉</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"><span class="tag">输入法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/"><span class="tag">非暴力沟通</span><span class="tag">2</span></a></div></div></div></div></div></div><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a><p class="is-size-7"><span>&copy; 2026 Mixion</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "此网站使用Cookie来改善您的体验。",
-          dismiss: "知道了！",
-          allow: "允许使用Cookie",
-          deny: "拒绝",
-          link: "了解更多",
-          policy: "Cookie政策",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
-            'HTML-CSS': {
-                matchFontHeight: false
-            },
-            SVG: {
-                matchFontHeight: false
-            },
-            CommonHTML: {
-                matchFontHeight: false
-            },
-            tex2jax: {
-                inlineMath: [
-                    ['$','$'],
-                    ['\\(','\\)']
-                ]
-            }
-        });</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script></body></html>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Wed Aug 12 2026 11:31:28 GMT+0800"
+        >2026-08-12 11:31:28</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/08/12/2026-08-12-11/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/08/11/2026-08-11-17/">
+                在Pop!OS 24.04安装常用软件
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              安装中文输入法
+
+
+iBus输入法在PopOS 24.04上不能正常使用，需要安装fcitx输入法。
+
+
+安装fcitx输入法：
+12345678sudo apt install fcitx5 \   fcitx5-chinese-addons \ ...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Tue Aug 11 2026 17:17:41 GMT+0800"
+        >2026-08-11 17:17:41</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/08/11/2026-08-11-17/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/05/05/2026-05-05-14/">
+                在WSL上部署langchain-chatchat
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              安装Python
+Langchain Chatchat目前只支持Python 3.11版本。需要确保操作系统的Python 版本是3.11。当前我是用的是OpenEuler 24.03 WSL，默认支持的Python是3.11版本，直接安装Pytho...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Tue May 05 2026 18:33:24 GMT+0800"
+        >2026-05-05 18:33:24</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/05/05/2026-05-05-14/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/04/30/2026-04-30-14/">
+                在WSL上部署Dify
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              安装准备
+Dify安装部署依赖Docker和Docker Compose。安装Dify前需要先在WSL openEuler 24.03上安装好上述Docker软件。配置Docker需要的内核参数，开启IP转发与桥接功能
+12345678910# 配置...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Thu Apr 30 2026 18:23:46 GMT+0800"
+        >2026-04-30 18:23:46</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/04/30/2026-04-30-14/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/02/20/2026-02-20-18/">
+                Obsdian导出增强配置
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              配置插件及工具
+
+Pandoc：万能文档格式转换工具，可以从http://pandoc.org下载。
+Obsdian导出增强（Enhancing Export）插件，这个是目前最好用的Obsdian导出插件。
+
+导出PDF文件
+PDF引擎
+
+建议Wi...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Fri Feb 20 2026 10:48:38 GMT+0800"
+        >2026-02-20 10:48:38</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/02/20/2026-02-20-18/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2026/02/20/2026-02-20-19/">
+                Obsidian + Slides Extended 打造Markdown演示文稿
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              插件介绍
+Slides extended是Obsdian一个演示文稿插件，支持用Markdown书写基于Reveal.js的演示文稿。非常适合快速输出教学演示文稿。
+Sildes extended是最早是由MSzturc开发的Advacned Sil...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Fri Feb 20 2026 10:48:38 GMT+0800"
+        >2026-02-20 10:48:38</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2026/02/20/2026-02-20-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/08/31/2025-08-31-19/">
+                Linux 文件权限简记
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              数字权限使用格式
+在这种使用方式中，首先我们需要了解数字如何表示权限。 首先，我们规定 数字 4 、2 和 1表示读、写、执行权限，即 r=4，w=2，x=1 。此时其他的权限组合也可以用其他的八进制数字表示出来，
+如：
+123rwx = 4 + 2...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sun Aug 31 2025 11:15:02 GMT+0800"
+        >2025-08-31 11:15:02</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/08/31/2025-08-31-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/08/31/2025-08-31-18/">
+                在WSL中安装NixOS
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              在WSL中安装NixOS
+Install NixOS-WSL
+First, download nixos.wsl from the latest release.1 https://github.com/nix-community/NixOS-WSL...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sun Aug 31 2025 10:48:38 GMT+0800"
+        >2025-08-31 10:48:38</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/08/31/2025-08-31-18/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+  </ul>
+  
+  <div class="paginator border-box flex-center">
+    <div class="border-box first-page paginator-btn allowed">
+      <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
+    </div>
+
+    <div class="border-box paginator-btn allowed">
+      <a class="border-box"
+        href="/"
+      ><i class="fa-solid fa-chevron-left"></i></a>
+    </div>
+
+
+    <div class="page-number-box border-box flex-center">
+      <input class="page-number-input border-box base-style"
+          type="number"
+          value="2"
+          min="1"
+          max="8"
+      /><span class="delimiter base-style">/</span><span class="base-style">8</span>
+    </div>
+
+
+    <div class="border-box paginator-btn allowed">
+      <a class="border-box"
+        href="/page/3/"
+      ><i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+
+    <div class="border-box last-page paginator-btn allowed">
+      <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Shawn</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+    
+    <div class="deploy-info info-item">
+      
+      本站由 <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span> 提供部署服务
+      
+    </div>
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box side-tools-show-handle">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+
+    <!-- toggle mode -->
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-input-field-pre">
+      <i class="fas fa-keyboard"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="搜索..."
+            spellcheck="false"
+            type="search"
+            class="search-input"
+        >
+      </div>
+      <span class="close-popup-btn">
+        <i class="fas fa-times"></i>
+      </span>
+    </div>
+    <div id="search-result">
+      <div id="no-result">
+        <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  <!-- tablet toc -->
+  
+</main>
+
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+    
+<script src="/js/page/home-page.js"></script>
+
+  
+
+  <!-- post page -->
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+  
+
+</body>
+</html>

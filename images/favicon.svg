@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 208">
+  <title>MIXION</title>
+  <!-- MIXION favicon: adapts to browser color scheme via media query -->
+  <style>
+    .ink { fill: #0B0B0B; }
+    .cut { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #F4F4F4; }
+      .cut { fill: #0B0B0B; }
+    }
+  </style>
+  <path class="ink" d="M80,32L176,32L216,72L216,168L176,208L80,208L40,168L40,72Z"/>
+  <path class="cut" d="M86.99,54.95L193.05,161.01L169.01,185.05L62.95,78.99ZM62.95,161.01L169.01,54.95L193.05,78.99L86.99,185.05Z"/>
+  <path class="ink" d="M115,107L141,107L141,133L115,133Z"/>
+</svg>

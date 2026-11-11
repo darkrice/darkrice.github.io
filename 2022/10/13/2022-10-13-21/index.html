@@ -1,53 +1,385 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>纵横大数据主要观点（二） - Mixion</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Mixion ICT"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mixion ICT"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="分布式关系型数据库典型的架构 Share-Nothing MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB 水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。 Share-Disk 典型的应用是Oracle RAC，不同"><meta property="og:type" content="blog"><meta property="og:title" content="纵横大数据主要观点（二）"><meta property="og:url" content="http://mixiang.tech/2022/10/13/2022-10-13-21/"><meta property="og:site_name" content="Mixion"><meta property="og:description" content="分布式关系型数据库典型的架构 Share-Nothing MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB 水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。 Share-Disk 典型的应用是Oracle RAC，不同"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://mixiang.tech/img/og_image.png"><meta property="article:published_time" content="2022-10-13T12:51:53.000Z"><meta property="article:modified_time" content="2023-02-06T11:50:38.590Z"><meta property="article:author" content="Mixion"><meta property="article:tag" content="读书笔记"><meta property="article:tag" content="BigData"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://mixiang.tech/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mixiang.tech/2022/10/13/2022-10-13-21/"},"headline":"纵横大数据主要观点（二）","image":["http://mixiang.tech/img/og_image.png"],"datePublished":"2022-10-13T12:51:53.000Z","dateModified":"2023-02-06T11:50:38.590Z","author":{"@type":"Person","name":"Mixion"},"publisher":{"@type":"Organization","name":"Mixion","logo":{"@type":"ImageObject","url":"http://mixiang.tech/img/logomx.svg"}},"description":"分布式关系型数据库典型的架构 Share-Nothing MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB 水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。 Share-Disk 典型的应用是Oracle RAC，不同"}</script><link rel="canonical" href="http://mixiang.tech/2022/10/13/2022-10-13-21/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo, Linux, 云原生, 人工智能">
+  <meta name="description" content="ICT思潮">
+  <meta name="author" content="Shawn">
+  
+  <title>
+    
+      纵横大数据主要观点（二） |
+    
+    迷巷笔记
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+  
+    <link rel="shortcut icon" href="/images/favicon.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(location.hash);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+    
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/admonition.css">
+
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+      
+    
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-10-13T12:51:53.000Z" title="10/13/2022, 8:51:53 PM">2022-10-13</time>发表</span><span class="level-item"><time dateTime="2023-02-06T11:50:38.590Z" title="2/6/2023, 7:50:38 PM">2023-02-06</time>更新</span><span class="level-item">10 分钟读完 (大约1456个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">纵横大数据主要观点（二）</h1><div class="content"><h2 id="分布式关系型数据库典型的架构">分布式关系型数据库典型的架构</h2>
-<h3 id="share-nothing">Share-Nothing</h3>
-<p>MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB
-水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。</p>
-<h3 id="share-disk">Share-Disk</h3>
-<p>典型的应用是Oracle
-RAC，不同于传统的HA架构，ShareDisk架构中的每个节点都是工作节点，独立处理业务。由于是ShareDisk架构，读写磁盘就会出现冲突，会产生大量的存储网络流量，通常存储网络的流量会因为数据库节点规模增加变成瓶颈</p>
-<p>OLTP和OLAP
-通常部署在两套系统中主要原因是数据库系统追求的高TPS，OLTP追求的是高并发、随机读写，要保持交易十五的ACID
-特性，维护强大的数据库日志，目前实现OLTP单点能力（主机平台+高端IO存储）。OLAP追求的是批量操作、高并发读操作，技术上主要解决很好的分配与管理各种资源（即资源的精细化管理）。
-关于Join操作，跨表聚合操作，对于OLTP数据库需要大量的IO操作将表数据读取到内存进行操作；而MPP数据库本身就是根据某个键值对数据进行分布式存储，相当于提前为多表Join操作做了很多工作。OLTP通常是通过hash
-join进行优化，OLAP是通过分布式join。</p>
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"mixiang.tech","root":"/","language":["zh-CN","en","default"]}
+    KEEP.theme_config = {"base_info":{"primary_color":"#c0392b","title":"迷巷笔记","author":"Shawn","avatar":"/images/avatar.svg","logo":"/images/mixion-logo.svg","favicon":"/images/favicon.svg","mode":"light"},"menu":{"home":"/","archives":"/archives","categories":"/categories","tags":"/tags","about":"/about","atomgit":"https://gitcode.com/mixion"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"ttps://github.com/darkrice","weixin":null,"qq":null,"weibo":"https://weibo.com/u/1430123077","zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"word":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"giscus","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/admonition.css","/css/custom.css"],"js":null},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" id="hexo-admonition-icon-injected">
+  </head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+    <span class="scroll-progress-bar"></span>
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/mixion-logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        迷巷笔记
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/categories">
+                
+                分类
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/tags">
+                
+                标签
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/about">
+                
+                关于
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+                
+                ATOMGIT
+                
+              </a>
+              
+            </li>
+          
+          
+            <li class="menu-item search search-popup-trigger">
+              <i class="menu-text-color fas search fa-search"></i>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+          <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+              
+              分类
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+              
+              标签
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+              
+              关于
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+              
+              ATOMGIT
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          
+<div class="fade-in-down-animation">
+  <div class="post-page-container border-box">
+    <div class="post-content-container border-box">
+      
+
+      <div class="post-content-bottom border-box">
+        
+          <div class="post-title">
+            纵横大数据主要观点（二）
+          </div>
+        
+
+        
+          <div class="post-header border-box">
+            
+              <div class="avatar-box border-box">
+                <img src="/images/avatar.svg">
+              </div>
+            
+            <div class="info-box">
+              <div class="author border-box">
+                <span class="name">Shawn</span>
+                
+              </div>
+              <div class="meta-info border-box">
+                
+
+<div class="post-meta-info-container border-box post">
+  <div class="post-meta-info border-box">
+    
+
+    
+      <span class="meta-info-item post-create-date">
+        <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+        <span class="datetime">2022-10-13 20:51:53</span>
+      </span>
+
+      
+        <span class="meta-info-item post-update-date">
+          <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+          <span class="datetime" data-updated="Mon Feb 06 2023 11:50:38 GMT+0800">2023-02-06 11:50:38</span>
+        </span>
+      
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li>
+            
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/BigData/">BigData</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+      <span class="meta-info-item post-word-count">
+        <i class="icon fas fa-file-word"></i>&nbsp;<span>1.3k 字</span>
+      </span>
+    
+    
+      <span class="meta-info-item post-min2read">
+        <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+      </span>
+    
+    
+  </div>
+
+  
+</div>
+
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="post-content keep-markdown-body ">
+          
+
+          
+            <h2 id="分布式关系型数据库典型的架构">分布式关系型数据库典型的架构</h2>
+<h3 id="Share-Nothing">Share-Nothing</h3>
+<p>MPPDB一般都是此架构，主要是将数据拆分存储到不同的节点上，在各自节点上独立读写数据，正因为如此，此架构只适合OLAP业务，如果进行表关联操作时仍会进行网络节点之间的数据迁移与交换工作，同样的网络会成为MPPDB 水平扩展的瓶颈。TeraData目前最大商用规模大约600节点。</p>
+<h3 id="Share-Disk">Share-Disk</h3>
+<p>典型的应用是Oracle RAC，不同于传统的HA架构，ShareDisk架构中的每个节点都是工作节点，独立处理业务。由于是ShareDisk架构，读写磁盘就会出现冲突，会产生大量的存储网络流量，通常存储网络的流量会因为数据库节点规模增加变成瓶颈</p>
+<p>OLTP和OLAP 通常部署在两套系统中主要原因是数据库系统追求的高TPS，OLTP追求的是高并发、随机读写，要保持交易十五的ACID 特性，维护强大的数据库日志，目前实现OLTP单点能力（主机平台+高端IO存储）。OLAP追求的是批量操作、高并发读操作，技术上主要解决很好的分配与管理各种资源（即资源的精细化管理）。关于Join操作，跨表聚合操作，对于OLTP数据库需要大量的IO操作将表数据读取到内存进行操作；而MPP数据库本身就是根据某个键值对数据进行分布式存储，相当于提前为多表Join操作做了很多工作。OLTP通常是通过hash join进行优化，OLAP是通过分布式join。</p>
 <span id="more"></span>
-<h2 id="nosql数据库">NoSQL数据库</h2>
+<h2 id="NoSQL数据库">NoSQL数据库</h2>
 <p>NoSQL数据库是随着互联网应用发展起来的（是新兴数据库产品，并不是完全的新技术），主要是用来处理半结构化数据/非结构化数据。NewSQL是关系型数据库联邦（主要代表是VoltDB），内存数据库集群。</p>
-<h2 id="newsql数据库">NewSQL数据库</h2>
+<h2 id="NewSQL数据库">NewSQL数据库</h2>
 <p>实现NewSQL通常是采用数据库“联邦”来实现。主要就是采用“垂直分库“，”水平分表”。分库分表以后，按照分库分表的策略会将数据分散到不同的物理设备上（只有这样才能增加数据库的处理能力），这就导致了应用会感知到数据在不同的数据库服务器上。此外，还可以通过读写分离来增加。</p>
 <h2 id="企业数据库变化的路径">企业数据库变化的路径</h2>
 <p>一般企业数据库变化的路径如下如下：<strong>小型数据库-&gt;大型数据库-&gt;现有数据库扩展</strong>；在企业刚起步阶段数据量不大采用小型数据库，当企业到达一定规模时为了能满足业务负载、可用性、安全性等一系列诉求最近直接等方法就是采购大型商用数据库；随着业务量等不断增加没有业界没有简单直接升级数据库产品就可以解决数据处理要求，此时就只能在现有数据库中扩展。</p>
-<ol type="1">
+<ol>
 <li>小型数据库：MySQL、SQL Server、PostgreSQL</li>
 <li>大型数据库：Oracle、DB2甚至是基于大机（MainFrame）数据库解决方案</li>
 <li>对现有数据库管理系统进行扩展（通常是已经上了Oracle、DB2等大型数据库的情况）
@@ -56,21 +388,22 @@ join进行优化，OLAP是通过分布式join。</p>
 <li>采用厂商提供高阶方案，例如：oracle rac</li>
 <li>分库分表</li>
 <li>读写分离</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 <h2 id="典型等数据库扩展方案">典型等数据库扩展方案</h2>
 <h3 id="垂直分库">垂直分库</h3>
-<ol type="1">
+<ol>
 <li>将原来在中心物理数据库中不同类型database拆分到不同的物理数据库（也就是把原来数据库的关联操作要改成两个数据中心之间的关联消息通信服务）</li>
 <li>分库是业务人员需要对数据库进行重新设计优化，去掉不必要、复杂的关联操作</li>
 </ol>
 <h3 id="水平分表">水平分表</h3>
-<ol type="1">
+<ol>
 <li>按照独立数据库中的某一个大表按照某种方式拆分成“子表”，通常是按照某一列或者多列值进行均分或者按照哈希算法分割</li>
 <li>将子表部署在不同物理数据库服务器中以提升整体数据库性能</li>
 </ol>
 <h3 id="读写分离">读写分离</h3>
-<ol type="1">
+<ol>
 <li>将一个中心库分成两类库，一类用于处理读操作，一类用于处理写操作</li>
 <li>需要增加一个读写分离代理来专门完成该任务，屏蔽对应用的影响</li>
 <li>读写分离数据库中数据是完全一致的</li>
@@ -78,69 +411,406 @@ join进行优化，OLAP是通过分布式join。</p>
 <li>写操作的数据库必须实时或者准实时将数据同步到读库。</li>
 </ol>
 <blockquote>
-<p><strong>小结</strong> 1.
-分库分表和读写分离是相辅相成，可单独实施也可以一起实施。分库包容了分表（一般在实施分库的基础上再实施分表），分库分表和读写分离是平行的，可以同时实施。
-2.
-数据库联邦牺牲即时一致性，但保证了最终的一致性（CAP原则中，牺牲了C），也就意味着实际应用中弱化了的事务和关联性。</p>
+<p><strong>小结</strong></p>
+<ol>
+<li>分库分表和读写分离是相辅相成，可单独实施也可以一起实施。分库包容了分表（一般在实施分库的基础上再实施分表），分库分表和读写分离是平行的，可以同时实施。</li>
+<li>数据库联邦牺牲即时一致性，但保证了最终的一致性（CAP原则中，牺牲了C），也就意味着实际应用中弱化了的事务和关联性。</li>
+</ol>
 </blockquote>
-</div><div class="article-licensing box"><div class="licensing-title"><p>纵横大数据主要观点（二）</p><p><a href="http://mixiang.tech/2022/10/13/2022-10-13-21/">http://mixiang.tech/2022/10/13/2022-10-13-21/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Mixion</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-10-13</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-02-06</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a><a class="link-muted mr-2" rel="tag" href="/tags/BigData/">BigData</a></div><!--!--></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechat_pay.jpg" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/10/17/2022-10-17-15/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">纵横大数据主要观点（三）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/10/06/2022-10-06-20/"><span class="level-item">纵横大数据主要观点</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="Mixion"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Mixion</p><p class="is-size-6 is-block">ICT思潮</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>XI&#039;AN</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">74</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">23</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/darkrice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/1430123077"><i class="fab fa-weibo"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-11-10T11:49:13.000Z">2026-11-10</time></p><p class="title"><a href="/2026/11/10/2026-11-10-19/">Fedora COSMIC Atomic upgrade和rebase</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-27T03:00:01.000Z">2026-10-27</time></p><p class="title"><a href="/2026/10/27/2026-10-27-11/">Fedora COSMIC Atomic解决访问GitHub域名污染问题</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-20T09:18:15.000Z">2026-10-20</time></p><p class="title"><a href="/2026/10/20/2026-10-20-17/">使用http ppt skill生成演示文稿</a></p><p class="categories"><a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T14:09:12.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-22/">为Obsidian配置本地图床</a></p><p class="categories"><a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T11:06:43.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-19/">Fedora COSMIC Atomic 后需要安装必要的软件</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="level-start"><span class="level-item">人工智能</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/11/"><span class="level-start"><span class="level-item">十一月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/10/"><span class="level-start"><span class="level-item">十月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/09/"><span class="level-start"><span class="level-item">九月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/08/"><span class="level-start"><span class="level-item">八月 2026</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/08/"><span class="level-start"><span class="level-item">八月 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/05/"><span class="level-start"><span class="level-item">五月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/BigData/"><span class="tag">BigData</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/COSMIC/"><span class="tag">COSMIC</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Fedora/"><span class="tag">Fedora</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kubernetes/"><span class="tag">Kubernetes</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NixOS/"><span class="tag">NixOS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsdian/"><span class="tag">Obsdian</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsidian/"><span class="tag">Obsidian</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OpenCode/"><span class="tag">OpenCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Pandoc/"><span class="tag">Pandoc</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Zed/"><span class="tag">Zed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/skill/"><span class="tag">skill</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="tag">云计算</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"><span class="tag">机器视觉</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"><span class="tag">输入法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/"><span class="tag">非暴力沟通</span><span class="tag">2</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#分布式关系型数据库典型的架构"><span class="level-left"><span class="level-item">1</span><span class="level-item">分布式关系型数据库典型的架构</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#share-nothing"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">Share-Nothing</span></span></a></li><li><a class="level is-mobile" href="#share-disk"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">Share-Disk</span></span></a></li></ul></li><li><a class="level is-mobile" href="#nosql数据库"><span class="level-left"><span class="level-item">2</span><span class="level-item">NoSQL数据库</span></span></a></li><li><a class="level is-mobile" href="#newsql数据库"><span class="level-left"><span class="level-item">3</span><span class="level-item">NewSQL数据库</span></span></a></li><li><a class="level is-mobile" href="#企业数据库变化的路径"><span class="level-left"><span class="level-item">4</span><span class="level-item">企业数据库变化的路径</span></span></a></li><li><a class="level is-mobile" href="#典型等数据库扩展方案"><span class="level-left"><span class="level-item">5</span><span class="level-item">典型等数据库扩展方案</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#垂直分库"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">垂直分库</span></span></a></li><li><a class="level is-mobile" href="#水平分表"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">水平分表</span></span></a></li><li><a class="level is-mobile" href="#读写分离"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">读写分离</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a><p class="is-size-7"><span>&copy; 2026 Mixion</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "此网站使用Cookie来改善您的体验。",
-          dismiss: "知道了！",
-          allow: "允许使用Cookie",
-          deny: "拒绝",
-          link: "了解更多",
-          policy: "Cookie政策",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
-            'HTML-CSS': {
-                matchFontHeight: false
-            },
-            SVG: {
-                matchFontHeight: false
-            },
-            CommonHTML: {
-                matchFontHeight: false
-            },
-            tex2jax: {
-                inlineMath: [
-                    ['$','$'],
-                    ['\\(','\\)']
-                ]
-            }
-        });</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script></body></html>
+
+          
+        </div>
+
+        
+            
+<div class="post-copyright-info-container border-box">
+  <div class="copyright-info-content border-box">
+    <div class="copyright-info-top border-box">
+      <div class="copyright-post-title border-box text-ellipsis">
+        纵横大数据主要观点（二）
+      </div>
+
+      <div class="copyright-post-link border-box text-ellipsis">
+        2022/10/13/2022-10-13-21/
+      </div>
+    </div>
+
+    <div class="copyright-info-bottom border-box">
+      <div class="copyright-post-author bottom-item">
+        <div class="type">
+          作者
+        </div>
+        <div class="content">Shawn</div>
+      </div>
+
+      <div class="post-time bottom-item">
+        <div class="type">
+          发布于
+        </div>
+        <div class="content">2022-10-13 20:51</div>
+      </div>
+
+
+      <div class="post-license bottom-item">
+        <div class="type">
+          许可
+        </div>
+        <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed" target="_blank">
+            
+              <i class="fa-brands fa-creative-commons"></i>
+              <i class="fa-brands fa-creative-commons-by"></i>
+              <i class="fa-brands fa-creative-commons-nc"></i>
+              <i class="fa-brands fa-creative-commons-sa"></i>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <i class="copyright-bg fa-solid fa-copyright"></i>
+  </div>
+  <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="复制版权信息" data-tooltip-offset-y="-2px">
+    <i class="fa-solid fa-copy"></i>
+  </div>
+</div>
+
+        
+
+        <div class="post-bottom-tags-and-share border-box">
+          <div>
+            
+              <ul class="post-tags-box border-box">
+                
+                  <li class="tag-item border-box">
+                    <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+                  </li>
+                
+                  <li class="tag-item border-box">
+                    <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/BigData/">BigData</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+        
+
+        
+          <div class="post-nav border-box">
+            
+              <div class="prev-post">
+                <a class="prev"
+                  rel="prev"
+                  href="/2022/10/17/2022-10-17-15/"
+                  title="纵横大数据主要观点（三）"
+                >
+                  <span class="left arrow-icon flex-center">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">纵横大数据主要观点（三）</span>
+                    <span class="post-nav-item">上一篇</span>
+                  </span>
+                </a>
+              </div>
+            
+            
+              <div class="next-post">
+                <a class="next"
+                  rel="next"
+                  href="/2022/10/06/2022-10-06-20/"
+                  title="纵横大数据主要观点"
+                >
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">纵横大数据主要观点</span>
+                    <span class="post-nav-item">下一篇</span>
+                  </span>
+                  <span class="right arrow-icon flex-center">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </a>
+              </div>
+            
+          </div>
+        
+
+        
+          
+
+
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+      <div class="pc-post-toc right-toc">
+        <div class="post-toc-wrap border-box">
+  <div class="post-toc border-box">
+    <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B8%E5%9E%8B%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-text">分布式关系型数据库典型的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Share-Nothing"><span class="nav-text">Share-Nothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Share-Disk"><span class="nav-text">Share-Disk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">NoSQL数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NewSQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">NewSQL数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%98%E5%8C%96%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">企业数据库变化的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E7%AD%89%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A9%E5%B1%95%E6%96%B9%E6%A1%88"><span class="nav-text">典型等数据库扩展方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%82%E7%9B%B4%E5%88%86%E5%BA%93"><span class="nav-text">垂直分库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E8%A1%A8"><span class="nav-text">水平分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-text">读写分离</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Shawn</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+    
+    <div class="deploy-info info-item">
+      
+      本站由 <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span> 提供部署服务
+      
+    </div>
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+    <div class="post-tools right-toc">
+      <div class="post-tools-container border-box">
+  <ul class="post-tools-list border-box">
+    <!-- PC encrypt again -->
+    
+
+    <!-- PC TOC show toggle -->
+    
+      <li class="tools-item flex-center toggle-show-toc">
+        <i class="fas fa-list"></i>
+      </li>
+    
+
+    <!-- PC go comment -->
+    
+
+    <!-- PC full screen -->
+    <li class="tools-item flex-center full-screen">
+      <i class="fa-solid fa-expand"></i>
+    </li>
+  </ul>
+</div>
+
+    </div>
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box ">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+
+    <!-- toggle mode -->
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+      <li class="tools-item toggle-show-toc-tablet flex-center">
+        <i class="fas fa-list"></i>
+      </li>
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-input-field-pre">
+      <i class="fas fa-keyboard"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="搜索..."
+            spellcheck="false"
+            type="search"
+            class="search-input"
+        >
+      </div>
+      <span class="close-popup-btn">
+        <i class="fas fa-times"></i>
+      </span>
+    </div>
+    <div id="search-result">
+      <div id="no-result">
+        <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  <!-- tablet toc -->
+  
+    <div class="tablet-post-toc-mask">
+      <div class="tablet-post-toc">
+        <div class="post-toc-wrap border-box">
+  <div class="post-toc border-box">
+    <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%B8%E5%9E%8B%E7%9A%84%E6%9E%B6%E6%9E%84"><span class="nav-text">分布式关系型数据库典型的架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Share-Nothing"><span class="nav-text">Share-Nothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Share-Disk"><span class="nav-text">Share-Disk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">NoSQL数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NewSQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">NewSQL数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%81%E4%B8%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%98%E5%8C%96%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">企业数据库变化的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E7%AD%89%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%A9%E5%B1%95%E6%96%B9%E6%A1%88"><span class="nav-text">典型等数据库扩展方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%82%E7%9B%B4%E5%88%86%E5%BA%93"><span class="nav-text">垂直分库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E8%A1%A8"><span class="nav-text">水平分表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-text">读写分离</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+      </div>
+    </div>
+  
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+
+  <!-- post page -->
+  
+    <!-- post-helper -->
+    
+<script src="/js/post/post-helper.js"></script>
+
+
+    <!-- toc -->
+    
+      
+<script src="/js/post/toc.js"></script>
+
+    
+
+    <!-- copyright-info -->
+    
+      
+<script src="/js/post/copyright-info.js"></script>
+
+    
+
+    <!-- share -->
+    
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+  
+
+</body>
+</html>

@@ -1,40 +1,469 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Mixion</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Mixion ICT"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mixion ICT"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="ICT思潮"><meta property="og:type" content="blog"><meta property="og:title" content="Mixion"><meta property="og:url" content="http://mixiang.tech/"><meta property="og:site_name" content="Mixion"><meta property="og:description" content="ICT思潮"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://mixiang.tech/img/og_image.png"><meta property="article:author" content="Mixion"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://mixiang.tech/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://mixiang.tech"},"headline":"Mixion","image":["http://mixiang.tech/img/og_image.png"],"author":{"@type":"Person","name":"Mixion"},"publisher":{"@type":"Organization","name":"Mixion","logo":{"@type":"ImageObject","url":"http://mixiang.tech/img/logomx.svg"}},"description":"ICT思潮"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo, Linux, 云原生, 人工智能">
+  <meta name="description" content="ICT思潮">
+  <meta name="author" content="Shawn">
+  
+  <title>
+    
+    迷巷笔记
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
 
-          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+  
+    <link rel="shortcut icon" href="/images/favicon.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(location.hash);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+    
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/admonition.css">
+
+      
+    
+      
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+      
+    
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-19T07:50:03.000Z" title="4/19/2025, 3:50:03 PM">2025-04-19</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:07:31.782Z" title="10/25/2026, 7:07:31 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">2 分钟读完 (大约299个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/19/2025-04-19-16/">nix-rebuild命令</a></h1><div class="content"><h2 id="nix-rebuil命令">nix-rebuil命令</h2>
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"mixiang.tech","root":"/","language":["zh-CN","en","default"]}
+    KEEP.theme_config = {"base_info":{"primary_color":"#c0392b","title":"迷巷笔记","author":"Shawn","avatar":"/images/avatar.svg","logo":"/images/mixion-logo.svg","favicon":"/images/favicon.svg","mode":"light"},"menu":{"home":"/","archives":"/archives","categories":"/categories","tags":"/tags","about":"/about","atomgit":"https://gitcode.com/mixion"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"ttps://github.com/darkrice","weixin":null,"qq":null,"weibo":"https://weibo.com/u/1430123077","zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":true,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"word":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"giscus","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/admonition.css","/css/custom.css"],"js":null},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" id="hexo-admonition-icon-injected">
+  </head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+    <span class="scroll-progress-bar"></span>
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box is-home">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper transparent-1">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/mixion-logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        迷巷笔记
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/categories">
+                
+                分类
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/tags">
+                
+                标签
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/about">
+                
+                关于
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+                
+                ATOMGIT
+                
+              </a>
+              
+            </li>
+          
+          
+            <li class="menu-item search search-popup-trigger">
+              <i class="menu-text-color fas search fa-search"></i>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+          <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+              
+              分类
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+              
+              标签
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+              
+              关于
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gitcode.com/mixion">
+              
+              ATOMGIT
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          <div class="home-content-container fade-in-down-animation">
+  
+  <ul class="home-post-list border-box">
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/08/24/2025-08-25-23/">
+                Linux下如何修改分区Label
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              如何修改Linux分区标签Label
+安装系统时如果没有为分区打标签，正常启动启动后不同文件管理器会显示对分区显示不同的名称。有的文件管理器会隐藏系统分区，显示其他分区类型（同一类分区类型特别容易误操作）。因此可以根据自己分区用途来设定不同的分区标签...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sun Aug 24 2025 21:56:02 GMT+0800"
+        >2025-08-24 21:56:02</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/08/24/2025-08-25-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/05/10/2025-05-10-10/">
+                Excel合并单元格同时保留数据
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              合并Excel单元格并保留所有单元格值
+TEXTJOIN(分隔符, ignore_empty, text1, [text2], …)
+新建一列，可以将待合并的内容通过TEXTJOIN函数合并。
+参考
+https://support.microsoft...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sat May 10 2025 11:06:50 GMT+0800"
+        >2025-05-10 11:06:50</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/05/10/2025-05-10-10/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/19/2025-04-19-16/">
+                nix-rebuild命令
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="nix-rebuil命令">nix-rebuil命令</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nixos-rebuild &#123;switch | boot | test | build | dry-build | dry-activate | edit | build-vm | build-vm-with-bootloader&#125;</span><br><span class="line">[&#123; --upgrade | --upgrade-all &#125;] [--install-bootloader] [--no-build-nix] [--fast] [--rollback] [--builders builder-spec]</span><br><span class="line">[--flake flake-uri] [--override-input input-name flake-uri]</span><br><span class="line">[&#123; --profile-name | -p &#125; name]</span><br><span class="line">[--build-host host] [--target-host host] [--use-remote-sudo]</span><br><span class="line">[--show-trace] [-I path] [&#123;--verbose | -v&#125;] [&#123;--impure&#125;] [&#123;--max-jobs | -j&#125; number] [&#123;--keep-failed | -K&#125;] [&#123;--keep-going | -k&#125;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>几个常见的命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nixos-rebuild list-generations</span><br><span class="line">sudo nix-collect-garbage -d</span><br><span class="line">sudo nixos-rebuild boot</span><br><span class="line">sudo nixos-rebuild switch -p profile-name </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>其中最后一条命令详解如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">--profile-name,  -p</span><br><span class="line"></span><br><span class="line">    Instead of using the Nix profile /nix/var/nix/profiles/system to keep track of the current and previous system configurations, use /nix/var/nix/profiles/system-profiles/name. When you use GRUB 2, for every system profile created with this flag, NixOS will create a submenu named “NixOS - Profile &#x27;name&#x27;” in GRUB’s boot menu, containing the current and previous configurations of this profile.</span><br><span class="line"></span><br><span class="line">    For instance, if you want to test a configuration file named test.nix without affecting the default system profile, you would do:</span><br><span class="line"></span><br><span class="line">    $ nixos-rebuild switch -p test -I nixos-config=./test.nix</span><br><span class="line"></span><br><span class="line">    The new configuration will appear in the GRUB 2 submenu “NixOS - Profile &#x27;test&#x27;”.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>可以在<code>/nix/var/nix/profiles/system-profiles/</code> 目录下找到标签相关的文件，删除掉标签目录，重新执行一次<code>sudo nixos-rebuild boot</code> 就可以删除标签相关grub启动项目。</p></div><a class="article-more button is-small is-size-7" href="/2025/04/19/2025-04-19-16/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-15T00:22:08.000Z" title="4/15/2025, 8:22:08 AM">2025-04-15</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:08:10.106Z" title="10/25/2026, 7:08:10 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Linux/">Linux</a></span><span class="level-item">2 分钟读完 (大约297个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/15/2025-04-15-08/">安装nixos后要做的事情</a></h1><div class="content"><h2 id="更新channel源">更新channel源</h2>
+<p>可以在<code>/nix/var/nix/profiles/system-profiles/</code> 目录下找到标签相关的文件，删除掉标签目录，重新执行一次<code>sudo nixos-rebuild boot</code> 就可以删除标签相关grub启动项目。</p>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sat Apr 19 2025 15:50:03 GMT+0800"
+        >2025-04-19 15:50:03</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/19/2025-04-19-16/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/15/2025-04-15-08/">
+                安装nixos后要做的事情
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="更新channel源">更新channel源</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-24.11 nixos</span><br><span class="line">sudo nix-channel --update</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意修改<code>nixos-24.11</code>到匹配的版本</p>
@@ -43,23 +472,23 @@
 <ol>
 <li>在<code>/etc/nixos/configuration.nix</code>中添加如下代码，启用flatpak</li>
 </ol>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># flatpak support</span></span><br><span class="line">xdg.portal.<span class="attr">extraPortals</span> = [ pkgs.xdg-desktop-portal-kde ];</span><br><span class="line">xdg.portal.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br><span class="line">services.flatpak.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># flatpak support</span></span><br><span class="line">x<span class="attr">dg.portal.extraPortals</span> <span class="operator">=</span> [ pkgs.xdg-desktop-portal-kde ];</span><br><span class="line"><span class="attr">xdg.portal.enable</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="attr">services.flatpak.enable</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>启用蓝牙</li>
 </ol>
-  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hardware.bluetooth.<span class="attr">enable</span> = <span class="literal">true</span>; <span class="comment"># enables support for Bluetooth</span></span><br><span class="line">hardware.bluetooth.<span class="attr">powerOnBoot</span> = <span class="literal">true</span>; <span class="comment"># powers up the default Bluetooth controller on boot</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h<span class="attr">ardware.bluetooth.enable</span> <span class="operator">=</span> <span class="literal">true</span>; <span class="comment"># enables support for Bluetooth</span></span><br><span class="line">h<span class="attr">ardware.bluetooth.powerOnBoot</span> <span class="operator">=</span> <span class="literal">true</span>; <span class="comment"># powers up the default Bluetooth controller on boot</span></span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>启用系统级工具</li>
 </ol>
-  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">environment.<span class="attr">systemPackages</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">  vim</span><br><span class="line">  wget</span><br><span class="line">  pkgs.git</span><br><span class="line">  pkgs.nodejs_20</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line">  cpkgs.hexo-cli</span><br><span class="line">  pkgs.pandoc</span><br><span class="line">  pkgs.vscode</span><br><span class="line">  pkgs.microsoft-edge</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line"></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">e<span class="attr">nvironment.systemPackages</span> <span class="operator">=</span> <span class="keyword">with</span> pkgs; [</span><br><span class="line">  vim</span><br><span class="line">  wget</span><br><span class="line">  pkgs.git</span><br><span class="line">  pkgs.nodejs_20</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line">  cpkgs.hexo-cli</span><br><span class="line">  pkgs.pandoc</span><br><span class="line">  pkgs.vscode</span><br><span class="line">  pkgs.microsoft-edge</span><br><span class="line">  pkgs.texliveSmall</span><br><span class="line"></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>安装字体及输入法</li>
 </ol>
-  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">i18n.<span class="attr">inputMethod</span> = &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="attr">enable</span> = <span class="literal">true</span>;    </span><br><span class="line">    <span class="attr">type</span> = <span class="string">&quot;fcitx5&quot;</span>;</span><br><span class="line">    fcitx5.<span class="attr">addons</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">      fcitx5-gtk             <span class="comment"># alternatively, kdePackages.fcitx5-qt</span></span><br><span class="line">      fcitx5-chinese-addons  <span class="comment"># table input method support</span></span><br><span class="line">      fcitx5-nord            <span class="comment"># a color theme</span></span><br><span class="line">      fcitx5-fluent</span><br><span class="line">      fcitx5-material-color</span><br><span class="line">      rime-data</span><br><span class="line">      fcitx5-rime</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">fonts</span> = &#123;</span><br><span class="line">    <span class="attr">packages</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">      noto-fonts</span><br><span class="line">      noto-fonts-cjk-sans</span><br><span class="line">      noto-fonts-cjk-serif</span><br><span class="line">      source-code-pro</span><br><span class="line">      hack-font</span><br><span class="line">      jetbrains-mono</span><br><span class="line">    ];</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">i18n.inputMethod <span class="operator">=</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="attr">enable</span> <span class="operator">=</span> <span class="literal">true</span>;    </span><br><span class="line">    <span class="attr">type</span> <span class="operator">=</span> <span class="string">&quot;fcitx5&quot;</span>;</span><br><span class="line">    <span class="attr">fcitx5.addons</span> <span class="operator">=</span> <span class="keyword">with</span> pkgs; [</span><br><span class="line">      fcitx5-gtk             <span class="comment"># alternatively, kdePackages.fcitx5-qt</span></span><br><span class="line">      fcitx5-chinese-addons  <span class="comment"># table input method support</span></span><br><span class="line">      fcitx5-nord            <span class="comment"># a color theme</span></span><br><span class="line">      fcitx5-fluent</span><br><span class="line">      fcitx5-material-color</span><br><span class="line">      rime-data</span><br><span class="line">      fcitx5-rime</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">fonts</span> <span class="operator">=</span> &#123;</span><br><span class="line">    <span class="attr">packages</span> <span class="operator">=</span> <span class="keyword">with</span> pkgs; [</span><br><span class="line">      noto-fonts</span><br><span class="line">      noto-fonts-cjk-sans</span><br><span class="line">      noto-fonts-cjk-serif</span><br><span class="line">      source-code-pro</span><br><span class="line">      hack-font</span><br><span class="line">      jetbrains-mono</span><br><span class="line">    ];</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>配置网络</li>
 </ol>
-  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable networking</span></span><br><span class="line">networking.networkmanager.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br><span class="line">networking.networkmanager.<span class="attr">dns</span> = <span class="string">&quot;none&quot;</span>;</span><br><span class="line">networking.<span class="attr">nameservers</span> = [</span><br><span class="line">  <span class="string">&quot;223.5.5.5&quot;</span></span><br><span class="line">  <span class="string">&quot;8.8.8.8&quot;</span></span><br><span class="line">  <span class="string">&quot;114.114.114.114&quot;</span></span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable networking</span></span><br><span class="line">n<span class="attr">etworking.networkmanager.enable</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="attr">networking.networkmanager.dns</span> <span class="operator">=</span> <span class="string">&quot;none&quot;</span>;</span><br><span class="line"><span class="attr">networking.nameservers</span> <span class="operator">=</span> [</span><br><span class="line">  <span class="string">&quot;223.5.5.5&quot;</span></span><br><span class="line">  <span class="string">&quot;8.8.8.8&quot;</span></span><br><span class="line">  <span class="string">&quot;114.114.114.114&quot;</span></span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ol start="6">
 <li>
 <p>更新系统执行<code>sudo nixos-rebuild switch</code>更新系统</p>
@@ -68,7 +497,59 @@
 <p>修改flatpak源，并安装常用软件</p>
 </li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub</span><br><span class="line"></span><br><span class="line">flatpak install flathub md.obsidian.Obsidian</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><a class="article-more button is-small is-size-7" href="/2025/04/15/2025-04-15-08/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-14T15:12:38.000Z" title="4/14/2025, 11:12:38 PM">2025-04-14</time>发表</span><span class="level-item"><time dateTime="2026-10-25T11:08:29.371Z" title="10/25/2026, 7:08:29 PM">2026-10-25</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span><span class="level-item">3 分钟读完 (大约379个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/14/2025-04-14-23/">Pandoc将Markdown文件导出成PDF文件</a></h1><div class="content"><p>Pandoc将Markdown文件转换成PDF文件时是先将Markdown文件转换成Latex文件，再将Latex文件专程PDF文件。参考命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub</span><br><span class="line"></span><br><span class="line">flatpak install flathub md.obsidian.Obsidian</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Tue Apr 15 2025 08:22:08 GMT+0800"
+        >2025-04-15 08:22:08</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/15/2025-04-15-08/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/14/2025-04-14-23/">
+                Pandoc将Markdown文件导出成PDF文件
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <p>Pandoc将Markdown文件转换成PDF文件时是先将Markdown文件转换成Latex文件，再将Latex文件专程PDF文件。参考命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc example.md -o example.pdf --from markdown --pdf-engine=xelatex --template=eisvogel --listings</span><br></pre></td></tr></table></figure>
 <h2 id="选择编译引擎">选择编译引擎</h2>
 <p>一般默认的编译引擎是pdflatex编译引擎，这个引擎对中文支撑不太友好，可以通过–pdf-engine=xelatex 修改编译引擎。</p>
@@ -90,20 +571,179 @@
 <p>增加首行缩进，在 eisvogel.tex 文件中查找，在\begin{document}请增加一段代码：</p>
  <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125; <span class="comment">%调用中文字体宏包</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;indentfirst&#125; <span class="comment">%调用首行缩进宏包</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;2em&#125; <span class="comment">%设置首行缩进为2字符</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ol></div><a class="article-more button is-small is-size-7" href="/2025/04/14/2025-04-14-23/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-12T15:50:19.000Z" title="4/12/2025, 11:50:19 PM">2025-04-12</time>发表</span><span class="level-item"><time dateTime="2025-04-14T16:12:24.079Z" title="4/15/2025, 12:12:24 AM">2025-04-15</time>更新</span><span class="level-item">5 分钟读完 (大约775个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/12/2025-04-12-23/">云计算中VM资源利用率和宿主机资源利用率之间的关系</a></h1><div class="content"><h2 id="资源分配模型"><a href="#资源分配模型" class="headerlink" title="资源分配模型"></a>资源分配模型</h2><ol>
-<li>虚拟机利用率：指分配给VM的CPU、内存、磁盘I&#x2F;O等资源被实际使用的百分比。</li>
+</ol>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Mon Apr 14 2025 23:12:38 GMT+0800"
+        >2025-04-14 23:12:38</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/14/2025-04-14-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/12/2025-04-12-23/">
+                云计算中VM资源利用率和宿主机资源利用率之间的关系
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="资源分配模型">资源分配模型</h2>
+<ol>
+<li>虚拟机利用率：指分配给VM的CPU、内存、磁盘I/O等资源被实际使用的百分比。</li>
 <li>宿主机利用率：宿主机物理资源被所有运行中VM实际消耗的总和。</li>
 <li>关系公式（简化为CPU场景）：</li>
 </ol>
-<p>$$<br>\text{Host利用率} &#x3D; \sum_{i&#x3D;1}^{n}\left(\text{VM}_i利用率 \times \frac{\text{vM}_i分配量}{\text{Host总资源}} \right)<br>$$</p>
-<div class="admonition note"><p class="admonition-title">note</p><p>假设宿主机有16个物理CPU核心和64GB内存：</p>
-<ol>
-<li>静态分配：若为4个VM各分配4核+16GB，则宿主机利用率上限为：</li>
-<li>CPU利用率 = Σ（VM实际使用CPU时间） / 宿主机总CPU时间</li>
-<li>内存利用率 = Σ（VM实际使用内存） / 64GB</li>
-<li>动态超售：若超售50%（分配24核+96GB），实际利用率可能超过100%，但需依赖调度算法避免性能下降。</li>
-</ol>
-</div></div><a class="article-more button is-small is-size-7" href="/2025/04/12/2025-04-12-23/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-04T15:48:04.000Z" title="4/4/2025, 11:48:04 PM">2025-04-04</time>发表</span><span class="level-item"><time dateTime="2025-04-14T15:49:10.459Z" title="4/14/2025, 11:49:10 PM">2025-04-14</time>更新</span><span class="level-item">几秒读完 (大约24个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/04/2025-04-04-23/">安装中文LaTeX环境</a></h1><div class="content"><h2 id="安装中文LaTeX环境"><a href="#安装中文LaTeX环境" class="headerlink" title="安装中文LaTeX环境"></a>安装中文LaTeX环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install texlive texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra -y</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-01T16:12:49.000Z" title="4/2/2025, 12:12:49 AM">2025-04-02</time>发表</span><span class="level-item"><time dateTime="2025-04-15T14:42:18.253Z" title="4/15/2025, 10:42:18 PM">2025-04-15</time>更新</span><span class="level-item">3 分钟读完 (大约375个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/04/02/2025-04-02-23/">更换Hexo渲染引擎</a></h1><div class="content"><h2 id="更换渲染引擎">更换渲染引擎</h2>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Host利用率</mtext><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mrow><mo fence="true">(</mo><msub><mtext>VM</mtext><mi>i</mi></msub><mtext>利用率</mtext><mo>×</mo><mfrac><mrow><msub><mtext>vM</mtext><mi>i</mi></msub><mtext>分配量</mtext></mrow><mtext>Host总资源</mtext></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\text{Host利用率} = \sum_{i=1}^{n}\left(\text{VM}_i \text{利用率} \times \frac{\text{vM}_i \text{分配量} }{\text{Host总资源}} \right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">Host</span><span class="mord cjk_fallback">利用率</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.9291em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6514em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mord text"><span class="mord">VM</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord cjk_fallback">利用率</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Host</span><span class="mord cjk_fallback">总资源</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord text"><span class="mord">vM</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord cjk_fallback">分配量</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></span>
+<div class="admonition tip"><p class="admonition-title"><span class="mdi mdi-lightbulb-on-outline admonition-icon"></span>Tip</p><div class="admonition-content">
+<p>假设宿主机有16个物理CPU核心和64GB内存：<br>
+1. 静态分配：若为4个VM各分配4核+16GB，则宿主机利用率上限为：<br>
+2. CPU利用率 = Σ（VM实际使用CPU时间） / 宿主机总CPU时间<br>
+3. 内存利用率 = Σ（VM实际使用内存） / 64GB<br>
+4. 动态超售：若超售50%（分配24核+96GB），实际利用率可能超过100%，但需依赖调度算法避免性能下降。</p>
+</div></div>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sat Apr 12 2025 23:50:19 GMT+0800"
+        >2025-04-12 23:50:19</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/12/2025-04-12-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/04/2025-04-04-23/">
+                安装中文LaTeX环境
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              安装中文LaTeX环境
+1sudo apt install texlive texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra -y
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Fri Apr 04 2025 23:48:04 GMT+0800"
+        >2025-04-04 23:48:04</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/04/2025-04-04-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/04/02/2025-04-02-23/">
+                更换Hexo渲染引擎
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="更换渲染引擎">更换渲染引擎</h2>
 <p>hexo-renderer-markdown-it渲染引擎，自带很多插件，社区也比较活跃。可以将自带的渲染引擎替换成。</p>
 <ol>
 <li>
@@ -132,29 +772,139 @@
 </li>
 <li>
 <p>支持上述内容显示，还需要在主题的css文件中增加样式，参考样式如下：</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// custom css for markdown-it-container</span><br><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// custom css for markdown-it-<span class="attribute">container</span></span><br><span class="line"><span class="selector-class">.tips</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">52</span>,<span class="number">152</span>,<span class="number">219</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">46</span>,<span class="number">204</span>,<span class="number">113</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">241</span>,<span class="number">196</span>,<span class="number">15</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.danger</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">background-color</span> rgba(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>,.<span class="number">3</span>);</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">6px</span> solid rgb(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">darken</span>(<span class="built_in">rgb</span>(<span class="number">231</span>,<span class="number">76</span>,<span class="number">60</span>),<span class="number">20%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
-</ol></div><a class="article-more button is-small is-size-7" href="/2025/04/02/2025-04-02-23/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-24T15:20:01.000Z" title="3/24/2025, 11:20:01 PM">2025-03-24</time>发表</span><span class="level-item"><time dateTime="2025-04-14T15:47:25.814Z" title="4/14/2025, 11:47:25 PM">2025-04-14</time>更新</span><span class="level-item">3 分钟读完 (大约490个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/24/2025-03-24-23/">Hexo 支持admonition 插件</a></h1><div class="content"><h2 id="安装hexo-admonition-插件"><a href="#安装hexo-admonition-插件" class="headerlink" title="安装hexo-admonition 插件"></a>安装hexo-admonition 插件</h2><ol>
-<li><p>在Blog目录下执行如下命令安装插件</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-admonition --save</span><br></pre></td></tr></table></figure></li>
-<li><p>在修改主题样式，增加admonition样式</p>
+</ol>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Wed Apr 02 2025 00:12:49 GMT+0800"
+        >2025-04-02 00:12:49</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/04/02/2025-04-02-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2025/03/24/2025-03-24-23/">
+                Hexo 支持admonition 插件
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="安装hexo-admonition-插件">安装hexo-admonition 插件</h2>
+<ol>
+<li>
+<p>在Blog目录下执行如下命令安装插件</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-admonition --save</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在修改主题样式，增加admonition样式</p>
 <ul>
-<li>在Blog根目录下找到.&#x2F;node_modules&#x2F;hexo-theme-icarus&#x2F;source&#x2F;css目录</li>
+<li>在Blog根目录下找到./node_modules/hexo-theme-icarus/source/css目录</li>
 <li>在style.styl中添加css代码</li>
 </ul>
 </li>
 </ol>
-<h2 id="如何使用hexo-admonition"><a href="#如何使用hexo-admonition" class="headerlink" title="如何使用hexo-admonition"></a>如何使用hexo-admonition</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">!!! note Hexo-admonition 插件使用示例</span><br><span class="line"><span class="code">    这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。</span></span><br><span class="line"><span class="code">    **提示内容开头留 4 个空格**，可以有多行，最后用空行结束此标记。</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">   提示类型 type 将用作 CSS 类名称，暂支持如下类型：</span><br><span class="line"><span class="bullet">    -</span> note</span><br><span class="line"><span class="bullet">    -</span>  info, todo</span><br><span class="line"><span class="bullet">    -</span> warning, attention, caution</span><br><span class="line"><span class="bullet">    -</span>  error, failure, missing, fail</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<div class="admonition note"><p class="admonition-title">Hexo-admonition 插件使用示例
-</p><p>这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。
+<h2 id="如何使用hexo-admonition">如何使用hexo-admonition</h2>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">!!! tip Hexo-admonition 插件使用示例</span><br><span class="line"><span class="code">    这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。</span></span><br><span class="line"><span class="code">    **提示内容开头留 4 个空格**，可以有多行，最后用空行结束此标记。</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">   提示类型 type 将用作 CSS 类名称，暂支持如下类型：</span><br><span class="line"><span class="bullet">    -</span> note</span><br><span class="line"><span class="bullet">    -</span>  info, todo</span><br><span class="line"><span class="bullet">    -</span> warning, attention, caution</span><br><span class="line"><span class="bullet">    -</span>  error, failure, missing, fail</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>!!! tip Hexo-admonition 插件使用示例这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。<br>
 <strong>提示内容开头留 4 个空格</strong>，可以有多行，最后用空行结束此标记。</p>
+<p>提示类型 type 将用作 CSS 类名称，暂支持如下类型：<br>
+- note<br>
+-  info, todo<br>
+- warning, attention, caution<br>
+-  error, failure, missing, fail</p>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Mon Mar 24 2025 23:20:01 GMT+0800"
+        >2025-03-24 23:20:01</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/03/24/2025-03-24-23/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
 </div>
 
-<p>   提示类型 type 将用作 CSS 类名称，暂支持如下类型：<br>    - note<br>    -  info, todo<br>    - warning, attention, caution<br>    -  error, failure, missing, fail</p></div><a class="article-more button is-small is-size-7" href="/2025/03/24/2025-03-24-23/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-05-18T02:29:24.000Z" title="5/18/2024, 10:29:24 AM">2024-05-18</time>发表</span><span class="level-item"><time dateTime="2025-04-14T15:06:29.238Z" title="4/14/2025, 11:06:29 PM">2025-04-14</time>更新</span><span class="level-item">4 分钟读完 (大约544个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/05/18/2024-05-18-10/">安装Linux发行版本日常工具</a></h1><div class="content"><h2 id="安装Linux"><a href="#安装Linux" class="headerlink" title="安装Linux"></a>安装Linux</h2><p>无论安装那个Linux发行版本都要注意下载完成镜像文件以后需要验证一下sha256sum文件一致。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sha256sum /path/Linux.iso</span><br></pre></td></tr></table></figure>
+        </div>
+      </li>
+    
+      <li class="home-post-item">
 
-<h2 id="使用国内镜像源"><a href="#使用国内镜像源" class="headerlink" title="使用国内镜像源"></a>使用国内镜像源</h2><ol>
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
+              <a href="/2024/05/18/2024-05-18-10/">
+                安装Linux发行版本日常工具
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="安装Linux">安装Linux</h2>
+<p>无论安装那个Linux发行版本都要注意下载完成镜像文件以后需要验证一下sha256sum文件一致。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sha256sum /path/Linux.iso</span><br></pre></td></tr></table></figure>
+<h2 id="使用国内镜像源">使用国内镜像源</h2>
+<ol>
 <li>修改Linux系统源，以下以POP OS为例</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-apps.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/pop-os/@g&#x27; /etc/apt/sources.list.d/pop-os-release.sources</span><br><span class="line">sudo sed -i &#x27;s@http://apt.pop-os.org/@https://mirror.sjtu.edu.cn/@g&#x27; /etc/apt/sources.list.d/system.sources</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -162,102 +912,275 @@
 <li>以NixOS为例</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-22.11 nixos</span><br><span class="line">sudo nix-channel --update</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <ol start="3">
 <li>修改flatpak源</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub</span><br></pre></td></tr></table></figure></div><a class="article-more button is-small is-size-7" href="/2024/05/18/2024-05-18-10/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-02-08T11:48:32.000Z" title="2/8/2023, 7:48:32 PM">2023-02-08</time>发表</span><span class="level-item"><time dateTime="2023-02-13T14:26:40.361Z" title="2/13/2023, 10:26:40 PM">2023-02-13</time>更新</span><span class="level-item">11 分钟读完 (大约1712个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/02/08/2023-02-08-19/">分布式数据库以及应用改造</a></h1><div class="content"><h2 id="分布式数据库">分布式数据库</h2>
-<p>典型的分布式数据库及实现</p>
-<ol type="1">
-<li>增加分布式数据中间件（即在多个独立数据库实例前增加一个数据库中间件），由分布式数据库中间件实现分库分表，分布式SQL执行，分布式事务等。</li>
-<li>内置分布式数据库中间件（将分布式数据库中间件作为分布式数据的一个组件）</li>
-<li>不论是内置还是外置的数据库中间件都会接管数据库客户端和数据库服务之间的链接，一般会提供如下能力：
-<ol type="1">
-<li>分库能力</li>
-<li>分表能力</li>
-<li>分布式事务（有限的分布式事务能力：Local、XA、Free/Base）</li>
-<li>支持读写分离</li>
-<li>兼容有限的数据库协议和客户端</li>
-<li>支持水平扩展，（可选）提供前端负载均衡能力</li>
-</ol></li>
-</ol></div><a class="article-more button is-small is-size-7" href="/2023/02/08/2023-02-08-19/#more">阅读更多</a></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-02-06T11:36:52.000Z" title="2/6/2023, 7:36:52 PM">2023-02-06</time>发表</span><span class="level-item"><time dateTime="2024-05-12T12:47:29.065Z" title="5/12/2024, 8:47:29 PM">2024-05-12</time>更新</span><span class="level-item">4 分钟读完 (大约607个字)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/02/06/2023-02-06-19/">大数据通用架构</a></h1><div class="content"><h2 id="lambda架构">Lambda架构</h2>
-<figure>
-<img src="https://img2.imgtp.com/2024/05/12/4QurYHWN.png"
-alt="Lambda架构" />
-<figcaption aria-hidden="true">Lambda架构</figcaption>
-</figure>
-<ol type="1">
-<li>Lambda架构有三层，批处理层、速度层和服务层。
-<ol type="1">
-<li>批处理层：批处理层是基于Hadoop生态，随着数据的更新会对所有数据进行重计算并将计算结果保存到NoSQL数据库中（如：electicalsearch、HBase、Redis、Hive等），提供批处理视图，批处理视图会整体批量更新；</li>
-<li>速度层：由于批处理的机制导致延迟较大（天级/小时级），如果需要尽快的处理实时数据则需要提供单独的机制产生实时视图，通常只需要保存少量近期数据；</li>
-<li>服务层：只会调用批处理视图和实时视图（汇总实时图和批处理视图），为应用系统提供查询服务；</li>
-</ol></li>
-<li>Lambda架构特点：
-<ol type="1">
-<li>有批处理层、速度层和服务层三层；</li>
-<li>所有数据最终都需要放在统一分布式存储上；</li>
-<li>批处理层重新计算以后速度层的视图就可以丢弃；</li>
-<li>Lambda平台实现逻辑复杂（实时数据和批处理数据是两套处理）</li>
-</ol></li>
-</ol></div><a class="article-more button is-small is-size-7" href="/2023/02/06/2023-02-06-19/#more">阅读更多</a></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">上一页</a></div><div class="pagination-next"><a href="/page/4/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/8/">8</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.jpg" alt="Mixion"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Mixion</p><p class="is-size-6 is-block">ICT思潮</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>XI&#039;AN</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">74</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">23</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/darkrice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/1430123077"><i class="fab fa-weibo"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-11-10T11:49:13.000Z">2026-11-10</time></p><p class="title"><a href="/2026/11/10/2026-11-10-19/">Fedora COSMIC Atomic upgrade和rebase</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-27T03:00:01.000Z">2026-10-27</time></p><p class="title"><a href="/2026/10/27/2026-10-27-11/">Fedora COSMIC Atomic解决访问GitHub域名污染问题</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-10-20T09:18:15.000Z">2026-10-20</time></p><p class="title"><a href="/2026/10/20/2026-10-20-17/">使用http ppt skill生成演示文稿</a></p><p class="categories"><a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T14:09:12.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-22/">为Obsidian配置本地图床</a></p><p class="categories"><a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-09-12T11:06:43.000Z">2026-09-12</time></p><p class="title"><a href="/2026/09/12/2026-09-12-19/">Fedora COSMIC Atomic 后需要安装必要的软件</a></p><p class="categories"><a href="/categories/Linux/">Linux</a></p></div></article></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="level-start"><span class="level-item">人工智能</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="level-start"><span class="level-item">工具</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2026/11/"><span class="level-start"><span class="level-item">十一月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/10/"><span class="level-start"><span class="level-item">十月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/09/"><span class="level-start"><span class="level-item">九月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/08/"><span class="level-start"><span class="level-item">八月 2026</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/05/"><span class="level-start"><span class="level-item">五月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/04/"><span class="level-start"><span class="level-item">四月 2026</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2026/02/"><span class="level-start"><span class="level-item">二月 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/08/"><span class="level-start"><span class="level-item">八月 2025</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/05/"><span class="level-start"><span class="level-item">五月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/10/"><span class="level-start"><span class="level-item">十月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/09/"><span class="level-start"><span class="level-item">九月 2020</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/08/"><span class="level-start"><span class="level-item">八月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/BigData/"><span class="tag">BigData</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/COSMIC/"><span class="tag">COSMIC</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Fedora/"><span class="tag">Fedora</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kubernetes/"><span class="tag">Kubernetes</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Markdown/"><span class="tag">Markdown</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NixOS/"><span class="tag">NixOS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsdian/"><span class="tag">Obsdian</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Obsidian/"><span class="tag">Obsidian</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OpenCode/"><span class="tag">OpenCode</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Pandoc/"><span class="tag">Pandoc</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Zed/"><span class="tag">Zed</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/skill/"><span class="tag">skill</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="tag">云计算</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"><span class="tag">微服务</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"><span class="tag">机器视觉</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><span class="tag">读书笔记</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/"><span class="tag">输入法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A/"><span class="tag">非暴力沟通</span><span class="tag">2</span></a></div></div></div></div></div></div><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logomx.svg" alt="Mixion" height="28"></a><p class="is-size-7"><span>&copy; 2026 Mixion</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
-      window.cookieconsent.initialise({
-        type: "info",
-        theme: "edgeless",
-        static: false,
-        position: "bottom-left",
-        content: {
-          message: "此网站使用Cookie来改善您的体验。",
-          dismiss: "知道了！",
-          allow: "允许使用Cookie",
-          deny: "拒绝",
-          link: "了解更多",
-          policy: "Cookie政策",
-          href: "https://www.cookiesandyou.com/",
-        },
-        palette: {
-          popup: {
-            background: "#edeff5",
-            text: "#838391"
-          },
-          button: {
-            background: "#4b81e8"
-          },
-        },
-      });
-    });</script><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
-            'HTML-CSS': {
-                matchFontHeight: false
-            },
-            SVG: {
-                matchFontHeight: false
-            },
-            CommonHTML: {
-                matchFontHeight: false
-            },
-            tex2jax: {
-                inlineMath: [
-                    ['$','$'],
-                    ['\\(','\\)']
-                ]
-            }
-        });</script><script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
-        });</script></body></html>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub</span><br></pre></td></tr></table></figure>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sat May 18 2024 10:29:24 GMT+0800"
+        >2024-05-18 10:29:24</span>
+      </span>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2024/05/18/2024-05-18-10/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+  </ul>
+  
+  <div class="paginator border-box flex-center">
+    <div class="border-box first-page paginator-btn allowed">
+      <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
+    </div>
+
+    <div class="border-box paginator-btn allowed">
+      <a class="border-box"
+        href="/page/2/"
+      ><i class="fa-solid fa-chevron-left"></i></a>
+    </div>
+
+
+    <div class="page-number-box border-box flex-center">
+      <input class="page-number-input border-box base-style"
+          type="number"
+          value="3"
+          min="1"
+          max="8"
+      /><span class="delimiter base-style">/</span><span class="base-style">8</span>
+    </div>
+
+
+    <div class="border-box paginator-btn allowed">
+      <a class="border-box"
+        href="/page/4/"
+      ><i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+
+    <div class="border-box last-page paginator-btn allowed">
+      <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Shawn</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+    
+    <div class="deploy-info info-item">
+      
+      本站由 <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span> 提供部署服务
+      
+    </div>
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box side-tools-show-handle">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+
+    <!-- toggle mode -->
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+    <div class="search-header">
+      <span class="search-input-field-pre">
+      <i class="fas fa-keyboard"></i>
+      </span>
+      <div class="search-input-container">
+        <input autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            placeholder="搜索..."
+            spellcheck="false"
+            type="search"
+            class="search-input"
+        >
+      </div>
+      <span class="close-popup-btn">
+        <i class="fas fa-times"></i>
+      </span>
+    </div>
+    <div id="search-result">
+      <div id="no-result">
+        <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  <!-- tablet toc -->
+  
+</main>
+
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+    
+<script src="/js/page/home-page.js"></script>
+
+  
+
+  <!-- post page -->
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+  
+
+</body>
+</html>
