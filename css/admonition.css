@@ -348,3 +348,13 @@
 [data-theme="dark"] .admonition {
   background-color: #282c34;
 }
+
+/* ===== icarus 暗色外观（html[data-appearance]，与主题 dark-appearance mixin 同构） ===== */
+html:where([data-appearance="dark"]) .admonition {
+  background-color: #272930;
+}
+@media (prefers-color-scheme: dark) {
+  html:where([data-appearance="auto"]) .admonition {
+    background-color: #272930;
+  }
+}

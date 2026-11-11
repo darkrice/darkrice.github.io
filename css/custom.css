@@ -1,36 +1,41 @@
 /* =====================================================
-   站点自定义样式（经 _config.keep.yml inject.css 引入）
+   站点自定义样式 —— icarus 主题
+   由 scripts/custom-head.js 注入 <head>
+   （keep 主题的专属样式在 custom-keep.css，
+    由 _config.keep.yml 的 inject.css 引入）
    ===================================================== */
 
-/* MIXION logo 暗色适配：
-   logo 为纯黑/白双色徽章（source/images/logo.svg），
-   invert(1) 与设计师提供的 dark 变体色值完全等价
-   （#0B0B0B <-> #F4F4F4，#FFFFFF <-> #000000） */
-html.dark-mode .logo-image img {
-  filter: invert(1);
-}
-
-/* MIXION 横版 lockup（图形标 + 字标，4:1）：
-   主题的 logo 槽原本是固定正方形（2.68rem × 2.68rem，img width:100%），
-   会把横版压成 ~43px 宽的小条。改为锁定高度、宽度自适应。 */
-.header-wrapper .header-content .left .logo-image {
-  width: auto;
-  height: 2.2rem;
-}
-
-.header-wrapper .header-content .left .logo-image img {
-  width: auto;
-  height: 100%;
-}
-
-@media (max-width: 800px) {
-  .header-wrapper .header-content .left .logo-image {
-    height: 2rem;
+/* -----------------------------------------------------
+   正文布局加宽（响应式，只影响大屏）
+   背景: 主题在 responsive.styl 硬编码容器上限
+   （2栏 1152px / 3栏 1344px，≥1472px 后冻结），
+   且 3 栏页正文只占栅格 6/12。
+   方案: ≥1472px（主题 fullhd 档）容器改流式
+   min(92vw, 1728px)（导航栏/页脚容器同步，保持对齐）；
+   ≥1600px 收窄侧栏比例——2栏页 正文75%，
+   3栏页 正文 2/3、侧栏各 1/6。
+   ≤1471px 完全保持主题原设计。
+   ----------------------------------------------------- */
+@media (min-width: 1472px) {
+  .is-2-column .container,
+  .is-3-column .container {
+    max-width: min(92vw, 1728px);
+    width: min(92vw, 1728px);
   }
 }
 
-@media (max-width: 500px) {
-  .header-wrapper .header-content .left .logo-image {
-    height: 1.8rem;
+@media (min-width: 1600px) {
+  .is-2-column .column-left {
+    width: 25%;
+  }
+  .is-2-column .column-main {
+    width: 75%;
+  }
+  .is-3-column .column-left,
+  .is-3-column .column-right {
+    width: 16.6667%;
+  }
+  .is-3-column .column-main {
+    width: 66.6667%;
   }
 }
