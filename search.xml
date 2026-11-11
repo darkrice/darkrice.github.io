@@ -3186,9 +3186,9 @@ PLUGIN_PYTHON_ENV_INIT_TIMEOUT=600 # 默认是120秒，当安装比较大的插�
     <content><![CDATA[<h2 id="查询基线">查询基线</h2>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询基线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/os-release</span><br><span class="line">ostree remote refs <span class="variable">$&#123;ID&#125;</span> | grep $(<span class="built_in">arch</span>) | grep <span class="variable">$&#123;VARIANT_ID&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询基线更新情况（查询45版本）</span></span><br><span class="line">ostree remote summary fedora | grep -A 5 45/$(<span class="built_in">arch</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="切换基线">切换基线</h2>
-<p><code>rpm-ostree rebase fedora/45/x86_64/updates/cosmic-atomic</code></p>
+<p><code>rpm-ostree rebase fedora:fedora/45/x86_64/updates/cosmic-atomic</code></p>
 <div class="admonition info"><p class="admonition-title">说明
-</p><p>第一次切换基线时间比较长，基本需要下载全量包；后续在不同基线中切换时，只会下载更新的包。</p>
+</p><p>第一次切换基线时间比较长，基本需要下载全量包；后续在不同基线中切换时，只会下载更新的包。Fedora COSMIC Atomic 45 发布之后基线一直没有更新（只更新了update基线），从44-&gt;45时要rebase到update基线。</p>
 </div>
 <span id="more"></span>
 <h2 id="固定部署">固定部署</h2>
