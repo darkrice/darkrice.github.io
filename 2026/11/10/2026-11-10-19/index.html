@@ -355,7 +355,7 @@
       
         <span class="meta-info-item post-update-date">
           <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-          <span class="datetime" data-updated="Wed Nov 11 2026 22:39:45 GMT+0800">2026-11-11 22:39:45</span>
+          <span class="datetime" data-updated="Tue Nov 17 2026 10:56:21 GMT+0800">2026-11-17 10:56:21</span>
         </span>
       
     
@@ -388,7 +388,7 @@
     
     
       <span class="meta-info-item post-word-count">
-        <i class="icon fas fa-file-word"></i>&nbsp;<span>198 字</span>
+        <i class="icon fas fa-file-word"></i>&nbsp;<span>231 字</span>
       </span>
     
     
@@ -413,12 +413,12 @@
           
             <h2 id="查询基线">查询基线</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询基线</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/os-release</span><br><span class="line">ostree remote refs <span class="variable">$&#123;ID&#125;</span> | grep $(<span class="built_in">arch</span>) | grep <span class="variable">$&#123;VARIANT_ID&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询基线更新情况（查询45版本）</span></span><br><span class="line">ostree remote summary fedora | grep -A 5 45/$(<span class="built_in">arch</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="切换基线">切换基线</h2>
-<p><code>rpm-ostree rebase fedora:fedora/45/x86_64/updates/cosmic-atomic</code></p>
-<div class="admonition attention"><p class="admonition-title"><span class="mdi mdi-alert-circle-outline admonition-icon"></span>Attention</p><div class="admonition-content">
-<p>第一次切换基线时间比较长，基本需要下载全量包；后续在不同基线中切换时，只会下载更新的包。Fedora COSMIC Atomic 45 发布之后基线一直没有更新（只更新了update基线），从44-&gt;45时要rebase到update基线。</p>
-</div></div>
 <span id="more"></span>
+<h2 id="切换基线">切换基线</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm-ostree rebase fedora:fedora/45/x86_64/updates/cosmic-atomic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">rpm-ostree rebase fedora:fedora/45/x86_64/cosmic-atomic</span><br></pre></td></tr></table></figure>
+<div class="admonition attention"><p class="admonition-title"><span class="mdi mdi-alert-circle-outline admonition-icon"></span>Attention</p><div class="admonition-content">
+<p>第一次切换基线时间比较长，基本需要下载全量包；后续在不同基线中切换时，只会下载更新的包。Fedora COSMIC Atomic 45 发布之后基线一直没有更新（只更新了update基线），从44-&gt;45时要rebase到update基线。可以用查询基线更新情况的命令检查基线是否更新了。</p>
+</div></div>
 <h2 id="固定部署">固定部署</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 查看部署状态</span></span><br><span class="line">rpm-ostree status --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 固定某个部署</span></span><br><span class="line"><span class="built_in">sudo</span> ostree admin pin INDEX</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消固定</span></span><br><span class="line"><span class="built_in">sudo</span> ostree admin pin INDEX --unpin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理历史部署</span></span><br><span class="line">rpm-ostree cleanup --rollback</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="参考资料">参考资料</h2>
