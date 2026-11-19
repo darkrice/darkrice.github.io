@@ -324,6 +324,85 @@
           
           
             <h3 class="home-post-title border-box">
+              <a href="/2023/02/06/2023-02-06-19/">
+                大数据通用架构
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              <h2 id="Lambda架构">Lambda架构</h2>
+<p><img   src="https://img2.imgtp.com/2024/05/12/4QurYHWN.png"  alt="Lambda架构"></p>
+<ol>
+<li>Lambda架构有三层，批处理层、速度层和服务层。
+<ol>
+<li>批处理层：批处理层是基于Hadoop生态，随着数据的更新会对所有数据进行重计算并将计算结果保存到NoSQL数据库中（如：electicalsearch、HBase、Redis、Hive等），提供批处理视图，批处理视图会整体批量更新；</li>
+<li>速度层：由于批处理的机制导致延迟较大（天级/小时级），如果需要尽快的处理实时数据则需要提供单独的机制产生实时视图，通常只需要保存少量近期数据；</li>
+<li>服务层：只会调用批处理视图和实时视图（汇总实时图和批处理视图），为应用系统提供查询服务；</li>
+</ol>
+</li>
+<li>Lambda架构特点：
+<ol>
+<li>有批处理层、速度层和服务层三层；</li>
+<li>所有数据最终都需要放在统一分布式存储上；</li>
+<li>批处理层重新计算以后速度层的视图就可以丢弃；</li>
+<li>Lambda平台实现逻辑复杂（实时数据和批处理数据是两套处理）</li>
+</ol>
+</li>
+</ol>
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Mon Feb 06 2023 19:36:52 GMT+0800"
+        >2023-02-06 19:36:52</span>
+      </span>
+    
+
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/BigData/">BigData</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2023/02/06/2023-02-06-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
               <a href="/2023/02/02/2023-02-02-21/">
                 数据治理到通用概念
               </a>
@@ -898,71 +977,6 @@
 
   
     <a class="home-read-more" href="/2022/11/21/2022-11-21-20/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
-  
-</div>
-
-        </div>
-      </li>
-    
-      <li class="home-post-item">
-
-        
-
-        <div class="home-post-item-bottom border-box">
-          
-          
-            <h3 class="home-post-title border-box">
-              <a href="/2022/11/05/2022-11-05-19/">
-                分辨率和像素
-              </a>
-            </h3>
-          
-
-          <div class="home-post-content keep-markdown-body">
-            
-              <h2 id="像素">像素</h2>
-<ul>
-<li>屏幕像素
-<ul>
-<li>屏幕上物理像素点大小（通常用英寸衡量）</li>
-</ul>
-</li>
-<li>数码像素
-<ul>
-<li>没有物理尺寸大小</li>
-<li>指的是数码图有多少像素（pixel）点</li>
-</ul>
-</li>
-</ul>
-            
-          </div>
-
-          
-
-<div class="post-meta-info-container border-box home">
-  <div class="post-meta-info border-box">
-    
-      <span class="meta-info-item border-box">
-        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                        data-updated="Sat Nov 05 2022 19:04:49 GMT+0800"
-        >2022-11-05 19:04:49</span>
-      </span>
-    
-
-    
-
-    
-
-    
-
-    
-    
-    
-    
-  </div>
-
-  
-    <a class="home-read-more" href="/2022/11/05/2022-11-05-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
   
 </div>
 

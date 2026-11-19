@@ -324,6 +324,71 @@
           
           
             <h3 class="home-post-title border-box">
+              <a href="/2025/05/10/2025-05-10-10/">
+                Excel合并单元格同时保留数据
+              </a>
+            </h3>
+          
+
+          <div class="home-post-content keep-markdown-body">
+            
+              合并Excel单元格并保留所有单元格值
+TEXTJOIN(分隔符, ignore_empty, text1, [text2], …)
+新建一列，可以将待合并的内容通过TEXTJOIN函数合并。
+参考
+https://support.microsoft...
+            
+          </div>
+
+          
+
+<div class="post-meta-info-container border-box home">
+  <div class="post-meta-info border-box">
+    
+      <span class="meta-info-item border-box">
+        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                        data-updated="Sat May 10 2025 11:06:50 GMT+0800"
+        >2025-05-10 11:06:50</span>
+      </span>
+    
+
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Office/">Office</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+    
+    
+  </div>
+
+  
+    <a class="home-read-more" href="/2025/05/10/2025-05-10-10/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+  
+</div>
+
+        </div>
+      </li>
+    
+      <li class="home-post-item">
+
+        
+
+        <div class="home-post-item-bottom border-box">
+          
+          
+            <h3 class="home-post-title border-box">
               <a href="/2025/04/19/2025-04-19-16/">
                 nix-rebuild命令
               </a>
@@ -1017,85 +1082,6 @@
 
   
     <a class="home-read-more" href="/2023/02/08/2023-02-08-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
-  
-</div>
-
-        </div>
-      </li>
-    
-      <li class="home-post-item">
-
-        
-
-        <div class="home-post-item-bottom border-box">
-          
-          
-            <h3 class="home-post-title border-box">
-              <a href="/2023/02/06/2023-02-06-19/">
-                大数据通用架构
-              </a>
-            </h3>
-          
-
-          <div class="home-post-content keep-markdown-body">
-            
-              <h2 id="Lambda架构">Lambda架构</h2>
-<p><img   src="https://img2.imgtp.com/2024/05/12/4QurYHWN.png"  alt="Lambda架构"></p>
-<ol>
-<li>Lambda架构有三层，批处理层、速度层和服务层。
-<ol>
-<li>批处理层：批处理层是基于Hadoop生态，随着数据的更新会对所有数据进行重计算并将计算结果保存到NoSQL数据库中（如：electicalsearch、HBase、Redis、Hive等），提供批处理视图，批处理视图会整体批量更新；</li>
-<li>速度层：由于批处理的机制导致延迟较大（天级/小时级），如果需要尽快的处理实时数据则需要提供单独的机制产生实时视图，通常只需要保存少量近期数据；</li>
-<li>服务层：只会调用批处理视图和实时视图（汇总实时图和批处理视图），为应用系统提供查询服务；</li>
-</ol>
-</li>
-<li>Lambda架构特点：
-<ol>
-<li>有批处理层、速度层和服务层三层；</li>
-<li>所有数据最终都需要放在统一分布式存储上；</li>
-<li>批处理层重新计算以后速度层的视图就可以丢弃；</li>
-<li>Lambda平台实现逻辑复杂（实时数据和批处理数据是两套处理）</li>
-</ol>
-</li>
-</ol>
-            
-          </div>
-
-          
-
-<div class="post-meta-info-container border-box home">
-  <div class="post-meta-info border-box">
-    
-      <span class="meta-info-item border-box">
-        <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                        data-updated="Mon Feb 06 2023 19:36:52 GMT+0800"
-        >2023-02-06 19:36:52</span>
-      </span>
-    
-
-    
-
-    
-
-    
-      <span class="post-tag meta-info-item border-box">
-        <ul class="post-tag-ul">
-          
-              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/BigData/">BigData</a></li>
-            
-          
-        </ul>
-      </span>
-    
-
-    
-    
-    
-    
-  </div>
-
-  
-    <a class="home-read-more" href="/2023/02/06/2023-02-06-19/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
   
 </div>
 
